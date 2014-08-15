@@ -10,13 +10,28 @@ import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
-    @IBOutlet var window: NSWindow
-
-
+    @IBOutlet var window: NSWindow!
+    
+    var statusItem: NSStatusItem?
+    
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
+        let statusBar =  NSStatusBar.systemStatusBar()
+        statusItem = statusBar.statusItemWithLength(statusBar.thickness)
+        statusItem!.image = NSImage(named: "codeshipLogo_black")
+        self.setupMenu()
     }
-
+    
+    func setupMenu(){
+        var menu = NSMenu()
+        menu.addItemWithTitle("Menu Item 1", action: "logSomething", keyEquivalent: "")
+        statusItem!.menu = menu
+    }
+    
+    func logSomething(){
+        println("you tapped a menu item")
+    }
+    
     func applicationWillTerminate(aNotification: NSNotification?) {
         // Insert code here to tear down your application
     }
@@ -110,7 +125,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         let coordinator = self.persistentStoreCoordinator
-        if !coordinator {
+        if coordinator == nil {
             var dict = NSMutableDictionary()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the store"
             dict[NSLocalizedFailureReasonErrorKey] = "There was an error building up the data file."
@@ -137,7 +152,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply {
         // Save changes in the application's managed object context before the application terminates.
         
-        if !_managedObjectContext {
+        if _managedObjectContext == nil{
             // Accesses the underlying stored property because we don't want to cause the lazy initialization
             return .TerminateNow
         }

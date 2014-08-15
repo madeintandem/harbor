@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>304C090B-02E8-42FA-BE6A-6E29DE1EAD37</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Harbor</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6CE47EAE52B57371B61AB99B723F18899AD99FD4</key>
+		<string>github.com:devmynd/harbor.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Harbor.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6CE47EAE52B57371B61AB99B723F18899AD99FD4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:devmynd/harbor.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6CE47EAE52B57371B61AB99B723F18899AD99FD4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6CE47EAE52B57371B61AB99B723F18899AD99FD4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Harbor</string>
+		</dict>
+	</array>
+</dict>
+</plist>

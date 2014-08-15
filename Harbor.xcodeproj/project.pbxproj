@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D048E4EE199E5EE6002ECCBE /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */; };
+		D048E4EF199E5EE6002ECCBE /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */; };
 		D091C55A1993EDC000123B85 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C5591993EDC000123B85 /* main.swift */; };
 		D091C55C1993EDC000123B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C55B1993EDC000123B85 /* AppDelegate.swift */; };
 		D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */; };
 		D091C5611993EDC000123B85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D091C5601993EDC000123B85 /* Images.xcassets */; };
 		D091C5641993EDC000123B85 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D091C5621993EDC000123B85 /* MainMenu.xib */; };
-		D091C5701993EDC000123B85 /* HarborTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C56F1993EDC000123B85 /* HarborTests.swift */; };
+		D0ABFB27199D6C73009E3CC8 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */; };
+		D0ABFB28199D6C73009E3CC8 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */; };
+		D0B48C71199C0C8700FFF355 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C70199C0C8700FFF355 /* Build.swift */; };
+		D0B48C72199C0C8700FFF355 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C70199C0C8700FFF355 /* Build.swift */; };
+		D0B48C74199C0EE400FFF355 /* BuildTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C73199C0EE400FFF355 /* BuildTests.swift */; };
+		D0B48C76199C1F1A00FFF355 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C75199C1F1A00FFF355 /* Account.swift */; };
+		D0B48C77199C1F1A00FFF355 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C75199C1F1A00FFF355 /* Account.swift */; };
+		D0B48C7B199C202400FFF355 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C7A199C202400FFF355 /* AccountTests.swift */; };
+		D0B48C7D199D477400FFF355 /* AccountCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C7C199D477400FFF355 /* AccountCreationTests.swift */; };
+		D0DC0365199BBD1700D45421 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC0364199BBD1700D45421 /* ProjectTests.swift */; };
+		D0DC0367199BBF4F00D45421 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC0366199BBF4F00D45421 /* Project.swift */; };
+		D0DC0368199BBF4F00D45421 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC0366199BBF4F00D45421 /* Project.swift */; };
+		D0F05EB0199D5F7A00E08072 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F05EAF199D5F7A00E08072 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
+		D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
 		D091C5541993EDC000123B85 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091C5581993EDC000123B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D091C5591993EDC000123B85 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -35,7 +51,16 @@
 		D091C5631993EDC000123B85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D091C5691993EDC000123B85 /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091C56E1993EDC000123B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D091C56F1993EDC000123B85 /* HarborTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborTests.swift; sourceTree = "<group>"; };
+		D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		D0B48C70199C0C8700FFF355 /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		D0B48C73199C0EE400FFF355 /* BuildTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildTests.swift; sourceTree = "<group>"; };
+		D0B48C75199C1F1A00FFF355 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		D0B48C7A199C202400FFF355 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		D0B48C7C199D477400FFF355 /* AccountCreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationTests.swift; sourceTree = "<group>"; };
+		D0DC0363199BBD1600D45421 /* HarborTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HarborTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0DC0364199BBD1700D45421 /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		D0DC0366199BBF4F00D45421 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		D0F05EAF199D5F7A00E08072 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +84,7 @@
 		D091C54B1993EDC000123B85 = {
 			isa = PBXGroup;
 			children = (
+				D0F05EAF199D5F7A00E08072 /* File.swift */,
 				D091C5561993EDC000123B85 /* Harbor */,
 				D091C56C1993EDC000123B85 /* HarborTests */,
 				D091C5551993EDC000123B85 /* Products */,
@@ -77,9 +103,11 @@
 		D091C5561993EDC000123B85 /* Harbor */ = {
 			isa = PBXGroup;
 			children = (
-				D091C55B1993EDC000123B85 /* AppDelegate.swift */,
-				D091C5601993EDC000123B85 /* Images.xcassets */,
 				D091C5621993EDC000123B85 /* MainMenu.xib */,
+				D091C55B1993EDC000123B85 /* AppDelegate.swift */,
+				D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */,
+				D0B48C81199D479E00FFF355 /* Models */,
+				D091C5601993EDC000123B85 /* Images.xcassets */,
 				D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */,
 				D091C5571993EDC000123B85 /* Supporting Files */,
 			);
@@ -90,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				D091C5581993EDC000123B85 /* Info.plist */,
+				D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */,
+				D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */,
 				D091C5591993EDC000123B85 /* main.swift */,
 			);
 			name = "Supporting Files";
@@ -98,8 +128,12 @@
 		D091C56C1993EDC000123B85 /* HarborTests */ = {
 			isa = PBXGroup;
 			children = (
-				D091C56F1993EDC000123B85 /* HarborTests.swift */,
+				D0B48C7C199D477400FFF355 /* AccountCreationTests.swift */,
 				D091C56D1993EDC000123B85 /* Supporting Files */,
+				D0B48C7A199C202400FFF355 /* AccountTests.swift */,
+				D0DC0364199BBD1700D45421 /* ProjectTests.swift */,
+				D0B48C73199C0EE400FFF355 /* BuildTests.swift */,
+				D0DC0363199BBD1600D45421 /* HarborTests-Bridging-Header.h */,
 			);
 			path = HarborTests;
 			sourceTree = "<group>";
@@ -110,6 +144,16 @@
 				D091C56E1993EDC000123B85 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0B48C81199D479E00FFF355 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0B48C75199C1F1A00FFF355 /* Account.swift */,
+				D0DC0366199BBF4F00D45421 /* Project.swift */,
+				D0B48C70199C0C8700FFF355 /* Build.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D091C5611993EDC000123B85 /* Images.xcassets in Resources */,
+				D048E4EE199E5EE6002ECCBE /* codeshipLogo_black.png in Resources */,
+				D048E4EF199E5EE6002ECCBE /* codeshipLogo_black@2x.png in Resources */,
 				D091C5641993EDC000123B85 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,7 +259,12 @@
 			files = (
 				D091C55C1993EDC000123B85 /* AppDelegate.swift in Sources */,
 				D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */,
+				D0ABFB27199D6C73009E3CC8 /* Alamofire.swift in Sources */,
+				D0F05EB0199D5F7A00E08072 /* File.swift in Sources */,
+				D0B48C71199C0C8700FFF355 /* Build.swift in Sources */,
 				D091C55A1993EDC000123B85 /* main.swift in Sources */,
+				D0DC0367199BBF4F00D45421 /* Project.swift in Sources */,
+				D0B48C76199C1F1A00FFF355 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +272,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D091C5701993EDC000123B85 /* HarborTests.swift in Sources */,
+				D0B48C77199C1F1A00FFF355 /* Account.swift in Sources */,
+				D0B48C7B199C202400FFF355 /* AccountTests.swift in Sources */,
+				D0ABFB28199D6C73009E3CC8 /* Alamofire.swift in Sources */,
+				D0DC0365199BBD1700D45421 /* ProjectTests.swift in Sources */,
+				D0B48C7D199D477400FFF355 /* AccountCreationTests.swift in Sources */,
+				D0DC0368199BBF4F00D45421 /* Project.swift in Sources */,
+				D0B48C74199C0EE400FFF355 /* BuildTests.swift in Sources */,
+				D0B48C72199C0C8700FFF355 /* Build.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -363,6 +422,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HarborTests/HarborTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -371,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -380,6 +442,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HarborTests/HarborTests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -403,6 +466,7 @@
 				D091C5751993EDC000123B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D091C5761993EDC000123B85 /* Build configuration list for PBXNativeTarget "HarborTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +475,7 @@
 				D091C5781993EDC000123B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
