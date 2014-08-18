@@ -10,26 +10,35 @@ import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
-    @IBOutlet var window: NSWindow!
+    var statusView: StatusView?
     
-    var statusItem: NSStatusItem?
+    @IBOutlet var window: NSWindow!
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
-        let statusBar =  NSStatusBar.systemStatusBar()
-        statusItem = statusBar.statusItemWithLength(statusBar.thickness)
-        statusItem!.image = NSImage(named: "codeshipLogo_black")
-        self.setupMenu()
-    }
+        var aDecoder = NSCoder()
+        statusView = StatusView()
+        
+}
     
-    func setupMenu(){
-        var menu = NSMenu()
-        menu.addItemWithTitle("Menu Item 1", action: "logSomething", keyEquivalent: "")
-        statusItem!.menu = menu
-    }
     
-    func logSomething(){
-        println("you tapped a menu item")
+    @IBAction func showPopover(sender: AnyObject) {
+
+        if(statusView != nil){
+            statusView?.showPopoverWithViewController(Popover())
+        }
+    }
+//    - (IBAction)showPopover:(id)sender
+//    {
+//    if (_statusView != nil) {
+//    [_statusView showPopoverWithViewController:[[MFPopoverContentViewController alloc] initWithNibName:@"MFPopoverContentViewController" bundle:nil]];
+//    }
+//    }
+//    
+    @IBAction func hidePopover(sender: AnyObject) {
+        if(statusView != nil){
+            statusView?.hidePopover()
+        }        
     }
     
     func applicationWillTerminate(aNotification: NSNotification?) {

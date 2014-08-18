@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		D048E4EE199E5EE6002ECCBE /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */; };
 		D048E4EF199E5EE6002ECCBE /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */; };
+		D048E4FA199FCD80002ECCBE /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E4F9199FCD80002ECCBE /* Popover.swift */; };
+		D048E4FB199FCD80002ECCBE /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E4F9199FCD80002ECCBE /* Popover.swift */; };
+		D048E4FD199FCDA5002ECCBE /* Popover.xib in Resources */ = {isa = PBXBuildFile; fileRef = D048E4FC199FCDA5002ECCBE /* Popover.xib */; };
+		D048E4FE199FCDA5002ECCBE /* Popover.xib in Resources */ = {isa = PBXBuildFile; fileRef = D048E4FC199FCDA5002ECCBE /* Popover.xib */; };
+		D048E50619A0301B002ECCBE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E50519A0301B002ECCBE /* StatusView.swift */; };
+		D048E50719A0301B002ECCBE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E50519A0301B002ECCBE /* StatusView.swift */; };
 		D091C55A1993EDC000123B85 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C5591993EDC000123B85 /* main.swift */; };
 		D091C55C1993EDC000123B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C55B1993EDC000123B85 /* AppDelegate.swift */; };
 		D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */; };
@@ -42,6 +48,9 @@
 /* Begin PBXFileReference section */
 		D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
 		D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
+		D048E4F9199FCD80002ECCBE /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Popover.swift; path = ../Popover.swift; sourceTree = "<group>"; };
+		D048E4FC199FCDA5002ECCBE /* Popover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Popover.xib; path = ../Popover.xib; sourceTree = "<group>"; };
+		D048E50519A0301B002ECCBE /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		D091C5541993EDC000123B85 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091C5581993EDC000123B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D091C5591993EDC000123B85 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -106,6 +115,9 @@
 				D091C5621993EDC000123B85 /* MainMenu.xib */,
 				D091C55B1993EDC000123B85 /* AppDelegate.swift */,
 				D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */,
+				D048E4F9199FCD80002ECCBE /* Popover.swift */,
+				D048E4FC199FCDA5002ECCBE /* Popover.xib */,
+				D048E50519A0301B002ECCBE /* StatusView.swift */,
 				D0B48C81199D479E00FFF355 /* Models */,
 				D091C5601993EDC000123B85 /* Images.xcassets */,
 				D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */,
@@ -237,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D091C5611993EDC000123B85 /* Images.xcassets in Resources */,
+				D048E4FD199FCDA5002ECCBE /* Popover.xib in Resources */,
 				D048E4EE199E5EE6002ECCBE /* codeshipLogo_black.png in Resources */,
 				D048E4EF199E5EE6002ECCBE /* codeshipLogo_black@2x.png in Resources */,
 				D091C5641993EDC000123B85 /* MainMenu.xib in Resources */,
@@ -247,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D048E4FE199FCDA5002ECCBE /* Popover.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D091C55C1993EDC000123B85 /* AppDelegate.swift in Sources */,
+				D048E4FA199FCD80002ECCBE /* Popover.swift in Sources */,
 				D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */,
 				D0ABFB27199D6C73009E3CC8 /* Alamofire.swift in Sources */,
+				D048E50619A0301B002ECCBE /* StatusView.swift in Sources */,
 				D0F05EB0199D5F7A00E08072 /* File.swift in Sources */,
 				D0B48C71199C0C8700FFF355 /* Build.swift in Sources */,
 				D091C55A1993EDC000123B85 /* main.swift in Sources */,
@@ -273,8 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B48C77199C1F1A00FFF355 /* Account.swift in Sources */,
+				D048E4FB199FCD80002ECCBE /* Popover.swift in Sources */,
 				D0B48C7B199C202400FFF355 /* AccountTests.swift in Sources */,
 				D0ABFB28199D6C73009E3CC8 /* Alamofire.swift in Sources */,
+				D048E50719A0301B002ECCBE /* StatusView.swift in Sources */,
 				D0DC0365199BBD1700D45421 /* ProjectTests.swift in Sources */,
 				D0B48C7D199D477400FFF355 /* AccountCreationTests.swift in Sources */,
 				D0DC0368199BBF4F00D45421 /* Project.swift in Sources */,
