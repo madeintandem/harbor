@@ -5,22 +5,24 @@
 //  Created by Erin Hochstatter on 8/16/14.
 //  Copyright (c) 2014 devMynd. All rights reserved.
 //
-import Foundation
 import Cocoa
 
-class StatusView: NSView, NSMenuDelegate {
+class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
     
     let imageView:  NSImageView
     let statusBar:  NSStatusBar
     var statusItem: NSStatusItem
     var popover:    NSPopover?
+    var managedObjectContext: NSManagedObjectContext?
     var active:     Bool
     var statusItemMenu: NSMenu
+
+    var transiencyMonitor: AnyObject? = nil
     
     //so - you have to instantiate all the properties of the class before calling super.  
     // you can then use the awake from nib like a viewDidLoad to call things on self. 
  
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: (NSCoder!)) {
         
         active = false
 
@@ -30,6 +32,7 @@ class StatusView: NSView, NSMenuDelegate {
         statusItem.image = NSImage(named: "codeshipLogo_black")
         
         statusItemMenu = NSMenu()
+        statusItem.menu = statusItemMenu
         
         super.init(coder: aDecoder)
         
@@ -48,7 +51,8 @@ class StatusView: NSView, NSMenuDelegate {
         statusItem.image = NSImage(named: "codeshipLogo_black")
         
         statusItemMenu = NSMenu()
-        
+        statusItem.menu = statusItemMenu
+
         super.init(frame: imageView.frame)
         
         self.addSubview(imageView)
@@ -62,22 +66,10 @@ class StatusView: NSView, NSMenuDelegate {
     func setupMenu(){
         statusItemMenu.delegate = self
         statusItemMenu.autoenablesItems = false
-        statusItemMenu.addItemWithTitle("Menu Item 1", action: "logSomething", keyEquivalent: "")
-        
-        statusItemMenu.addItem(NSMenuItem.separatorItem())
-        var quitItem: NSMenuItem = NSMenuItem(title: "Quit", action: "quitMenuItemAction", keyEquivalent: "Q")
-        quitItem.target = self
-        quitItem.enabled = true
-        statusItemMenu.addItem(quitItem)
-        
         statusItem.menu = statusItemMenu
         self.updateUI()
     }
-    
-    func logSomething(){
-        println("you tapped a menu item")
-    }
-    
+
     
     func setActive(isActive: Bool)
     {
@@ -88,9 +80,8 @@ class StatusView: NSView, NSMenuDelegate {
     func updateUI()
     {
         imageView.image = NSImage(named: "codeshipLogo_black")
-        
-        //        [self setNeedsDisplay:YES];
-        
+        self.setNeedsDisplayInRect(self.frame)
+
     }
     
     override func drawRect(dirtyRect: NSRect) {
@@ -102,26 +93,39 @@ class StatusView: NSView, NSMenuDelegate {
             NSRectFill(dirtyRect)
         }
     }
-        
+    
 
     // MARK: Actions
+    
     override func mouseDown(theEvent: NSEvent!)
     {
         if(active){
             self.hidePopover()
+            
         } else {
-            self.showPopoverWithViewController(Popover())
+            self.showPopoverWithViewController(PopoverViewController())
+            
+            if (transiencyMonitor == nil) {
+                transiencyMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.LeftMouseDownMask, handler: handlerEvent)
+                transiencyMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.RightMouseDownMask, handler: handlerEvent)
+                transiencyMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.KeyDownMask, handler: handlerEvent)
+                
+            }
         }
     }
 
-    override func mouseUp(theEvent: NSEvent!) {
-        println("not sure what to do on mouseUp yet.")
+    func handlerEvent(aEvent: (NSEvent!)) -> Void {
+        NSEvent.removeMonitor(transiencyMonitor)
+        transiencyMonitor = nil
+        self.hidePopover()
+        
     }
     
     func showPopoverWithViewController(viewController: NSViewController){
     
         if(popover == nil){
             popover = NSPopover()
+            popover?.behavior = NSPopoverBehavior.Semitransient
             popover!.contentViewController = viewController
         }
         
@@ -133,7 +137,7 @@ class StatusView: NSView, NSMenuDelegate {
     }
 
     func hidePopover() {
-        if (popover! != nil && popover!.shown){
+        if (popover? != nil && popover!.shown){
             popover!.close()
             self.setActive(false)
 
@@ -149,5 +153,11 @@ class StatusView: NSView, NSMenuDelegate {
     
     func menuDidClose(menu: NSMenu!) {
         self.setActive(false)
+        
+    }
+    
+    // MARK: NSMenu Delegate
+    func popoverShouldClose(popover: NSPopover!) -> Bool {
+        return true
     }
 }

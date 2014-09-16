@@ -16,7 +16,7 @@ class ProjectTests: XCTestCase {
     
     override func setUp() {
 
-        newProject = Project(id: 10213, repositoryName: "codeship/docs", builds: [])
+        newProject = Project(id: 10213, repositoryName: "codeship/docs")
 
         super.setUp()        
     }
@@ -31,21 +31,15 @@ class ProjectTests: XCTestCase {
         XCTAssertNotNil(simpleProject, "Should be able to create a new project")
     }
     
-    func testThatProjectHasAnId(){
-        XCTAssertEqualObjects(newProject.id, 10213, "The id should match the value")
-    }
-    
-    func testThatProjectCanBeNamed(){
-        XCTAssertEqualObjects(newProject.repositoryName, "codeship/docs", "The name should match the name set")
-    }
+
     
     func testForInitiallyEmptyBuildsArray(){
-        XCTAssertEqual(newProject.builds.count, 0, "There should be no projects yet")
+        XCTAssert(newProject.builds.count == 0, "There should be no projects yet")
     }
     
     func testAddingBuildToAnAccount(){
         build = Build(id: 973711, uuid: "ad4e4330-969d-0131-9581-06786cf8137c", status: "success", commitId:"96943dc5269634c211b6fbb18896ecdcbd40a047", message:"Merge pull request #34 from codeship/feature/shallow-clone", branch:"master")
         newProject.builds.append(build)
-        XCTAssertEqualObjects(newProject.builds, [build], "The projects array should contain a project")
+        XCTAssert(newProject.builds == [build], "The projects array should contain a project")
     }
 }

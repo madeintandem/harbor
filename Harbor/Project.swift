@@ -14,17 +14,13 @@ class Project : NSObject{
     var active: Bool?
     
     override init(){
-        println("we have an empty project");
         super.init()
     }
     
     init(id: Int,
-        repositoryName: String,
-        builds: [Build]){
+        repositoryName: String){
             self.id = id
             self.repositoryName = repositoryName
-            self.builds = builds
-            
             super.init()
     }
 }

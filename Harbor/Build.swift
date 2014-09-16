@@ -17,7 +17,6 @@ class Build : NSObject{
     var date: NSDate?
  
     override init(){
-        println("we made an empty build object")
         super.init()
     }
     

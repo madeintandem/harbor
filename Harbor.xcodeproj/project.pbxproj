@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		D048E4EE199E5EE6002ECCBE /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */; };
 		D048E4EF199E5EE6002ECCBE /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */; };
-		D048E4FA199FCD80002ECCBE /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E4F9199FCD80002ECCBE /* Popover.swift */; };
-		D048E4FB199FCD80002ECCBE /* Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E4F9199FCD80002ECCBE /* Popover.swift */; };
+		D048E4FA199FCD80002ECCBE /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E4F9199FCD80002ECCBE /* PopoverViewController.swift */; };
+		D048E4FB199FCD80002ECCBE /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E4F9199FCD80002ECCBE /* PopoverViewController.swift */; };
 		D048E4FD199FCDA5002ECCBE /* Popover.xib in Resources */ = {isa = PBXBuildFile; fileRef = D048E4FC199FCDA5002ECCBE /* Popover.xib */; };
 		D048E4FE199FCDA5002ECCBE /* Popover.xib in Resources */ = {isa = PBXBuildFile; fileRef = D048E4FC199FCDA5002ECCBE /* Popover.xib */; };
 		D048E50619A0301B002ECCBE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E50519A0301B002ECCBE /* StatusView.swift */; };
 		D048E50719A0301B002ECCBE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E50519A0301B002ECCBE /* StatusView.swift */; };
+		D061E23F19AD2AD900B2DF27 /* DMBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = D061E23E19AD2AD900B2DF27 /* DMBuild.m */; };
+		D061E24219AD2AD900B2DF27 /* DMProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D061E24119AD2AD900B2DF27 /* DMProject.m */; };
 		D091C55A1993EDC000123B85 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C5591993EDC000123B85 /* main.swift */; };
 		D091C55C1993EDC000123B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C55B1993EDC000123B85 /* AppDelegate.swift */; };
 		D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */; };
 		D091C5611993EDC000123B85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D091C5601993EDC000123B85 /* Images.xcassets */; };
 		D091C5641993EDC000123B85 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D091C5621993EDC000123B85 /* MainMenu.xib */; };
-		D0ABFB27199D6C73009E3CC8 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */; };
-		D0ABFB28199D6C73009E3CC8 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */; };
+		D097D1AE19C79F6E00ABD6FE /* DMAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = D097D1AD19C79F6E00ABD6FE /* DMAccount.m */; };
+		D097D1AF19C79F6E00ABD6FE /* DMAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = D097D1AD19C79F6E00ABD6FE /* DMAccount.m */; };
 		D0B48C71199C0C8700FFF355 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C70199C0C8700FFF355 /* Build.swift */; };
 		D0B48C72199C0C8700FFF355 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C70199C0C8700FFF355 /* Build.swift */; };
 		D0B48C74199C0EE400FFF355 /* BuildTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C73199C0EE400FFF355 /* BuildTests.swift */; };
@@ -29,10 +31,15 @@
 		D0B48C77199C1F1A00FFF355 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C75199C1F1A00FFF355 /* Account.swift */; };
 		D0B48C7B199C202400FFF355 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C7A199C202400FFF355 /* AccountTests.swift */; };
 		D0B48C7D199D477400FFF355 /* AccountCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C7C199D477400FFF355 /* AccountCreationTests.swift */; };
+		D0DB52CD19A5247A008F95C8 /* codeshipLogo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB52C919A5247A008F95C8 /* codeshipLogo_green.png */; };
+		D0DB52CE19A5247A008F95C8 /* codeshipLogo_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB52CA19A5247A008F95C8 /* codeshipLogo_green@2x.png */; };
+		D0DB52CF19A5247A008F95C8 /* codeshipLogo_red.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB52CB19A5247A008F95C8 /* codeshipLogo_red.png */; };
+		D0DB52D019A5247A008F95C8 /* codeshipLogo_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB52CC19A5247A008F95C8 /* codeshipLogo_red@2x.png */; };
 		D0DC0365199BBD1700D45421 /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC0364199BBD1700D45421 /* ProjectTests.swift */; };
 		D0DC0367199BBF4F00D45421 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC0366199BBF4F00D45421 /* Project.swift */; };
 		D0DC0368199BBF4F00D45421 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC0366199BBF4F00D45421 /* Project.swift */; };
-		D0F05EB0199D5F7A00E08072 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F05EAF199D5F7A00E08072 /* File.swift */; };
+		D0F1449D19C0922200933129 /* PreferencesPaneWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1449B19C0922200933129 /* PreferencesPaneWindow.swift */; };
+		D0F1449E19C0922200933129 /* PreferencesPaneWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F1449C19C0922200933129 /* PreferencesPaneWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,9 +55,14 @@
 /* Begin PBXFileReference section */
 		D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
 		D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
-		D048E4F9199FCD80002ECCBE /* Popover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Popover.swift; path = ../Popover.swift; sourceTree = "<group>"; };
+		D048E4F9199FCD80002ECCBE /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopoverViewController.swift; path = ../PopoverViewController.swift; sourceTree = "<group>"; };
 		D048E4FC199FCDA5002ECCBE /* Popover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Popover.xib; path = ../Popover.xib; sourceTree = "<group>"; };
 		D048E50519A0301B002ECCBE /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		D061E23919AD2AD800B2DF27 /* Harbor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Harbor-Bridging-Header.h"; sourceTree = "<group>"; };
+		D061E23D19AD2AD900B2DF27 /* DMBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBuild.h; sourceTree = "<group>"; };
+		D061E23E19AD2AD900B2DF27 /* DMBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBuild.m; sourceTree = "<group>"; };
+		D061E24019AD2AD900B2DF27 /* DMProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMProject.h; sourceTree = "<group>"; };
+		D061E24119AD2AD900B2DF27 /* DMProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMProject.m; sourceTree = "<group>"; };
 		D091C5541993EDC000123B85 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091C5581993EDC000123B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D091C5591993EDC000123B85 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -60,16 +72,22 @@
 		D091C5631993EDC000123B85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D091C5691993EDC000123B85 /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091C56E1993EDC000123B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		D097D1AC19C79F6E00ABD6FE /* DMAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMAccount.h; path = ../DMAccount.h; sourceTree = "<group>"; };
+		D097D1AD19C79F6E00ABD6FE /* DMAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMAccount.m; path = ../DMAccount.m; sourceTree = "<group>"; };
 		D0B48C70199C0C8700FFF355 /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		D0B48C73199C0EE400FFF355 /* BuildTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildTests.swift; sourceTree = "<group>"; };
 		D0B48C75199C1F1A00FFF355 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D0B48C7A199C202400FFF355 /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		D0B48C7C199D477400FFF355 /* AccountCreationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCreationTests.swift; sourceTree = "<group>"; };
+		D0DB52C919A5247A008F95C8 /* codeshipLogo_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_green.png; sourceTree = "<group>"; };
+		D0DB52CA19A5247A008F95C8 /* codeshipLogo_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_green@2x.png"; sourceTree = "<group>"; };
+		D0DB52CB19A5247A008F95C8 /* codeshipLogo_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_red.png; sourceTree = "<group>"; };
+		D0DB52CC19A5247A008F95C8 /* codeshipLogo_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_red@2x.png"; sourceTree = "<group>"; };
 		D0DC0363199BBD1600D45421 /* HarborTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HarborTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0DC0364199BBD1700D45421 /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		D0DC0366199BBF4F00D45421 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		D0F05EAF199D5F7A00E08072 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		D0F1449B19C0922200933129 /* PreferencesPaneWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindow.swift; sourceTree = "<group>"; };
+		D0F1449C19C0922200933129 /* PreferencesPaneWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +108,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D061E24319AD2AE600B2DF27 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */,
+				D097D1AC19C79F6E00ABD6FE /* DMAccount.h */,
+				D097D1AD19C79F6E00ABD6FE /* DMAccount.m */,
+				D061E23D19AD2AD900B2DF27 /* DMBuild.h */,
+				D061E23E19AD2AD900B2DF27 /* DMBuild.m */,
+				D061E24019AD2AD900B2DF27 /* DMProject.h */,
+				D061E24119AD2AD900B2DF27 /* DMProject.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		D091C54B1993EDC000123B85 = {
 			isa = PBXGroup;
 			children = (
-				D0F05EAF199D5F7A00E08072 /* File.swift */,
 				D091C5561993EDC000123B85 /* Harbor */,
 				D091C56C1993EDC000123B85 /* HarborTests */,
 				D091C5551993EDC000123B85 /* Products */,
@@ -114,14 +145,16 @@
 			children = (
 				D091C5621993EDC000123B85 /* MainMenu.xib */,
 				D091C55B1993EDC000123B85 /* AppDelegate.swift */,
-				D0ABFB26199D6C73009E3CC8 /* Alamofire.swift */,
-				D048E4F9199FCD80002ECCBE /* Popover.swift */,
+				D048E4F9199FCD80002ECCBE /* PopoverViewController.swift */,
 				D048E4FC199FCDA5002ECCBE /* Popover.xib */,
 				D048E50519A0301B002ECCBE /* StatusView.swift */,
+				D0F1449B19C0922200933129 /* PreferencesPaneWindow.swift */,
+				D0F1449C19C0922200933129 /* PreferencesPaneWindow.xib */,
 				D0B48C81199D479E00FFF355 /* Models */,
 				D091C5601993EDC000123B85 /* Images.xcassets */,
-				D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */,
+				D061E24319AD2AE600B2DF27 /* CoreData */,
 				D091C5571993EDC000123B85 /* Supporting Files */,
+				D061E23919AD2AD800B2DF27 /* Harbor-Bridging-Header.h */,
 			);
 			path = Harbor;
 			sourceTree = "<group>";
@@ -130,8 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				D091C5581993EDC000123B85 /* Info.plist */,
-				D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */,
-				D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */,
+				D0DB52D119A52486008F95C8 /* images */,
 				D091C5591993EDC000123B85 /* main.swift */,
 			);
 			name = "Supporting Files";
@@ -166,6 +198,19 @@
 				D0B48C70199C0C8700FFF355 /* Build.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D0DB52D119A52486008F95C8 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D048E4EC199E5EE6002ECCBE /* codeshipLogo_black.png */,
+				D048E4ED199E5EE6002ECCBE /* codeshipLogo_black@2x.png */,
+				D0DB52C919A5247A008F95C8 /* codeshipLogo_green.png */,
+				D0DB52CA19A5247A008F95C8 /* codeshipLogo_green@2x.png */,
+				D0DB52CB19A5247A008F95C8 /* codeshipLogo_red.png */,
+				D0DB52CC19A5247A008F95C8 /* codeshipLogo_red@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +262,7 @@
 				TargetAttributes = {
 					D091C5531993EDC000123B85 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 5T84PP4W5D;
 					};
 					D091C5681993EDC000123B85 = {
 						CreatedOnToolsVersion = 6.0;
@@ -249,9 +295,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D091C5611993EDC000123B85 /* Images.xcassets in Resources */,
+				D0DB52CF19A5247A008F95C8 /* codeshipLogo_red.png in Resources */,
+				D0DB52CD19A5247A008F95C8 /* codeshipLogo_green.png in Resources */,
 				D048E4FD199FCDA5002ECCBE /* Popover.xib in Resources */,
+				D0F1449E19C0922200933129 /* PreferencesPaneWindow.xib in Resources */,
 				D048E4EE199E5EE6002ECCBE /* codeshipLogo_black.png in Resources */,
 				D048E4EF199E5EE6002ECCBE /* codeshipLogo_black@2x.png in Resources */,
+				D0DB52CE19A5247A008F95C8 /* codeshipLogo_green@2x.png in Resources */,
+				D0DB52D019A5247A008F95C8 /* codeshipLogo_red@2x.png in Resources */,
 				D091C5641993EDC000123B85 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,14 +323,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D091C55C1993EDC000123B85 /* AppDelegate.swift in Sources */,
-				D048E4FA199FCD80002ECCBE /* Popover.swift in Sources */,
+				D048E4FA199FCD80002ECCBE /* PopoverViewController.swift in Sources */,
 				D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */,
-				D0ABFB27199D6C73009E3CC8 /* Alamofire.swift in Sources */,
 				D048E50619A0301B002ECCBE /* StatusView.swift in Sources */,
-				D0F05EB0199D5F7A00E08072 /* File.swift in Sources */,
+				D097D1AE19C79F6E00ABD6FE /* DMAccount.m in Sources */,
 				D0B48C71199C0C8700FFF355 /* Build.swift in Sources */,
 				D091C55A1993EDC000123B85 /* main.swift in Sources */,
+				D061E23F19AD2AD900B2DF27 /* DMBuild.m in Sources */,
 				D0DC0367199BBF4F00D45421 /* Project.swift in Sources */,
+				D0F1449D19C0922200933129 /* PreferencesPaneWindow.swift in Sources */,
+				D061E24219AD2AD900B2DF27 /* DMProject.m in Sources */,
 				D0B48C76199C1F1A00FFF355 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,14 +342,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B48C77199C1F1A00FFF355 /* Account.swift in Sources */,
-				D048E4FB199FCD80002ECCBE /* Popover.swift in Sources */,
+				D048E4FB199FCD80002ECCBE /* PopoverViewController.swift in Sources */,
 				D0B48C7B199C202400FFF355 /* AccountTests.swift in Sources */,
-				D0ABFB28199D6C73009E3CC8 /* Alamofire.swift in Sources */,
 				D048E50719A0301B002ECCBE /* StatusView.swift in Sources */,
 				D0DC0365199BBD1700D45421 /* ProjectTests.swift in Sources */,
 				D0B48C7D199D477400FFF355 /* AccountCreationTests.swift in Sources */,
 				D0DC0368199BBF4F00D45421 /* Project.swift in Sources */,
 				D0B48C74199C0EE400FFF355 /* BuildTests.swift in Sources */,
+				D097D1AF19C79F6E00ABD6FE /* DMAccount.m in Sources */,
 				D0B48C72199C0C8700FFF355 /* Build.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,7 +393,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer: Erin Hochstatter (X52FW29WA8)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -357,9 +410,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -382,7 +435,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer: Erin Hochstatter (X52FW29WA8)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -394,8 +447,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -404,10 +458,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Harbor/Harbor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -415,10 +474,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Harbor/Harbor-Bridging-Header.h";
 			};
 			name = Release;
 		};

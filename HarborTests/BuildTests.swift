@@ -31,11 +31,11 @@ class BuildTests: XCTestCase {
     }
     
     func testThatBuildHasAnId(){
-        XCTAssertEqualObjects(newBuild.id, 973711, "The id should match the value assigned")
+        XCTAssert(newBuild.id == 973711, "The id should match the value assigned")
     }
     
     func testThatBuildHasAnUuid(){
-        XCTAssertEqualObjects(newBuild.uuid, "ad4e4330-969d-0131-9581-06786cf8137c", "The UUID should match the value assigned")
+        XCTAssert(newBuild.uuid == "ad4e4330-969d-0131-9581-06786cf8137c", "The UUID should match the value assigned")
     }
     
 }

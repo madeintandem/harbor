@@ -18,7 +18,7 @@ class AccountTests: XCTestCase {
     override func setUp() {
         newAccount = Account()
         build = Build(id: 973711, uuid: "ad4e4330-969d-0131-9581-06786cf8137c", status: "success", commitId:"96943dc5269634c211b6fbb18896ecdcbd40a047", message:"Merge pull request #34 from codeship/feature/shallow-clone", branch:"master")
-        project = Project(id: 10213, repositoryName: "codeship/docs", builds: [build])
+        project = Project(id: 10213, repositoryName: "codeship/docs")
         
         super.setUp()
     }
@@ -42,6 +42,6 @@ class AccountTests: XCTestCase {
 
     func testAddingProjectsToAnAccount(){
         newAccount.projects.append(project)
-        XCTAssertEqualObjects(newAccount.projects, [project], "The projects array should contain a project")
+        XCTAssert(newAccount.projects == [project], "The projects array should contain a project")
     }
 }
