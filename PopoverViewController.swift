@@ -12,27 +12,10 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
 
     var projectList: [Project]?
     var managedObjectContext: NSManagedObjectContext?
-    var apiKey: NSString?
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var preferencesButton: NSButton!
-    
-    
-    @IBAction func preferencesButton(sender: AnyObject) {
-        
-        let appDelegate = (NSApplication.sharedApplication()?.delegate as AppDelegate)
-        var window = appDelegate.preferencesPaneWindow?.window
 
-        // Set position of the window and display it
-        window?.makeKeyAndOrderFront(self)
-        
-        // Show your window in front of all other apps
-        NSApp.activateIgnoringOtherApps(true)
-        
-        appDelegate.hidePopover(self)
-    }
-
-    
     required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
     }
@@ -48,13 +31,35 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         
         super.loadView()
         projectList = []
-        apiKey = "b02bb166df85e6369d81824a8e32a0535e677299a381ec3877b4871a8285"
-        self.retrieveProjectsForKey(apiKey!)
+        fetchApiKeys()
     }
     
     
+   // MARK: CoreData Fetch
+    func fetchApiKeys() {
+        var request: NSFetchRequest = NSFetchRequest(entityName: "DMAccount")
+        
+        var sortDescriptor: NSSortDescriptor = NSSortDescriptor(key: "accountDescription", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        var errorPointer: NSErrorPointer = NSErrorPointer()
+        var fetchResults = managedObjectContext!.executeFetchRequest(request, error: errorPointer)
+        
+        if (fetchResults? != nil){
+            for item in fetchResults! {
+                var account = item as DMAccount
+                println(account.apiKey)
+                self.retrieveProjectsForKey(account.apiKey)
+
+            }
+        } else {
+            println("fetch error on Popover for apiKey")
+        }
+    
+    }
+   // MARK: TableView Data
     func retrieveProjectsForKey(key: String){
-        var urlWithKey = "https://www.codeship.io/api/v1/projects.json?api_key=" + apiKey!
+        var urlWithKey = "https://www.codeship.io/api/v1/projects.json?api_key=" + key
         println(urlWithKey)
         var urlRequest: NSURLRequest = NSURLRequest(URL: NSURL(string:urlWithKey));
         NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue.mainQueue()) { (urlResponse, data, error) -> Void in
@@ -129,5 +134,19 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     // Only allow rows to be selectable if there are items in the list.
     func tableView(NSTableView, shouldSelectRow: Int) -> Bool {
         return !projectList!.isEmpty
+    }
+
+    @IBAction func preferencesButton(sender: AnyObject) {
+        
+        let appDelegate = (NSApplication.sharedApplication()?.delegate as AppDelegate)
+        appDelegate.hidePopover(self)
+        var window = appDelegate.preferencesPaneWindow?.window
+        
+        // Set position of the window and display it
+        window?.makeKeyAndOrderFront(self)
+        
+        // Show your window in front of all other apps
+        NSApp.activateIgnoringOtherApps(true)
+        
     }
 }

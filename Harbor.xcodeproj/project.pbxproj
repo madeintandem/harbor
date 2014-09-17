@@ -15,15 +15,17 @@
 		D048E4FE199FCDA5002ECCBE /* Popover.xib in Resources */ = {isa = PBXBuildFile; fileRef = D048E4FC199FCDA5002ECCBE /* Popover.xib */; };
 		D048E50619A0301B002ECCBE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E50519A0301B002ECCBE /* StatusView.swift */; };
 		D048E50719A0301B002ECCBE /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D048E50519A0301B002ECCBE /* StatusView.swift */; };
-		D061E23F19AD2AD900B2DF27 /* DMBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = D061E23E19AD2AD900B2DF27 /* DMBuild.m */; };
-		D061E24219AD2AD900B2DF27 /* DMProject.m in Sources */ = {isa = PBXBuildFile; fileRef = D061E24119AD2AD900B2DF27 /* DMProject.m */; };
 		D091C55A1993EDC000123B85 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C5591993EDC000123B85 /* main.swift */; };
 		D091C55C1993EDC000123B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091C55B1993EDC000123B85 /* AppDelegate.swift */; };
 		D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */; };
 		D091C5611993EDC000123B85 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D091C5601993EDC000123B85 /* Images.xcassets */; };
 		D091C5641993EDC000123B85 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D091C5621993EDC000123B85 /* MainMenu.xib */; };
-		D097D1AE19C79F6E00ABD6FE /* DMAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = D097D1AD19C79F6E00ABD6FE /* DMAccount.m */; };
-		D097D1AF19C79F6E00ABD6FE /* DMAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = D097D1AD19C79F6E00ABD6FE /* DMAccount.m */; };
+		D097D1B419C93B7A00ABD6FE /* DMProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097D1B319C93B7A00ABD6FE /* DMProject.swift */; };
+		D097D1B519C93B7A00ABD6FE /* DMProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097D1B319C93B7A00ABD6FE /* DMProject.swift */; };
+		D097D1B719C93B7B00ABD6FE /* DMAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097D1B619C93B7B00ABD6FE /* DMAccount.swift */; };
+		D097D1B819C93B7B00ABD6FE /* DMAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097D1B619C93B7B00ABD6FE /* DMAccount.swift */; };
+		D097D1BA19C93B7B00ABD6FE /* DMBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097D1B919C93B7B00ABD6FE /* DMBuild.swift */; };
+		D097D1BB19C93B7B00ABD6FE /* DMBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097D1B919C93B7B00ABD6FE /* DMBuild.swift */; };
 		D0B48C71199C0C8700FFF355 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C70199C0C8700FFF355 /* Build.swift */; };
 		D0B48C72199C0C8700FFF355 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C70199C0C8700FFF355 /* Build.swift */; };
 		D0B48C74199C0EE400FFF355 /* BuildTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B48C73199C0EE400FFF355 /* BuildTests.swift */; };
@@ -59,10 +61,6 @@
 		D048E4FC199FCDA5002ECCBE /* Popover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Popover.xib; path = ../Popover.xib; sourceTree = "<group>"; };
 		D048E50519A0301B002ECCBE /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		D061E23919AD2AD800B2DF27 /* Harbor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Harbor-Bridging-Header.h"; sourceTree = "<group>"; };
-		D061E23D19AD2AD900B2DF27 /* DMBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMBuild.h; sourceTree = "<group>"; };
-		D061E23E19AD2AD900B2DF27 /* DMBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMBuild.m; sourceTree = "<group>"; };
-		D061E24019AD2AD900B2DF27 /* DMProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMProject.h; sourceTree = "<group>"; };
-		D061E24119AD2AD900B2DF27 /* DMProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMProject.m; sourceTree = "<group>"; };
 		D091C5541993EDC000123B85 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091C5581993EDC000123B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D091C5591993EDC000123B85 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -72,8 +70,9 @@
 		D091C5631993EDC000123B85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D091C5691993EDC000123B85 /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091C56E1993EDC000123B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D097D1AC19C79F6E00ABD6FE /* DMAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMAccount.h; path = ../DMAccount.h; sourceTree = "<group>"; };
-		D097D1AD19C79F6E00ABD6FE /* DMAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMAccount.m; path = ../DMAccount.m; sourceTree = "<group>"; };
+		D097D1B319C93B7A00ABD6FE /* DMProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DMProject.swift; path = ../DMProject.swift; sourceTree = "<group>"; };
+		D097D1B619C93B7B00ABD6FE /* DMAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DMAccount.swift; path = ../DMAccount.swift; sourceTree = "<group>"; };
+		D097D1B919C93B7B00ABD6FE /* DMBuild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DMBuild.swift; path = ../DMBuild.swift; sourceTree = "<group>"; };
 		D0B48C70199C0C8700FFF355 /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		D0B48C73199C0EE400FFF355 /* BuildTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildTests.swift; sourceTree = "<group>"; };
 		D0B48C75199C1F1A00FFF355 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -112,12 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				D091C55D1993EDC000123B85 /* Harbor.xcdatamodeld */,
-				D097D1AC19C79F6E00ABD6FE /* DMAccount.h */,
-				D097D1AD19C79F6E00ABD6FE /* DMAccount.m */,
-				D061E23D19AD2AD900B2DF27 /* DMBuild.h */,
-				D061E23E19AD2AD900B2DF27 /* DMBuild.m */,
-				D061E24019AD2AD900B2DF27 /* DMProject.h */,
-				D061E24119AD2AD900B2DF27 /* DMProject.m */,
+				D097D1B919C93B7B00ABD6FE /* DMBuild.swift */,
+				D097D1B619C93B7B00ABD6FE /* DMAccount.swift */,
+				D097D1B319C93B7A00ABD6FE /* DMProject.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -326,13 +322,13 @@
 				D048E4FA199FCD80002ECCBE /* PopoverViewController.swift in Sources */,
 				D091C55F1993EDC000123B85 /* Harbor.xcdatamodeld in Sources */,
 				D048E50619A0301B002ECCBE /* StatusView.swift in Sources */,
-				D097D1AE19C79F6E00ABD6FE /* DMAccount.m in Sources */,
 				D0B48C71199C0C8700FFF355 /* Build.swift in Sources */,
 				D091C55A1993EDC000123B85 /* main.swift in Sources */,
-				D061E23F19AD2AD900B2DF27 /* DMBuild.m in Sources */,
+				D097D1B419C93B7A00ABD6FE /* DMProject.swift in Sources */,
 				D0DC0367199BBF4F00D45421 /* Project.swift in Sources */,
+				D097D1B719C93B7B00ABD6FE /* DMAccount.swift in Sources */,
+				D097D1BA19C93B7B00ABD6FE /* DMBuild.swift in Sources */,
 				D0F1449D19C0922200933129 /* PreferencesPaneWindow.swift in Sources */,
-				D061E24219AD2AD900B2DF27 /* DMProject.m in Sources */,
 				D0B48C76199C1F1A00FFF355 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,9 +343,11 @@
 				D048E50719A0301B002ECCBE /* StatusView.swift in Sources */,
 				D0DC0365199BBD1700D45421 /* ProjectTests.swift in Sources */,
 				D0B48C7D199D477400FFF355 /* AccountCreationTests.swift in Sources */,
+				D097D1B519C93B7A00ABD6FE /* DMProject.swift in Sources */,
 				D0DC0368199BBF4F00D45421 /* Project.swift in Sources */,
+				D097D1B819C93B7B00ABD6FE /* DMAccount.swift in Sources */,
+				D097D1BB19C93B7B00ABD6FE /* DMBuild.swift in Sources */,
 				D0B48C74199C0EE400FFF355 /* BuildTests.swift in Sources */,
-				D097D1AF19C79F6E00ABD6FE /* DMAccount.m in Sources */,
 				D0B48C72199C0C8700FFF355 /* Build.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

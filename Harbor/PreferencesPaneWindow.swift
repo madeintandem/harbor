@@ -10,14 +10,21 @@ import Cocoa
 
 class PreferencesPaneWindow: NSWindowController, NSWindowDelegate {
     
+    @IBOutlet var dmAccountArrayController: NSArrayController!
     var managedObjectContext: NSManagedObjectContext?
-    var apiKey: String?
 
     override func windowDidLoad() {
         super.windowDidLoad()
     }
-      
-    override func close(){
-        println("closed")
+    
+    @IBAction func saveButton(sender: AnyObject) {
+        let errorPointer = NSErrorPointer()
+        managedObjectContext?.save(errorPointer)
+        
+        self.window.close()
+        
+        let appDelegate = (NSApplication.sharedApplication()?.delegate as AppDelegate)
+        appDelegate.showPopover(self)
+        
     }
 }

@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesPaneWindow" customModule="Harbor" customModuleProvider="target">
             <connections>
+                <outlet property="dmAccountArrayController" destination="Gpc-gB-rfi" id="kIc-hM-MCN"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="tdD-Ve-Z1f"/>
             </connections>
         </customObject>
@@ -28,7 +29,7 @@
                             <font key="font" metaFont="smallSystemBold"/>
                         </buttonCell>
                         <connections>
-                            <action selector="performClose:" target="F0z-JX-Cv5" id="8Z5-A0-4Op"/>
+                            <action selector="saveButton:" target="-2" id="9wP-6z-Pty"/>
                         </connections>
                     </button>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wx0-0K-Nyn">

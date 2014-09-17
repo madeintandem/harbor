@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.17" systemVersion="14A361c" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="DMAccount" representedClassName="DMAccount" syncable="YES">
+    <entity name="DMAccount" representedClassName="Harbor.DMAccount" syncable="YES">
         <attribute name="accountDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="apiKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="refreshRate" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DMProject" inverseName="account" inverseEntity="DMProject" syncable="YES"/>
     </entity>
-    <entity name="DMBuild" representedClassName="DMBuild" syncable="YES">
+    <entity name="DMBuild" representedClassName="Harbor.DMBuild" syncable="YES">
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DMProject" inverseName="builds" inverseEntity="DMProject" syncable="YES"/>
     </entity>
-    <entity name="DMProject" representedClassName="DMProject" syncable="YES">
+    <entity name="DMProject" representedClassName="Harbor.DMProject" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="repositoryName" optional="YES" attributeType="String" syncable="YES"/>

@@ -103,7 +103,10 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
             self.hidePopover()
             
         } else {
-            self.showPopoverWithViewController(PopoverViewController())
+            var popoverViewController = PopoverViewController()
+            popoverViewController.managedObjectContext = self.managedObjectContext
+
+            self.showPopoverWithViewController(popoverViewController)
             
             if (transiencyMonitor == nil) {
                 transiencyMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.LeftMouseDownMask, handler: handlerEvent)
@@ -149,15 +152,4 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
         NSApplication.sharedApplication().terminate(self)
     }
     
-    // MARK: NSMenu Delegate
-    
-    func menuDidClose(menu: NSMenu!) {
-        self.setActive(false)
-        
-    }
-    
-    // MARK: NSMenu Delegate
-    func popoverShouldClose(popover: NSPopover!) -> Bool {
-        return true
-    }
 }
