@@ -49,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func fetchRefreshRate() {
         var request: NSFetchRequest = NSFetchRequest(entityName: "DMAccount")
         
-        request.sortDescriptors = [NSSortDescriptor(key: "refreshRate", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "accountDescription", ascending: true)]
         
         var errorPointer: NSErrorPointer = NSErrorPointer()
         
@@ -59,11 +59,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if fetchResults.count > 0 {
                 
-                var firstAccount: DMAccount?
-                firstAccount? = (fetchResults[0] as DMAccount)
+                if let firstAccountRate =  fetchResults.first?.refreshRate {
                 
-                if let firstAccountRate = firstAccount?.refreshRate {
-                    
                     if ( (firstAccountRate as NSString).doubleValue > 0)
                     {
                         setupTimer((firstAccountRate as NSString).doubleValue)
@@ -72,6 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         setupTimer(120)
                     }
                 }
+                
             }
         } else {
             println("fetch error on Popover for refreshRate / no fetchResults")
@@ -91,6 +89,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func updateData(){
         fetchApiKeys { (projects) -> () in
             self.statusView!.updateUI()
+            println("updateData completion block")
         }
     }
     
@@ -201,13 +200,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         println("\(project.repositoryName!) & \(project.builds.first!.status!)")
                         self.statusView?.hasPendingBuild = false
                         
-                    } else if project.builds.first!.status == "failed" {
+                    } else if project.builds.first!.status != "success" {
                         println("\(project.repositoryName!) & \(project.builds.first!.status!)")
                         self.statusView!.hasFailedBuild = true
                     }
                 }
             }
+            self.statusView!.updateUI()
             completionClosure(projects: self.projectList!)
+            
         }
     }
     
