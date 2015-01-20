@@ -59,17 +59,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if fetchResults.count > 0 {
                 
-                if let firstAccountRate =  fetchResults.first?.refreshRate {
-                
-                    if ( (firstAccountRate as NSString).doubleValue > 0)
-                    {
-                        setupTimer((firstAccountRate as NSString).doubleValue)
-                        
-                    } else {
-                        setupTimer(120)
-                    }
+                if let firstAccountRate =  fetchResults.first?.refreshRate? {
+                    setupTimer((firstAccountRate as NSString).doubleValue)
+                } else {
+                    setupTimer(120)
                 }
-                
             }
         } else {
             println("fetch error on Popover for refreshRate / no fetchResults")
@@ -133,6 +127,64 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
+    func processProject (hash: AnyObject, account: DMAccount) {
+        var project = Project()
+        project.id = Int(hash.objectForKey("id") as NSNumber)
+        project.repositoryName = (hash.objectForKey("repository_name") as String)
+        let dmProjectFetchResults = self.fetchProjectsWithID("\(project.id!)")
+        
+        if dmProjectFetchResults.count == 0 {
+            project.active = true;
+            
+            var dmProject: DMProject = NSEntityDescription.insertNewObjectForEntityForName("DMProject", inManagedObjectContext: self.managedObjectContext!) as DMProject
+            
+            dmProject.id = "\(project.id!)"
+            dmProject.repositoryName = project.repositoryName!
+            dmProject.account = account
+            dmProject.active = true
+            var errorPointer: NSErrorPointer = NSErrorPointer()
+            
+            self.managedObjectContext?.save(errorPointer)
+            
+        } else if dmProjectFetchResults.count == 1 {
+            
+            project.active = dmProjectFetchResults.first?.active.boolValue
+            
+        } else {
+            println("more than one project with ID: \(project.id!)")
+        }
+        
+        var projectBuildJson: Array<AnyObject> = hash.objectForKey("builds") as Array<AnyObject>
+        var projectBuilds: [Build] = []
+        
+        for buildHash in projectBuildJson {
+            
+            var build = Build()
+            build.id =  Int(buildHash.objectForKey("id") as NSNumber)
+            build.uuid =  (buildHash.objectForKey("uuid") as String)
+            build.status =  (buildHash.objectForKey("status") as String)
+            build.commitId =  (buildHash.objectForKey("commit_id") as String)
+            build.message =  (buildHash.objectForKey("message") as String)
+            build.branch =  (buildHash.objectForKey("branch") as String)
+            
+            project.builds.append(build)
+        }
+        
+        if project.active == true {
+            self.projectList?.append(project)
+            
+            if project.builds.first!.status == "testing"{
+                println("\(project.repositoryName!) & \(project.builds.first!.status!)")
+                self.statusView?.hasPendingBuild = false
+                
+            } else if project.builds.first!.status != "success" {
+                println("\(project.repositoryName!) & \(project.builds.first!.status!)")
+                self.statusView!.hasFailedBuild = true
+            }
+        }
+    }
+    
+    
     
     
     func retrieveProjectsForAccount(account: DMAccount, completionClosure: (projects: [Project]) -> ()){
@@ -151,59 +203,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.statusView?.hasPendingBuild = false
             
             for hash in projectsArray {
-                var project = Project()
-                project.id = Int(hash.objectForKey("id") as NSNumber)
-                project.repositoryName = (hash.objectForKey("repository_name") as String)
-                let dmProjectFetchResults = self.fetchProjectsWithID("\(project.id!)")
-                
-                if dmProjectFetchResults.count == 0 {
-                    project.active = true;
-                    
-                    var dmProject: DMProject = NSEntityDescription.insertNewObjectForEntityForName("DMProject", inManagedObjectContext: self.managedObjectContext!) as DMProject
-                    
-                    dmProject.id = "\(project.id!)"
-                    dmProject.repositoryName = project.repositoryName!
-                    dmProject.account = account
-                    dmProject.active = true
-                    var errorPointer: NSErrorPointer = NSErrorPointer()
-                    
-                    self.managedObjectContext?.save(errorPointer)
-                    
-                } else if dmProjectFetchResults.count == 1 {
-                    
-                    project.active = dmProjectFetchResults.first?.active.boolValue
-                    
-                } else {
-                    println("more than one project with ID: \(project.id!)")
-                }
-                
-                var projectBuildJson: Array<AnyObject> = hash.objectForKey("builds") as Array<AnyObject>
-                var projectBuilds: [Build] = []
-                
-                for buildHash in projectBuildJson {
-                    
-                    var build = Build()
-                    build.id =  Int(buildHash.objectForKey("id") as NSNumber)
-                    build.uuid =  (buildHash.objectForKey("uuid") as String)
-                    build.status =  (buildHash.objectForKey("status") as String)
-                    build.commitId =  (buildHash.objectForKey("commit_id") as String)
-                    build.message =  (buildHash.objectForKey("message") as String)
-                    build.branch =  (buildHash.objectForKey("branch") as String)
-                    
-                    project.builds.append(build)
-                }
-                
-                if project.active == true {
-                    self.projectList?.append(project)
-                    
-                    if project.builds.first!.status == "testing"{
-                        println("\(project.repositoryName!) & \(project.builds.first!.status!)")
-                        self.statusView?.hasPendingBuild = false
-                        
-                    } else if project.builds.first!.status != "success" {
-                        println("\(project.repositoryName!) & \(project.builds.first!.status!)")
-                        self.statusView!.hasFailedBuild = true
-                    }
+                if let repository_name = hash.objectForKey("repository_name") as? String {
+                    self.processProject(hash, account: account)
                 }
             }
             self.statusView!.updateUI()

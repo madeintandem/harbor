@@ -13,7 +13,7 @@ class DMAccount: NSManagedObject {
 
     @NSManaged var accountDescription: String
     @NSManaged var apiKey: String
-    @NSManaged var refreshRate: String
+    @NSManaged var refreshRate: String?
     @NSManaged var projects: NSSet
 
 }
