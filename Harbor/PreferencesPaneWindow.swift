@@ -20,6 +20,7 @@ class PreferencesPaneWindow: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var refreshRateLabel: NSTextField!
     @IBOutlet weak var projectColumn: NSTableColumn!
     @IBOutlet weak var followColumn: NSTableColumn!
+    @IBOutlet weak var tableView: NSTableView!
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -27,7 +28,8 @@ class PreferencesPaneWindow: NSWindowController, NSWindowDelegate {
         accountNameLabel.font = bariolBold
         apiKeyLabel.font = bariolBold
         refreshRateLabel.font = bariolBold
-
+        let sortDescriptor = NSSortDescriptor(key: "repositoryName", ascending: true)
+        tableView.sortDescriptors = [sortDescriptor]
     }
     
     func windowWillClose(notification: NSNotification!) {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesPaneWindow" customModule="Harbor" customModuleProvider="target">
@@ -13,6 +13,7 @@
                 <outlet property="followColumn" destination="ZeP-Wh-bvv" id="omC-pA-qFP"/>
                 <outlet property="projectColumn" destination="zuL-pq-dT1" id="vHn-hT-Nbg"/>
                 <outlet property="refreshRateLabel" destination="yLL-dq-3xx" id="D9d-4w-hCO"/>
+                <outlet property="tableView" destination="Kea-yV-eGP" id="PAo-pq-3YQ"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="z9a-ct-AjW"/>
             </connections>
         </customObject>
@@ -22,7 +23,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="587" height="378"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="587" height="378"/>
                 <autoresizingMask key="autoresizingMask"/>
