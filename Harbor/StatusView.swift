@@ -13,7 +13,7 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
     var hasFailedBuild: Bool?
     var hasPendingBuild: Bool?
     
-    let appDelegate: AppDelegate = (NSApplication.sharedApplication().delegate as AppDelegate)
+    let appDelegate: AppDelegate = (NSApplication.sharedApplication().delegate as! AppDelegate)
     var managedObjectContext: NSManagedObjectContext?
     
     var imageView:  NSImageView
@@ -23,8 +23,7 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
     var statusItem: NSStatusItem
     var statusItemMenu: NSMenu
     
-    //so - you have to instantiate all the properties of the class before calling super.
-    // you can then use the awake from nib like a viewDidLoad to call things on self. 
+
  
     required init(coder aDecoder: (NSCoder!)) {
         active = false
@@ -38,8 +37,6 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
         statusItemMenu = NSMenu()
         statusItem.menu = statusItemMenu
         
-        super.init()
-        
         self.addSubview(imageView)
         statusItem.view = self
         self.managedObjectContext = appDelegate.managedObjectContext!
@@ -47,7 +44,7 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
         
     }
     
-    override init() {
+      convenience init() {
         active = false
         hasFailedBuild? = false
         hasPendingBuild? = false
@@ -60,7 +57,7 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
         statusItemMenu = NSMenu()
         statusItem.menu = statusItemMenu
 
-        super.init(frame: imageView.frame)
+        self.init(frame: imageView.frame)
         
         self.addSubview(imageView)
         statusItem.view = self
@@ -79,7 +76,7 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
     }
 
     
-    func setActive(isActive: Bool)
+    func setIsActive(isActive: Bool)
     {
         active = isActive;
         self.updateUI()
@@ -87,11 +84,11 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
 
     func updateUI()
     {
-        if self.hasPendingBuild? == true {
+        if self.hasPendingBuild == true {
             self.imageView.image = NSImage(named: "codeshipLogo_black")
             //add rotation
 
-        } else if self.hasFailedBuild? == true {
+        } else if self.hasFailedBuild == true {
             self.imageView.image = NSImage(named: "codeshipLogo_red")
             
         } else {
@@ -135,16 +132,16 @@ class StatusView: NSView, NSMenuDelegate, NSPopoverDelegate {
         
         if(!popover!.shown){
             popover!.showRelativeToRect(self.frame, ofView: self, preferredEdge: 1)
-            self.setActive(true)
+            self.setIsActive(true)
 
         }
 
     }
 
     func hidePopover() {
-        if (popover? != nil && popover!.shown){
+        if (popover != nil && popover!.shown){
             popover!.close()
-            self.setActive(false)
+            self.setIsActive(false)
 
         }
     }

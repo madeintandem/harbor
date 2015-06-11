@@ -24,7 +24,7 @@ class PreferencesPaneWindow: NSWindowController, NSWindowDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        var bariolBold: NSFont = NSFont (name: "Bariol-Bold", size: 15)!
+        let bariolBold: NSFont = NSFont (name: "Bariol-Bold", size: 15)!
         accountNameLabel.font = bariolBold
         apiKeyLabel.font = bariolBold
         refreshRateLabel.font = bariolBold
@@ -32,14 +32,19 @@ class PreferencesPaneWindow: NSWindowController, NSWindowDelegate {
         tableView.sortDescriptors = [sortDescriptor]
     }
     
-    func windowWillClose(notification: NSNotification!) {
-        let appDelegate = (NSApplication.sharedApplication().delegate as AppDelegate)
+    func windowWillClose(notification: NSNotification) {
+        let appDelegate = (NSApplication.sharedApplication().delegate as! AppDelegate)
         appDelegate.showPopover(self)
     }
+    
 
     @IBAction func saveButton(sender: AnyObject) {
         let errorPointer = NSErrorPointer()
-        prefManagedObjectContext?.save(errorPointer)
+        do {
+            try prefManagedObjectContext?.save()
+        } catch var error as NSError {
+            errorPointer.memory = error
+        }
         
         self.close()
     }

@@ -13,7 +13,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     dynamic var projectList: [Project]?
     dynamic var managedObjectContext: NSManagedObjectContext?
-    let appDelegate: AppDelegate = (NSApplication.sharedApplication().delegate as AppDelegate)
+    let appDelegate: AppDelegate = (NSApplication.sharedApplication().delegate as! AppDelegate)
     
     @IBAction func quitButton(sender: AnyObject) {
         NSApplication.sharedApplication().terminate(self)
@@ -38,13 +38,13 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         super.loadView()
         projectList = []
 
-        var bariolBold16: NSFont = NSFont (name: "Bariol-Bold", size: 16)!
+        let bariolBold16: NSFont = NSFont (name: "Bariol-Bold", size: 16)!
         self.titleLabel.font = bariolBold16
     }
     
     override func viewDidAppear() {
         self.refreshTableView()
-        println("projectlist count at reload data \(projectList!.count)")
+        print("projectlist count at reload data \(projectList!.count)")
     }
     
     func refreshTableView() {
@@ -68,8 +68,8 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         row rowIndex: Int) -> AnyObject! {
             
             if !projectList!.isEmpty {
-            var project: Project = projectList![rowIndex]
-            var recentBuild: Build = project.builds.first!
+            let project: Project = projectList![rowIndex]
+            let recentBuild: Build = project.builds.first!
                 
                 if aTableColumn.identifier == "statusImageColumn" {
                 
@@ -89,14 +89,14 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
                     
                 } else if aTableColumn.identifier == "buildInfoColumn" {
                     
-                    var bariolBold: NSFont = NSFont (name: "Bariol-Bold", size: 13)!
-                    var repoAttrs = [NSFontAttributeName : bariolBold]
-                    var projectBuildSummary =  NSMutableAttributedString(string:
+                    let bariolBold: NSFont = NSFont (name: "Bariol-Bold", size: 13)!
+                    let repoAttrs = [NSFontAttributeName : bariolBold]
+                    let projectBuildSummary =  NSMutableAttributedString(string:
                         "\(project.repositoryName!.capitalizedString)\n", attributes: repoAttrs)
 
-                    var bariolLight: NSFont = NSFont (name: "Bariol-Light", size: 11)!
-                    var commitAttrs = [NSFontAttributeName : bariolLight]
-                  var buildMessage = NSMutableAttributedString(string: "\(recentBuild.message!)", attributes: commitAttrs)
+                    let bariolLight: NSFont = NSFont (name: "Bariol-Light", size: 11)!
+                    let commitAttrs = [NSFontAttributeName : bariolLight]
+                  let buildMessage = NSMutableAttributedString(string: "\(recentBuild.message!)", attributes: commitAttrs)
 
                     projectBuildSummary.appendAttributedString(buildMessage)
                     return projectBuildSummary

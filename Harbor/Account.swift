@@ -12,7 +12,7 @@ class Account : NSObject{
     var projects: [Project] = []
     
     override init(){
-        println("made an account")
+        print("made an account")
         super.init()
     }
     
