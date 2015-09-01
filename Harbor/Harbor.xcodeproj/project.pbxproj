@@ -1,0 +1,813 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23DAEB6AAFDED0A1B6F5EF30 /* Pods_HarborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9CCE64A5D0F6E239A1EC0F /* Pods_HarborUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6805408B79168B08E38757B1 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8CA28B6D0AC674E407CBCC /* Pods_Harbor.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		93C12D67F9C905852DCF6664 /* Pods_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB94A0F2C30A0ACB3EC7BD82 /* Pods_HarborTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D06054251B57F880007A5F81 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06054241B57F880007A5F81 /* Playground.swift */; };
+		D06054271B57F89E007A5F81 /* PlaygroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06054261B57F89E007A5F81 /* PlaygroundTest.swift */; };
+		D06054281B57FC94007A5F81 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06054241B57F880007A5F81 /* Playground.swift */; };
+		D060542A1B58021D007A5F81 /* word.txt in Resources */ = {isa = PBXBuildFile; fileRef = D06054291B58021D007A5F81 /* word.txt */; };
+		D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0B1B3C437800031FB9 /* AppDelegate.swift */; };
+		D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0D1B3C437800031FB9 /* Harbor.xcdatamodeld */; };
+		D0772F111B3C437800031FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0772F101B3C437800031FB9 /* Assets.xcassets */; };
+		D0772F141B3C437800031FB9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0772F121B3C437800031FB9 /* MainMenu.xib */; };
+		D0772F1F1B3C437800031FB9 /* HarborTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F1E1B3C437800031FB9 /* HarborTests.swift */; };
+		D0772F2A1B3C437800031FB9 /* HarborUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F291B3C437800031FB9 /* HarborUITests.swift */; };
+		D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F391B3C43B200031FB9 /* Project.swift */; };
+		D0772F3B1B3C43B200031FB9 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F391B3C43B200031FB9 /* Project.swift */; };
+		D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */; };
+		D0772F401B3C44C000031FB9 /* SamplePayload.json in Resources */ = {isa = PBXBuildFile; fileRef = D0772F3F1B3C44C000031FB9 /* SamplePayload.json */; };
+		D0A3E7461B73A786006E4350 /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
+		D0B177711B9611400055ECC6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B177701B9611400055ECC6 /* Alamofire.framework */; };
+		D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */; settings = {ASSET_TAGS = (); }; };
+		D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */; };
+		D0D36A461B7CE435006530DB /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
+		D0F5B1991B45786500D30EEF /* SampleProject.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B1981B45786500D30EEF /* SampleProject.json */; };
+		D0F5B19B1B4578D400D30EEF /* SampleBuild.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B19A1B4578D400D30EEF /* SampleBuild.json */; };
+		D0F5B19D1B45821200D30EEF /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B19C1B45821200D30EEF /* Build.swift */; };
+		D0F5B19E1B45821200D30EEF /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B19C1B45821200D30EEF /* Build.swift */; };
+		D0F5B19F1B45821200D30EEF /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B19C1B45821200D30EEF /* Build.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D0772F1B1B3C437800031FB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0772F001B3C437800031FB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0772F071B3C437800031FB9;
+			remoteInfo = Harbor;
+		};
+		D0772F261B3C437800031FB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0772F001B3C437800031FB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0772F071B3C437800031FB9;
+			remoteInfo = Harbor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13A63B0307F0CEAA13EF245C /* Pods-HarborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarborUITests/Pods-HarborUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2D236790CB720A73DA044734 /* Pods-Harbor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.debug.xcconfig"; sourceTree = "<group>"; };
+		3FB400D7CFA77A37F335FB61 /* Pods-HarborUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HarborUITests/Pods-HarborUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		68A02C3BD059D525FED880F1 /* Pods-Harbor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.release.xcconfig"; sourceTree = "<group>"; };
+		7C8CA28B6D0AC674E407CBCC /* Pods_Harbor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harbor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A8A4E4D768A35C44BA451D9 /* Pods-HarborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests.release.xcconfig"; sourceTree = "<group>"; };
+		9F1A28EEC7891A3DF29C36E5 /* Pods-HarborTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D06054241B57F880007A5F81 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		D06054261B57F89E007A5F81 /* PlaygroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaygroundTest.swift; sourceTree = "<group>"; };
+		D06054291B58021D007A5F81 /* word.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = word.txt; path = ../Harbor/word.txt; sourceTree = "<group>"; };
+		D0772F081B3C437800031FB9 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0772F0B1B3C437800031FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D0772F0E1B3C437800031FB9 /* Harbor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harbor.xcdatamodel; sourceTree = "<group>"; };
+		D0772F101B3C437800031FB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0772F131B3C437800031FB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D0772F151B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0772F1A1B3C437800031FB9 /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0772F1E1B3C437800031FB9 /* HarborTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborTests.swift; sourceTree = "<group>"; };
+		D0772F201B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0772F251B3C437800031FB9 /* HarborUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0772F291B3C437800031FB9 /* HarborUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborUITests.swift; sourceTree = "<group>"; };
+		D0772F2B1B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0772F391B3C43B200031FB9 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTest.swift; sourceTree = "<group>"; };
+		D0772F3F1B3C44C000031FB9 /* SamplePayload.json */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.json; path = SamplePayload.json; sourceTree = "<group>"; tabWidth = 2; };
+		D0A3E7451B73A786006E4350 /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApi.swift; sourceTree = "<group>"; };
+		D0A3E7501B73AC51006E4350 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Pods/../build/Release/Alamofire.framework; sourceTree = "<group>"; };
+		D0A3E7521B73AC57006E4350 /* OCMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMapper.framework; path = Pods/../build/Debug/OCMapper.framework; sourceTree = "<group>"; };
+		D0B177701B9611400055ECC6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Harbor-heejklmuxvludkgdxatbozvazkoh/Build/Products/Debug/Alamofire.framework"; sourceTree = "<group>"; };
+		D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
+		D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
+		D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApiTests.swift; sourceTree = "<group>"; };
+		D0F5B1981B45786500D30EEF /* SampleProject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SampleProject.json; path = HarborTests/SampleProject.json; sourceTree = SOURCE_ROOT; };
+		D0F5B19A1B4578D400D30EEF /* SampleBuild.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleBuild.json; sourceTree = "<group>"; };
+		D0F5B19C1B45821200D30EEF /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		EB94A0F2C30A0ACB3EC7BD82 /* Pods_HarborTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarborTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE9CCE64A5D0F6E239A1EC0F /* Pods_HarborUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarborUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D0772F051B3C437800031FB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0B177711B9611400055ECC6 /* Alamofire.framework in Frameworks */,
+				6805408B79168B08E38757B1 /* Pods_Harbor.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0772F171B3C437800031FB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C12D67F9C905852DCF6664 /* Pods_HarborTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0772F221B3C437800031FB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23DAEB6AAFDED0A1B6F5EF30 /* Pods_HarborUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25DD2328959D84979C80CB6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D236790CB720A73DA044734 /* Pods-Harbor.debug.xcconfig */,
+				68A02C3BD059D525FED880F1 /* Pods-Harbor.release.xcconfig */,
+				9F1A28EEC7891A3DF29C36E5 /* Pods-HarborTests.debug.xcconfig */,
+				9A8A4E4D768A35C44BA451D9 /* Pods-HarborTests.release.xcconfig */,
+				3FB400D7CFA77A37F335FB61 /* Pods-HarborUITests.debug.xcconfig */,
+				13A63B0307F0CEAA13EF245C /* Pods-HarborUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C61573DD1BA5E0B634D1395C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0B177701B9611400055ECC6 /* Alamofire.framework */,
+				D0A3E7521B73AC57006E4350 /* OCMapper.framework */,
+				D0A3E7501B73AC51006E4350 /* Alamofire.framework */,
+				7C8CA28B6D0AC674E407CBCC /* Pods_Harbor.framework */,
+				EB94A0F2C30A0ACB3EC7BD82 /* Pods_HarborTests.framework */,
+				EE9CCE64A5D0F6E239A1EC0F /* Pods_HarborUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0254DA91B95FD1A00D12AF0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */,
+				D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D0772EFF1B3C437800031FB9 = {
+			isa = PBXGroup;
+			children = (
+				D0772F0A1B3C437800031FB9 /* Harbor */,
+				D0772F1D1B3C437800031FB9 /* HarborTests */,
+				D0772F281B3C437800031FB9 /* HarborUITests */,
+				D0772F091B3C437800031FB9 /* Products */,
+				25DD2328959D84979C80CB6C /* Pods */,
+				C61573DD1BA5E0B634D1395C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D0772F091B3C437800031FB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0772F081B3C437800031FB9 /* Harbor.app */,
+				D0772F1A1B3C437800031FB9 /* HarborTests.xctest */,
+				D0772F251B3C437800031FB9 /* HarborUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0772F0A1B3C437800031FB9 /* Harbor */ = {
+			isa = PBXGroup;
+			children = (
+				D0254DA91B95FD1A00D12AF0 /* Extensions */,
+				D0A3E7441B73A764006E4350 /* API */,
+				D0772F371B3C438900031FB9 /* Domain */,
+				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
+				D0772F101B3C437800031FB9 /* Assets.xcassets */,
+				D0772F121B3C437800031FB9 /* MainMenu.xib */,
+				D0772F151B3C437800031FB9 /* Info.plist */,
+				D0772F0D1B3C437800031FB9 /* Harbor.xcdatamodeld */,
+			);
+			path = Harbor;
+			sourceTree = "<group>";
+		};
+		D0772F1D1B3C437800031FB9 /* HarborTests */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3E7471B73A849006E4350 /* API */,
+				D0772F381B3C439100031FB9 /* Domain */,
+				D0772F1E1B3C437800031FB9 /* HarborTests.swift */,
+				D0772F201B3C437800031FB9 /* Info.plist */,
+			);
+			path = HarborTests;
+			sourceTree = "<group>";
+		};
+		D0772F281B3C437800031FB9 /* HarborUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D0772F291B3C437800031FB9 /* HarborUITests.swift */,
+				D0772F2B1B3C437800031FB9 /* Info.plist */,
+			);
+			path = HarborUITests;
+			sourceTree = "<group>";
+		};
+		D0772F371B3C438900031FB9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				D0772F391B3C43B200031FB9 /* Project.swift */,
+				D0F5B19C1B45821200D30EEF /* Build.swift */,
+				D06054241B57F880007A5F81 /* Playground.swift */,
+				D0F5B1981B45786500D30EEF /* SampleProject.json */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		D0772F381B3C439100031FB9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */,
+				D06054291B58021D007A5F81 /* word.txt */,
+				D0772F3F1B3C44C000031FB9 /* SamplePayload.json */,
+				D0F5B19A1B4578D400D30EEF /* SampleBuild.json */,
+				D06054261B57F89E007A5F81 /* PlaygroundTest.swift */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		D0A3E7441B73A764006E4350 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D0A3E7451B73A786006E4350 /* CodeshipApi.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		D0A3E7471B73A849006E4350 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0772F071B3C437800031FB9 /* Harbor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0772F2E1B3C437800031FB9 /* Build configuration list for PBXNativeTarget "Harbor" */;
+			buildPhases = (
+				619287334FA2CC18AA777212 /* Check Pods Manifest.lock */,
+				D0772F041B3C437800031FB9 /* Sources */,
+				D0772F051B3C437800031FB9 /* Frameworks */,
+				D0772F061B3C437800031FB9 /* Resources */,
+				7D687587192B1A2287EC7DF7 /* Embed Pods Frameworks */,
+				FD485EE23CE147A073FDD373 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Harbor;
+			productName = Harbor;
+			productReference = D0772F081B3C437800031FB9 /* Harbor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0772F191B3C437800031FB9 /* HarborTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0772F311B3C437800031FB9 /* Build configuration list for PBXNativeTarget "HarborTests" */;
+			buildPhases = (
+				CC808860F733C905BBB3F796 /* Check Pods Manifest.lock */,
+				D0772F161B3C437800031FB9 /* Sources */,
+				D0772F171B3C437800031FB9 /* Frameworks */,
+				D0772F181B3C437800031FB9 /* Resources */,
+				0910DBF93020B16973986ADC /* Embed Pods Frameworks */,
+				9239D32E4D4A4CF02E9EBF59 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0772F1C1B3C437800031FB9 /* PBXTargetDependency */,
+			);
+			name = HarborTests;
+			productName = HarborTests;
+			productReference = D0772F1A1B3C437800031FB9 /* HarborTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D0772F241B3C437800031FB9 /* HarborUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0772F341B3C437800031FB9 /* Build configuration list for PBXNativeTarget "HarborUITests" */;
+			buildPhases = (
+				F245FCF2A52877AC5A7AEF96 /* Check Pods Manifest.lock */,
+				D0772F211B3C437800031FB9 /* Sources */,
+				D0772F221B3C437800031FB9 /* Frameworks */,
+				D0772F231B3C437800031FB9 /* Resources */,
+				388F073BC8005169BE2734F5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0772F271B3C437800031FB9 /* PBXTargetDependency */,
+			);
+			name = HarborUITests;
+			productName = HarborUITests;
+			productReference = D0772F251B3C437800031FB9 /* HarborUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D0772F001B3C437800031FB9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = DevMynd;
+				TargetAttributes = {
+					D0772F071B3C437800031FB9 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					D0772F191B3C437800031FB9 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = D0772F071B3C437800031FB9;
+					};
+					D0772F241B3C437800031FB9 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = D0772F071B3C437800031FB9;
+					};
+				};
+			};
+			buildConfigurationList = D0772F031B3C437800031FB9 /* Build configuration list for PBXProject "Harbor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D0772EFF1B3C437800031FB9;
+			productRefGroup = D0772F091B3C437800031FB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0772F071B3C437800031FB9 /* Harbor */,
+				D0772F191B3C437800031FB9 /* HarborTests */,
+				D0772F241B3C437800031FB9 /* HarborUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D0772F061B3C437800031FB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0772F111B3C437800031FB9 /* Assets.xcassets in Resources */,
+				D060542A1B58021D007A5F81 /* word.txt in Resources */,
+				D0772F141B3C437800031FB9 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0772F181B3C437800031FB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0772F401B3C44C000031FB9 /* SamplePayload.json in Resources */,
+				D0F5B19B1B4578D400D30EEF /* SampleBuild.json in Resources */,
+				D0F5B1991B45786500D30EEF /* SampleProject.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0772F231B3C437800031FB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0910DBF93020B16973986ADC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		388F073BC8005169BE2734F5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HarborUITests/Pods-HarborUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		619287334FA2CC18AA777212 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7D687587192B1A2287EC7DF7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harbor/Pods-Harbor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9239D32E4D4A4CF02E9EBF59 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC808860F733C905BBB3F796 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F245FCF2A52877AC5A7AEF96 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FD485EE23CE147A073FDD373 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harbor/Pods-Harbor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D0772F041B3C437800031FB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */,
+				D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */,
+				D0A3E7461B73A786006E4350 /* CodeshipApi.swift in Sources */,
+				D06054251B57F880007A5F81 /* Playground.swift in Sources */,
+				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
+				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
+				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,
+				D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0772F161B3C437800031FB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06054271B57F89E007A5F81 /* PlaygroundTest.swift in Sources */,
+				D0772F1F1B3C437800031FB9 /* HarborTests.swift in Sources */,
+				D06054281B57FC94007A5F81 /* Playground.swift in Sources */,
+				D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */,
+				D0F5B19E1B45821200D30EEF /* Build.swift in Sources */,
+				D0D36A461B7CE435006530DB /* CodeshipApi.swift in Sources */,
+				D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */,
+				D0772F3B1B3C43B200031FB9 /* Project.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0772F211B3C437800031FB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0F5B19F1B45821200D30EEF /* Build.swift in Sources */,
+				D0772F2A1B3C437800031FB9 /* HarborUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0772F1C1B3C437800031FB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0772F071B3C437800031FB9 /* Harbor */;
+			targetProxy = D0772F1B1B3C437800031FB9 /* PBXContainerItemProxy */;
+		};
+		D0772F271B3C437800031FB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0772F071B3C437800031FB9 /* Harbor */;
+			targetProxy = D0772F261B3C437800031FB9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D0772F121B3C437800031FB9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0772F131B3C437800031FB9 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D0772F2C1B3C437800031FB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D0772F2D1B3C437800031FB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D0772F2F1B3C437800031FB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D236790CB720A73DA044734 /* Pods-Harbor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release",
+					"$(PROJECT_DIR)/build/Debug",
+				);
+				INFOPLIST_FILE = Harbor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.Harbor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D0772F301B3C437800031FB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68A02C3BD059D525FED880F1 /* Pods-Harbor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release",
+					"$(PROJECT_DIR)/build/Debug",
+				);
+				INFOPLIST_FILE = Harbor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.Harbor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D0772F321B3C437800031FB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F1A28EEC7891A3DF29C36E5 /* Pods-HarborTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HarborTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.HarborTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
+			};
+			name = Debug;
+		};
+		D0772F331B3C437800031FB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A8A4E4D768A35C44BA451D9 /* Pods-HarborTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HarborTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.HarborTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
+			};
+			name = Release;
+		};
+		D0772F351B3C437800031FB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FB400D7CFA77A37F335FB61 /* Pods-HarborUITests.debug.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HarborUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.HarborUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Harbor;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D0772F361B3C437800031FB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13A63B0307F0CEAA13EF245C /* Pods-HarborUITests.release.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = HarborUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.HarborUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Harbor;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D0772F031B3C437800031FB9 /* Build configuration list for PBXProject "Harbor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0772F2C1B3C437800031FB9 /* Debug */,
+				D0772F2D1B3C437800031FB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0772F2E1B3C437800031FB9 /* Build configuration list for PBXNativeTarget "Harbor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0772F2F1B3C437800031FB9 /* Debug */,
+				D0772F301B3C437800031FB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0772F311B3C437800031FB9 /* Build configuration list for PBXNativeTarget "HarborTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0772F321B3C437800031FB9 /* Debug */,
+				D0772F331B3C437800031FB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0772F341B3C437800031FB9 /* Build configuration list for PBXNativeTarget "HarborUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0772F351B3C437800031FB9 /* Debug */,
+				D0772F361B3C437800031FB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0772F0D1B3C437800031FB9 /* Harbor.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0772F0E1B3C437800031FB9 /* Harbor.xcdatamodel */,
+			);
+			currentVersion = D0772F0E1B3C437800031FB9 /* Harbor.xcdatamodel */;
+			path = Harbor.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D0772F001B3C437800031FB9 /* Project object */;
+}
