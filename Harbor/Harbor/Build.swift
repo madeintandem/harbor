@@ -10,6 +10,7 @@ import Foundation
 
 final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
     
+
     var id: Int?
     var uuid: String?
     var projectID: Int?
@@ -18,20 +19,22 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
     var commitID: String?
     var message: String?
     var branch: String?
-    var startedAt: NSString?
-    var finishedAt: NSString?
+    var startedAt: NSDate?
+    var finishedAt: NSDate?
+    var codeshipLinkString: String?
     
     init?(response: NSHTTPURLResponse, representation: AnyObject){
         self.id = representation.valueForKeyPath("id") as? Int
         self.uuid = representation.valueForKeyPath("uuid") as? String
         self.projectID = representation.valueForKeyPath("project_id") as? Int
         self.status = representation.valueForKeyPath("status") as? String
+        debugPrint(self.status)
         self.gitHubUsername = representation.valueForKeyPath("github_username") as? String
         self.commitID = representation.valueForKeyPath("commit_id") as? String
         self.message = representation.valueForKeyPath("message") as? String
         self.branch = representation.valueForKeyPath("branch") as? String
-        self.startedAt = representation.valueForKeyPath("started_at") as? NSString
-        self.finishedAt = representation.valueForKeyPath("finished_at") as? NSString
+        self.startedAt = self.convertDateFromString(representation.valueForKeyPath("started_at") as? String)
+        self.finishedAt = self.convertDateFromString(representation.valueForKeyPath("finished_at") as? String)
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Build] {
@@ -45,5 +48,18 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
             }
         }
         return builds
+    }
+    
+    func convertDateFromString(aString: String?) -> NSDate{
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
+
+        var date : String
+        if let dateString = aString {
+            date = dateString
+        } else {
+            date = ""
+        }
+        return dateFormatter.dateFromString(date)!
     }
 }

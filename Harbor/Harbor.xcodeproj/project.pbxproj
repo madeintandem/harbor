@@ -17,19 +17,30 @@
 		D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0B1B3C437800031FB9 /* AppDelegate.swift */; };
 		D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0D1B3C437800031FB9 /* Harbor.xcdatamodeld */; };
 		D0772F111B3C437800031FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0772F101B3C437800031FB9 /* Assets.xcassets */; };
-		D0772F141B3C437800031FB9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0772F121B3C437800031FB9 /* MainMenu.xib */; };
 		D0772F1F1B3C437800031FB9 /* HarborTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F1E1B3C437800031FB9 /* HarborTests.swift */; };
 		D0772F2A1B3C437800031FB9 /* HarborUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F291B3C437800031FB9 /* HarborUITests.swift */; };
 		D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F391B3C43B200031FB9 /* Project.swift */; };
 		D0772F3B1B3C43B200031FB9 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F391B3C43B200031FB9 /* Project.swift */; };
 		D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */; };
 		D0772F401B3C44C000031FB9 /* SamplePayload.json in Resources */ = {isa = PBXBuildFile; fileRef = D0772F3F1B3C44C000031FB9 /* SamplePayload.json */; };
+		D08EAB321B97531A009564CE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB311B97531A009564CE /* MainMenu.xib */; settings = {ASSET_TAGS = (); }; };
+		D08EAB391B98A60A009564CE /* codeshipLogo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB351B98A60A009564CE /* codeshipLogo_green.png */; settings = {ASSET_TAGS = (); }; };
+		D08EAB3A1B98A60A009564CE /* codeshipLogo_green@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB361B98A60A009564CE /* codeshipLogo_green@2px.png */; settings = {ASSET_TAGS = (); }; };
+		D08EAB3B1B98A60A009564CE /* codeshipLogo_red.png in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB371B98A60A009564CE /* codeshipLogo_red.png */; settings = {ASSET_TAGS = (); }; };
+		D08EAB3C1B98A60A009564CE /* codeshipLogo_red@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB381B98A60A009564CE /* codeshipLogo_red@2px.png */; settings = {ASSET_TAGS = (); }; };
+		D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EAB3D1B98D5C8009564CE /* BuildView.swift */; settings = {ASSET_TAGS = (); }; };
+		D08EAB411B98D5EA009564CE /* BuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB401B98D5EA009564CE /* BuildView.xib */; settings = {ASSET_TAGS = (); }; };
 		D0A3E7461B73A786006E4350 /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
+		D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B177711B9611400055ECC6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B177701B9611400055ECC6 /* Alamofire.framework */; };
 		D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */; settings = {ASSET_TAGS = (); }; };
+		D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */; settings = {ASSET_TAGS = (); }; };
 		D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */; };
 		D0D36A461B7CE435006530DB /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
+		D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */; settings = {ASSET_TAGS = (); }; };
+		D0E3C0C51B9F45FC00D1966C /* PreferencesPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */; settings = {ASSET_TAGS = (); }; };
 		D0F5B1991B45786500D30EEF /* SampleProject.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B1981B45786500D30EEF /* SampleProject.json */; };
 		D0F5B19B1B4578D400D30EEF /* SampleBuild.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B19A1B4578D400D30EEF /* SampleBuild.json */; };
 		D0F5B19D1B45821200D30EEF /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B19C1B45821200D30EEF /* Build.swift */; };
@@ -69,7 +80,6 @@
 		D0772F0B1B3C437800031FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0772F0E1B3C437800031FB9 /* Harbor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harbor.xcdatamodel; sourceTree = "<group>"; };
 		D0772F101B3C437800031FB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D0772F131B3C437800031FB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D0772F151B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0772F1A1B3C437800031FB9 /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0772F1E1B3C437800031FB9 /* HarborTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborTests.swift; sourceTree = "<group>"; };
@@ -80,13 +90,25 @@
 		D0772F391B3C43B200031FB9 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTest.swift; sourceTree = "<group>"; };
 		D0772F3F1B3C44C000031FB9 /* SamplePayload.json */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.json; path = SamplePayload.json; sourceTree = "<group>"; tabWidth = 2; };
+		D08EAB311B97531A009564CE /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		D08EAB351B98A60A009564CE /* codeshipLogo_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_green.png; sourceTree = "<group>"; };
+		D08EAB361B98A60A009564CE /* codeshipLogo_green@2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_green@2px.png"; sourceTree = "<group>"; };
+		D08EAB371B98A60A009564CE /* codeshipLogo_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_red.png; sourceTree = "<group>"; };
+		D08EAB381B98A60A009564CE /* codeshipLogo_red@2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_red@2px.png"; sourceTree = "<group>"; };
+		D08EAB3D1B98D5C8009564CE /* BuildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildView.swift; sourceTree = "<group>"; };
+		D08EAB401B98D5EA009564CE /* BuildView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildView.xib; sourceTree = "<group>"; };
 		D0A3E7451B73A786006E4350 /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApi.swift; sourceTree = "<group>"; };
 		D0A3E7501B73AC51006E4350 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Pods/../build/Release/Alamofire.framework; sourceTree = "<group>"; };
 		D0A3E7521B73AC57006E4350 /* OCMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMapper.framework; path = Pods/../build/Debug/OCMapper.framework; sourceTree = "<group>"; };
+		D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		D0B177701B9611400055ECC6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Harbor-heejklmuxvludkgdxatbozvazkoh/Build/Products/Debug/Alamofire.framework"; sourceTree = "<group>"; };
 		D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
 		D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
+		D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
+		D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
 		D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApiTests.swift; sourceTree = "<group>"; };
+		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
+		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
 		D0F5B1981B45786500D30EEF /* SampleProject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SampleProject.json; path = HarborTests/SampleProject.json; sourceTree = SOURCE_ROOT; };
 		D0F5B19A1B4578D400D30EEF /* SampleBuild.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleBuild.json; sourceTree = "<group>"; };
 		D0F5B19C1B45821200D30EEF /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
@@ -183,14 +205,16 @@
 		D0772F0A1B3C437800031FB9 /* Harbor */ = {
 			isa = PBXGroup;
 			children = (
+				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
+				D08EAB311B97531A009564CE /* MainMenu.xib */,
+				D08EAB3F1B98D5D5009564CE /* CustomViews */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,
 				D0A3E7441B73A764006E4350 /* API */,
 				D0772F371B3C438900031FB9 /* Domain */,
-				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
 				D0772F101B3C437800031FB9 /* Assets.xcassets */,
-				D0772F121B3C437800031FB9 /* MainMenu.xib */,
 				D0772F151B3C437800031FB9 /* Info.plist */,
 				D0772F0D1B3C437800031FB9 /* Harbor.xcdatamodeld */,
+				D0B1777B1B9651C30055ECC6 /* Images */,
 			);
 			path = Harbor;
 			sourceTree = "<group>";
@@ -238,6 +262,18 @@
 			name = Domain;
 			sourceTree = "<group>";
 		};
+		D08EAB3F1B98D5D5009564CE /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */,
+				D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */,
+				D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */,
+				D08EAB3D1B98D5C8009564CE /* BuildView.swift */,
+				D08EAB401B98D5EA009564CE /* BuildView.xib */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
 		D0A3E7441B73A764006E4350 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +288,19 @@
 				D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		D0B1777B1B9651C30055ECC6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D08EAB351B98A60A009564CE /* codeshipLogo_green.png */,
+				D08EAB361B98A60A009564CE /* codeshipLogo_green@2px.png */,
+				D08EAB371B98A60A009564CE /* codeshipLogo_red.png */,
+				D08EAB381B98A60A009564CE /* codeshipLogo_red@2px.png */,
+				D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */,
+				D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,9 +415,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E3C0C51B9F45FC00D1966C /* PreferencesPaneWindowController.xib in Resources */,
 				D0772F111B3C437800031FB9 /* Assets.xcassets in Resources */,
+				D08EAB411B98D5EA009564CE /* BuildView.xib in Resources */,
+				D08EAB3B1B98A60A009564CE /* codeshipLogo_red.png in Resources */,
+				D08EAB391B98A60A009564CE /* codeshipLogo_green.png in Resources */,
+				D08EAB321B97531A009564CE /* MainMenu.xib in Resources */,
+				D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */,
+				D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */,
+				D08EAB3A1B98A60A009564CE /* codeshipLogo_green@2px.png in Resources */,
+				D08EAB3C1B98A60A009564CE /* codeshipLogo_red@2px.png in Resources */,
 				D060542A1B58021D007A5F81 /* word.txt in Resources */,
-				D0772F141B3C437800031FB9 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,10 +577,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */,
+				D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */,
 				D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */,
+				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
 				D0A3E7461B73A786006E4350 /* CodeshipApi.swift in Sources */,
 				D06054251B57F880007A5F81 /* Playground.swift in Sources */,
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
+				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
 				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,
 				D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */,
@@ -568,17 +628,6 @@
 			targetProxy = D0772F261B3C437800031FB9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D0772F121B3C437800031FB9 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0772F131B3C437800031FB9 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D0772F2C1B3C437800031FB9 /* Debug */ = {
@@ -667,13 +716,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Release",
-					"$(PROJECT_DIR)/build/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Harbor/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -686,13 +731,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Release",
-					"$(PROJECT_DIR)/build/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Harbor/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";

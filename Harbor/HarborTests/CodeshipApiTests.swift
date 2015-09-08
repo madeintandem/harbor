@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Alamofire
 
 class CodeshipApiTests: XCTestCase {
     
@@ -20,7 +21,8 @@ class CodeshipApiTests: XCTestCase {
         super.tearDown()
     }
     
-    func testThatTheApiReturnsAListOfProjects() {
+    func testGetProjects() {
+        //test Request.responseCollection protocol.
         
     }
     

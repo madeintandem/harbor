@@ -10,13 +10,13 @@ import Foundation
 import Alamofire
 
 final class Project: ResponseObjectSerializable, ResponseCollectionSerializable {
-  
     
     let id: Int
     let uuid: String
     let repositoryName: String
     let repositoryProvider: String
-    let builds: [Build]
+    var builds: [Build]
+    let status : Int
     
     init?(response:NSHTTPURLResponse, representation:AnyObject){
         
@@ -25,6 +25,19 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
         self.repositoryName = representation.valueForKeyPath("repository_name") as! String
         self.repositoryProvider = representation.valueForKeyPath("repository_provider") as! String
         self.builds = Build.collection(response: response, representation: representation)
+        self.builds.sortInPlace({ $0.startedAt!.compare($1.startedAt!) == .OrderedDescending })
+
+        
+        let firstBuild = self.builds.first
+        //make this an enum
+        if firstBuild?.status == "success" {
+            self.status = 0
+        } else if firstBuild?.status == "error" {
+            self.status = 1
+        } else {
+            self.status = 2
+            print(firstBuild?.status)
+        }
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {

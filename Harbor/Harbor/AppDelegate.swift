@@ -7,22 +7,35 @@
 //
 
 import Cocoa
+import Alamofire
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
-    @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var statusItemMenu: StatusMenu!
+    let statusBarItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
+    let imageView: NSImageView = NSImageView(frame: NSMakeRect(0, 0, NSStatusBar.systemStatusBar().thickness, NSStatusBar.systemStatusBar().thickness))
+    var projects: [Project]?
 
-
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
-        var arrayOfProjects = CodeshipApi().getProjects()
+        CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
+   }
+    
+    func handleGetProjectsRequest(result: [Project]){
+        self.projects = result
+        statusItemMenu = StatusMenu(projects: self.projects!)
     }
 
+    func handleGetProjectsError(error: String){
+        //this is only a JSON Parsing error.  A fetch error needs separate handling.
+        debugPrint(error)
+    }
+    
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
-
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
