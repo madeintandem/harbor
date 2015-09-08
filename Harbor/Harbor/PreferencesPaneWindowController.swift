@@ -8,8 +8,12 @@
 
 import Cocoa
 
-class PreferencesPaneWindowController: NSWindowController {
+class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate {
 
+    @IBOutlet weak var codeshipAPIKey: NSTextField!
+    
+    @IBAction func saveButton(sender: AnyObject) {
+    }
     override func windowDidLoad() {
         super.windowDidLoad()
 

@@ -13,8 +13,7 @@ import Alamofire
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     @IBOutlet weak var statusItemMenu: StatusMenu!
-    let statusBarItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
-    let imageView: NSImageView = NSImageView(frame: NSMakeRect(0, 0, NSStatusBar.systemStatusBar().thickness, NSStatusBar.systemStatusBar().thickness))
+    let preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
     var projects: [Project]?
 
     
@@ -24,9 +23,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     func handleGetProjectsRequest(result: [Project]){
         self.projects = result
-        statusItemMenu = StatusMenu(projects: self.projects!)
+        statusItemMenu.delegate = self
+        statusItemMenu.formatMenu(self.projects!)
+        statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")
     }
-
+    func showPreferencesPane(){
+        preferencesWindowController.window?.center()
+        preferencesWindowController.window?.orderFront(self)
+        
+        // Show your window in front of all other apps
+        NSApp.activateIgnoringOtherApps(true)
+        
+    }
+    
     func handleGetProjectsError(error: String){
         //this is only a JSON Parsing error.  A fetch error needs separate handling.
         debugPrint(error)

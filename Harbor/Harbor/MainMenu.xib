@@ -13,7 +13,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Harbor" customModuleProvider="target">
             <connections>
-                <outlet property="statusItemMenu" destination="AYu-sK-qS6" id="X70-Su-OFe"/>
+                <outlet property="statusItemMenu" destination="uQy-DD-JDr" id="fiF-zM-O26"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -21,7 +21,7 @@
             <items>
                 <menuItem title="Harbor" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Harbor" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Harbor" systemMenu="apple" id="uQy-DD-JDr" customClass="StatusMenu" customModule="Harbor" customModuleProvider="target">
                         <items>
                             <menuItem title="About Harbor" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -36,6 +36,9 @@
                                 </connections>
                             </menuItem>
                         </items>
+                        <connections>
+                            <outlet property="delegate" destination="-2" id="diI-6v-xdV"/>
+                        </connections>
                     </menu>
                 </menuItem>
             </items>

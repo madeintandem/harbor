@@ -10,13 +10,14 @@ import Cocoa
 
 class StatusMenu: NSMenu {
     let statusBarItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
+
     var projects : [Project]?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    init(projects : [Project]) {
+    func formatMenu(projects : [Project]?) {
         self.projects = projects
         
         //create statusbar icon
@@ -24,7 +25,7 @@ class StatusMenu: NSMenu {
         icon.template = true //works with light & dark menubars
         
         //set icon color
-        let failingProjects = projects.filter({ $0.status == 1 })
+        let failingProjects = projects!.filter({ $0.status == 1 })
         if failingProjects.count == 0 {
             icon = NSImage(named: "codeshipLogo_green")!
             icon.template = false
@@ -36,14 +37,12 @@ class StatusMenu: NSMenu {
         
         statusBarItem.image = icon
 
-        super.init(title: "Projects")
-
         statusBarItem.menu = self
         
         let separatorItem = NSMenuItem.separatorItem()
         self.addItem(separatorItem)
         
-        for project in (projects) {
+        for project in (projects!) {
             self.createProjectMenuItem(project)
         }
 
