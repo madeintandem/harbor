@@ -18,7 +18,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
+        if KeychainWrapper.hasValueForKey("APIKey"){
+            
+            CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
+        } else {
+            self.showPreferencesPane()
+        }
    }
     
     func handleGetProjectsRequest(result: [Project]){
@@ -27,6 +32,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         statusItemMenu.formatMenu(self.projects!)
         statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")
     }
+    
+    func handleGetProjectsError(error: String){
+        //this is only a JSON Parsing error.  A fetch error needs separate handling.
+        debugPrint(error)
+    }
+    
     func showPreferencesPane(){
         preferencesWindowController.window?.center()
         preferencesWindowController.window?.orderFront(self)
@@ -34,11 +45,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         // Show your window in front of all other apps
         NSApp.activateIgnoringOtherApps(true)
         
-    }
-    
-    func handleGetProjectsError(error: String){
-        //this is only a JSON Parsing error.  A fetch error needs separate handling.
-        debugPrint(error)
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "178344C70CCFED80E359F28E"
+               BlueprintIdentifier = "102B228F49A1DC7AC11A7336"
                BuildableName = "Pods_HarborUITests.framework"
                BlueprintName = "Pods-HarborUITests"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -8,16 +8,32 @@
 
 import Cocoa
 
-class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate {
+class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NSTextFieldDelegate {
 
     @IBOutlet weak var codeshipAPIKey: NSTextField!
     
     @IBAction func saveButton(sender: AnyObject) {
+        KeychainWrapper.setString(codeshipAPIKey.stringValue, forKey: "APIKey")
+        CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
+        self.close()
+        
     }
-    override func windowDidLoad() {
-        super.windowDidLoad()
 
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    func handleGetProjectsRequest(result: [Project]){
+        (NSApplication.sharedApplication().delegate as! AppDelegate).handleGetProjectsRequest(result)
     }
     
+    func handleGetProjectsError(error: String){
+        //this is only a JSON Parsing error.  A fetch error needs separate handling.
+        debugPrint(error)
+    }
+    
+    
+    override func windowDidLoad() {
+        super.windowDidLoad()
+        if let token = KeychainWrapper.stringForKey("APIKey"){
+            codeshipAPIKey.stringValue = token as String
+        }
+    }
+
 }
