@@ -12,20 +12,47 @@ class StatusMenu: NSMenu {
     let statusBarItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
 
     var projects : [Project]?
+    var defaults: NSUserDefaults
+    var hiddenProjects: [Int]
     
     required init?(coder: NSCoder) {
+        defaults = NSUserDefaults()
+        if let defaultHiddenProjects = defaults.valueForKey("hiddenProjects"){
+            hiddenProjects = defaultHiddenProjects as! [Int]
+        } else {
+            hiddenProjects = []
+        }
         super.init(coder: coder)
     }
     
+    func updateHiddenProjectsArray(){
+        if let defaultHiddenProjects = defaults.valueForKey("hiddenProjects"){
+            hiddenProjects = defaultHiddenProjects as! [Int]
+        } else {
+            hiddenProjects = []
+        }
+    }
+    
+    func visibleProjectsFilter(project: Project) -> Bool{
+        return !hiddenProjects.contains(project.id)
+    }
+    
     func formatMenu(projects : [Project]?) {
-        self.projects = projects
+        
+        var index = self.itemArray.count - 1
+        for _ in self.itemArray {
+            if index > 3 { self.removeItemAtIndex(index) }
+            index--
+        }
+        self.updateHiddenProjectsArray()
+        self.projects = projects?.filter(visibleProjectsFilter)
         
         //create statusbar icon
         var icon = NSImage(named: "codeshipLogo_black")!
         icon.template = true //works with light & dark menubars
         
         //set icon color
-        let failingProjects = projects!.filter({ $0.status == 1 })
+        let failingProjects = self.projects!.filter({ $0.status == 1 })
         if failingProjects.count == 0 {
             icon = NSImage(named: "codeshipLogo_green")!
             icon.template = false
@@ -42,7 +69,7 @@ class StatusMenu: NSMenu {
         let separatorItem = NSMenuItem.separatorItem()
         self.addItem(separatorItem)
         
-        for project in (projects!) {
+        for project in (self.projects!) {
             self.createProjectMenuItem(project)
         }
 

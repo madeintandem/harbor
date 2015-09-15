@@ -176,6 +176,7 @@
 		D0254DA91B95FD1A00D12AF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */,
 				D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */,
 				D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */,
 			);
@@ -207,7 +208,6 @@
 		D0772F0A1B3C437800031FB9 /* Harbor */ = {
 			isa = PBXGroup;
 			children = (
-				D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */,
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
 				D08EAB311B97531A009564CE /* MainMenu.xib */,
 				D08EAB3F1B98D5D5009564CE /* CustomViews */,

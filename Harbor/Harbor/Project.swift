@@ -17,17 +17,17 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
     let repositoryProvider: String
     var builds: [Build]
     let status : Int
+    var isEnabled : Bool
     
     init?(response:NSHTTPURLResponse, representation:AnyObject){
-        
         self.id = representation.valueForKeyPath("id") as! Int
         self.uuid = representation.valueForKeyPath("uuid") as! String
         self.repositoryName = representation.valueForKeyPath("repository_name") as! String
         self.repositoryProvider = representation.valueForKeyPath("repository_provider") as! String
         self.builds = Build.collection(response: response, representation: representation)
         self.builds.sortInPlace({ $0.startedAt!.compare($1.startedAt!) == .OrderedDescending })
+        self.isEnabled = true
 
-        
         let firstBuild = self.builds.first
         //make this an enum
         if firstBuild?.status == "success" {
@@ -38,6 +38,7 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
             self.status = 2
             print(firstBuild?.status)
         }
+        
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {

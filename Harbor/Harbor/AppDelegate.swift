@@ -29,8 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     func handleGetProjectsRequest(result: [Project]){
         self.projects = result
         statusItemMenu.delegate = self
+        statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")        
         statusItemMenu.formatMenu(self.projects!)
-        statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")
     }
     
     func handleGetProjectsError(error: String){
