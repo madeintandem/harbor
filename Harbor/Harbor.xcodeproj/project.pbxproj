@@ -37,6 +37,7 @@
 		D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */; settings = {ASSET_TAGS = (); }; };
 		D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */; settings = {ASSET_TAGS = (); }; };
+		D0C002C11BB3472B006A058C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C01BB3472B006A058C /* TextField.swift */; settings = {ASSET_TAGS = (); }; };
 		D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */; };
 		D0D36A461B7CE435006530DB /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
 		D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -107,6 +108,7 @@
 		D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
 		D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
+		D0C002C01BB3472B006A058C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApiTests.swift; sourceTree = "<group>"; };
 		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
 		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
+				D0C002C01BB3472B006A058C /* TextField.swift */,
 				D08EAB311B97531A009564CE /* MainMenu.xib */,
 				D08EAB3F1B98D5D5009564CE /* CustomViews */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,
@@ -582,6 +585,7 @@
 			files = (
 				D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */,
 				D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */,
+				D0C002C11BB3472B006A058C /* TextField.swift in Sources */,
 				D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */,
 				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
 				D0A3E7461B73A786006E4350 /* CodeshipApi.swift in Sources */,

@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
         
    }
-    
+
     func handleGetProjectsRequest(result: [Project]){
         self.projects = result
         statusItemMenu.formatMenu(self.projects!)

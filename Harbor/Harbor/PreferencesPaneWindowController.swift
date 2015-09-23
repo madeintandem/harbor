@@ -15,8 +15,8 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         case RepositoryName = "RepositoryName"
     }
 
-    @IBOutlet weak var codeshipAPIKey: NSTextField!
-    @IBOutlet weak var refreshRateTextField: NSTextField!
+    @IBOutlet weak var codeshipAPIKey: TextField!
+    @IBOutlet weak var refreshRateTextField: TextField!
     @IBOutlet weak var projectTableView: NSTableView!
     
     var allProjects: [Project]
