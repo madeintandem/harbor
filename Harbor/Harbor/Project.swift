@@ -14,7 +14,7 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
     let id: Int
     let uuid: String
     let repositoryName: String
-    let repositoryProvider: String
+//    let repositoryProvider: String
     var builds: [Build]
     let status : Int
     var isEnabled : Bool
@@ -22,11 +22,16 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
     init?(response:NSHTTPURLResponse, representation:AnyObject){
         self.id = representation.valueForKeyPath("id") as! Int
         self.uuid = representation.valueForKeyPath("uuid") as! String
-        self.repositoryName = representation.valueForKeyPath("repository_name") as! String
-        self.repositoryProvider = representation.valueForKeyPath("repository_provider") as! String
+//        self.repositoryProvider = representation.valueForKeyPath("repository_provider") as! String
         self.builds = Build.collection(response: response, representation: representation)
         self.builds.sortInPlace({ $0.startedAt!.compare($1.startedAt!) == .OrderedDescending })
         self.isEnabled = true
+
+        if representation.valueForKeyPath("repository_name") === NSNull(){
+            self.repositoryName = "Unnamed Project"
+        } else {
+            self.repositoryName = representation.valueForKeyPath("repository_name") as! String
+        }
 
         let firstBuild = self.builds.first
         //make this an enum
@@ -36,7 +41,6 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
             self.status = 1
         } else {
             self.status = 2
-            print(firstBuild?.status)
         }
         
     }

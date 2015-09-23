@@ -38,7 +38,7 @@ class StatusMenu: NSMenu {
     }
     
     func formatMenu(projects : [Project]?) {
-        
+        //clear stale projects, if any, from menu
         var index = self.itemArray.count - 1
         for _ in self.itemArray {
             if index > 3 { self.removeItemAtIndex(index) }
@@ -53,7 +53,11 @@ class StatusMenu: NSMenu {
         
         //set icon color
         let failingProjects = self.projects!.filter({ $0.status == 1 })
-        if failingProjects.count == 0 {
+        if projects?.count == 0 {
+            icon = NSImage(named: "codeshipLogo_black")!
+            icon.template = true //works with light & dark menubars
+            
+        } else if failingProjects.count == 0 {
             icon = NSImage(named: "codeshipLogo_green")!
             icon.template = false
             
@@ -80,15 +84,21 @@ class StatusMenu: NSMenu {
         let projectMenuItem = NSMenuItem(title: project.repositoryName, action: nil, keyEquivalent: "")
         
         //set icon color
-        if project.builds.first!.status == "success"{
-            projectMenuItem.image = NSImage(named: "codeshipLogo_green")!
-            projectMenuItem.image?.template = false
-        } else if project.builds.first!.status == "error"{
-            projectMenuItem.image = NSImage(named: "codeshipLogo_red")!
-            projectMenuItem.image?.template = false
+        if let firstBuild = project.builds.first {
+            if firstBuild.status == "success"{
+                projectMenuItem.image = NSImage(named: "codeshipLogo_green")!
+                projectMenuItem.image?.template = false
+            } else if firstBuild.status == "error"{
+                projectMenuItem.image = NSImage(named: "codeshipLogo_red")!
+                projectMenuItem.image?.template = false
+            } else {
+                projectMenuItem.image = NSImage(named: "codeshipLogo_black")
+                projectMenuItem.image?.template = true //works with light & dark menubars
+            }
         } else {
             projectMenuItem.image = NSImage(named: "codeshipLogo_black")
             projectMenuItem.image?.template = true //works with light & dark menubars
+            
         }
         
         let buildMenu = NSMenu(title: "Builds")

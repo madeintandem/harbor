@@ -38,12 +38,59 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBAction func saveButton(sender: AnyObject) {
-        KeychainWrapper.setString(codeshipAPIKey.stringValue, forKey: "APIKey")
-        CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
-        self.close()
+    override func windowDidLoad() {
+        super.windowDidLoad()
+
     }
 
+    func populateTableData(){
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+
+        if let projects = appDelegate.projects{
+            allProjects = projects
+            self.projectTableView.reloadData()
+        }
+    }
+    
+    func populateTextFields(){
+        if let token = KeychainWrapper.stringForKey("APIKey"){
+            codeshipAPIKey.stringValue = token as String
+        }
+        
+        refreshRateTextField.doubleValue = defaults.doubleForKey("refreshRate")
+    }
+    
+    func windowDidChangeOcclusionState(notification: NSNotification) {
+        let window = notification.object!
+        if window.occlusionState.contains(NSWindowOcclusionState.Visible){
+            self.populateTableData()
+            self.populateTextFields()
+        }
+    }
+    
+    //
+    // MARK: Save Button Press
+    //
+    
+    @IBAction func saveButton(sender: AnyObject) {
+        if !codeshipAPIKey.stringValue.isEmpty{
+            KeychainWrapper.setString(codeshipAPIKey.stringValue, forKey: "APIKey")
+            CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
+        
+            //You wouldn't want a timer calling the api w/o a key.
+            if !refreshRateTextField.doubleValue.isZero {
+                defaults.setObject(refreshRateTextField.doubleValue, forKey: "refreshRate")
+                (NSApplication.sharedApplication().delegate as! AppDelegate).setupTimer(refreshRateTextField.doubleValue)
+            } else {
+                defaults.setObject(60, forKey: "refreshRate")
+                
+            }
+        }
+        
+        self.close()
+    }
+    
+    
     func handleGetProjectsRequest(result: [Project]){
         (NSApplication.sharedApplication().delegate as! AppDelegate).handleGetProjectsRequest(result)
     }
@@ -51,24 +98,6 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     func handleGetProjectsError(error: String){
         //this is only a JSON Parsing error.  A fetch error needs separate handling.
         debugPrint(error)
-    }
-    
-    
-    override func windowDidLoad() {
-        super.windowDidLoad()
-        
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        allProjects = appDelegate.projects!
-        self.projectTableView.reloadData()
-        
-        if let token = KeychainWrapper.stringForKey("APIKey"){
-            codeshipAPIKey.stringValue = token as String
-        }
-        
-        if let refreshRate = KeychainWrapper.stringForKey("refreshRate"){
-            refreshRateTextField.stringValue = refreshRate
-        }
-        
     }
     
     //
@@ -97,7 +126,6 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
                 case .RepositoryName:
                     cellView.textField!.stringValue = project.repositoryName
             }
-            
             view = cellView
         }
         

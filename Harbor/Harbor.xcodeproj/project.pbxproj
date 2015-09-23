@@ -382,6 +382,7 @@
 				TargetAttributes = {
 					D0772F071B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 5T84PP4W5D;
 					};
 					D0772F191B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
@@ -719,12 +720,13 @@
 			baseConfigurationReference = 2D236790CB720A73DA044734 /* Pods-Harbor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.Harbor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -734,12 +736,13 @@
 			baseConfigurationReference = 68A02C3BD059D525FED880F1 /* Pods-Harbor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.devMynd.Harbor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

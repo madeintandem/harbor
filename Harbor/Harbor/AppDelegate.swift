@@ -15,22 +15,41 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     @IBOutlet weak var statusItemMenu: StatusMenu!
     let preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
     var projects: [Project]?
-
+    let currentRunLoop: NSRunLoop = NSRunLoop.currentRunLoop()
+    let defaults = NSUserDefaults()
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+//
+//        Uncomment to Clear keychain & Defaults for testing.
+//
+//        KeychainWrapper.removeObjectForKey("APIKey")
+//        defaults.removeObjectForKey("refreshRate")
+//        defaults.removeObjectForKey("hiddenProjects")
+
+        statusItemMenu.delegate = self
+        statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")
+        statusItemMenu.formatMenu([])
+        
         if KeychainWrapper.hasValueForKey("APIKey"){
-            
             CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
         } else {
             self.showPreferencesPane()
         }
+
+        var refreshRate: Double
+
+        if defaults.doubleForKey("refreshRate") < 0{
+            refreshRate = defaults.doubleForKey("refreshRate")
+            self.setupTimer(refreshRate)
+        }
+        
    }
     
     func handleGetProjectsRequest(result: [Project]){
         self.projects = result
-        statusItemMenu.delegate = self
-        statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")        
         statusItemMenu.formatMenu(self.projects!)
+        let now = NSDate()
+        print("handle get projects: \(now)")
     }
     
     func handleGetProjectsError(error: String){
@@ -46,6 +65,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         NSApp.activateIgnoringOtherApps(true)
         
     }
+    
+    func setupTimer(refreshRate: Double) {
+        
+        let timer = NSTimer(timeInterval: refreshRate, target: self, selector:"updateData", userInfo: nil, repeats: true)
+        currentRunLoop.addTimer(timer, forMode: NSDefaultRunLoopMode)
+        
+        print("refresh rate: \(refreshRate)")
+    }
+    
+    func updateData(){
+        CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
+    }
+
     
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application

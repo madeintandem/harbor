@@ -28,13 +28,14 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.uuid = representation.valueForKeyPath("uuid") as? String
         self.projectID = representation.valueForKeyPath("project_id") as? Int
         self.status = representation.valueForKeyPath("status") as? String
-        debugPrint(self.status)
         self.gitHubUsername = representation.valueForKeyPath("github_username") as? String
         self.commitID = representation.valueForKeyPath("commit_id") as? String
         self.message = representation.valueForKeyPath("message") as? String
         self.branch = representation.valueForKeyPath("branch") as? String
         self.startedAt = self.convertDateFromString(representation.valueForKeyPath("started_at") as? String)
-        self.finishedAt = self.convertDateFromString(representation.valueForKeyPath("finished_at") as? String)
+        if let finishedAtString = representation.valueForKeyPath("finished_at") as? String{
+            self.finishedAt = self.convertDateFromString(finishedAtString)
+        }
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Build] {

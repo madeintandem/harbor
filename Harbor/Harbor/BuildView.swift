@@ -34,7 +34,6 @@ class BuildView: NSView {
     // enables highlighting of view on mouseover
     override func drawRect(dirtyRect: NSRect) {
         let menuItem = self.enclosingMenuItem
-//        debugPrint(menuItem)
         if menuItem?.highlighted == true {
             NSColor.blueColor().set()
             NSBezierPath.fillRect(dirtyRect)
