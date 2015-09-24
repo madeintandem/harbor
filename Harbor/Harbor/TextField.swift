@@ -1,5 +1,5 @@
 //
-//  KeyboardFriendlyTextField.swift
+//  TextField.swift
 //  Harbor
 //
 //  Created by Erin Hochstatter on 9/23/15.

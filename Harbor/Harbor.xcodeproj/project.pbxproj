@@ -38,6 +38,8 @@
 		D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */; settings = {ASSET_TAGS = (); }; };
 		D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */; settings = {ASSET_TAGS = (); }; };
 		D0C002C11BB3472B006A058C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C01BB3472B006A058C /* TextField.swift */; settings = {ASSET_TAGS = (); }; };
+		D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C21BB35114006A058C /* PreferencesPresenter.swift */; settings = {ASSET_TAGS = (); }; };
+		D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C41BB35136006A058C /* PreferencesView.swift */; settings = {ASSET_TAGS = (); }; };
 		D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */; };
 		D0D36A461B7CE435006530DB /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
 		D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -109,6 +111,8 @@
 		D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
 		D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
 		D0C002C01BB3472B006A058C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		D0C002C21BB35114006A058C /* PreferencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPresenter.swift; sourceTree = "<group>"; };
+		D0C002C41BB35136006A058C /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApiTests.swift; sourceTree = "<group>"; };
 		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
 		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */,
+				D0C002C41BB35136006A058C /* PreferencesView.swift */,
+				D0C002C21BB35114006A058C /* PreferencesPresenter.swift */,
 				D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */,
 				D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */,
 				D08EAB3D1B98D5C8009564CE /* BuildView.swift */,
@@ -592,6 +598,8 @@
 				D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */,
 				D06054251B57F880007A5F81 /* Playground.swift in Sources */,
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
+				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
+				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
 				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,

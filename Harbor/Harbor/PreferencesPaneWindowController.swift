@@ -8,30 +8,27 @@
 
 import Cocoa
 
-class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate {
+class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NSTextFieldDelegate, NSTableViewDataSource, NSTableViewDelegate, PreferencesView {
     
     enum ColumnIdentifier: String {
         case ShowProject    = "ShowProject"
         case RepositoryName = "RepositoryName"
     }
+    
+    //
+    // MARK: Properties
+    //
+    
+    var presenter: PreferencesPresenter!
 
     @IBOutlet weak var codeshipAPIKey: TextField!
     @IBOutlet weak var refreshRateTextField: TextField!
     @IBOutlet weak var projectTableView: NSTableView!
-    
-    var allProjects: [Project]
-    var hiddenProjects: [Int]
-    var defaults: NSUserDefaults
-    
+        
     override init(window: NSWindow?) {
-        allProjects = []
-        defaults = NSUserDefaults()
-        if let defaultHiddenProjects = defaults.valueForKey("hiddenProjects"){
-            hiddenProjects = defaultHiddenProjects as! [Int]
-        } else {
-            hiddenProjects = []
-        }
         super.init(window: window)
+        
+        self.presenter = PreferencesPresenter(view: self)
     }
 
     required init?(coder: NSCoder) {
@@ -40,32 +37,36 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     
     override func windowDidLoad() {
         super.windowDidLoad()
-
-    }
-
-    func populateTableData(){
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-
-        if let projects = appDelegate.projects{
-            allProjects = projects
-            self.projectTableView.reloadData()
-        }
     }
     
-    func populateTextFields(){
-        if let token = KeychainWrapper.stringForKey("APIKey"){
-            codeshipAPIKey.stringValue = token as String
-        }
-        
-        refreshRateTextField.doubleValue = defaults.doubleForKey("refreshRate")
+    override func showWindow(sender: AnyObject?) {
+        super.showWindow(sender)
     }
     
     func windowDidChangeOcclusionState(notification: NSNotification) {
         let window = notification.object!
-        if window.occlusionState.contains(NSWindowOcclusionState.Visible){
-            self.populateTableData()
-            self.populateTextFields()
+        
+        if window.occlusionState.contains(NSWindowOcclusionState.Visible) {
+            self.presenter.didBecomeActive()
+        } else {
+            self.presenter.didResignActive()
         }
+    }
+    
+    //
+    // MARK: PreferencesView
+    //
+    
+    func updateProjects(projects: [Project]) {
+        self.projectTableView.reloadData()
+    }
+    
+    func updateApiKey(apiKey: String) {
+        self.codeshipAPIKey.stringValue = apiKey
+    }
+    
+    func updateRefreshRate(refreshRate: String) {
+        self.refreshRateTextField.stringValue = refreshRate
     }
     
     //
@@ -73,23 +74,9 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     //
     
     @IBAction func saveButton(sender: AnyObject) {
-        if !codeshipAPIKey.stringValue.isEmpty{
-            KeychainWrapper.setString(codeshipAPIKey.stringValue, forKey: "APIKey")
-            CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
-        
-            //You wouldn't want a timer calling the api w/o a key.
-            if !refreshRateTextField.doubleValue.isZero {
-                defaults.setObject(refreshRateTextField.doubleValue, forKey: "refreshRate")
-                (NSApplication.sharedApplication().delegate as! AppDelegate).setupTimer(refreshRateTextField.doubleValue)
-            } else {
-                defaults.setObject(60, forKey: "refreshRate")
-                
-            }
-        }
-        
+        self.presenter.savePreferences()
         self.close()
     }
-    
     
     func handleGetProjectsRequest(result: [Project]){
         (NSApplication.sharedApplication().delegate as! AppDelegate).handleGetProjectsRequest(result)
@@ -101,11 +88,25 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     }
     
     //
+    // MARK: NSTextFieldDelegate
+    //
+    
+    override func controlTextDidChange(obj: NSNotification) {
+        if let textField = obj.object as? TextField {
+            if textField == self.codeshipAPIKey {
+                self.presenter.updateApiKey(textField.stringValue)
+            } else if textField == self.refreshRateTextField {
+                self.presenter.updateApiKey(textField.stringValue)
+            }
+        }
+    }
+    
+    //
     // MARK: NSTableViewDataSource
     //
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        return allProjects.count
+        return self.presenter.numberOfProjects
     }
     
     //
@@ -116,8 +117,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         var view: NSView? = nil
         
         if let tableColumn = tableColumn {
-            let project  = allProjects[row]
-            project.isEnabled = !hiddenProjects.contains(project.id)
+            let project  = self.presenter.projectAtIndex(row)
             let cellView = tableView.makeViewWithIdentifier(tableColumn.identifier, owner: self) as! NSTableCellView
             
             switch ColumnIdentifier(rawValue: tableColumn.identifier)! {
@@ -126,6 +126,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
                 case .RepositoryName:
                     cellView.textField!.stringValue = project.repositoryName
             }
+            
             view = cellView
         }
         
@@ -136,25 +137,8 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         let button = sender as? NSButton
         
         if let view = button?.nextKeyView as? NSTableCellView {
-            let row     = self.projectTableView.rowForView(view)
-            let project = allProjects[row]
-            
-
-            if button?.state == NSOnState {
-
-                if let projectIndex = hiddenProjects.indexOf(project.id) {
-                    hiddenProjects.removeAtIndex(projectIndex)
-                }
-                
-                project.isEnabled = true
-                
-
-            } else {
-
-                hiddenProjects.append(project.id)
-                project.isEnabled = false
-            }
-            defaults.setObject(hiddenProjects, forKey: "hiddenProjects")
+            let row = self.projectTableView.rowForView(view)
+            self.presenter.toggleEnabledStateForProjectAtIndex(row)
         }
     }
     
