@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         statusItemMenu.formatMenu([])
     
         self.refreshProjects()
-        self.timerCoordinator.setupTimer(self.settingsManager.refreshRate)
+        self.timerCoordinator.startTimer()
     }
     
     func refreshProjects() {

@@ -18,6 +18,7 @@ class TimerCoordinator : NSObject {
     
     let projectsStore =     ProjectsProvider.instance
     let currentRunLoop =    NSRunLoop.currentRunLoop()
+    let settingsManager =   SettingsManager.instance
     
     //
     // MARK: Properties
@@ -25,13 +26,25 @@ class TimerCoordinator : NSObject {
     
     var currentTimer: NSTimer?
     
+    override init(){
+        super.init()
+        settingsManager.observeNotification(.RefreshRate) { notification in
+            self.startTimer()
+        }
+    }
+    
     //
     // MARK: Scheduling
     //
     
+    func startTimer() {
+        self.setupTimer(self.settingsManager.refreshRate)
+    }
+    
     func setupTimer(refreshRate: Double) {
         // cancel current time if necessary
         self.currentTimer?.invalidate()
+        
         if !refreshRate.isZero {
             self.currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:"handleUpdateTimer:", userInfo: nil, repeats: true)
             self.currentRunLoop.addTimer(self.currentTimer!, forMode: NSDefaultRunLoopMode)
