@@ -30,7 +30,6 @@
 		D08EAB3C1B98A60A009564CE /* codeshipLogo_red@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB381B98A60A009564CE /* codeshipLogo_red@2px.png */; settings = {ASSET_TAGS = (); }; };
 		D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EAB3D1B98D5C8009564CE /* BuildView.swift */; settings = {ASSET_TAGS = (); }; };
 		D08EAB411B98D5EA009564CE /* BuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB401B98D5EA009564CE /* BuildView.xib */; settings = {ASSET_TAGS = (); }; };
-		D0A3E7461B73A786006E4350 /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
 		D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B177711B9611400055ECC6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B177701B9611400055ECC6 /* Alamofire.framework */; };
 		D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */; settings = {ASSET_TAGS = (); }; };
@@ -40,8 +39,11 @@
 		D0C002C11BB3472B006A058C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C01BB3472B006A058C /* TextField.swift */; settings = {ASSET_TAGS = (); }; };
 		D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C21BB35114006A058C /* PreferencesPresenter.swift */; settings = {ASSET_TAGS = (); }; };
 		D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C41BB35136006A058C /* PreferencesView.swift */; settings = {ASSET_TAGS = (); }; };
+		D0C002C71BB48801006A058C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C61BB48801006A058C /* SettingsManager.swift */; settings = {ASSET_TAGS = (); }; };
+		D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C81BB49334006A058C /* TimerCoordinator.swift */; settings = {ASSET_TAGS = (); }; };
+		D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CA1BB49445006A058C /* ProjectsProvider.swift */; settings = {ASSET_TAGS = (); }; };
+		D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */; settings = {ASSET_TAGS = (); }; };
 		D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */; };
-		D0D36A461B7CE435006530DB /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3E7451B73A786006E4350 /* CodeshipApi.swift */; };
 		D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */; settings = {ASSET_TAGS = (); }; };
 		D0E3C0C51B9F45FC00D1966C /* PreferencesPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */; settings = {ASSET_TAGS = (); }; };
 		D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */; settings = {ASSET_TAGS = (); }; };
@@ -101,7 +103,6 @@
 		D08EAB381B98A60A009564CE /* codeshipLogo_red@2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_red@2px.png"; sourceTree = "<group>"; };
 		D08EAB3D1B98D5C8009564CE /* BuildView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildView.swift; sourceTree = "<group>"; };
 		D08EAB401B98D5EA009564CE /* BuildView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildView.xib; sourceTree = "<group>"; };
-		D0A3E7451B73A786006E4350 /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApi.swift; sourceTree = "<group>"; };
 		D0A3E7501B73AC51006E4350 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Pods/../build/Release/Alamofire.framework; sourceTree = "<group>"; };
 		D0A3E7521B73AC57006E4350 /* OCMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMapper.framework; path = Pods/../build/Debug/OCMapper.framework; sourceTree = "<group>"; };
 		D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
@@ -113,6 +114,10 @@
 		D0C002C01BB3472B006A058C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		D0C002C21BB35114006A058C /* PreferencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPresenter.swift; sourceTree = "<group>"; };
 		D0C002C41BB35136006A058C /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		D0C002C61BB48801006A058C /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		D0C002C81BB49334006A058C /* TimerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
+		D0C002CA1BB49445006A058C /* ProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsProvider.swift; sourceTree = "<group>"; };
+		D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApi.swift; sourceTree = "<group>"; };
 		D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApiTests.swift; sourceTree = "<group>"; };
 		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
 		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
@@ -217,6 +222,7 @@
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
 				D0C002C01BB3472B006A058C /* TextField.swift */,
 				D08EAB311B97531A009564CE /* MainMenu.xib */,
+				D0C002CC1BB49452006A058C /* Interactors */,
 				D08EAB3F1B98D5D5009564CE /* CustomViews */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,
 				D0A3E7441B73A764006E4350 /* API */,
@@ -289,7 +295,7 @@
 		D0A3E7441B73A764006E4350 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				D0A3E7451B73A786006E4350 /* CodeshipApi.swift */,
+				D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -313,6 +319,16 @@
 				D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		D0C002CC1BB49452006A058C /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				D0C002C61BB48801006A058C /* SettingsManager.swift */,
+				D0C002C81BB49334006A058C /* TimerCoordinator.swift */,
+				D0C002CA1BB49445006A058C /* ProjectsProvider.swift */,
+			);
+			name = Interactors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -594,13 +610,16 @@
 				D0C002C11BB3472B006A058C /* TextField.swift in Sources */,
 				D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */,
 				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
-				D0A3E7461B73A786006E4350 /* CodeshipApi.swift in Sources */,
+				D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */,
 				D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */,
 				D06054251B57F880007A5F81 /* Playground.swift in Sources */,
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
+				D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */,
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
+				D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */,
+				D0C002C71BB48801006A058C /* SettingsManager.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
 				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,
 				D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */,
@@ -616,7 +635,6 @@
 				D06054281B57FC94007A5F81 /* Playground.swift in Sources */,
 				D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */,
 				D0F5B19E1B45821200D30EEF /* Build.swift in Sources */,
-				D0D36A461B7CE435006530DB /* CodeshipApi.swift in Sources */,
 				D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */,
 				D0772F3B1B3C43B200031FB9 /* Project.swift in Sources */,
 			);

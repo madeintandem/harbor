@@ -246,9 +246,6 @@ public class KeychainWrapper {
         
         // Uniquely identify the account who will be accessing the keychain
         let encodedIdentifier: NSData? = keyName.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        keychainQueryDictionary[SecAttrGeneric] = encodedIdentifier
-        
         keychainQueryDictionary[SecAttrAccount] = encodedIdentifier
         
         return keychainQueryDictionary

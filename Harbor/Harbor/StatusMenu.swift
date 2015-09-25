@@ -1,4 +1,4 @@
-//
+
 //  StatusMenu.swift
 //  Harbor
 //
@@ -13,39 +13,28 @@ class StatusMenu: NSMenu {
 
     var projects : [Project]?
     var defaults: NSUserDefaults
-    var hiddenProjects: [Int]
+    
+    let settingsManager  = SettingsManager.instance
+    let projectsProvider = ProjectsProvider.instance
     
     required init?(coder: NSCoder) {
         defaults = NSUserDefaults()
-        if let defaultHiddenProjects = defaults.valueForKey("hiddenProjects"){
-            hiddenProjects = defaultHiddenProjects as! [Int]
-        } else {
-            hiddenProjects = []
-        }
         super.init(coder: coder)
+        self.projectsProvider.addHandler(self.formatMenu)
     }
     
-    func updateHiddenProjectsArray(){
-        if let defaultHiddenProjects = defaults.valueForKey("hiddenProjects"){
-            hiddenProjects = defaultHiddenProjects as! [Int]
-        } else {
-            hiddenProjects = []
-        }
-    }
-    
-    func visibleProjectsFilter(project: Project) -> Bool{
-        return !hiddenProjects.contains(project.id)
-    }
-    
-    func formatMenu(projects : [Project]?) {
+    func formatMenu(projects : [Project]) {
         //clear stale projects, if any, from menu
         var index = self.itemArray.count - 1
         for _ in self.itemArray {
             if index > 3 { self.removeItemAtIndex(index) }
             index--
         }
-        self.updateHiddenProjectsArray()
-        self.projects = projects?.filter(visibleProjectsFilter)
+
+        let disabledProjectIds = self.settingsManager.disabledProjectIds
+        self.projects = projects.filter { project in
+            return !disabledProjectIds.contains(project.id)
+        }
         
         //create statusbar icon
         var icon = NSImage(named: "codeshipLogo_black")!
@@ -53,7 +42,7 @@ class StatusMenu: NSMenu {
         
         //set icon color
         let failingProjects = self.projects!.filter({ $0.status == 1 })
-        if projects?.count == 0 {
+        if projects.count == 0 {
             icon = NSImage(named: "codeshipLogo_black")!
             icon.template = true //works with light & dark menubars
             

@@ -12,6 +12,13 @@ import Cocoa
 class PreferencesPresenter {
     
     //
+    // MARK: Dependencies
+    //
+    
+    private let projectsStore   = ProjectsProvider.instance
+    private let settingsManager = SettingsManager.instance
+    
+    //
     // MARK: Properties
     //
     
@@ -31,6 +38,10 @@ class PreferencesPresenter {
     // MARK: Presentation Cycle
     //
     
+    func didInitialize() {
+        self.projectsStore.addHandler(self.refreshProjects)
+    }
+    
     func didBecomeActive() {
         self.refreshIfNecessary()
     }
@@ -42,8 +53,6 @@ class PreferencesPresenter {
     private func refreshIfNecessary() {
         if(self.needsRefresh) {
             self.refreshConfiguration()
-            self.refreshProjects()
-            
             self.needsRefresh = false
         }
     }
@@ -59,25 +68,26 @@ class PreferencesPresenter {
     //
     
     func savePreferences() {
-        if self.apiKey.isEmpty {
-            return
-        }
+        let existingApiKey = self.settingsManager.apiKey
         
-        // serialize our configuration
-        KeychainWrapper.setString(self.apiKey, forKey: "APIKey")
-        defaults.setObject(self.refreshRate, forKey: "refreshRate")
+        // persist our configuration
+        self.settingsManager.apiKey = self.apiKey
+        self.settingsManager.refreshRate = self.refreshRate
         
         // serialize the hidden projects
-        let hiddenProjectIds = self.allProjects.reduce([Int]()) { (var memo, project) in
-            memo.append(project.id)
+        self.settingsManager.disabledProjectIds = self.allProjects.reduce([Int]()) { (var memo, project) in
+            if !project.isEnabled {
+                memo.append(project.id)
+            }
             return memo
         }
         
-        defaults.setObject(hiddenProjectIds, forKey: "hiddenProjects")
-        
         self.needsRefresh = false
-//        CodeshipApi.getProjects(handleGetProjectsRequest, errorHandler: handleGetProjectsError)
-//        (NSApplication.sharedApplication().delegate as! AppDelegate).setupTimer(refreshRateTextField.doubleValue)
+        
+        if existingApiKey != self.settingsManager.apiKey {
+            (NSApplication.sharedApplication().delegate as? AppDelegate)?.refreshProjects()
+//            self.projectsStore.refreshProjects()
+        }
     }
     
     func updateApiKey(apiKey: String) {
@@ -92,10 +102,8 @@ class PreferencesPresenter {
     
     private func refreshConfiguration() {
         // load data from user defaults
-        self.refreshRate = self.defaults.doubleForKey("refreshRate")
-        if let apiKey = KeychainWrapper.stringForKey("APIKey") {
-            self.apiKey = apiKey
-        }
+        self.refreshRate = self.settingsManager.refreshRate
+        self.apiKey = self.settingsManager.apiKey
         
         // update our view after refreshing
         self.view.updateApiKey(self.apiKey)
@@ -121,22 +129,16 @@ class PreferencesPresenter {
         self.setNeedsRefresh()
     }
 
-    private func refreshProjects() {
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+    private func refreshProjects(projects: [Project]) {
+        self.allProjects = projects
         
-        if let projects = appDelegate.projects{
-            self.allProjects = projects
-            
-            // load hidden project ids from storage and update our models appropriately
-            if let hiddenProjectIds = self.defaults.objectForKey("hiddenProjects") as? [Int] {
-                for project in projects {
-                    project.isEnabled = !hiddenProjectIds.contains(project.id)
-                }
-            }
-            
-            // notify the view that the projects refreshed
-            self.view.updateProjects(projects)
+        // update our projects hidden state appropriately according to the user settings
+        for project in self.allProjects {
+            project.isEnabled = !self.settingsManager.disabledProjectIds.contains(project.id)
         }
+        
+        // notify the view that the projects refreshed
+        self.view.updateProjects(self.allProjects)
     }
     
     //

@@ -37,10 +37,8 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     
     override func windowDidLoad() {
         super.windowDidLoad()
-    }
-    
-    override func showWindow(sender: AnyObject?) {
-        super.showWindow(sender)
+        
+        self.presenter.didInitialize()
     }
     
     func windowDidChangeOcclusionState(notification: NSNotification) {
@@ -78,15 +76,6 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         self.close()
     }
     
-    func handleGetProjectsRequest(result: [Project]){
-        (NSApplication.sharedApplication().delegate as! AppDelegate).handleGetProjectsRequest(result)
-    }
-    
-    func handleGetProjectsError(error: String){
-        //this is only a JSON Parsing error.  A fetch error needs separate handling.
-        debugPrint(error)
-    }
-    
     //
     // MARK: NSTextFieldDelegate
     //
@@ -96,7 +85,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
             if textField == self.codeshipAPIKey {
                 self.presenter.updateApiKey(textField.stringValue)
             } else if textField == self.refreshRateTextField {
-                self.presenter.updateApiKey(textField.stringValue)
+                self.presenter.updateRefreshRate(textField.stringValue)
             }
         }
     }
