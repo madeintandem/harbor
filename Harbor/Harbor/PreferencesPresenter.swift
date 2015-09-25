@@ -67,9 +67,7 @@ class PreferencesPresenter {
     // MARK: Preferences
     //
     
-    func savePreferences() {
-        let existingApiKey = self.settingsManager.apiKey
-        
+    func savePreferences() {        
         // persist our configuration
         self.settingsManager.apiKey = self.apiKey
         self.settingsManager.refreshRate = self.refreshRate
@@ -83,11 +81,6 @@ class PreferencesPresenter {
         }
         
         self.needsRefresh = false
-        
-        if existingApiKey != self.settingsManager.apiKey {
-            (NSApplication.sharedApplication().delegate as? AppDelegate)?.refreshProjects()
-//            self.projectsStore.refreshProjects()
-        }
     }
     
     func updateApiKey(apiKey: String) {

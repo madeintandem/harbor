@@ -27,6 +27,7 @@ class SettingsManager {
     var apiKey: String {
         didSet {
             KeychainWrapper.setString(self.apiKey, forKey: Key.ApiKey.rawValue)
+            self.postNotification(.ApiKey)
         }
     }
     
@@ -70,6 +71,7 @@ class SettingsManager {
 extension SettingsManager {
     
     internal enum NotificationName: String {
+        case ApiKey             =   "ApiKey"
         case RefreshRate        =   "RefreshRate"
         case DisabledProjects   =   "DisabledProjects"
     }

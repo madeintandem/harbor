@@ -22,8 +22,12 @@ class ProjectsProvider {
         self.projects  = [Project]()
         self.listeners = [ProjectHandler]()
         
-        self.settingsManager.observeNotification(.DisabledProjects) { notification in
-            self.didRefreshProjects(self.projects)
+        self.settingsManager.observeNotification(.ApiKey) { _ in
+            self.refreshProjects()
+        }
+        
+        self.settingsManager.observeNotification(.DisabledProjects) { _ in
+            self.refreshCurrentProjects()
         }
     }
     
@@ -33,13 +37,11 @@ class ProjectsProvider {
         })
     }
     
-    func addHandler(aHandler: ProjectHandler){
-        self.listeners.append(aHandler)
-        aHandler(self.projects)
+    func refreshCurrentProjects() {
+        self.didRefreshProjects(self.projects)
     }
     
     func didRefreshProjects(projects: [Project]){
-        
         // update our projects hidden state appropriately according to the user settings
         for project in projects {
             project.isEnabled = !self.settingsManager.disabledProjectIds.contains(project.id)
@@ -51,4 +53,10 @@ class ProjectsProvider {
             listener(projects)
         }
     }
+    
+    func addHandler(aHandler: ProjectHandler){
+        self.listeners.append(aHandler)
+        aHandler(self.projects)
+    }
+    
 }
