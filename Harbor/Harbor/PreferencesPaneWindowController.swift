@@ -130,5 +130,4 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
             self.presenter.toggleEnabledStateForProjectAtIndex(row)
         }
     }
-    
 }

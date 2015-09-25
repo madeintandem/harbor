@@ -131,12 +131,7 @@ class PreferencesPresenter {
 
     private func refreshProjects(projects: [Project]) {
         self.allProjects = projects
-        
-        // update our projects hidden state appropriately according to the user settings
-        for project in self.allProjects {
-            project.isEnabled = !self.settingsManager.disabledProjectIds.contains(project.id)
-        }
-        
+                
         // notify the view that the projects refreshed
         self.view.updateProjects(self.allProjects)
     }

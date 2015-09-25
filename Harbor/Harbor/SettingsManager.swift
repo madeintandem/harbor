@@ -15,7 +15,7 @@ class SettingsManager {
         case RefreshRate        =   "RefreshRate"
         case DisabledProjects   =   "DisabledProjects"
     }
-    
+
     static let instance = SettingsManager()
 
     //
@@ -33,12 +33,14 @@ class SettingsManager {
     var refreshRate: Double {
         didSet {
             self.defaults.setDouble(self.refreshRate, forKey: Key.RefreshRate.rawValue)
+            self.postNotification(.RefreshRate)
         }
     }
     
     var disabledProjectIds: [Int] {
         didSet {
-            defaults.setObject(self.disabledProjectIds, forKey: Key.DisabledProjects.rawValue)
+            self.defaults.setObject(self.disabledProjectIds, forKey: Key.DisabledProjects.rawValue)
+            self.postNotification(.DisabledProjects)
         }
     }
     
@@ -57,6 +59,27 @@ class SettingsManager {
         } else {
             self.apiKey = ""
         }
+    }
+    
+}
+
+//
+// MARK: Notifications
+//
+
+extension SettingsManager {
+    
+    internal enum NotificationName: String {
+        case RefreshRate        =   "RefreshRate"
+        case DisabledProjects   =   "DisabledProjects"
+    }
+    
+    func observeNotification(notification: SettingsManager.NotificationName, handler: (NSNotification -> Void)) -> NSObjectProtocol {
+        return NSNotificationCenter.defaultCenter().addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
+    }
+    
+    private func postNotification(notification: SettingsManager.NotificationName) {
+        NSNotificationCenter.defaultCenter().postNotificationName(notification.rawValue, object: nil)
     }
     
 }
