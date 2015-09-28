@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsManager {
+public class SettingsManager {
     
     private enum Key: String {
         case ApiKey             =   "ApiKey"
@@ -16,37 +16,39 @@ class SettingsManager {
         case DisabledProjects   =   "DisabledProjects"
     }
 
-    static let instance = SettingsManager()
+    static let instance: SettingsManager = SettingsManager(
+        userDefaults: NSUserDefaults.standardUserDefaults()
+    )
 
     //
     // MARK: Properties
     //
     
-    private var defaults: NSUserDefaults
+    private var defaults: UserDefaults
     
-    var apiKey: String {
+    public var apiKey: String {
         didSet {
             KeychainWrapper.setString(self.apiKey, forKey: Key.ApiKey.rawValue)
             self.postNotification(.ApiKey)
         }
     }
     
-    var refreshRate: Double {
+    public var refreshRate: Double {
         didSet {
             self.defaults.setDouble(self.refreshRate, forKey: Key.RefreshRate.rawValue)
             self.postNotification(.RefreshRate)
         }
     }
     
-    var disabledProjectIds: [Int] {
+    public var disabledProjectIds: [Int] {
         didSet {
             self.defaults.setObject(self.disabledProjectIds, forKey: Key.DisabledProjects.rawValue)
             self.postNotification(.DisabledProjects)
         }
     }
     
-    private init() {
-        self.defaults    = NSUserDefaults.standardUserDefaults()
+    public init(userDefaults: UserDefaults) {
+        self.defaults    = userDefaults
         self.refreshRate = self.defaults.doubleForKey(Key.RefreshRate.rawValue)
         
         if let disabledProjectIds = self.defaults.objectForKey(Key.DisabledProjects.rawValue) as? [Int]{

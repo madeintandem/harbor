@@ -61,7 +61,7 @@ public class KeychainWrapper {
         set(newServiceName) {
             internalVars.serviceName = newServiceName
         }
-    }
+    } 
     
     /// AccessGroup is used for the kSecAttrAccessGroup property to identify which Keychain Access Group this entry belongs to. This allows you to use the KeychainWrapper with shared keychain access between different applications.
     ///
