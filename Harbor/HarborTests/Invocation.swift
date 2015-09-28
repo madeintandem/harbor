@@ -6,6 +6,7 @@
 //  Copyright © 2015 DevMynd. All rights reserved.
 //
 
+import Harbor
 import Nimble
 
 protocol MethodType : Equatable {
@@ -23,6 +24,18 @@ struct Invocation<M: MethodType, T> {
     }
     
 }
+
+//
+// MARK: Convenience Initializers
+//
+
+let notificationInvocation = { (method: MockNotificationCenter.Method, name: SettingsManager.NotificationName) in
+    return Invocation(method, name.rawValue)
+}
+
+//
+// MARK: Nimble Matchers
+//
 
 func match<M, T, O: Equatable>(expected: Invocation<M, O>) -> NonNilMatcherFunc<Invocation<M, T>> {
     return matcher(expected) { actual, expected in

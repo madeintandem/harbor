@@ -8,26 +8,35 @@
 
 import Foundation
 
-class TimerCoordinator : NSObject {
+public class TimerCoordinator : NSObject {
 
-    static let instance = TimerCoordinator()
+    static let instance = TimerCoordinator(
+        runLoop:          NSRunLoop.mainRunLoop(),
+        projectsProvider: ProjectsProvider.instance,
+        settingsManager:  SettingsManager.instance
+    )
     
     //
     // MARK: Dependencies
     //
     
-    let projectsStore =     ProjectsProvider.instance
-    let currentRunLoop =    NSRunLoop.currentRunLoop()
-    let settingsManager =   SettingsManager.instance
+    var currentRunLoop:   RunLoop!          = nil
+    var projectsProvider: ProjectsProvider! = nil
+    var settingsManager:  SettingsManager!  = nil
     
     //
     // MARK: Properties
     //
     
-    var currentTimer: NSTimer?
+    private var currentTimer: NSTimer?
     
-    override init(){
+    public init(runLoop: RunLoop, projectsProvider: ProjectsProvider, settingsManager: SettingsManager) {
+        self.currentRunLoop   = runLoop
+        self.projectsProvider = projectsProvider
+        self.settingsManager  = settingsManager
+        
         super.init()
+        
         settingsManager.observeNotification(.RefreshRate) { notification in
             self.startTimer()
         }
@@ -37,23 +46,26 @@ class TimerCoordinator : NSObject {
     // MARK: Scheduling
     //
     
-    func startTimer() {
-        self.setupTimer(self.settingsManager.refreshRate)
+    public func startTimer() -> NSTimer? {
+        return self.setupTimer(self.settingsManager.refreshRate)
     }
     
-    func setupTimer(refreshRate: Double) {
-        // cancel current time if necessary
+    private func setupTimer(refreshRate: Double) -> NSTimer? {
+        // cancel current timer if necessary
         self.currentTimer?.invalidate()
+        self.currentTimer = nil
         
         if !refreshRate.isZero {
             self.currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:"handleUpdateTimer:", userInfo: nil, repeats: true)
             self.currentRunLoop.addTimer(self.currentTimer!, forMode: NSDefaultRunLoopMode)
         }
+        
+        return self.currentTimer
     }
     
-    func handleUpdateTimer(timer: NSTimer) {
+    private func handleUpdateTimer(timer: NSTimer) {
         if(timer == self.currentTimer) {
-            self.projectsStore.refreshProjects()
+            self.projectsProvider.refreshProjects()
             print("updating projects")
         }
     }

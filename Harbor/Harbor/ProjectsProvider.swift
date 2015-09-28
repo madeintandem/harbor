@@ -10,9 +10,9 @@ import Foundation
 
 typealias ProjectHandler = ([Project] -> Void)
 
-class ProjectsProvider {
+public class ProjectsProvider {
     
-    static let instance = ProjectsProvider()
+    public static let instance = ProjectsProvider()
     
     private var projects:  [Project]
     private var listeners: [ProjectHandler]

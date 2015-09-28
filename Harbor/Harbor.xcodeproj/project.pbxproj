@@ -16,6 +16,10 @@
 		D01093C41BB5DB33002D5794 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093C31BB5DB33002D5794 /* MockUserDefaults.swift */; settings = {ASSET_TAGS = (); }; };
 		D01093C71BB5F05E002D5794 /* Invocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093C61BB5F05E002D5794 /* Invocation.swift */; settings = {ASSET_TAGS = (); }; };
 		D0458F4E1BB9B83000DCC4A6 /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F4D1BB9B83000DCC4A6 /* MockNotificationCenter.swift */; settings = {ASSET_TAGS = (); }; };
+		D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift */; settings = {ASSET_TAGS = (); }; };
+		D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */; settings = {ASSET_TAGS = (); }; };
+		D0458F541BB9CA5500DCC4A6 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F531BB9CA5500DCC4A6 /* Examples.swift */; settings = {ASSET_TAGS = (); }; };
+		D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */; settings = {ASSET_TAGS = (); }; };
 		D06054251B57F880007A5F81 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06054241B57F880007A5F81 /* Playground.swift */; };
 		D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0B1B3C437800031FB9 /* AppDelegate.swift */; };
 		D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0D1B3C437800031FB9 /* Harbor.xcdatamodeld */; };
@@ -86,6 +90,10 @@
 		D01093C31BB5DB33002D5794 /* MockUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		D01093C61BB5F05E002D5794 /* Invocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invocation.swift; sourceTree = "<group>"; };
 		D0458F4D1BB9B83000DCC4A6 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
+		D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCoordinatorTests.swift; sourceTree = "<group>"; };
+		D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunLoop.swift; sourceTree = "<group>"; };
+		D0458F531BB9CA5500DCC4A6 /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRunLoop.swift; sourceTree = "<group>"; };
 		D06054241B57F880007A5F81 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		D0772F081B3C437800031FB9 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0772F0B1B3C437800031FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				D01093BB1BB5B3D7002D5794 /* SettingsManagerTests.swift */,
+				D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -204,6 +213,7 @@
 				D01093C31BB5DB33002D5794 /* MockUserDefaults.swift */,
 				D0AB5CE41BB9A31100F57790 /* MockKeychain.swift */,
 				D0458F4D1BB9B83000DCC4A6 /* MockNotificationCenter.swift */,
+				D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -212,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				D01093C61BB5F05E002D5794 /* Invocation.swift */,
+				D0458F531BB9CA5500DCC4A6 /* Examples.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 				D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */,
 				D01093C01BB5D93D002D5794 /* UserDefaults.swift */,
 				D01093BE1BB5D932002D5794 /* NotificationCenter.swift */,
+				D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -652,6 +664,7 @@
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
 				D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */,
+				D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */,
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */,
 				D0C002C71BB48801006A058C /* SettingsManager.swift in Sources */,
@@ -668,11 +681,14 @@
 			files = (
 				D0772F1F1B3C437800031FB9 /* HarborTests.swift in Sources */,
 				D0458F4E1BB9B83000DCC4A6 /* MockNotificationCenter.swift in Sources */,
+				D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift in Sources */,
 				D01093C71BB5F05E002D5794 /* Invocation.swift in Sources */,
 				D01093C41BB5DB33002D5794 /* MockUserDefaults.swift in Sources */,
 				D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */,
+				D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */,
 				D01093BC1BB5B3D7002D5794 /* SettingsManagerTests.swift in Sources */,
 				D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */,
+				D0458F541BB9CA5500DCC4A6 /* Examples.swift in Sources */,
 				D0AB5CE51BB9A31100F57790 /* MockKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
