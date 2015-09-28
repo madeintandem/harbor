@@ -31,6 +31,7 @@
 		D08EAB3C1B98A60A009564CE /* codeshipLogo_red@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB381B98A60A009564CE /* codeshipLogo_red@2px.png */; settings = {ASSET_TAGS = (); }; };
 		D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EAB3D1B98D5C8009564CE /* BuildView.swift */; settings = {ASSET_TAGS = (); }; };
 		D08EAB411B98D5EA009564CE /* BuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB401B98D5EA009564CE /* BuildView.xib */; settings = {ASSET_TAGS = (); }; };
+		D0AB5CE51BB9A31100F57790 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB5CE41BB9A31100F57790 /* MockKeychain.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B177711B9611400055ECC6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B177701B9611400055ECC6 /* Alamofire.framework */; };
 		D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */; settings = {ASSET_TAGS = (); }; };
@@ -107,6 +108,7 @@
 		D08EAB401B98D5EA009564CE /* BuildView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildView.xib; sourceTree = "<group>"; };
 		D0A3E7501B73AC51006E4350 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Pods/../build/Release/Alamofire.framework; sourceTree = "<group>"; };
 		D0A3E7521B73AC57006E4350 /* OCMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMapper.framework; path = Pods/../build/Debug/OCMapper.framework; sourceTree = "<group>"; };
+		D0AB5CE41BB9A31100F57790 /* MockKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		D0B177701B9611400055ECC6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Harbor-heejklmuxvludkgdxatbozvazkoh/Build/Products/Debug/Alamofire.framework"; sourceTree = "<group>"; };
 		D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				D01093C31BB5DB33002D5794 /* MockUserDefaults.swift */,
+				D0AB5CE41BB9A31100F57790 /* MockKeychain.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */,
 				D01093BC1BB5B3D7002D5794 /* SettingsManagerTests.swift in Sources */,
 				D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */,
+				D0AB5CE51BB9A31100F57790 /* MockKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,33 +8,37 @@
 
 import Nimble
 
-struct Invocation<T> {
+protocol MethodType : Equatable {
     
-    let method: Method
+}
+
+struct Invocation<M: MethodType, T> {
+    
+    let method: M
     let value:  T?
     
-    init(_ method: Method, _ value: T?) {
+    init(_ method: M, _ value: T?) {
         self.method = method
         self.value  = value
     }
     
 }
 
-func match<T, O: Equatable>(expected: Invocation<O>) -> NonNilMatcherFunc<Invocation<T>> {
+func match<M, T, O: Equatable>(expected: Invocation<M, O>) -> NonNilMatcherFunc<Invocation<M, T>> {
     return matcher(expected) { actual, expected in
         // if the force cast to the expected type fails, the test should fail anyways
         return (actual as! O?) == expected
     }
 }
 
-func match<T, O: Equatable>(expected: Invocation<[O]>) -> NonNilMatcherFunc<Invocation<T>> {
+func match<M, T, O: Equatable>(expected: Invocation<M, [O]>) -> NonNilMatcherFunc<Invocation<M, T>> {
     return matcher(expected) { actual, expected in
         // if the force cast to the expected type fails, the test should fail anyways
         return (actual as! [O]).elementsEqual(expected!)
     }
 }
 
-private func matcher<T, O>(expected: Invocation<O>, comparator: (T?, O?) -> Bool) -> NonNilMatcherFunc<Invocation<T>> {
+private func matcher<M, T, O>(expected: Invocation<M, O>, comparator: (T?, O?) -> Bool) -> NonNilMatcherFunc<Invocation<M, T>> {
     return NonNilMatcherFunc { actualExpression, failureMessage in
         var result = false
         

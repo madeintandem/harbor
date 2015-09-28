@@ -8,17 +8,17 @@
 
 import Harbor
 
-enum Method {
-    case SetObject
-    case ObjectForKey
-    case SetDouble
-    case DoubleForKey
-}
-
 class MockUserDefaults : UserDefaults {
     
-    var objectInvocation: Invocation<AnyObject>?
-    var doubleInvocation: Invocation<Double>?
+    enum Method : MethodType {
+        case SetObject
+        case ObjectForKey
+        case SetDouble
+        case DoubleForKey
+    }
+    
+    var objectInvocation: Invocation<Method, AnyObject>?
+    var doubleInvocation: Invocation<Method, Double>?
     
     func setObject(object: AnyObject?, forKey key: String) {
         self.objectInvocation = Invocation(.SetObject, object)

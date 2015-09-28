@@ -38,8 +38,13 @@ let SecAttrGeneric: String! = kSecAttrGeneric as String
 let SecAttrAccount: String! = kSecAttrAccount as String
 let SecAttrAccessGroup: String! = kSecAttrAccessGroup as String
 
+public protocol Keychain {
+    func setString(value: String, forKey keyName: String) -> Bool
+    func stringForKey(keyName: String) -> String?
+}
+
 /// KeychainWrapper is a class to help make Keychain access in Swift more straightforward. It is designed to make accessing the Keychain services more like using NSUserDefaults, which is much more familiar to people.
-public class KeychainWrapper {
+public class KeychainWrapper : Keychain {
     // MARK: Private static Properties
     private struct internalVars {
         static var serviceName: String = "HarborApp"
@@ -79,25 +84,12 @@ public class KeychainWrapper {
     
     // MARK: Public Methods
     
-    /// Checks if keychain data exists for a specified key.
-    ///
-    /// :param: keyName The key to check for.
-    /// :returns: True if a value exists for the key. False otherwise.
-    public class func hasValueForKey(keyName: String) -> Bool {
-        let keychainData: NSData? = self.dataForKey(keyName)
-        if keychainData != nil {
-            return true
-        } else {
-            return false
-        }
-    }
-    
     /// Returns a string value for a specified key.
     ///
     /// :param: keyName The key to lookup data for.
     /// :returns: The String associated with the key if it exists. If no data exists, or the data found cannot be encoded as a string, returns nil.
-    public class func stringForKey(keyName: String) -> String? {
-        let keychainData: NSData? = self.dataForKey(keyName)
+    public func stringForKey(keyName: String) -> String? {
+        let keychainData: NSData? = KeychainWrapper.dataForKey(keyName)
         var stringValue: String?
         if let data = keychainData {
             stringValue = NSString(data: data, encoding: NSUTF8StringEncoding) as String?
@@ -151,9 +143,9 @@ public class KeychainWrapper {
     /// :param: value The String value to save.
     /// :param: forKey The key to save the String under.
     /// :returns: True if the save was successful, false otherwise.
-    public class func setString(value: String, forKey keyName: String) -> Bool {
+    public func setString(value: String, forKey keyName: String) -> Bool {
         if let data = value.dataUsingEncoding(NSUTF8StringEncoding) {
-            return self.setData(data, forKey: keyName)
+            return KeychainWrapper.setData(data, forKey: keyName)
         } else {
             return false
         }

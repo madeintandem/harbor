@@ -16,11 +16,17 @@ class SettingsManagerTests: QuickSpec { override func spec() {
 
         var subject:  SettingsManager!  = nil
         var defaults: MockUserDefaults! = nil
+        var keychain: MockKeychain! = nil
+        
+        let buildSettingsManager = {
+            defaults = MockUserDefaults()
+            keychain = MockKeychain()
+            subject  = SettingsManager(userDefaults: defaults, keychain: keychain)
+        }
         
         describe("the refresh rate") {
             beforeEach {
-                defaults = MockUserDefaults()
-                subject  = SettingsManager(userDefaults: defaults)
+                buildSettingsManager()
             }
             
             it("updates its refresh rate") {
@@ -31,7 +37,7 @@ class SettingsManagerTests: QuickSpec { override func spec() {
             }
             
             it("sends the user defaults the given rate"){
-                let invocation  = Invocation(.SetDouble, 60.0)
+                let invocation  = Invocation(MockUserDefaults.Method.SetDouble, 60.0)
                 
                 subject.refreshRate = invocation.value!
                 expect(defaults.doubleInvocation).to(match(invocation))
@@ -47,8 +53,7 @@ class SettingsManagerTests: QuickSpec { override func spec() {
             let apiKey = "9900alk00sd52fjsadlkjfsal"
             
             beforeEach {
-                defaults = MockUserDefaults()
-                subject  = SettingsManager(userDefaults: defaults)
+                buildSettingsManager()
             }
             
             it("updates its API Key") {
@@ -56,8 +61,11 @@ class SettingsManagerTests: QuickSpec { override func spec() {
                 expect(subject.apiKey).to(equal(apiKey))
             }
             
-            xit("sets the API Key in the keychain"){
-             
+            it("sets the API Key in the keychain"){
+                let invocation = Invocation(MockKeychain.Method.SetString, apiKey)
+                
+                subject.apiKey = apiKey
+                expect(keychain.invocation).to(match(invocation))
             }
             
             xit("posts a notification") {
@@ -70,8 +78,7 @@ class SettingsManagerTests: QuickSpec { override func spec() {
             let disabledProjectIds = [3, 17, 23, 50]
             
             beforeEach {
-                defaults = MockUserDefaults()
-                subject  = SettingsManager(userDefaults: defaults)
+                buildSettingsManager()
             }
             
             it("updates its disabled projects") {
@@ -80,7 +87,7 @@ class SettingsManagerTests: QuickSpec { override func spec() {
             }
             
             it("sends user defaults the disabled project id array"){
-                let invocation = Invocation(.SetObject, disabledProjectIds)
+                let invocation = Invocation(MockUserDefaults.Method.SetObject, disabledProjectIds)
                 
                 subject.disabledProjectIds = disabledProjectIds
                 expect(defaults.objectInvocation).to(match(invocation))

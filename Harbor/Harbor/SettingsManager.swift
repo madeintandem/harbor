@@ -17,18 +17,20 @@ public class SettingsManager {
     }
 
     static let instance: SettingsManager = SettingsManager(
-        userDefaults: NSUserDefaults.standardUserDefaults()
+        userDefaults: NSUserDefaults.standardUserDefaults(),
+        keychain: KeychainWrapper()
     )
 
     //
     // MARK: Properties
     //
     
-    private var defaults: UserDefaults
+    private let defaults: UserDefaults
+    private let keychain: Keychain
     
     public var apiKey: String {
         didSet {
-            KeychainWrapper.setString(self.apiKey, forKey: Key.ApiKey.rawValue)
+            keychain.setString(self.apiKey, forKey: Key.ApiKey.rawValue)
             self.postNotification(.ApiKey)
         }
     }
@@ -47,8 +49,9 @@ public class SettingsManager {
         }
     }
     
-    public init(userDefaults: UserDefaults) {
+    public init(userDefaults: UserDefaults, keychain: Keychain) {
         self.defaults    = userDefaults
+        self.keychain    = keychain
         self.refreshRate = self.defaults.doubleForKey(Key.RefreshRate.rawValue)
         
         if let disabledProjectIds = self.defaults.objectForKey(Key.DisabledProjects.rawValue) as? [Int]{
@@ -57,7 +60,7 @@ public class SettingsManager {
             self.disabledProjectIds = [Int]()
         }
         
-        if let apiKey = KeychainWrapper.stringForKey(Key.ApiKey.rawValue) {
+        if let apiKey = keychain.stringForKey(Key.ApiKey.rawValue) {
             self.apiKey = apiKey
         } else {
             self.apiKey = ""
