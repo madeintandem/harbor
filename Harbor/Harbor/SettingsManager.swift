@@ -18,15 +18,17 @@ public class SettingsManager {
 
     static let instance: SettingsManager = SettingsManager(
         userDefaults: NSUserDefaults.standardUserDefaults(),
-        keychain: KeychainWrapper()
+        keychain: KeychainWrapper(),
+        notificationCenter: NSNotificationCenter.defaultCenter()
     )
 
     //
     // MARK: Properties
     //
     
-    private let defaults: UserDefaults
-    private let keychain: Keychain
+    private let defaults:           UserDefaults
+    private let keychain:           Keychain
+    private let notificationCenter: NotificationCenter
     
     public var apiKey: String {
         didSet {
@@ -49,9 +51,11 @@ public class SettingsManager {
         }
     }
     
-    public init(userDefaults: UserDefaults, keychain: Keychain) {
-        self.defaults    = userDefaults
-        self.keychain    = keychain
+    public init(userDefaults: UserDefaults, keychain: Keychain, notificationCenter: NotificationCenter) {
+        self.defaults           = userDefaults
+        self.keychain           = keychain
+        self.notificationCenter = notificationCenter
+
         self.refreshRate = self.defaults.doubleForKey(Key.RefreshRate.rawValue)
         
         if let disabledProjectIds = self.defaults.objectForKey(Key.DisabledProjects.rawValue) as? [Int]{
@@ -75,18 +79,18 @@ public class SettingsManager {
 
 extension SettingsManager {
     
-    internal enum NotificationName: String {
+    public enum NotificationName: String {
         case ApiKey             =   "ApiKey"
         case RefreshRate        =   "RefreshRate"
         case DisabledProjects   =   "DisabledProjects"
     }
     
     func observeNotification(notification: SettingsManager.NotificationName, handler: (NSNotification -> Void)) -> NSObjectProtocol {
-        return NSNotificationCenter.defaultCenter().addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
+        return self.notificationCenter.addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
     }
     
     private func postNotification(notification: SettingsManager.NotificationName) {
-        NSNotificationCenter.defaultCenter().postNotificationName(notification.rawValue, object: nil)
+        self.notificationCenter.postNotificationName(notification.rawValue, object: nil)
     }
     
 }

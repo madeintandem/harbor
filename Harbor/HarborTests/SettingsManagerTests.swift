@@ -14,14 +14,20 @@ class SettingsManagerTests: QuickSpec { override func spec() {
 
     describe("Properties") {
 
-        var subject:  SettingsManager!  = nil
-        var defaults: MockUserDefaults! = nil
-        var keychain: MockKeychain! = nil
+        var subject:            SettingsManager!  = nil
+        var defaults:           MockUserDefaults! = nil
+        var keychain:           MockKeychain! = nil
+        var notificationCenter: MockNotificationCenter! = nil
         
         let buildSettingsManager = {
             defaults = MockUserDefaults()
             keychain = MockKeychain()
-            subject  = SettingsManager(userDefaults: defaults, keychain: keychain)
+            notificationCenter = MockNotificationCenter()
+            subject  = SettingsManager(userDefaults: defaults, keychain: keychain, notificationCenter: notificationCenter)
+        }
+        
+        let notificationInvocation = { (method: MockNotificationCenter.Method, name: SettingsManager.NotificationName) in
+            return Invocation(method, name.rawValue)
         }
         
         describe("the refresh rate") {
@@ -43,8 +49,11 @@ class SettingsManagerTests: QuickSpec { override func spec() {
                 expect(defaults.doubleInvocation).to(match(invocation))
             }
             
-            xit("posts a notification") {
+            it("posts a notification") {
+                let invocation = notificationInvocation(.PostNotificationName, .RefreshRate)
                 
+                subject.refreshRate = 60.0
+                expect(notificationCenter.invocation).to(match(invocation))
             }
             
         }
@@ -68,8 +77,11 @@ class SettingsManagerTests: QuickSpec { override func spec() {
                 expect(keychain.invocation).to(match(invocation))
             }
             
-            xit("posts a notification") {
+            it("posts a notification") {
+                let invocation = notificationInvocation(.PostNotificationName, .ApiKey)
                 
+                subject.apiKey = apiKey
+                expect(notificationCenter.invocation).to(match(invocation))
             }
             
         }
@@ -93,26 +105,13 @@ class SettingsManagerTests: QuickSpec { override func spec() {
                 expect(defaults.objectInvocation).to(match(invocation))
             }
             
-            xit("posts a notification") {
+            it("posts a notification") {
+                let invocation = notificationInvocation(.PostNotificationName, .DisabledProjects)
                 
+                subject.disabledProjectIds = disabledProjectIds
+                expect(notificationCenter.invocation).to(match(invocation))
             }
             
         }
-    }
-    
-        //
-//        describe("the 'Documentation' directory") {
-//            it("has everything you need to get started") {
-//                let sections = Directory("Documentation").sections
-//                expect(sections).to(contain("Organized Tests with Quick Examples and Example Groups"))
-//                expect(sections).to(contain("Installing Quick"))
-//            }
-//            
-//            context("if it doesn't have what you're looking for") {
-//                it("needs to be updated") {
-//                    let you = You(awesome: true)
-//                    expect{you.submittedAnIssue}.toEventually(beTruthy())
-//                }
-//            }
-//        }
+    }    
 } }
