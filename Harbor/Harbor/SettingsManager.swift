@@ -77,7 +77,7 @@ public class SettingsManager {
 // MARK: Notifications
 //
 
-extension SettingsManager {
+public extension SettingsManager {
     
     public enum NotificationName: String {
         case ApiKey             =   "ApiKey"

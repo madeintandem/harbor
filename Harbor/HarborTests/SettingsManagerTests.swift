@@ -12,28 +12,25 @@ import Harbor
 
 class SettingsManagerTests: QuickSpec { override func spec() {
 
+    var subject:            SettingsManager!  = nil
+    var defaults:           MockUserDefaults! = nil
+    var keychain:           MockKeychain! = nil
+    var notificationCenter: MockNotificationCenter! = nil
+    
+    let notificationInvocation = { (method: MockNotificationCenter.Method, name: SettingsManager.NotificationName) in
+        return Invocation(method, name.rawValue)
+    }
+    
+    beforeEach {
+        defaults = MockUserDefaults()
+        keychain = MockKeychain()
+        notificationCenter = MockNotificationCenter()
+        subject  = SettingsManager(userDefaults: defaults, keychain: keychain, notificationCenter: notificationCenter)
+    }
+    
     describe("Properties") {
 
-        var subject:            SettingsManager!  = nil
-        var defaults:           MockUserDefaults! = nil
-        var keychain:           MockKeychain! = nil
-        var notificationCenter: MockNotificationCenter! = nil
-        
-        let buildSettingsManager = {
-            defaults = MockUserDefaults()
-            keychain = MockKeychain()
-            notificationCenter = MockNotificationCenter()
-            subject  = SettingsManager(userDefaults: defaults, keychain: keychain, notificationCenter: notificationCenter)
-        }
-        
-        let notificationInvocation = { (method: MockNotificationCenter.Method, name: SettingsManager.NotificationName) in
-            return Invocation(method, name.rawValue)
-        }
-        
         describe("the refresh rate") {
-            beforeEach {
-                buildSettingsManager()
-            }
             
             it("updates its refresh rate") {
                 let refreshRate = 60.0
@@ -61,10 +58,6 @@ class SettingsManagerTests: QuickSpec { override func spec() {
         describe("the API Key") {
             let apiKey = "9900alk00sd52fjsadlkjfsal"
             
-            beforeEach {
-                buildSettingsManager()
-            }
-            
             it("updates its API Key") {
                 subject.apiKey = apiKey
                 expect(subject.apiKey).to(equal(apiKey))
@@ -89,10 +82,6 @@ class SettingsManagerTests: QuickSpec { override func spec() {
         describe("the disabled projects array") {
             let disabledProjectIds = [3, 17, 23, 50]
             
-            beforeEach {
-                buildSettingsManager()
-            }
-            
             it("updates its disabled projects") {
                 subject.disabledProjectIds = disabledProjectIds
                 expect(subject.disabledProjectIds).to(equal(disabledProjectIds))
@@ -113,5 +102,44 @@ class SettingsManagerTests: QuickSpec { override func spec() {
             }
             
         }
-    }    
+        
+    }
+    
+    describe("notification extension") {
+        describe("observeNotification") {
+            it("should add an observer to notification center"){
+                let notification = SettingsManager.NotificationName.ApiKey
+                let invocation   = notificationInvocation(.AddObserverForName, notification)
+                
+                subject.observeNotification(notification, handler: { _ in })
+                expect(notificationCenter.invocation).to(match(invocation))
+            }
+        }
+    }
+    
+    describe("initializer"){
+        it("retrieves the correct API Key"){
+            let apiKey = "12903jasjfd0aj21"
+            subject.apiKey = apiKey
+            
+            let local = SettingsManager(userDefaults: defaults, keychain: keychain, notificationCenter: notificationCenter)
+            expect(local.apiKey).to(equal(apiKey))
+        }
+        
+        it("retrieves the correct refresh rate"){
+            let refreshRate = 60.0
+            subject.refreshRate = refreshRate
+            
+            let local = SettingsManager(userDefaults: defaults, keychain: keychain, notificationCenter: notificationCenter)
+            expect(local.refreshRate).to(equal(refreshRate))
+        }
+        
+        it("retrieves the correct disabled project ids"){
+            let disabledProjectIds = [1, 2, 3, 4]
+            subject.disabledProjectIds = disabledProjectIds
+            
+            let local = SettingsManager(userDefaults: defaults, keychain: keychain, notificationCenter: notificationCenter)
+            expect(local.disabledProjectIds).to(equal(disabledProjectIds))
+        }
+    }
 } }
