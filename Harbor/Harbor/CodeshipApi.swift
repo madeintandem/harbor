@@ -8,13 +8,21 @@
 
 import Alamofire
 
-class CodeshipApi {
+public protocol CodeshipApiType {
+    func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->())
+}
+
+public class CodeshipApi : CodeshipApiType {
     
     static let apiRootPath = "https://codeship.com/api/v1/projects.json?api_key="
     
-    class func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->()){
+    public init(){
+        
+    }
+    
+    public func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->()){
         let apiKey = SettingsManager.instance.apiKey
-        let apiURL = "\(apiRootPath)\(apiKey)"
+        let apiURL = "\(CodeshipApi.apiRootPath)\(apiKey)"
         
         Alamofire.request(.GET, apiURL).responseCollection{(_, _, result: Result<[Project]> ) in
             

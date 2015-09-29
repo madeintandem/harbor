@@ -8,8 +8,7 @@
 
 import Quick
 import Nimble
-import Harbor
-import Foundation
+@testable import Harbor
 
 class TimerCoordinatorTests : QuickSpec { override func spec() {
     

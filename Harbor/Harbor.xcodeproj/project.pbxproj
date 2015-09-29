@@ -43,6 +43,8 @@
 		D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */; settings = {ASSET_TAGS = (); }; };
 		D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */; settings = {ASSET_TAGS = (); }; };
 		D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */; settings = {ASSET_TAGS = (); }; };
+		D0B1E16C1BB9E74D009D0151 /* ProjectsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1E16B1BB9E74D009D0151 /* ProjectsProviderTests.swift */; settings = {ASSET_TAGS = (); }; };
+		D0B1E16E1BB9EA4C009D0151 /* MockCodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1E16D1BB9EA4C009D0151 /* MockCodeshipApi.swift */; settings = {ASSET_TAGS = (); }; };
 		D0C002C11BB3472B006A058C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C01BB3472B006A058C /* TextField.swift */; settings = {ASSET_TAGS = (); }; };
 		D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C21BB35114006A058C /* PreferencesPresenter.swift */; settings = {ASSET_TAGS = (); }; };
 		D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C41BB35136006A058C /* PreferencesView.swift */; settings = {ASSET_TAGS = (); }; };
@@ -125,6 +127,8 @@
 		D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
 		D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
+		D0B1E16B1BB9E74D009D0151 /* ProjectsProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsProviderTests.swift; sourceTree = "<group>"; };
+		D0B1E16D1BB9EA4C009D0151 /* MockCodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCodeshipApi.swift; sourceTree = "<group>"; };
 		D0C002C01BB3472B006A058C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		D0C002C21BB35114006A058C /* PreferencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPresenter.swift; sourceTree = "<group>"; };
 		D0C002C41BB35136006A058C /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			children = (
 				D01093BB1BB5B3D7002D5794 /* SettingsManagerTests.swift */,
 				D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift */,
+				D0B1E16B1BB9E74D009D0151 /* ProjectsProviderTests.swift */,
 			);
 			name = Interactors;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				D0AB5CE41BB9A31100F57790 /* MockKeychain.swift */,
 				D0458F4D1BB9B83000DCC4A6 /* MockNotificationCenter.swift */,
 				D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */,
+				D0B1E16D1BB9EA4C009D0151 /* MockCodeshipApi.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -680,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0772F1F1B3C437800031FB9 /* HarborTests.swift in Sources */,
+				D0B1E16E1BB9EA4C009D0151 /* MockCodeshipApi.swift in Sources */,
 				D0458F4E1BB9B83000DCC4A6 /* MockNotificationCenter.swift in Sources */,
 				D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift in Sources */,
 				D01093C71BB5F05E002D5794 /* Invocation.swift in Sources */,
@@ -689,6 +696,7 @@
 				D01093BC1BB5B3D7002D5794 /* SettingsManagerTests.swift in Sources */,
 				D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */,
 				D0458F541BB9CA5500DCC4A6 /* Examples.swift in Sources */,
+				D0B1E16C1BB9E74D009D0151 /* ProjectsProviderTests.swift in Sources */,
 				D0AB5CE51BB9A31100F57790 /* MockKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

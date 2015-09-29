@@ -6,7 +6,7 @@
 //  Copyright © 2015 DevMynd. All rights reserved.
 //
 
-import Harbor
+@testable import Harbor
 
 struct SettingsManagerExample {
     
@@ -47,5 +47,20 @@ struct TimerCoordinatorExample {
         
         self.subject = TimerCoordinator(runLoop: runLoop, projectsProvider: projectsProvider, settingsManager: settingsManager)
     }
-    
+}
+
+struct ProjectsProviderExample {
+    let subject:           ProjectsProvider
+    let settingsManager:   SettingsManager
+    let codeshipApi:       MockCodeshipApi
+    let notifcationCenter: MockNotificationCenter
+
+    init(){
+        let settingsExample = SettingsManagerExample()
+        
+        self.settingsManager   = settingsExample.subject
+        self.notifcationCenter = settingsExample.notificationCenter
+        self.codeshipApi       = MockCodeshipApi()
+        self.subject           = ProjectsProvider(codeshipApi: self.codeshipApi, settingsManager: self.settingsManager)
+    }
 }

@@ -10,17 +10,23 @@ import Foundation
 
 typealias ProjectHandler = ([Project] -> Void)
 
-public class ProjectsProvider {
+class ProjectsProvider {
     
-    public static let instance = ProjectsProvider()
+    static let instance = ProjectsProvider(
+        codeshipApi: CodeshipApi(),
+        settingsManager: SettingsManager.instance
+    )
     
     private var projects:  [Project]
     private var listeners: [ProjectHandler]
-    private let settingsManager = SettingsManager.instance
+    private let settingsManager: SettingsManager
+    private let codeshipApi: CodeshipApiType
     
-    init() {
-        self.projects  = [Project]()
-        self.listeners = [ProjectHandler]()
+    init(codeshipApi: CodeshipApiType, settingsManager: SettingsManager) {
+        self.projects  =   [Project]()
+        self.listeners =   [ProjectHandler]()
+        self.codeshipApi = codeshipApi
+        self.settingsManager = settingsManager
         
         self.settingsManager.observeNotification(.ApiKey) { _ in
             self.refreshProjects()
@@ -32,7 +38,7 @@ public class ProjectsProvider {
     }
     
     func refreshProjects() {
-        CodeshipApi.getProjects(didRefreshProjects, errorHandler: { error in
+        self.codeshipApi.getProjects(didRefreshProjects, errorHandler: { error in
             debugPrint(error)
         })
     }
@@ -41,7 +47,7 @@ public class ProjectsProvider {
         self.didRefreshProjects(self.projects)
     }
     
-    func didRefreshProjects(projects: [Project]){
+    private func didRefreshProjects(projects: [Project]){
         // update our projects hidden state appropriately according to the user settings
         for project in projects {
             project.isEnabled = !self.settingsManager.disabledProjectIds.contains(project.id)

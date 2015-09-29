@@ -9,20 +9,27 @@
 import Foundation
 import Alamofire
 
-final class Project: ResponseObjectSerializable, ResponseCollectionSerializable {
+public final class Project: ResponseObjectSerializable, ResponseCollectionSerializable, Equatable {
     
     let id: Int
     let uuid: String
     let repositoryName: String
-//    let repositoryProvider: String
     var builds: [Build]
     let status : Int
     var isEnabled : Bool
     
-    init?(response:NSHTTPURLResponse, representation:AnyObject){
+    public init(id: Int) {
+        self.id = id
+        self.uuid = NSUUID().UUIDString
+        self.repositoryName = ""
+        self.builds = [Build]()
+        self.status = 0
+        self.isEnabled = false
+    }
+    
+    public init?(response:NSHTTPURLResponse, representation:AnyObject){
         self.id = representation.valueForKeyPath("id") as! Int
         self.uuid = representation.valueForKeyPath("uuid") as! String
-//        self.repositoryProvider = representation.valueForKeyPath("repository_provider") as! String
         self.builds = Build.collection(response: response, representation: representation)
         self.builds.sortInPlace({ $0.startedAt!.compare($1.startedAt!) == .OrderedDescending })
         self.isEnabled = true
@@ -45,7 +52,7 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
         
     }
     
-    static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {
+    public static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {
         var projects: [Project] = []
         
         if let representation = representation.valueForKeyPath("projects") as? [[String: AnyObject]] {
@@ -58,4 +65,8 @@ final class Project: ResponseObjectSerializable, ResponseCollectionSerializable 
         
         return projects
     }
+}
+
+public func ==(lhs: Project, rhs: Project) -> Bool {
+    return lhs.id == rhs.id
 }

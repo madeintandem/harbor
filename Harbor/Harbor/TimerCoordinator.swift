@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TimerCoordinator : NSObject {
+class TimerCoordinator : NSObject {
 
     static let instance = TimerCoordinator(
         runLoop:          NSRunLoop.mainRunLoop(),
@@ -30,7 +30,7 @@ public class TimerCoordinator : NSObject {
     
     private var currentTimer: NSTimer?
     
-    public init(runLoop: RunLoop, projectsProvider: ProjectsProvider, settingsManager: SettingsManager) {
+    init(runLoop: RunLoop, projectsProvider: ProjectsProvider, settingsManager: SettingsManager) {
         self.currentRunLoop   = runLoop
         self.projectsProvider = projectsProvider
         self.settingsManager  = settingsManager
@@ -46,7 +46,7 @@ public class TimerCoordinator : NSObject {
     // MARK: Scheduling
     //
     
-    public func startTimer() -> NSTimer? {
+    func startTimer() -> NSTimer? {
         return self.setupTimer(self.settingsManager.refreshRate)
     }
     
