@@ -21,6 +21,10 @@
 		D0458F541BB9CA5500DCC4A6 /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F531BB9CA5500DCC4A6 /* Examples.swift */; settings = {ASSET_TAGS = (); }; };
 		D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */; settings = {ASSET_TAGS = (); }; };
 		D06054251B57F880007A5F81 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06054241B57F880007A5F81 /* Playground.swift */; };
+		D0704EA81BBB117C005C808B /* PreferencesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EA71BBB117C005C808B /* PreferencesPresenterTests.swift */; settings = {ASSET_TAGS = (); }; };
+		D0704EAA1BBB1418005C808B /* MockPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EA91BBB1418005C808B /* MockPreferencesView.swift */; settings = {ASSET_TAGS = (); }; };
+		D0704EAC1BBB1584005C808B /* MockProjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */; settings = {ASSET_TAGS = (); }; };
+		D0704EAE1BBB1851005C808B /* None.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EAD1BBB1851005C808B /* None.swift */; settings = {ASSET_TAGS = (); }; };
 		D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0B1B3C437800031FB9 /* AppDelegate.swift */; };
 		D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0772F0D1B3C437800031FB9 /* Harbor.xcdatamodeld */; };
 		D0772F111B3C437800031FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0772F101B3C437800031FB9 /* Assets.xcassets */; };
@@ -97,6 +101,10 @@
 		D0458F531BB9CA5500DCC4A6 /* Examples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
 		D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRunLoop.swift; sourceTree = "<group>"; };
 		D06054241B57F880007A5F81 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		D0704EA71BBB117C005C808B /* PreferencesPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPresenterTests.swift; sourceTree = "<group>"; };
+		D0704EA91BBB1418005C808B /* MockPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPreferencesView.swift; sourceTree = "<group>"; };
+		D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProjectsProvider.swift; sourceTree = "<group>"; };
+		D0704EAD1BBB1851005C808B /* None.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = None.swift; sourceTree = "<group>"; };
 		D0772F081B3C437800031FB9 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0772F0B1B3C437800031FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0772F0E1B3C437800031FB9 /* Harbor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harbor.xcdatamodel; sourceTree = "<group>"; };
@@ -220,6 +228,8 @@
 				D0458F4D1BB9B83000DCC4A6 /* MockNotificationCenter.swift */,
 				D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */,
 				D0B1E16D1BB9EA4C009D0151 /* MockCodeshipApi.swift */,
+				D0704EA91BBB1418005C808B /* MockPreferencesView.swift */,
+				D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -229,6 +239,7 @@
 			children = (
 				D01093C61BB5F05E002D5794 /* Invocation.swift */,
 				D0458F531BB9CA5500DCC4A6 /* Examples.swift */,
+				D0704EAD1BBB1851005C808B /* None.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -244,6 +255,14 @@
 				D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D0704EA61BBB1168005C808B /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				D0704EA71BBB117C005C808B /* PreferencesPresenterTests.swift */,
+			);
+			name = Presenters;
 			sourceTree = "<group>";
 		};
 		D0772EFF1B3C437800031FB9 = {
@@ -290,11 +309,12 @@
 		D0772F1D1B3C437800031FB9 /* HarborTests */ = {
 			isa = PBXGroup;
 			children = (
-				D01093C51BB5F049002D5794 /* Helpers */,
-				D01093C21BB5DB27002D5794 /* Mocks */,
 				D01093BA1BB5B355002D5794 /* Interactors */,
+				D0704EA61BBB1168005C808B /* Presenters */,
 				D0A3E7471B73A849006E4350 /* API */,
 				D0772F381B3C439100031FB9 /* Domain */,
+				D01093C51BB5F049002D5794 /* Helpers */,
+				D01093C21BB5DB27002D5794 /* Mocks */,
 				D0772F1E1B3C437800031FB9 /* HarborTests.swift */,
 				D0772F201B3C437800031FB9 /* Info.plist */,
 			);
@@ -689,13 +709,17 @@
 				D0B1E16E1BB9EA4C009D0151 /* MockCodeshipApi.swift in Sources */,
 				D0458F4E1BB9B83000DCC4A6 /* MockNotificationCenter.swift in Sources */,
 				D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift in Sources */,
+				D0704EAC1BBB1584005C808B /* MockProjectsProvider.swift in Sources */,
 				D01093C71BB5F05E002D5794 /* Invocation.swift in Sources */,
 				D01093C41BB5DB33002D5794 /* MockUserDefaults.swift in Sources */,
 				D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */,
+				D0704EAE1BBB1851005C808B /* None.swift in Sources */,
+				D0704EAA1BBB1418005C808B /* MockPreferencesView.swift in Sources */,
 				D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */,
 				D01093BC1BB5B3D7002D5794 /* SettingsManagerTests.swift in Sources */,
 				D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */,
 				D0458F541BB9CA5500DCC4A6 /* Examples.swift in Sources */,
+				D0704EA81BBB117C005C808B /* PreferencesPresenterTests.swift in Sources */,
 				D0B1E16C1BB9E74D009D0151 /* ProjectsProviderTests.swift in Sources */,
 				D0AB5CE51BB9A31100F57790 /* MockKeychain.swift in Sources */,
 			);

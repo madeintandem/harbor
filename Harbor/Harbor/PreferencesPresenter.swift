@@ -15,8 +15,8 @@ class PreferencesPresenter {
     // MARK: Dependencies
     //
     
-    private let projectsStore   = ProjectsProvider.instance
-    private let settingsManager = SettingsManager.instance
+    private let projectsInteractor: ProjectsInteractor
+    private let settingsManager:    SettingsManager
     
     //
     // MARK: Properties
@@ -26,11 +26,16 @@ class PreferencesPresenter {
 
     private var apiKey:       String = ""
     private var refreshRate:  Double = 60.0
-    private var needsRefresh: Bool   = true
     private var allProjects:  [Project]
+    
+    private(set) var needsRefresh: Bool = true
 
-    init(view: PreferencesView) {
+    init(view: PreferencesView, projectsInteractor: ProjectsInteractor = ProjectsProvider.instance, settingsManager: SettingsManager = SettingsManager.instance) {
+        
         self.view = view
+        self.projectsInteractor = projectsInteractor
+        self.settingsManager    = settingsManager
+        
         self.allProjects = [Project]()
     }
     
@@ -39,7 +44,7 @@ class PreferencesPresenter {
     //
     
     func didInitialize() {
-        self.projectsStore.addHandler(self.refreshProjects)
+        self.projectsInteractor.addHandler(self.refreshProjects)
     }
     
     func didBecomeActive() {
@@ -50,19 +55,19 @@ class PreferencesPresenter {
         self.refreshIfNecessary()
     }
     
+    func setNeedsRefresh() {
+        if(!self.needsRefresh) {
+            self.needsRefresh = true
+        }
+    }
+    
     private func refreshIfNecessary() {
         if(self.needsRefresh) {
             self.refreshConfiguration()
             self.needsRefresh = false
         }
     }
-    
-    private func setNeedsRefresh() {
-        if(!self.needsRefresh) {
-            self.needsRefresh = true
-        }
-    }
-    
+
     //
     // MARK: Preferences
     //

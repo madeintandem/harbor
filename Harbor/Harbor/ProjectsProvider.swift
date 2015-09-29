@@ -10,22 +10,28 @@ import Foundation
 
 typealias ProjectHandler = ([Project] -> Void)
 
-class ProjectsProvider {
+protocol ProjectsInteractor {
+    func refreshProjects()
+    func refreshCurrentProjects()
+    func addHandler(aHandler: ProjectHandler)
+}
+
+class ProjectsProvider : ProjectsInteractor {
     
-    static let instance = ProjectsProvider(
-        codeshipApi: CodeshipApi(),
-        settingsManager: SettingsManager.instance
-    )
+    static let instance = ProjectsProvider()
     
     private var projects:  [Project]
     private var listeners: [ProjectHandler]
     private let settingsManager: SettingsManager
     private let codeshipApi: CodeshipApiType
     
-    init(codeshipApi: CodeshipApiType, settingsManager: SettingsManager) {
-        self.projects  =   [Project]()
-        self.listeners =   [ProjectHandler]()
-        self.codeshipApi = codeshipApi
+    init(
+        codeshipApi:     CodeshipApiType = CodeshipApi(),
+        settingsManager: SettingsManager = SettingsManager.instance) {
+            
+        self.projects        = [Project]()
+        self.listeners       = [ProjectHandler]()
+        self.codeshipApi     = codeshipApi
         self.settingsManager = settingsManager
         
         self.settingsManager.observeNotification(.ApiKey) { _ in
