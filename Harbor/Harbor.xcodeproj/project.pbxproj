@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		109169071BBD9190001BB910 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109169061BBD9190001BB910 /* Injector.swift */; settings = {ASSET_TAGS = (); }; };
+		109169091BBD9DE2001BB910 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109169081BBD9DE2001BB910 /* Factory.swift */; settings = {ASSET_TAGS = (); }; };
+		1091690B1BBD9DEA001BB910 /* Transient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1091690A1BBD9DEA001BB910 /* Transient.swift */; settings = {ASSET_TAGS = (); }; };
+		1091690D1BBD9E3D001BB910 /* CoreModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1091690C1BBD9E3D001BB910 /* CoreModule.swift */; settings = {ASSET_TAGS = (); }; };
+		109169111BBDA007001BB910 /* Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109169101BBDA007001BB910 /* Single.swift */; settings = {ASSET_TAGS = (); }; };
+		109169151BBDB773001BB910 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109169141BBDB773001BB910 /* Module.swift */; settings = {ASSET_TAGS = (); }; };
+		10DC904E1BBDC2FE00811234 /* CoreModuleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC904D1BBDC2FE00811234 /* CoreModuleType.swift */; settings = {ASSET_TAGS = (); }; };
+		10DC90501BBDC75000811234 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC904F1BBDC75000811234 /* Key.swift */; settings = {ASSET_TAGS = (); }; };
 		23DAEB6AAFDED0A1B6F5EF30 /* Pods_HarborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9CCE64A5D0F6E239A1EC0F /* Pods_HarborUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6805408B79168B08E38757B1 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8CA28B6D0AC674E407CBCC /* Pods_Harbor.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		93C12D67F9C905852DCF6664 /* Pods_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB94A0F2C30A0ACB3EC7BD82 /* Pods_HarborTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -83,6 +91,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		109169061BBD9190001BB910 /* Injector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
+		109169081BBD9DE2001BB910 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		1091690A1BBD9DEA001BB910 /* Transient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transient.swift; sourceTree = "<group>"; };
+		1091690C1BBD9E3D001BB910 /* CoreModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreModule.swift; sourceTree = "<group>"; };
+		109169101BBDA007001BB910 /* Single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Single.swift; sourceTree = "<group>"; };
+		109169141BBDB773001BB910 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		10DC904D1BBDC2FE00811234 /* CoreModuleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreModuleType.swift; sourceTree = "<group>"; };
+		10DC904F1BBDC75000811234 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		13A63B0307F0CEAA13EF245C /* Pods-HarborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarborUITests/Pods-HarborUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2D236790CB720A73DA044734 /* Pods-Harbor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.debug.xcconfig"; sourceTree = "<group>"; };
 		3FB400D7CFA77A37F335FB61 /* Pods-HarborUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HarborUITests/Pods-HarborUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +219,30 @@
 				D08EAB401B98D5EA009564CE /* BuildView.xib */,
 			);
 			name = Menu;
+      sourceTree = "<group>";
+    };
+		109169051BBD9177001BB910 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				10DC904D1BBDC2FE00811234 /* CoreModuleType.swift */,
+				1091690C1BBD9E3D001BB910 /* CoreModule.swift */,
+				10DC904C1BBDC27A00811234 /* Core */,
+			);
+			name = Injection;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		10DC904C1BBDC27A00811234 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				109169061BBD9190001BB910 /* Injector.swift */,
+				109169141BBDB773001BB910 /* Module.swift */,
+				109169081BBD9DE2001BB910 /* Factory.swift */,
+				1091690A1BBD9DEA001BB910 /* Transient.swift */,
+				109169101BBDA007001BB910 /* Single.swift */,
+				10DC904F1BBDC75000811234 /* Key.swift */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		25DD2328959D84979C80CB6C /* Pods */ = {
@@ -317,6 +357,7 @@
 				D08EAB3F1B98D5D5009564CE /* Views */,
 				D0C002CC1BB49452006A058C /* Interactors */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,
+				109169051BBD9177001BB910 /* Injection */,
 				D0A3E7441B73A764006E4350 /* API */,
 				D0772F371B3C438900031FB9 /* Domain */,
 				D0772F101B3C437800031FB9 /* Assets.xcassets */,
@@ -694,22 +735,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */,
+				1091690B1BBD9DEA001BB910 /* Transient.swift in Sources */,
 				D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */,
 				D0C002C11BB3472B006A058C /* TextField.swift in Sources */,
 				D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */,
 				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
+				1091690D1BBD9E3D001BB910 /* CoreModule.swift in Sources */,
+				109169071BBD9190001BB910 /* Injector.swift in Sources */,
 				D01093BF1BB5D932002D5794 /* NotificationCenter.swift in Sources */,
 				D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */,
 				D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */,
+				10DC90501BBDC75000811234 /* Key.swift in Sources */,
 				D06054251B57F880007A5F81 /* Playground.swift in Sources */,
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
 				D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */,
+				109169091BBD9DE2001BB910 /* Factory.swift in Sources */,
+				109169151BBDB773001BB910 /* Module.swift in Sources */,
 				D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */,
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */,
+				10DC904E1BBDC2FE00811234 /* CoreModuleType.swift in Sources */,
 				D0C002C71BB48801006A058C /* SettingsManager.swift in Sources */,
+				109169111BBDA007001BB910 /* Single.swift in Sources */,
 				D01093C11BB5D93D002D5794 /* UserDefaults.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
 				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,

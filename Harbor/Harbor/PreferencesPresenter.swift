@@ -17,7 +17,7 @@ class PreferencesPresenter {
     
     private let projectsInteractor: ProjectsInteractor
     private let settingsManager:    SettingsManager
-    
+
     //
     // MARK: Properties
     //
@@ -30,12 +30,14 @@ class PreferencesPresenter {
     
     private(set) var needsRefresh: Bool = true
 
-    init(view: PreferencesView, projectsInteractor: ProjectsInteractor = ProjectsProvider.instance, settingsManager: SettingsManager = SettingsManager.instance) {
-        
+    init(
+        view: PreferencesView,
+        projectsInteractor: ProjectsInteractor = core().inject(),
+        settingsManager: SettingsManager = core().inject()) {
+            
         self.view = view
         self.projectsInteractor = projectsInteractor
-        self.settingsManager    = settingsManager
-        
+        self.settingsManager = settingsManager
         self.allProjects = [Project]()
     }
     

@@ -10,19 +10,13 @@ import Foundation
 
 class TimerCoordinator : NSObject {
 
-    static let instance = TimerCoordinator(
-        runLoop:          NSRunLoop.mainRunLoop(),
-        projectsProvider: ProjectsProvider.instance,
-        settingsManager:  SettingsManager.instance
-    )
-    
     //
     // MARK: Dependencies
     //
     
-    var currentRunLoop:   RunLoop!          = nil
-    var projectsProvider: ProjectsProvider! = nil
-    var settingsManager:  SettingsManager!  = nil
+    var currentRunLoop:   RunLoop!
+    var projectsProvider: ProjectsProvider!
+    var settingsManager:  SettingsManager!
     
     //
     // MARK: Properties
@@ -30,7 +24,11 @@ class TimerCoordinator : NSObject {
     
     private var currentTimer: NSTimer?
     
-    init(runLoop: RunLoop, projectsProvider: ProjectsProvider, settingsManager: SettingsManager) {
+    init(
+        runLoop: RunLoop = core().inject(),
+        projectsProvider: ProjectsProvider = core().inject(),
+        settingsManager: SettingsManager = core().inject()) {
+            
         self.currentRunLoop   = runLoop
         self.projectsProvider = projectsProvider
         self.settingsManager  = settingsManager

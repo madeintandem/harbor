@@ -13,16 +13,32 @@ import Alamofire
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     @IBOutlet weak var statusItemMenu: StatusMenu!
-    let preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
+    
+    var preferencesWindowController: PreferencesPaneWindowController!
     var projects: [Project]?
     let defaults = NSUserDefaults()
     
-    let projectsProvider = ProjectsProvider.instance
-    let timerCoordinator = TimerCoordinator.instance
-    let settingsManager  = SettingsManager.instance
+    var projectsProvider: ProjectsProvider!
+    var timerCoordinator: TimerCoordinator!
+    var settingsManager:  SettingsManager!
+    
+    override init() {
+        super.init()
+        
+        // inject the proper modules
+        Injector
+            .module(CoreModuleType.self, CoreModule())
+            .start()
+    }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-//
+        self.preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
+        
+        self.projectsProvider = core().inject()
+        self.timerCoordinator = core().inject()
+        self.settingsManager  = core().inject()
+
+        //
 //        Uncomment to Clear keychain & Defaults for testing.
 //
 //        KeychainWrapper.removeObjectForKey("ApiKey")
@@ -32,13 +48,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         statusItemMenu.delegate = self
         statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")
         statusItemMenu.formatMenu([])
-    
+        
         self.refreshProjects()
         self.timerCoordinator.startTimer()
     }
     
     func refreshProjects() {
-        if !settingsManager.apiKey.isEmpty {
+        if !self.settingsManager.apiKey.isEmpty {
             self.projectsProvider.refreshProjects()
         } else {
             self.showPreferencesPane()

@@ -18,20 +18,21 @@ protocol ProjectsInteractor {
 
 class ProjectsProvider : ProjectsInteractor {
     
-    static let instance = ProjectsProvider()
-    
-    private var projects:  [Project]
-    private var listeners: [ProjectHandler]
+    // dependencies
     private let settingsManager: SettingsManager
     private let codeshipApi: CodeshipApiType
     
+    // properties
+    private var projects:  [Project]
+    private var listeners: [ProjectHandler]
+    
     init(
-        codeshipApi:     CodeshipApiType = CodeshipApi(),
-        settingsManager: SettingsManager = SettingsManager.instance) {
+        codeshipApi: CodeshipApiType = core().inject(),
+        settingsManager: SettingsManager = core().inject()) {
             
-        self.projects        = [Project]()
-        self.listeners       = [ProjectHandler]()
-        self.codeshipApi     = codeshipApi
+        self.projects  =   [Project]()
+        self.listeners =   [ProjectHandler]()
+        self.codeshipApi = codeshipApi
         self.settingsManager = settingsManager
         
         self.settingsManager.observeNotification(.ApiKey) { _ in

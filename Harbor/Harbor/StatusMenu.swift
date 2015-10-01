@@ -14,8 +14,8 @@ class StatusMenu: NSMenu {
     var projects : [Project]?
     var defaults: NSUserDefaults
     
-    let settingsManager  = SettingsManager.instance
-    let projectsProvider = ProjectsProvider.instance
+    let settingsManager:  SettingsManager  = core().inject()
+    let projectsProvider: ProjectsProvider = core().inject()
     
     required init?(coder: NSCoder) {
         defaults = NSUserDefaults()

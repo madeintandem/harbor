@@ -15,20 +15,18 @@ public class SettingsManager {
         case RefreshRate        =   "RefreshRate"
         case DisabledProjects   =   "DisabledProjects"
     }
-
-    static let instance: SettingsManager = SettingsManager(
-        userDefaults: NSUserDefaults.standardUserDefaults(),
-        keychain: KeychainWrapper(),
-        notificationCenter: NSNotificationCenter.defaultCenter()
-    )
-
-    //
-    // MARK: Properties
-    //
     
+    //
+    // MARK: Dependencies
+    //
+   
     private let defaults:           UserDefaults
     private let keychain:           Keychain
     private let notificationCenter: NotificationCenter
+    
+    //
+    // MARK: Properties
+    //
     
     public var apiKey: String {
         didSet {
@@ -51,7 +49,11 @@ public class SettingsManager {
         }
     }
     
-    public init(userDefaults: UserDefaults, keychain: Keychain, notificationCenter: NotificationCenter) {
+    public init(
+        userDefaults: UserDefaults = core().inject(),
+        keychain: Keychain = core().inject(),
+        notificationCenter: NotificationCenter = core().inject()) {
+            
         self.defaults           = userDefaults
         self.keychain           = keychain
         self.notificationCenter = notificationCenter
