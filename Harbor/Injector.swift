@@ -27,7 +27,6 @@ class Injector {
     
     class func start(modules: [Key: Any]) {
         instance = Injector(modules: modules)
-        print("started injector with modules: \(modules.values.map { $0 })")
     }
     
     //

@@ -27,8 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         
         // inject the proper modules
         Injector
-            .module(CoreModuleType.self, CoreModule())
-            .start()
+            .module(CoreModuleType.self, CoreModule()).start()
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {

@@ -10,13 +10,17 @@ import Quick
 import Nimble
 @testable import Harbor
 
-class ProjectsProviderTests : QuickSpec { override func spec() {
-    
-    var example:  ProjectsProviderExample!
+class ProjectsProviderTests : HarborSpec { override func spec() {
+    super.spec()
+ 
+    var example:  Example<ProjectsProvider>!
     var projects: [Project]?
     
     beforeEach {
-        example = ProjectsProviderExample()
+        example = Example(constructor: {
+            return ProjectsProvider()
+        })
+        
         example.subject.addHandler { local in
             projects = local
         }
@@ -36,7 +40,7 @@ class ProjectsProviderTests : QuickSpec { override func spec() {
         it("updates the disabled projects when the disabledProjectIds change") {
             let disabledIds = [0]
             
-            example.settingsManager.disabledProjectIds = disabledIds
+            example.settings.disabledProjectIds = disabledIds
             example.subject.refreshCurrentProjects()
             
             expect(projects).to(allPass { project in

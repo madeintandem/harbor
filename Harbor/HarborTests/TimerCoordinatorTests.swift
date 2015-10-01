@@ -10,27 +10,30 @@ import Quick
 import Nimble
 @testable import Harbor
 
-class TimerCoordinatorTests : QuickSpec { override func spec() {
-    
-    var example: TimerCoordinatorExample!
+class TimerCoordinatorTests : HarborSpec { override func spec() {
+    super.spec()
+ 
+    var example: Example<TimerCoordinator>!
 
     beforeEach {
-        example = TimerCoordinatorExample()
+        example = Example(constructor: {
+            return TimerCoordinator()
+        })
     }
     
     it("the initializer observes the settings manager notification"){
         let invocation = notificationInvocation(.AddObserverForName, .RefreshRate)
-        expect(example.notifcationCenter.invocation).to(match(invocation))
+        expect(example.notificationCenter.invocation).to(match(invocation))
     }
     
     describe("when starting a timer") {
         
         beforeEach {
-            example.settingsManager.refreshRate = 60.0
+            example.settings.refreshRate = 60.0
         }
         
         it("should not create a timer when the refresh rate is 0.0") {
-            example.settingsManager.refreshRate = 0.0
+            example.settings.refreshRate = 0.0
             
             let timer = example.subject.startTimer()
             expect(timer).to(beNil())
@@ -39,7 +42,7 @@ class TimerCoordinatorTests : QuickSpec { override func spec() {
         it("creates a timer") {
             let timer = example.subject.startTimer()
             expect(timer).toNot(beNil())
-            expect(timer!.timeInterval).to(equal(example.settingsManager.refreshRate))
+            expect(timer!.timeInterval).to(equal(example.settings.refreshRate))
         }
         
         it("adds the timer to the run loop") {

@@ -10,16 +10,19 @@ import Quick
 import Nimble
 import Harbor
 
-class SettingsManagerTests: QuickSpec { override func spec() {
-
-    var example: SettingsManagerExample!
+class SettingsManagerTests: HarborSpec { override func spec() {
+    super.spec()
+    
+    var example: Example<SettingsManager>!
     
     let notificationInvocation = { (method: MockNotificationCenter.Method, name: SettingsManager.NotificationName) in
         return Invocation(method, name.rawValue)
     }
     
     beforeEach {
-        example = SettingsManagerExample()
+        example = Example(constructor: {
+            return SettingsManager()
+        })
     }
     
     describe("Properties") {

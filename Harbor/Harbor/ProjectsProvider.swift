@@ -27,7 +27,7 @@ class ProjectsProvider : ProjectsInteractor {
     private var listeners: [ProjectHandler]
     
     init(
-        codeshipApi: CodeshipApiType = core().inject(),
+        codeshipApi:     CodeshipApiType = core().inject(),
         settingsManager: SettingsManager = core().inject()) {
             
         self.projects  =   [Project]()

@@ -25,9 +25,9 @@ class TimerCoordinator : NSObject {
     private var currentTimer: NSTimer?
     
     init(
-        runLoop: RunLoop = core().inject(),
+        runLoop:          RunLoop          = core().inject(),
         projectsProvider: ProjectsProvider = core().inject(),
-        settingsManager: SettingsManager = core().inject()) {
+        settingsManager:  SettingsManager  = core().inject()) {
             
         self.currentRunLoop   = runLoop
         self.projectsProvider = projectsProvider
