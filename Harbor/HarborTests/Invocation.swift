@@ -37,84 +37,57 @@ let notificationInvocation = { (method: MockNotificationCenter.Method, name: Set
 // MARK: Nimble Matchers
 //
 
-func match<M, T, O: Equatable>(expected: Invocation<M, O>) -> NonNilMatcherFunc<Invocation<M, T>> {
-    return matcher(expected) { actual, expected in
-        // if the force cast to the expected type fails, the test should fail anyways
-        return (actual as! O?) == expected
-    }
+func match<M, A, E: Equatable>(expected: Invocation<M, E>) -> NonNilMatcherFunc<Invocation<M, A>> {
+    return matcher(expected, comparator: compareSingle)
 }
 
-func matchInvocation<M, T, O: Equatable>(expected: Invocation<M, O>) -> NonNilMatcherFunc<Invocation<M, T>> {
-    return matcher(expected) { actual, expected in
-        // if the force cast to the expected type fails, the test should fail anyways
-        return (actual as! O?) == expected
-    }
+func match<M, A, E: Equatable>(expected: Invocation<M, [E]>) -> NonNilMatcherFunc<Invocation<M, A>> {
+    return matcher(expected, comparator: compareArray)
+
 }
 
-func match<M, T, O: Equatable>(expected: Invocation<M, [O]>) -> NonNilMatcherFunc<Invocation<M, T>> {
-    return matcher(expected) { actual, expected in
-        // if the force cast to the expected type fails, the test should fail anyways
-        return (actual as! [O]).elementsEqual(expected!)
-    }
-}
-
-public func haveAnyMatch<U,V where U: SequenceType, V: Matcher>(matcher: V) -> NonNilMatcherFunc<U> {
-    return NonNilMatcherFunc<U> { actualExpression, failureMessage in
-        failureMessage.actualValue = nil
-        if let actualValue = try actualExpression.evaluate() {
-            for element in actualValue {
-                let exp = Expression(expression: {element}, location: actualExpression.location)
-                if matcher.matches(exp, failureMessage: failureMessage) {
-                    
-                }
-            
-            }
-        }
-        
-        return true
-    }
-}
-
-private func createAllPassMatcher<T,U where U: SequenceType, U.Generator.Element == T>
-    (elementEvaluator:(Expression<T>, FailureMessage) throws -> Bool) -> NonNilMatcherFunc<U> {
-        return NonNilMatcherFunc { actualExpression, failureMessage in
-            failureMessage.actualValue = nil
-            if let actualValue = try actualExpression.evaluate() {
-                for currentElement in actualValue {
-                    let exp = Expression(
-                        expression: {currentElement}, location: actualExpression.location)
-                    if try !elementEvaluator(exp, failureMessage) {
-                        failureMessage.postfixMessage =
-                            "all \(failureMessage.postfixMessage),"
-                            + " but failed first at element <\(stringify(currentElement))>"
-                            + " in <\(stringify(actualValue))>"
-                        return false
-                    }
-                }
-                failureMessage.postfixMessage = "all \(failureMessage.postfixMessage)"
-            } else {
-                failureMessage.postfixMessage = "all pass (use beNil() to match nils)"
-                return false
-            }
-            
-            return true
-        }
-}
-
-// helpers
-
-private func matcher<M, T, O>(expected: Invocation<M, O>, comparator: (T?, O?) -> Bool) -> NonNilMatcherFunc<Invocation<M, T>> {
+func haveAnyMatch<S: SequenceType, M, A, E: Equatable where S.Generator.Element == Invocation<M, A>>(expected: Invocation<M, E>) -> NonNilMatcherFunc<S> {
     return NonNilMatcherFunc { actualExpression, failureMessage in
         var result = false
         
-        if let actual = try actualExpression.evaluate() {
-            // check methods and allow the comparator to evaluate value equality
-            let methodsEqual = actual.method == expected.method
-            let valuesEqual  = comparator(actual.value, expected.value)
-            
-            result = methodsEqual && valuesEqual
+        if let actualSequence = try actualExpression.evaluate() {
+            for actual in actualSequence {
+                if compare(actual, expected, compareSingle) {
+                    result = true
+                }
+            }
         }
         
         return result
     }
+}
+
+// helpers
+
+private func matcher<M, A, E>(expected: Invocation<M, E>, comparator: (A?, E?) -> Bool) -> NonNilMatcherFunc<Invocation<M, A>> {
+    return NonNilMatcherFunc { actualExpression, failureMessage in
+        if let actual = try actualExpression.evaluate() {
+            return compare(actual, expected, comparator)
+        }
+        
+        return false
+    }
+}
+
+private func compare<M, A, E>(actual: Invocation<M, A>, _ expected: Invocation<M, E>, _ comparator: (A?, E?) -> Bool) -> Bool {
+    // check methods and allow the comparator to evaluate value equality
+    let methodsEqual = actual.method == expected.method
+    let valuesEqual  = comparator(actual.value, expected.value)
+    
+    return methodsEqual && valuesEqual
+}
+
+private func compareSingle<A, E: Equatable>(actual: A?, expected: E?) -> Bool {
+    // if the force cast to the expected type fails, the test should fail anyways
+    return (actual as! E?) == expected
+}
+
+private func compareArray<A, E: Equatable>(actual: A?, expected: [E]?) -> Bool {
+    // if the force cast to the expected type fails, the test should fail anyways
+    return (actual as! [E]).elementsEqual(expected!)
 }

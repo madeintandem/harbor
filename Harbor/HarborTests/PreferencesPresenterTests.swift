@@ -59,14 +59,12 @@ class PreferencesPresenterTests : QuickSpec { override func spec() {
         }
         
         it("updates the view when refreshing"){
-            let invocation = Invocation<MockPreferencesView.Method, String>(.UpdateApiKey, "")
+//            let invocation = Invocation<MockPreferencesView.Method, String>(.UpdateApiKey, "")
             
             subject.setNeedsRefresh()
             subject.didBecomeActive()
-            
-            let matcher: NonNilMatcherFunc<Invocation<MockPreferencesView.Method, String>> = matchInvocation(invocation)
-            
-//            expect(view.invocations).to(haveAny(match(invocation)))
+        
+//            expect(view.invocations).to(haveAnyMatch(invocation))
         }
     }
     
