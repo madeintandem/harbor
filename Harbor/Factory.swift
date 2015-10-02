@@ -9,5 +9,5 @@
 protocol Factory {
     typealias Element
 
-    func get() -> Element
+    func create() -> Element
 }

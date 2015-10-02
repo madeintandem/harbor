@@ -25,7 +25,7 @@ class Injector {
         return builder
     }
     
-    class func start(modules: [Key: Any]) {
+    private class func start(modules: [Key: Any]) {
         instance = Injector(modules: modules)
     }
     

@@ -15,7 +15,7 @@ class Transient<T> : Factory {
         self.generator = generator
     }
     
-    func get() -> T {
+    func create() -> T {
         return self.generator()
     }
     
@@ -28,7 +28,7 @@ extension Module {
             return Transient(generator: generator)
         }
         
-        return factory.get()
+        return factory.create()
     }
     
 }

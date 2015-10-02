@@ -16,7 +16,7 @@ class Single<T> : Factory {
         self.generator = generator
     }
    
-    func get() -> T {
+    func create() -> T {
         if self.instance == nil {
             self.instance = self.generator()
         }
@@ -32,7 +32,7 @@ extension Module {
             return Single(generator: generator)
         }
         
-        return factory.get()
+        return factory.create()
     }
     
 }
