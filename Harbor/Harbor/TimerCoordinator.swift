@@ -14,9 +14,9 @@ class TimerCoordinator : NSObject {
     // MARK: Dependencies
     //
     
-    var currentRunLoop:   RunLoop!
-    var projectsProvider: ProjectsProvider!
-    var settingsManager:  SettingsManager!
+    var currentRunLoop:     RunLoop!
+    var projectsInteractor: ProjectsInteractor!
+    var settingsManager:    SettingsManager!
     
     //
     // MARK: Properties
@@ -25,13 +25,13 @@ class TimerCoordinator : NSObject {
     private var currentTimer: NSTimer?
     
     init(
-        runLoop:          RunLoop          = core().inject(),
-        projectsProvider: ProjectsProvider = core().inject(),
-        settingsManager:  SettingsManager  = core().inject()) {
+        runLoop:            RunLoop            = core().inject(),
+        projectsInteractor: ProjectsInteractor = core().inject(),
+        settingsManager:    SettingsManager    = core().inject()) {
             
-        self.currentRunLoop   = runLoop
-        self.projectsProvider = projectsProvider
-        self.settingsManager  = settingsManager
+        self.currentRunLoop     = runLoop
+        self.projectsInteractor = projectsInteractor
+        self.settingsManager    = settingsManager
         
         super.init()
         
@@ -63,7 +63,7 @@ class TimerCoordinator : NSObject {
     
     func handleUpdateTimer(timer: NSTimer) {
         if(timer == self.currentTimer) {
-            self.projectsProvider.refreshProjects()
+            self.projectsInteractor.refreshProjects()
         }
     }
     

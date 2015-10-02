@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class PreferencesPresenter {
+class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     
     //
     // MARK: Dependencies
@@ -22,8 +22,6 @@ class PreferencesPresenter {
     // MARK: Properties
     //
     
-    private weak var view: PreferencesView!
-
     private var apiKey:       String = ""
     private var refreshRate:  Double = 60.0
     private var allProjects:  [Project]
@@ -31,29 +29,33 @@ class PreferencesPresenter {
     private(set) var needsRefresh: Bool = true
 
     init(
-        view: PreferencesView,
+        view: V,
         projectsInteractor: ProjectsInteractor = core().inject(),
         settingsManager: SettingsManager = core().inject()) {
             
-        self.view = view
         self.projectsInteractor = projectsInteractor
         self.settingsManager = settingsManager
         self.allProjects = [Project]()
+            
+        super.init(view: view)
     }
     
     //
     // MARK: Presentation Cycle
     //
     
-    func didInitialize() {
-        self.projectsInteractor.addHandler(self.refreshProjects)
+    override func didInitialize() {
+        super.didInitialize()
+        self.projectsInteractor.addListener(self.refreshProjects)
     }
     
-    func didBecomeActive() {
+    override func didBecomeActive() {
+        super.didBecomeActive()
         self.refreshIfNecessary()
     }
     
-    func didResignActive() {
+    override func didResignActive() {
+        super.didResignActive()
         self.refreshIfNecessary()
     }
     

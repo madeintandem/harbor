@@ -13,7 +13,7 @@ typealias ProjectHandler = ([Project] -> Void)
 protocol ProjectsInteractor {
     func refreshProjects()
     func refreshCurrentProjects()
-    func addHandler(aHandler: ProjectHandler)
+    func addListener(listener: ProjectHandler)
 }
 
 class ProjectsProvider : ProjectsInteractor {
@@ -67,9 +67,9 @@ class ProjectsProvider : ProjectsInteractor {
         }
     }
     
-    func addHandler(aHandler: ProjectHandler){
-        self.listeners.append(aHandler)
-        aHandler(self.projects)
+    func addListener(listener: ProjectHandler){
+        self.listeners.append(listener)
+        listener(self.projects)
     }
     
 }

@@ -18,7 +18,7 @@ struct CoreModule : CoreModuleType {
         return single { SettingsManager() }
     }
     
-    func inject() -> ProjectsProvider {
+    func inject() -> ProjectsInteractor {
         return single { ProjectsProvider() }
     }
     

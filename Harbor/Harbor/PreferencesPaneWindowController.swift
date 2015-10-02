@@ -19,7 +19,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     // MARK: Properties
     //
     
-    var presenter: PreferencesPresenter!
+    var presenter: PreferencesPresenter<PreferencesPaneWindowController>!
 
     @IBOutlet weak var codeshipAPIKey: TextField!
     @IBOutlet weak var refreshRateTextField: TextField!

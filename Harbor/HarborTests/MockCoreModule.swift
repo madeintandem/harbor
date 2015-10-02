@@ -18,8 +18,8 @@ struct MockCoreModule : CoreModuleType {
         return single { SettingsManager() }
     }
     
-    func inject() -> ProjectsProvider {
-        return single { ProjectsProvider() }
+    func inject() -> ProjectsInteractor {
+        return single { MockProjectsProvider() }
     }
     
     func inject() -> TimerCoordinator {

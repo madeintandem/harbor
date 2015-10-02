@@ -10,28 +10,22 @@ import Quick
 import Nimble
 @testable import Harbor
 
-class PreferencesPresenterTests : QuickSpec { override func spec() {
-
-    var subject: PreferencesPresenter!
+class PreferencesPresenterTests : HarborSpec { override func spec() {
+    super.spec()
+    
+    var subject: PreferencesPresenter<MockPreferencesView>!
     var view: MockPreferencesView!
     var projectsInteractor: MockProjectsProvider!
-    var settingsManager: SettingsManager!
     
     beforeEach{
-        view               = MockPreferencesView()
-        projectsInteractor = MockProjectsProvider()
-        settingsManager    = SettingsManagerExample().subject
-        
-        subject = PreferencesPresenter(
-            view: view,
-            projectsInteractor: projectsInteractor,
-            settingsManager: settingsManager
-        )
+        view    = MockPreferencesView()
+        subject = PreferencesPresenter(view: view)
+        projectsInteractor = (core().inject() as ProjectsInteractor) as! MockProjectsProvider
     }
     
     describe("presentation cycle"){
         it("listens to the projectsProvider"){
-            let invocation = Invocation<MockProjectsProvider.Method, None>(.AddHandler, .Nothing)
+            let invocation = Invocation<MockProjectsProvider.Method, None>(.AddListener, .Nothing)
             
             subject.didInitialize()
             expect(projectsInteractor.invocation).to(match(invocation))
@@ -58,18 +52,9 @@ class PreferencesPresenterTests : QuickSpec { override func spec() {
             expect(subject.needsRefresh).to(beFalse())
         }
         
-        it("updates the view when refreshing"){
-//            let invocation = Invocation<MockPreferencesView.Method, String>(.UpdateApiKey, "")
-            
-            subject.setNeedsRefresh()
-            subject.didBecomeActive()
-        
-//            expect(view.invocations).to(haveAnyMatch(invocation))
+        xit("updates the view when refreshing"){
+
         }
-    }
-    
-    describe("preferences"){
-        
     }
     
 } }

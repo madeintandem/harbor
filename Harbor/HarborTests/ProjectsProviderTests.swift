@@ -21,7 +21,7 @@ class ProjectsProviderTests : HarborSpec { override func spec() {
             return ProjectsProvider()
         })
         
-        example.subject.addHandler { local in
+        example.subject.addListener { local in
             projects = local
         }
     }
@@ -57,7 +57,7 @@ class ProjectsProviderTests : HarborSpec { override func spec() {
             example.codeshipApi.projects = projects
             example.subject.refreshProjects()
             
-            example.subject.addHandler { local in
+            example.subject.addListener { local in
                 expect(local).to(equal(projects))
             }
         }

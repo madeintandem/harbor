@@ -27,8 +27,7 @@ public class CodeshipApi : CodeshipApiType {
         let apiURL = "\(CodeshipApi.apiRootPath)\(apiKey)"
         
         Alamofire.request(.GET, apiURL).responseCollection{(_, _, result: Result<[Project]> ) in
-            
-            if (result.isSuccess) {
+            if(result.isSuccess) {
                 successHandler(result.value!)
             } else {
                 //log the error

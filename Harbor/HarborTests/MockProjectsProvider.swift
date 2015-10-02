@@ -13,7 +13,7 @@ class MockProjectsProvider : ProjectsInteractor {
     enum Method : MethodType {
         case RefreshProjects
         case RefreshCurrentProjects
-        case AddHandler
+        case AddListener
     }
     
     let projects  : [Project]
@@ -31,8 +31,8 @@ class MockProjectsProvider : ProjectsInteractor {
         self.invocation = Invocation(.RefreshCurrentProjects, .Nothing)
     }
     
-    func addHandler(aHandler: ProjectHandler){
-        self.invocation = Invocation(.AddHandler, .Nothing)
-        aHandler(self.projects)
+    func addListener(listener: ProjectHandler){
+        self.invocation = Invocation(.AddListener, .Nothing)
+        listener(self.projects)
     }
 }

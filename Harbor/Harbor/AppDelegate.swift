@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var projects: [Project]?
     let defaults = NSUserDefaults()
     
-    var projectsProvider: ProjectsProvider!
+    var projectsProvider: ProjectsInteractor!
     var timerCoordinator: TimerCoordinator!
     var settingsManager:  SettingsManager!
     

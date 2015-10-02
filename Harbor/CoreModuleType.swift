@@ -21,7 +21,7 @@ protocol CoreModuleType : Module {
     
     // interactors
     func inject() -> TimerCoordinator
-    func inject() -> ProjectsProvider
+    func inject() -> ProjectsInteractor
     func inject() -> SettingsManager
     
     // services

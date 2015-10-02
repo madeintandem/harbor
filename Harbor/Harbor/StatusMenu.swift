@@ -8,19 +8,21 @@
 
 import Cocoa
 
-class StatusMenu: NSMenu {
+class StatusMenu: NSMenu, StatusMenuView {
     let statusBarItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
 
     var projects : [Project]?
-    var defaults: NSUserDefaults
+   
+    var presenter: StatusMenuPresenter<StatusMenu>!
     
-    let settingsManager:  SettingsManager  = core().inject()
-    let projectsProvider: ProjectsProvider = core().inject()
+    let settingsManager:  SettingsManager    = core().inject()
+    let projectsProvider: ProjectsInteractor = core().inject()
     
     required init?(coder: NSCoder) {
-        defaults = NSUserDefaults()
         super.init(coder: coder)
-        self.projectsProvider.addHandler(self.formatMenu)
+        
+        self.presenter = StatusMenuPresenter(view: self)
+        self.projectsProvider.addListener(self.formatMenu)
     }
     
     func formatMenu(projects : [Project]) {
