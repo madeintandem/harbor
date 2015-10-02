@@ -44,29 +44,23 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
     //
     
     private func handleProjects(projects: [Project]) {
-        // filter out projets the user disabled and update the view
+        // filter out projects the user disabled and convert them to menu item models
         let disabledProjectIds = self.settingsManager.disabledProjectIds
-        let enabledProjects = projects.filter { project in
-            return !disabledProjectIds.contains(project.id)
-        }
+        let enabledProjects = projects
+            .filter { !disabledProjectIds.contains($0.id) }
+            .map { ProjectMenuItemModel(project: $0) }
         
         self.view.updateProjects(enabledProjects)
-        
-        // determine build status and update the view
-        let status = self.buildStatusFromProjects(enabledProjects)
-        
-        self.view.updateBuildStatus(status)
+        self.view.updateBuildStatus(self.buildStatusFromProjects(enabledProjects))
     }
     
-    private func buildStatusFromProjects(projects: [Project]) -> BuildStatus {
-        let failingProjects = projects.filter({ $0.status == 1 })
-        
+    private func buildStatusFromProjects(projects: [ProjectMenuItemModel]) -> BuildStatus {
         if projects.count == 0 {
             return .Unknown
-        } else if failingProjects.count == 0 {
-            return .Passing
-        } else {
+        } else if (projects.any { $0.isFailing() }) {
             return .Failing
+        } else {
+            return .Passing
         }
     }
     

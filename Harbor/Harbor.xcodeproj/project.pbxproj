@@ -22,6 +22,11 @@
 		10DC90611BBEE13700811234 /* StatusMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90601BBEE13700811234 /* StatusMenuView.swift */; settings = {ASSET_TAGS = (); }; };
 		10DC90641BBEE17A00811234 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90631BBEE17A00811234 /* Presenter.swift */; settings = {ASSET_TAGS = (); }; };
 		10DC90661BBEE47C00811234 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90651BBEE47C00811234 /* ViewType.swift */; settings = {ASSET_TAGS = (); }; };
+		10DC906A1BBF088800811234 /* ProjectMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90691BBF088800811234 /* ProjectMenuItem.swift */; settings = {ASSET_TAGS = (); }; };
+		10DC90701BBF096400811234 /* BuildStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC906F1BBF096400811234 /* BuildStatus.swift */; settings = {ASSET_TAGS = (); }; };
+		10DC90721BBF16C900811234 /* ProjectMenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90711BBF16C900811234 /* ProjectMenuItemModel.swift */; settings = {ASSET_TAGS = (); }; };
+		10DC90741BBF198900811234 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90731BBF198900811234 /* Collections.swift */; settings = {ASSET_TAGS = (); }; };
+		10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90771BBF1CB700811234 /* BuildViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		23DAEB6AAFDED0A1B6F5EF30 /* Pods_HarborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9CCE64A5D0F6E239A1EC0F /* Pods_HarborUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6805408B79168B08E38757B1 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8CA28B6D0AC674E407CBCC /* Pods_Harbor.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		93C12D67F9C905852DCF6664 /* Pods_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB94A0F2C30A0ACB3EC7BD82 /* Pods_HarborTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -112,6 +117,11 @@
 		10DC90601BBEE13700811234 /* StatusMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuView.swift; sourceTree = "<group>"; };
 		10DC90631BBEE17A00811234 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		10DC90651BBEE47C00811234 /* ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+		10DC90691BBF088800811234 /* ProjectMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectMenuItem.swift; sourceTree = "<group>"; };
+		10DC906F1BBF096400811234 /* BuildStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildStatus.swift; sourceTree = "<group>"; };
+		10DC90711BBF16C900811234 /* ProjectMenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectMenuItemModel.swift; sourceTree = "<group>"; };
+		10DC90731BBF198900811234 /* Collections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
+		10DC90771BBF1CB700811234 /* BuildViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildViewModel.swift; sourceTree = "<group>"; };
 		13A63B0307F0CEAA13EF245C /* Pods-HarborUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarborUITests/Pods-HarborUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2D236790CB720A73DA044734 /* Pods-Harbor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.debug.xcconfig"; sourceTree = "<group>"; };
 		3FB400D7CFA77A37F335FB61 /* Pods-HarborUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HarborUITests/Pods-HarborUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -254,8 +264,12 @@
 				D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */,
 				10DC90601BBEE13700811234 /* StatusMenuView.swift */,
 				10DC905E1BBEE12F00811234 /* StatusMenuPresenter.swift */,
+				10DC90691BBF088800811234 /* ProjectMenuItem.swift */,
+				10DC90711BBF16C900811234 /* ProjectMenuItemModel.swift */,
 				D08EAB401B98D5EA009564CE /* BuildView.xib */,
 				D08EAB3D1B98D5C8009564CE /* BuildView.swift */,
+				10DC90771BBF1CB700811234 /* BuildViewModel.swift */,
+				10DC906F1BBF096400811234 /* BuildStatus.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -340,6 +354,7 @@
 				D01093C01BB5D93D002D5794 /* UserDefaults.swift */,
 				D01093BE1BB5D932002D5794 /* NotificationCenter.swift */,
 				D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */,
+				10DC90731BBF198900811234 /* Collections.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -767,8 +782,11 @@
 				D0C002C11BB3472B006A058C /* TextField.swift in Sources */,
 				D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */,
 				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
+				10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */,
 				1091690D1BBD9E3D001BB910 /* CoreModule.swift in Sources */,
 				109169071BBD9190001BB910 /* Injector.swift in Sources */,
+				10DC90721BBF16C900811234 /* ProjectMenuItemModel.swift in Sources */,
+				10DC906A1BBF088800811234 /* ProjectMenuItem.swift in Sources */,
 				D01093BF1BB5D932002D5794 /* NotificationCenter.swift in Sources */,
 				D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */,
 				D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */,
@@ -778,6 +796,7 @@
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
+				10DC90741BBF198900811234 /* Collections.swift in Sources */,
 				D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */,
 				10DC905F1BBEE12F00811234 /* StatusMenuPresenter.swift in Sources */,
 				10DC90661BBEE47C00811234 /* ViewType.swift in Sources */,
@@ -786,6 +805,7 @@
 				D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */,
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */,
+				10DC90701BBF096400811234 /* BuildStatus.swift in Sources */,
 				10DC904E1BBDC2FE00811234 /* CoreModuleType.swift in Sources */,
 				D0C002C71BB48801006A058C /* SettingsManager.swift in Sources */,
 				109169111BBDA007001BB910 /* Single.swift in Sources */,
