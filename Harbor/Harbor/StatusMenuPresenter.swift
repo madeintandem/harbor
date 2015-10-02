@@ -35,10 +35,39 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
     override func didInitialize() {
         super.didInitialize()
         
-        self.projectsInteractor.addListener { projects in
-            
+        self.view.createCoreMenuItems()
+        self.projectsInteractor.addListener(self.handleProjects)
+    }
+    
+    //
+    // MARK: Projects
+    //
+    
+    private func handleProjects(projects: [Project]) {
+        // filter out projets the user disabled and update the view
+        let disabledProjectIds = self.settingsManager.disabledProjectIds
+        let enabledProjects = projects.filter { project in
+            return !disabledProjectIds.contains(project.id)
+        }
+        
+        self.view.updateProjects(enabledProjects)
+        
+        // determine build status and update the view
+        let status = self.buildStatusFromProjects(enabledProjects)
+        
+        self.view.updateBuildStatus(status)
+    }
+    
+    private func buildStatusFromProjects(projects: [Project]) -> BuildStatus {
+        let failingProjects = projects.filter({ $0.status == 1 })
+        
+        if projects.count == 0 {
+            return .Unknown
+        } else if failingProjects.count == 0 {
+            return .Passing
+        } else {
+            return .Failing
         }
     }
-
     
 }

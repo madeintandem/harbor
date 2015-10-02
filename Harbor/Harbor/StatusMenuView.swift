@@ -6,8 +6,14 @@
 //  Copyright © 2015 DevMynd. All rights reserved.
 //
 
-import Foundation
+enum BuildStatus : String {
+    case Unknown = "codeshipLogo_black"
+    case Passing = "codeshipLogo_green"
+    case Failing = "codeshipLogo_red"
+}
 
 protocol StatusMenuView : ViewType {
-    
+    func createCoreMenuItems()
+    func updateBuildStatus(status: BuildStatus)
+    func updateProjects(projects: [Project])
 }

@@ -8,68 +8,64 @@
 
 import Cocoa
 
-class StatusMenu: NSMenu, StatusMenuView {
-    let statusBarItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
+protocol StatusMenuDelegate: NSMenuDelegate {
+    func statusMenuDidSelectPreferences(statusMenu: StatusMenu)
+}
 
-    var projects : [Project]?
+class StatusMenu: NSMenu, StatusMenuView {
+ 
+    //
+    // MARK: Dependencies
+    //
+    
+    private var presenter: StatusMenuPresenter<StatusMenu>!
    
-    var presenter: StatusMenuPresenter<StatusMenu>!
+    //
+    // MARK: Properties
+    //
     
-    let settingsManager:  SettingsManager    = core().inject()
-    let projectsProvider: ProjectsInteractor = core().inject()
-    
+    private let fixedMenuItemCount = 3
+    private let statusBarItem      = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         self.presenter = StatusMenuPresenter(view: self)
-        self.projectsProvider.addListener(self.formatMenu)
+        self.presenter.didInitialize()
     }
     
-    func formatMenu(projects : [Project]) {
-        //clear stale projects, if any, from menu
-        var index = self.itemArray.count - 1
-        for _ in self.itemArray {
-            if index > 3 { self.removeItemAtIndex(index) }
-            index--
+    //
+    // MARK: StatusMenuView
+    //
+    
+    func createCoreMenuItems() {
+        self.statusBarItem.menu = self
+        
+        let preferences    = self.itemAtIndex(1)!
+        preferences.target = self
+        preferences.action = Selector("didClickPreferencesItem")
+    }
+    
+    func updateBuildStatus(status: BuildStatus) {
+        self.statusBarItem.image = status.icon()
+    }
+   
+    func updateProjects(projects: [Project]) {
+        // clear stale projects, if any, from menu
+        let range = self.fixedMenuItemCount..<self.itemArray.count
+        for index in range.reverse() {
+            self.removeItemAtIndex(index)
         }
 
-        let disabledProjectIds = self.settingsManager.disabledProjectIds
-        self.projects = projects.filter { project in
-            return !disabledProjectIds.contains(project.id)
-        }
-        
-        //create statusbar icon
-        var icon = NSImage(named: "codeshipLogo_black")!
-        icon.template = true //works with light & dark menubars
-        
-        //set icon color
-        let failingProjects = self.projects!.filter({ $0.status == 1 })
-        if projects.count == 0 {
-            icon = NSImage(named: "codeshipLogo_black")!
-            icon.template = true //works with light & dark menubars
-            
-        } else if failingProjects.count == 0 {
-            icon = NSImage(named: "codeshipLogo_green")!
-            icon.template = false
-            
-        } else {
-            icon = NSImage(named: "codeshipLogo_red")!
-            icon.template = false
-        }
-        
-        statusBarItem.image = icon
-
-        statusBarItem.menu = self
-        
+        // add the separator between fixed items and projects
         let separatorItem = NSMenuItem.separatorItem()
         self.addItem(separatorItem)
-        
-        for project in (self.projects!) {
+       
+        // add each project
+        for project in projects {
             self.createProjectMenuItem(project)
         }
-
     }
-
 
     func createProjectMenuItem(project: Project){
         let projectMenuItem = NSMenuItem(title: project.repositoryName, action: nil, keyEquivalent: "")
@@ -157,4 +153,33 @@ class StatusMenu: NSMenu, StatusMenuView {
         
         workspace.openURL(buildURL)
     }
+    
+    //
+    // MARK: Interface Actions
+    //
+    
+    func didClickPreferencesItem() {
+        self.statusMenuDelegate.statusMenuDidSelectPreferences(self)
+    }
+    
+    //
+    // MARK: Custom Delegate
+    //
+   
+    var statusMenuDelegate: StatusMenuDelegate {
+        get { return self.delegate as! StatusMenuDelegate }
+        set { self.delegate = newValue }
+    }
+}
+
+private extension BuildStatus {
+   
+    func icon() -> NSImage {
+        let image = NSImage(named: self.rawValue)!
+        // allows black icon to work with light & dark menubars
+        image.template = self == .Unknown
+        
+        return image
+    }
+    
 }

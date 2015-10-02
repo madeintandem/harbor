@@ -10,7 +10,7 @@ import Cocoa
 import Alamofire
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
 
     @IBOutlet weak var statusItemMenu: StatusMenu!
     
@@ -44,29 +44,45 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 //        defaults.removeObjectForKey("RefreshRate")
 //        defaults.removeObjectForKey("DisabledProjects")
 
-        statusItemMenu.delegate = self
-        statusItemMenu.itemAtIndex(1)?.action = Selector("showPreferencesPane")
-        statusItemMenu.formatMenu([])
-        
-        self.refreshProjects()
-        self.timerCoordinator.startTimer()
+        self.statusItemMenu.statusMenuDelegate = self
+        self.statusItemMenu.createCoreMenuItems()
+   
+        // run startup logic
+        self.startup()
     }
     
-    func refreshProjects() {
+    //
+    // MARK: Startup
+    //
+    
+    private func startup() {
+        self.timerCoordinator.startTimer()
+        self.refreshProjects()
+    }
+    
+    private func refreshProjects() {
         if !self.settingsManager.apiKey.isEmpty {
             self.projectsProvider.refreshProjects()
         } else {
             self.showPreferencesPane()
         }
     }
+   
+   
+    //
+    // MARK: StatusMenuDelegate
+    //
     
-    func showPreferencesPane(){
-        preferencesWindowController.window?.center()
-        preferencesWindowController.window?.orderFront(self)
+    func statusMenuDidSelectPreferences(statusMenu: StatusMenu) {
+        self.showPreferencesPane()
+    }
+    
+    private func showPreferencesPane() {
+        self.preferencesWindowController.window?.center()
+        self.preferencesWindowController.window?.orderFront(self)
         
         // Show your window in front of all other apps
         NSApp.activateIgnoringOtherApps(true)
-        
     }
         
 }
