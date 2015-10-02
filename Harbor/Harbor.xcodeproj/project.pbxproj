@@ -184,6 +184,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10DC905A1BBED7A000811234 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */,
+				D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */,
+				D0C002C41BB35136006A058C /* PreferencesView.swift */,
+				D0C002C21BB35114006A058C /* PreferencesPresenter.swift */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		10DC905B1BBED7DE00811234 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */,
+				D08EAB3D1B98D5C8009564CE /* BuildView.swift */,
+				D08EAB401B98D5EA009564CE /* BuildView.xib */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		25DD2328959D84979C80CB6C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,9 +268,9 @@
 		D0254DA91B95FD1A00D12AF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */,
 				D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */,
 				D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */,
+				D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */,
 				D01093C01BB5D93D002D5794 /* UserDefaults.swift */,
 				D01093BE1BB5D932002D5794 /* NotificationCenter.swift */,
 				D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */,
@@ -293,8 +314,8 @@
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
 				D0C002C01BB3472B006A058C /* TextField.swift */,
 				D08EAB311B97531A009564CE /* MainMenu.xib */,
+				D08EAB3F1B98D5D5009564CE /* Views */,
 				D0C002CC1BB49452006A058C /* Interactors */,
-				D08EAB3F1B98D5D5009564CE /* CustomViews */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,
 				D0A3E7441B73A764006E4350 /* API */,
 				D0772F371B3C438900031FB9 /* Domain */,
@@ -351,18 +372,13 @@
 			name = Domain;
 			sourceTree = "<group>";
 		};
-		D08EAB3F1B98D5D5009564CE /* CustomViews */ = {
+		D08EAB3F1B98D5D5009564CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */,
-				D0C002C41BB35136006A058C /* PreferencesView.swift */,
-				D0C002C21BB35114006A058C /* PreferencesPresenter.swift */,
-				D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */,
-				D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */,
-				D08EAB3D1B98D5C8009564CE /* BuildView.swift */,
-				D08EAB401B98D5EA009564CE /* BuildView.xib */,
+				10DC905B1BBED7DE00811234 /* Menu */,
+				10DC905A1BBED7A000811234 /* Preferences */,
 			);
-			name = CustomViews;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		D0A3E7441B73A764006E4350 /* API */ = {
