@@ -63,10 +63,9 @@ class TimerCoordinator : NSObject {
         return self.currentTimer
     }
     
-    private func handleUpdateTimer(timer: NSTimer) {
+    func handleUpdateTimer(timer: NSTimer) {
         if(timer == self.currentTimer) {
             self.projectsProvider.refreshProjects()
-            print("updating projects")
         }
     }
     
