@@ -13,9 +13,9 @@ public final class Project: ResponseObjectSerializable, ResponseCollectionSerial
     
     let id: Int
     let uuid: String
-    let repositoryName: String
-    var builds: [Build]
+    let repositoryName: String!
     let status : Int
+    let builds: [Build]
     var isEnabled : Bool
     
     public init(id: Int) {
@@ -28,20 +28,22 @@ public final class Project: ResponseObjectSerializable, ResponseCollectionSerial
     }
     
     public init?(response:NSHTTPURLResponse, representation:AnyObject){
-        self.id = representation.valueForKeyPath("id") as! Int
-        self.uuid = representation.valueForKeyPath("uuid") as! String
-        self.builds = Build.collection(response: response, representation: representation)
-        self.builds.sortInPlace({ $0.startedAt!.compare($1.startedAt!) == .OrderedDescending })
         self.isEnabled = true
+        
+        self.id     = representation.valueForKeyPath("id") as! Int
+        self.uuid   = representation.valueForKeyPath("uuid") as! String
+        self.builds = Build.collection(response: response, representation: representation).sort({ left, right in
+            return left.startedAt!.compare(right.startedAt!) == .OrderedDescending
+        })
 
-        if representation.valueForKeyPath("repository_name") === NSNull(){
-            self.repositoryName = "Unnamed Project"
+        if let repositoryName = representation.valueForKeyPath("repository_name") as? String {
+            self.repositoryName = repositoryName
         } else {
-            self.repositoryName = representation.valueForKeyPath("repository_name") as! String
+            self.repositoryName = nil
         }
-
+        
         let firstBuild = self.builds.first
-        //make this an enum
+        // make this an enum
         if firstBuild?.status == "success" {
             self.status = 0
         } else if firstBuild?.status == "error" {
@@ -49,22 +51,21 @@ public final class Project: ResponseObjectSerializable, ResponseCollectionSerial
         } else {
             self.status = 2
         }
-        
     }
     
     public static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {
-        var projects: [Project] = []
-        
-        if let representation = representation.valueForKeyPath("projects") as? [[String: AnyObject]] {
-            for projectRepresentation in representation {
-                if let project = Project(response: response, representation: projectRepresentation) {
-                    projects.append(project)
-                }
-            }
+        guard let representations = representation.valueForKeyPath("projects") as? [[String: AnyObject]] else {
+            return [Project]()
         }
+       
+        // map representations into projects and filter out any unnamed elements
+        let projects = representations
+            .flatMap { representation in Project(response: response, representation: representation) }
+            .filter  { project in project.repositoryName != nil }
         
         return projects
     }
+    
 }
 
 public func ==(lhs: Project, rhs: Project) -> Bool {

@@ -283,6 +283,14 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
+		10DC90791BC2CEDE00811234 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D0C002C01BB3472B006A058C /* TextField.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		25DD2328959D84979C80CB6C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,7 +401,6 @@
 			isa = PBXGroup;
 			children = (
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
-				D0C002C01BB3472B006A058C /* TextField.swift */,
 				D08EAB3F1B98D5D5009564CE /* Views */,
 				D0C002CC1BB49452006A058C /* Interactors */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,
@@ -459,6 +466,7 @@
 				10DC90621BBEE17100811234 /* Core */,
 				10DC905B1BBED7DE00811234 /* Menu */,
 				10DC905A1BBED7A000811234 /* Preferences */,
+				10DC90791BC2CEDE00811234 /* Shared */,
 			);
 			name = Views;
 			sourceTree = "<group>";
