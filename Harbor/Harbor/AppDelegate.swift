@@ -45,7 +45,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
 //        defaults.removeObjectForKey("DisabledProjects")
 
         self.statusItemMenu.statusMenuDelegate = self
-        self.statusItemMenu.createCoreMenuItems()
    
         // run startup logic
         self.startup()
@@ -56,6 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
     //
     
     private func startup() {
+        self.settingsManager.enableLaunchAtLogin()
         self.timerCoordinator.startTimer()
         self.refreshProjects()
     }

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import ServiceManagement
+import CoreServices
 
 public class SettingsManager {
     
@@ -14,6 +16,7 @@ public class SettingsManager {
         case ApiKey             =   "ApiKey"
         case RefreshRate        =   "RefreshRate"
         case DisabledProjects   =   "DisabledProjects"
+        case LaunchAtLogin      =   "LaunchAtLogin"
     }
     
     //
@@ -59,7 +62,7 @@ public class SettingsManager {
         self.notificationCenter = notificationCenter
 
         self.refreshRate = self.defaults.doubleForKey(Key.RefreshRate.rawValue)
-        
+      
         if let disabledProjectIds = self.defaults.objectForKey(Key.DisabledProjects.rawValue) as? [Int]{
             self.disabledProjectIds = disabledProjectIds
         } else {
@@ -70,6 +73,16 @@ public class SettingsManager {
             self.apiKey = apiKey
         } else {
             self.apiKey = ""
+        }
+    }
+    
+    func enableLaunchAtLogin() {
+        let didEnableHelper = SMLoginItemSetEnabled("com.dvm.Harbor.HarborHelper", true)
+        
+        if didEnableHelper {
+            print("enabled helper")
+        } else {
+            print("didn't enable helper")
         }
     }
     
