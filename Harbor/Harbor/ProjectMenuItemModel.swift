@@ -18,19 +18,19 @@ struct ProjectMenuItemModel {
     // MARK: Display
     //
     
-    func title() -> String {
-        return self.project.repositoryName
+    var title: String {
+        get { return self.project.repositoryName }
     }
     
-    func submenuTitle() -> String {
-        return "Builds"
+    var submenuTitle: String {
+        get { return "Builds" }
     }
     
     //
     // MARK: Status
     //
     
-    func status() -> BuildStatus {
+    var status: BuildStatus {
         // TODO: the code was previously checking the string status of the first build for
         // the project -- is that right?
         
@@ -38,8 +38,8 @@ struct ProjectMenuItemModel {
         return self.project.status == 0 ? .Passing : .Failing
     }
     
-    func isFailing() -> Bool {
-        return self.status() == .Failing
+    var isFailing: Bool {
+        get { return self.status == .Failing }
     }
     
     //

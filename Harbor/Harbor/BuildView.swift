@@ -20,7 +20,7 @@ class BuildView: NSView {
         self.init(frame: NSRect(x: 0, y: 0, width: 300, height: 53))
     
         self.model = model
-        self.buildMessageLabel.stringValue    = model.message()
+        self.buildMessageLabel.stringValue    = model.message
         self.dateAndUsernameLabel.stringValue = model.authorshipInformation()
     }
     
@@ -68,7 +68,7 @@ class BuildView: NSView {
 extension BuildView {
     
     class func menuItemForModel(model: BuildViewModel) -> NSMenuItem {
-        let result = NSMenuItem(title: model.message(), action: "didClickBuild:", keyEquivalent: "")
+        let result = NSMenuItem(title: model.message, action: "didClickBuild:", keyEquivalent: "")
         result.representedObject = model.build
         
         result.view   = BuildView(model: model)

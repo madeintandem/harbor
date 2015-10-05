@@ -22,8 +22,12 @@ struct BuildViewModel {
     // MARK: display
     //
     
-    func message() -> String {
-        return self.build.message != nil ? self.build.message! : "Unknown"
+    var message: String {
+        get { return self.build.message != nil ? self.build.message! : "Unknown" }
+    }
+    
+    var buildUrl: String {
+        get { return "https://codeship.com/projects/\(projectId)/builds/\(build.id!)" }
     }
     
     func authorshipInformation() -> String {
@@ -35,11 +39,7 @@ struct BuildViewModel {
             return "Started at \(dateString)"
         }
     }
-    
-    func buildUrl() -> String {
-        return "https://codeship.com/projects/\(projectId)/builds/\(build.id!)"
-    }
-    
+   
     private func dateString() -> String {
         guard let date = self.build.startedAt else {
             return "Unknown Date"
@@ -57,7 +57,7 @@ struct BuildViewModel {
     //
     
     func openBuildUrl() {
-        let buildURL  = NSURL(string: self.buildUrl())!
+        let buildURL  = NSURL(string: self.buildUrl)!
         let workspace = NSWorkspace.sharedWorkspace()
         
         workspace.openURL(buildURL)
