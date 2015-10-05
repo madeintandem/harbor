@@ -31,10 +31,6 @@ struct ProjectMenuItemModel {
     //
     
     var status: BuildStatus {
-        // TODO: the code was previously checking the string status of the first build for
-        // the project -- is that right?
-        
-        // TODO: might be woth pushing this enum into the data model layer
         return self.project.status == 0 ? .Passing : .Failing
     }
     
