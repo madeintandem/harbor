@@ -12,25 +12,37 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let isRunning = NSWorkspace.sharedWorkspace().runningApplications.contains { app in
-            return app.bundleIdentifier == "com.devymnd.Harbor.Harbor"
+        let app = NSWorkspace.sharedWorkspace().runningApplications.find { app in
+            return app.bundleIdentifier == "com.dvm.Harbor"
         }
-       
+        
         // if the app isn't running, then let's start it
-        if !isRunning {
+        if app == nil || !app!.active {
             let path = self.applicationPath()
             NSWorkspace.sharedWorkspace().launchApplication(path)
         }
-       
+        
         // kill the helper app
         NSApp.terminate(nil)
     }
     
     private func applicationPath() -> String {
-        let components = NSBundle.mainBundle().bundlePath.componentsSeparatedByString("/")
-        let subcomponents = components[0...components.count-3]
-        return subcomponents.joinWithSeparator("/")
+        var components = NSBundle.mainBundle().bundlePath.componentsSeparatedByString("/")
+        
+        // helper is at "Library/LoginItems/HarborHelper" relative to the app root
+        components.removeRange(components.count-3..<components.count)
+        // and the main app is at "MacOS/Harbor"
+        components.appendContentsOf(["MacOS", "Harbor"])
+        
+        return components.joinWithSeparator("/")
     }
-
+    
 }
 
+extension SequenceType {
+    
+    func find(predicate: (Generator.Element) -> Bool) -> Generator.Element? {
+        return self.filter(predicate).first
+    }
+    
+}

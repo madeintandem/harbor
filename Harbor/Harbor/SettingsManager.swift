@@ -77,13 +77,7 @@ public class SettingsManager {
     }
     
     func enableLaunchAtLogin() {
-        let didEnableHelper = SMLoginItemSetEnabled("com.dvm.Harbor.HarborHelper", true)
-        
-        if didEnableHelper {
-            print("enabled helper")
-        } else {
-            print("didn't enable helper")
-        }
+        SMLoginItemSetEnabled("com.dvm.Harbor.Helper", true)
     }
     
 }
