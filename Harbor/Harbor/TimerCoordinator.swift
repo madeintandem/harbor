@@ -44,6 +44,10 @@ class TimerCoordinator : NSObject {
     // MARK: Scheduling
     //
     
+    func startup() {
+        self.startTimer()
+    }
+    
     func startTimer() -> NSTimer? {
         return self.setupTimer(self.settingsManager.refreshRate)
     }

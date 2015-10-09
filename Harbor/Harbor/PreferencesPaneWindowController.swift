@@ -24,6 +24,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     @IBOutlet weak var codeshipAPIKey: TextField!
     @IBOutlet weak var refreshRateTextField: TextField!
     @IBOutlet weak var projectTableView: NSTableView!
+    @IBOutlet weak var launchOnLoginCheckbox: NSButton!
         
     override init(window: NSWindow?) {
         super.init(window: window)
@@ -67,9 +68,26 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         self.refreshRateTextField.stringValue = refreshRate
     }
     
+    func updateLaunchOnLogin(launchOnLogin: Bool) {
+        self.launchOnLoginCheckbox.enabled = launchOnLogin
+    }
+    
     //
-    // MARK: Save Button Press
+    // MARK: Interface Actions
     //
+   
+    @IBAction func launchOnLoginCheckboxClicked(sender: AnyObject) {
+        self.presenter.updateLaunchOnLogin(self.launchOnLoginCheckbox.enabled)
+    }
+   
+    @IBAction func isEnabledCheckboxClicked(sender: AnyObject) {
+        let button = sender as? NSButton
+        
+        if let view = button?.nextKeyView as? NSTableCellView {
+            let row = self.projectTableView.rowForView(view)
+            self.presenter.toggleEnabledStateForProjectAtIndex(row)
+        }
+    }
     
     @IBAction func saveButton(sender: AnyObject) {
         self.presenter.savePreferences()
@@ -122,12 +140,4 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         return view
     }
 
-    @IBAction func isEnabledCheckboxClicked(sender: AnyObject) {
-        let button = sender as? NSButton
-        
-        if let view = button?.nextKeyView as? NSTableCellView {
-            let row = self.projectTableView.rowForView(view)
-            self.presenter.toggleEnabledStateForProjectAtIndex(row)
-        }
-    }
 }

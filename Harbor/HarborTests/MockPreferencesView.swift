@@ -33,4 +33,9 @@ class MockPreferencesView : PreferencesView {
     func updateApiKey(apiKey: String) {
         self.invocations.append(Invocation(.UpdateApiKey, apiKey))
     }
+    
+    func updateLaunchOnLogin(launchOnLogin: Bool) {
+        
+    }
+    
 }

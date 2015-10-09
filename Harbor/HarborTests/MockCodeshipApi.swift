@@ -6,7 +6,7 @@
 //  Copyright © 2015 DevMynd. All rights reserved.
 //
 
-import Harbor
+@testable import Harbor
 
 class MockCodeshipApi : CodeshipApiType {
 

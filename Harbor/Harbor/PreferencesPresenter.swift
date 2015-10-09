@@ -22,9 +22,10 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     // MARK: Properties
     //
     
-    private var apiKey:       String = ""
-    private var refreshRate:  Double = 60.0
-    private var allProjects:  [Project]
+    private var apiKey:        String = ""
+    private var refreshRate:   Double = 60.0
+    private var launchOnLogin: Bool   = true
+    private var allProjects:   [Project]
     
     private(set) var needsRefresh: Bool = true
 
@@ -102,14 +103,21 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
         self.setNeedsRefresh()
     }
     
+    func updateLaunchOnLogin(launchOnLogin: Bool) {
+        self.launchOnLogin = launchOnLogin
+        self.setNeedsRefresh()
+    }
+    
     private func refreshConfiguration() {
         // load data from user defaults
-        self.refreshRate = self.settingsManager.refreshRate
-        self.apiKey = self.settingsManager.apiKey
+        self.launchOnLogin = self.settingsManager.launchOnLogin
+        self.refreshRate   = self.settingsManager.refreshRate
+        self.apiKey        = self.settingsManager.apiKey
         
         // update our view after refreshing
         self.view.updateApiKey(self.apiKey)
         self.view.updateRefreshRate(self.refreshRate.description)
+        self.view.updateLaunchOnLogin(self.launchOnLogin)
     }
     
     //

@@ -8,21 +8,21 @@
 
 import Alamofire
 
-public protocol CodeshipApiType {
+protocol CodeshipApiType {
     func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->())
 }
 
-public class CodeshipApi : CodeshipApiType {
+class CodeshipApi : CodeshipApiType {
     
     static let apiRootPath = "https://codeship.com/api/v1/projects.json?api_key="
     
     private let settingsManager: SettingsManager
     
-    public init(settingsManager: SettingsManager = core().inject()) {
+    init(settingsManager: SettingsManager = core().inject()) {
         self.settingsManager = settingsManager
     }
     
-    public func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->()){
+    func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->()){
         let apiKey = self.settingsManager.apiKey
         let apiURL = "\(CodeshipApi.apiRootPath)\(apiKey)"
         

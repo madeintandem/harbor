@@ -8,7 +8,8 @@
 
 import Quick
 import Nimble
-import Harbor
+
+@testable import Harbor
 
 class SettingsManagerTests: HarborSpec { override func spec() {
     super.spec()

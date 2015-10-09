@@ -38,8 +38,9 @@ let SecAttrAccount: String! = kSecAttrAccount as String
 let SecAttrAccessGroup: String! = kSecAttrAccessGroup as String
 
 public protocol Keychain {
-    func setString(value: String, forKey keyName: String) -> Bool
-    func stringForKey(keyName: String) -> String?
+    func setString(value: String, forKey keyName: CustomStringConvertible) -> Bool
+    func stringForKey(keyName: CustomStringConvertible) -> String?
+    func removeValueForKey(key: CustomStringConvertible) -> Bool
 }
 
 /// KeychainWrapper is a class to help make Keychain access in Swift more straightforward. It is designed to make accessing the Keychain services more like using NSUserDefaults, which is much more familiar to people.
@@ -87,8 +88,8 @@ public class KeychainWrapper : Keychain {
     ///
     /// :param: keyName The key to lookup data for.
     /// :returns: The String associated with the key if it exists. If no data exists, or the data found cannot be encoded as a string, returns nil.
-    public func stringForKey(keyName: String) -> String? {
-        let keychainData: NSData? = KeychainWrapper.dataForKey(keyName)
+    public func stringForKey(keyName: CustomStringConvertible) -> String? {
+        let keychainData: NSData? = KeychainWrapper.dataForKey(keyName.description)
         var stringValue: String?
         if let data = keychainData {
             stringValue = NSString(data: data, encoding: NSUTF8StringEncoding) as String?
@@ -142,9 +143,9 @@ public class KeychainWrapper : Keychain {
     /// :param: value The String value to save.
     /// :param: forKey The key to save the String under.
     /// :returns: True if the save was successful, false otherwise.
-    public func setString(value: String, forKey keyName: String) -> Bool {
+    public func setString(value: String, forKey keyName: CustomStringConvertible) -> Bool {
         if let data = value.dataUsingEncoding(NSUTF8StringEncoding) {
-            return KeychainWrapper.setData(data, forKey: keyName)
+            return KeychainWrapper.setData(data, forKey: keyName.description)
         } else {
             return false
         }
@@ -187,10 +188,10 @@ public class KeychainWrapper : Keychain {
     
     /// Remove an object associated with a specified key.
     ///
-    /// :param: keyName The key value to remove data for.
+    /// :param: key The key value to remove data for.
     /// :returns: True if successful, false otherwise.
-    public class func removeObjectForKey(keyName: String) -> Bool {
-        let keychainQueryDictionary: [String:AnyObject] = self.setupKeychainQueryDictionaryForKey(keyName)
+    public func removeValueForKey(key: CustomStringConvertible) -> Bool {
+        let keychainQueryDictionary: [String:AnyObject] = KeychainWrapper.setupKeychainQueryDictionaryForKey(key.description)
         
         // Delete
         let status: OSStatus =  SecItemDelete(keychainQueryDictionary);

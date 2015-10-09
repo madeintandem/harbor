@@ -18,13 +18,18 @@ class MockKeychain : Keychain {
 
     var invocation: Invocation<Method, String>?
     
-    func setString(value: String, forKey keyName: String) -> Bool {
+    func setString(value: String, forKey keyName: CustomStringConvertible) -> Bool {
         invocation = Invocation(.SetString, value)
         return true
     }
     
-    func stringForKey(keyName: String) -> String? {
+    func stringForKey(keyName: CustomStringConvertible) -> String? {
         invocation = Invocation(.StringForKey, self.invocation?.value)
         return invocation?.value
     }
+    
+    func removeValueForKey(key: CustomStringConvertible) -> Bool {
+        return false
+    }
+    
 }

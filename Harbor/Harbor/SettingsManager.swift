@@ -10,13 +10,26 @@ import Foundation
 import ServiceManagement
 import CoreServices
 
-public class SettingsManager {
+class SettingsManager {
     
-    private enum Key: String {
-        case ApiKey             =   "ApiKey"
-        case RefreshRate        =   "RefreshRate"
-        case DisabledProjects   =   "DisabledProjects"
-        case LaunchAtLogin      =   "LaunchAtLogin"
+    private enum Key: String, CustomStringConvertible {
+        case ApiKey           = "ApiKey"
+        case RefreshRate      = "RefreshRate"
+        case DisabledProjects = "DisabledProjects"
+        case LaunchOnLogin    = "LaunchOnLogin"
+        case HasLaunched      = "HasLaunched"
+        
+        var description: String {
+            get { return self.rawValue }
+        }
+        
+        var storedInKeychain: Bool {
+            get { return self == .ApiKey }
+        }
+        
+        static func all() -> [Key] {
+            return [ .ApiKey, .RefreshRate, .DisabledProjects, .LaunchOnLogin, .HasLaunched ]
+        }
     }
     
     //
@@ -31,53 +44,79 @@ public class SettingsManager {
     // MARK: Properties
     //
     
-    public var apiKey: String {
+    var apiKey: String {
         didSet {
-            keychain.setString(self.apiKey, forKey: Key.ApiKey.rawValue)
+            keychain.setString(apiKey, forKey: Key.ApiKey)
             self.postNotification(.ApiKey)
         }
     }
     
-    public var refreshRate: Double {
+    var refreshRate: Double {
         didSet {
-            self.defaults.setDouble(self.refreshRate, forKey: Key.RefreshRate.rawValue)
+            defaults.setDouble(refreshRate, forKey: Key.RefreshRate)
             self.postNotification(.RefreshRate)
         }
     }
     
-    public var disabledProjectIds: [Int] {
+    var disabledProjectIds: [Int] {
         didSet {
-            self.defaults.setObject(self.disabledProjectIds, forKey: Key.DisabledProjects.rawValue)
+            defaults.setObject(disabledProjectIds, forKey: Key.DisabledProjects)
             self.postNotification(.DisabledProjects)
         }
     }
     
-    public init(
-        userDefaults: UserDefaults = core().inject(),
+    var launchOnLogin: Bool {
+        didSet {
+            defaults.setBool(launchOnLogin, forKey: Key.LaunchOnLogin)
+            if oldValue != self.launchOnLogin {
+                self.updateHelperLoginItem(self.launchOnLogin)
+            }
+        }
+    }
+   
+    var isFirstRun: Bool
+    
+    init(
+        defaults: UserDefaults = core().inject(),
         keychain: Keychain = core().inject(),
         notificationCenter: NotificationCenter = core().inject()) {
             
-        self.defaults           = userDefaults
+        self.defaults           = defaults
         self.keychain           = keychain
         self.notificationCenter = notificationCenter
-
-        self.refreshRate = self.defaults.doubleForKey(Key.RefreshRate.rawValue)
-      
-        if let disabledProjectIds = self.defaults.objectForKey(Key.DisabledProjects.rawValue) as? [Int]{
-            self.disabledProjectIds = disabledProjectIds
-        } else {
-            self.disabledProjectIds = [Int]()
-        }
-        
-        if let apiKey = keychain.stringForKey(Key.ApiKey.rawValue) {
-            self.apiKey = apiKey
-        } else {
-            self.apiKey = ""
+       
+        apiKey             = keychain.stringForKey(Key.ApiKey) ?? ""
+        refreshRate        = defaults.doubleForKey(Key.RefreshRate)
+        disabledProjectIds = defaults.objectForKey(Key.DisabledProjects) as? [Int] ?? [Int]()
+        isFirstRun         = !defaults.boolForKey(Key.HasLaunched)
+        launchOnLogin      = isFirstRun ? true : defaults.boolForKey(Key.LaunchOnLogin)
+    }
+    
+    func startup() {
+        // on first run, update the login item immediately and mark the app as launched
+        if isFirstRun {
+            defaults.setBool(true, forKey: Key.HasLaunched)
+            self.updateHelperLoginItem(launchOnLogin) 
         }
     }
     
-    func enableLaunchAtLogin() {
-        SMLoginItemSetEnabled("com.dvm.Harbor.Helper", true)
+    func reset() {
+        // clear out values for all the stored keys
+        for key in Key.all() {
+            if key.storedInKeychain {
+                keychain.removeValueForKey(key)
+            } else {
+                defaults.removeValueForKey(key)
+            }
+        }
+    }
+    
+    private func updateHelperLoginItem(launchOnLogin: Bool) {
+        let result = SMLoginItemSetEnabled("com.dvm.Harbor.Helper", launchOnLogin)
+    
+        let enabled = launchOnLogin ? "enabling" : "disabling"
+        let success = result ? "succeeded" : "failed"
+        print("\(enabled) launch on login \(success)")
     }
     
 }
@@ -86,12 +125,12 @@ public class SettingsManager {
 // MARK: Notifications
 //
 
-public extension SettingsManager {
+extension SettingsManager {
     
-    public enum NotificationName: String {
-        case ApiKey             =   "ApiKey"
-        case RefreshRate        =   "RefreshRate"
-        case DisabledProjects   =   "DisabledProjects"
+    enum NotificationName: String {
+        case ApiKey           = "ApiKey"
+        case RefreshRate      = "RefreshRate"
+        case DisabledProjects = "DisabledProjects"
     }
     
     func observeNotification(notification: SettingsManager.NotificationName, handler: (NSNotification -> Void)) -> NSObjectProtocol {

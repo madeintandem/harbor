@@ -6,8 +6,8 @@
 //  Copyright © 2015 DevMynd. All rights reserved.
 //
 
-import Harbor
 import Nimble
+@testable import Harbor
 
 protocol MethodType : Equatable {
     
@@ -43,7 +43,6 @@ func match<M, A, E: Equatable>(expected: Invocation<M, E>) -> NonNilMatcherFunc<
 
 func match<M, A, E: Equatable>(expected: Invocation<M, [E]>) -> NonNilMatcherFunc<Invocation<M, A>> {
     return matcher(expected, comparator: compareArray)
-
 }
 
 func haveAnyMatch<S: SequenceType, M, A, E: Equatable where S.Generator.Element == Invocation<M, A>>(expected: Invocation<M, E>) -> NonNilMatcherFunc<S> {

@@ -15,12 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
     @IBOutlet weak var statusItemMenu: StatusMenu!
     
     var preferencesWindowController: PreferencesPaneWindowController!
-    var projects: [Project]?
-    let defaults = NSUserDefaults()
     
+    var settings:         SettingsManager!
     var projectsProvider: ProjectsInteractor!
     var timerCoordinator: TimerCoordinator!
-    var settingsManager:  SettingsManager!
     
     override init() {
         super.init()
@@ -31,20 +29,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        self.preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
+        preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
         
-        self.projectsProvider = core().inject()
-        self.timerCoordinator = core().inject()
-        self.settingsManager  = core().inject()
-
-        //
-//        Uncomment to Clear keychain & Defaults for testing.
-//
-//        KeychainWrapper.removeObjectForKey("ApiKey")
-//        defaults.removeObjectForKey("RefreshRate")
-//        defaults.removeObjectForKey("DisabledProjects")
-
-        self.statusItemMenu.statusMenuDelegate = self
+        settings         = core().inject()
+        projectsProvider = core().inject()
+        timerCoordinator = core().inject()
+      
+        statusItemMenu.statusMenuDelegate = self
    
         // run startup logic
         self.startup()
@@ -55,14 +46,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
     //
     
     private func startup() {
-        self.settingsManager.enableLaunchAtLogin()
-        self.timerCoordinator.startTimer()
+        settings.startup()
+        timerCoordinator.startup()
+        
         self.refreshProjects()
     }
     
     private func refreshProjects() {
-        if !self.settingsManager.apiKey.isEmpty {
-            self.projectsProvider.refreshProjects()
+        if !settings.apiKey.isEmpty {
+            projectsProvider.refreshProjects()
         } else {
             self.showPreferencesPane()
         }
@@ -78,8 +70,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
     }
     
     private func showPreferencesPane() {
-        self.preferencesWindowController.window?.center()
-        self.preferencesWindowController.window?.orderFront(self)
+        preferencesWindowController.window?.center()
+        preferencesWindowController.window?.orderFront(self)
         
         // Show your window in front of all other apps
         NSApp.activateIgnoringOtherApps(true)
