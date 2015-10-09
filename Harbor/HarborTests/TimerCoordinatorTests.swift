@@ -22,7 +22,7 @@ class TimerCoordinatorTests : HarborSpec { override func spec() {
     }
     
     it("the initializer observes the settings manager notification"){
-        let invocation = notificationInvocation(.AddObserverForName, .RefreshRate)
+        let invocation = Invocations.notification(.AddObserverForName, .RefreshRate)
         expect(example.notificationCenter.invocation).to(match(invocation))
     }
     
@@ -47,7 +47,7 @@ class TimerCoordinatorTests : HarborSpec { override func spec() {
         
         it("adds the timer to the run loop") {
             let timer = example.subject.startTimer()
-            let invocation = Invocation(MockRunLoop.Method.AddTimer, timer)
+            let invocation = Invocations.runloop(.AddTimer, VerifierOf(timer))
             
             expect(example.runLoop.invocation).to(match(invocation))
         }

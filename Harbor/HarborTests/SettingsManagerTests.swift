@@ -16,10 +16,6 @@ class SettingsManagerTests: HarborSpec { override func spec() {
     
     var example: Example<SettingsManager>!
     
-    let notificationInvocation = { (method: MockNotificationCenter.Method, name: SettingsManager.NotificationName) in
-        return Invocation(method, name.rawValue)
-    }
-    
     beforeEach {
         example = Example(constructor: {
             return SettingsManager()
@@ -38,15 +34,15 @@ class SettingsManagerTests: HarborSpec { override func spec() {
             }
             
             it("sends the user defaults the given rate"){
-                let invocation  = Invocation(MockUserDefaults.Method.SetDouble, 60.0)
+                let value      = 60.0
+                let invocation = Invocations.defaults(.SetDouble, VerifierOf(value))
                 
-                example.subject.refreshRate = invocation.value!
-                expect(example.defaults.doubleInvocation).to(match(invocation))
+                example.subject.refreshRate = value
+                expect(example.defaults.invocation).to(match(invocation))
             }
             
             it("posts a notification") {
-                let invocation = notificationInvocation(.PostNotificationName, .RefreshRate)
-                
+                let invocation = Invocations.notification(.PostNotificationName, .RefreshRate)
                 example.subject.refreshRate = 60.0
                 expect(example.notificationCenter.invocation).to(match(invocation))
             }
@@ -62,14 +58,14 @@ class SettingsManagerTests: HarborSpec { override func spec() {
             }
             
             it("sets the API Key in the keychain"){
-                let invocation = Invocation(MockKeychain.Method.SetString, apiKey)
+                let invocation = Invocations.keychain(.SetString, VerifierOf(apiKey))
                 
                 example.subject.apiKey = apiKey
                 expect(example.keychain.invocation).to(match(invocation))
             }
             
             it("posts a notification") {
-                let invocation = notificationInvocation(.PostNotificationName, .ApiKey)
+                let invocation = Invocations.notification(.PostNotificationName, .ApiKey)
                 
                 example.subject.apiKey = apiKey
                 expect(example.notificationCenter.invocation).to(match(invocation))
@@ -86,14 +82,14 @@ class SettingsManagerTests: HarborSpec { override func spec() {
             }
             
             it("sends user defaults the disabled project id array"){
-                let invocation = Invocation(MockUserDefaults.Method.SetObject, disabledProjectIds)
+                let invocation = Invocations.defaults(.SetObject, VerifierOf(disabledProjectIds))
                 
                 example.subject.disabledProjectIds = disabledProjectIds
-                expect(example.defaults.objectInvocation).to(match(invocation))
+                expect(example.defaults.invocation).to(match(invocation))
             }
             
             it("posts a notification") {
-                let invocation = notificationInvocation(.PostNotificationName, .DisabledProjects)
+                let invocation = Invocations.notification(.PostNotificationName, .DisabledProjects)
                 
                 example.subject.disabledProjectIds = disabledProjectIds
                 expect(example.notificationCenter.invocation).to(match(invocation))
@@ -104,19 +100,23 @@ class SettingsManagerTests: HarborSpec { override func spec() {
     }
     
     describe("notification extension") {
+        
         describe("observeNotification") {
-            it("should add an observer to notification center"){
+            
+            it("should add an observer to notification center") {
                 let notification = SettingsManager.NotificationName.ApiKey
-                let invocation   = notificationInvocation(.AddObserverForName, notification)
+                let invocation   = Invocations.notification(.AddObserverForName, notification)
                 
                 example.subject.observeNotification(notification, handler: { _ in })
                 expect(example.notificationCenter.invocation).to(match(invocation))
             }
+            
         }
     }
     
     describe("initializer"){
-        it("retrieves the correct API Key"){
+        
+        it("retrieves the correct API Key") {
             let apiKey = "12903jasjfd0aj21"
             example.subject.apiKey = apiKey
             

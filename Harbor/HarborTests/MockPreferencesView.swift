@@ -16,14 +16,14 @@ class MockPreferencesView : PreferencesView {
         case UpdateApiKey
     }
  
-    var invocations: [Invocation<Method, AnyObject>?]
+    var invocations: [Invocation<Method>]
  
     init() {
-        self.invocations = [Invocation<Method, AnyObject>?]()
+        self.invocations = [Invocation<Method>]()
     }
     
     func updateProjects(projects: [Project]) {
-       self.invocations.append(Invocation(.UpdateProjects, projects))
+        self.invocations.append(Invocation(.UpdateProjects, projects))
     }
     
     func updateRefreshRate(refreshRate: String) {
@@ -38,4 +38,10 @@ class MockPreferencesView : PreferencesView {
         
     }
     
+}
+
+extension Invocations {
+    static func preferencesView<E: Verifiable>(method: MockPreferencesView.Method, _ value: E) -> ExpectedInvocation<MockPreferencesView.Method, E> {
+        return ExpectedInvocation(method, value)
+    }
 }

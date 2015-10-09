@@ -24,8 +24,9 @@ class PreferencesPresenterTests : HarborSpec { override func spec() {
     }
     
     describe("presentation cycle"){
-        it("listens to the projectsProvider"){
-            let invocation = Invocation<MockProjectsProvider.Method, None>(.AddListener, .Nothing)
+        
+        it("listens to the projectsProvider") {
+            let invocation = Invocations.projectsInteractor(.AddListener, VerifierOf(None.Nothing))
             
             subject.didInitialize()
             expect(projectsInteractor.invocation).to(match(invocation))
@@ -44,7 +45,7 @@ class PreferencesPresenterTests : HarborSpec { override func spec() {
             expect(subject.needsRefresh).to(beFalse())
         }
         
-        it("refreshes the view when it disappears"){
+        it("refreshes the view when it disappears") {
             subject.setNeedsRefresh()
             expect(subject.needsRefresh).to(beTrue())
             
@@ -52,8 +53,9 @@ class PreferencesPresenterTests : HarborSpec { override func spec() {
             expect(subject.needsRefresh).to(beFalse())
         }
         
-        xit("updates the view when refreshing"){
-
+        xit("updates the view when refreshing") {
+            let invocation = Invocations.preferencesView(.UpdateApiKey, VerifierOf("asdf"))
+            expect(subject.view.invocations).to(haveAnyMatch(invocation))
         }
     }
     

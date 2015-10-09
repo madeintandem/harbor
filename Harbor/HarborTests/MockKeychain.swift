@@ -8,7 +8,6 @@
 
 import Harbor
 
-
 class MockKeychain : Keychain {
     
     enum Method : MethodType {
@@ -16,7 +15,7 @@ class MockKeychain : Keychain {
         case StringForKey
     }
 
-    var invocation: Invocation<Method, String>?
+    var invocation: Invocation<Method>?
     
     func setString(value: String, forKey keyName: CustomStringConvertible) -> Bool {
         invocation = Invocation(.SetString, value)
@@ -25,11 +24,17 @@ class MockKeychain : Keychain {
     
     func stringForKey(keyName: CustomStringConvertible) -> String? {
         invocation = Invocation(.StringForKey, self.invocation?.value)
-        return invocation?.value
+        return invocation?.value as! String?
     }
     
     func removeValueForKey(key: CustomStringConvertible) -> Bool {
         return false
     }
     
+}
+
+extension Invocations {
+    static func keychain<E: Verifiable>(method: MockKeychain.Method, _ value: E) -> ExpectedInvocation<MockKeychain.Method, E> {
+        return ExpectedInvocation(method, value)
+    }
 }

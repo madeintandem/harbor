@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		108689C61BC8227D00B2DD87 /* VerifierOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689C51BC8227D00B2DD87 /* VerifierOf.swift */; settings = {ASSET_TAGS = (); }; };
+		108689C91BC826C400B2DD87 /* Verifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689C81BC826C400B2DD87 /* Verifiable.swift */; settings = {ASSET_TAGS = (); }; };
+		108689CB1BC841BE00B2DD87 /* InvocationMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */; settings = {ASSET_TAGS = (); }; };
 		109169071BBD9190001BB910 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109169061BBD9190001BB910 /* Injector.swift */; settings = {ASSET_TAGS = (); }; };
 		109169091BBD9DE2001BB910 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109169081BBD9DE2001BB910 /* Factory.swift */; settings = {ASSET_TAGS = (); }; };
 		1091690B1BBD9DEA001BB910 /* Transient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1091690A1BBD9DEA001BB910 /* Transient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -125,6 +128,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		108689C51BC8227D00B2DD87 /* VerifierOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifierOf.swift; sourceTree = "<group>"; };
+		108689C81BC826C400B2DD87 /* Verifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verifiable.swift; sourceTree = "<group>"; };
+		108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvocationMatchers.swift; sourceTree = "<group>"; };
 		109169061BBD9190001BB910 /* Injector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		109169081BBD9DE2001BB910 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		1091690A1BBD9DEA001BB910 /* Transient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transient.swift; sourceTree = "<group>"; };
@@ -382,11 +388,14 @@
 		D01093C51BB5F049002D5794 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D01093C61BB5F05E002D5794 /* Invocation.swift */,
-				D0704EAD1BBB1851005C808B /* None.swift */,
 				10DC90531BBDD31C00811234 /* HarborSpec.swift */,
-				10DC90551BBDDABF00811234 /* Example.swift */,
 				10DC90511BBDD29500811234 /* MockCoreModule.swift */,
+				10DC90551BBDDABF00811234 /* Example.swift */,
+				D01093C61BB5F05E002D5794 /* Invocation.swift */,
+				108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */,
+				108689C81BC826C400B2DD87 /* Verifiable.swift */,
+				108689C51BC8227D00B2DD87 /* VerifierOf.swift */,
+				D0704EAD1BBB1851005C808B /* None.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -893,11 +902,14 @@
 				D0772F1F1B3C437800031FB9 /* HarborTests.swift in Sources */,
 				D0B1E16E1BB9EA4C009D0151 /* MockCodeshipApi.swift in Sources */,
 				D0458F4E1BB9B83000DCC4A6 /* MockNotificationCenter.swift in Sources */,
+				108689C91BC826C400B2DD87 /* Verifiable.swift in Sources */,
+				108689C61BC8227D00B2DD87 /* VerifierOf.swift in Sources */,
 				D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorTests.swift in Sources */,
 				D0704EAC1BBB1584005C808B /* MockProjectsProvider.swift in Sources */,
 				10DC90541BBDD31C00811234 /* HarborSpec.swift in Sources */,
 				D01093C71BB5F05E002D5794 /* Invocation.swift in Sources */,
 				D01093C41BB5DB33002D5794 /* MockUserDefaults.swift in Sources */,
+				108689CB1BC841BE00B2DD87 /* InvocationMatchers.swift in Sources */,
 				D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */,
 				D0704EAE1BBB1851005C808B /* None.swift in Sources */,
 				D0704EAA1BBB1418005C808B /* MockPreferencesView.swift in Sources */,

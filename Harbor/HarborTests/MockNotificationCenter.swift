@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Harbor
+
+@testable import Harbor
 
 class MockNotificationCenter : NotificationCenter {
     
@@ -16,7 +17,7 @@ class MockNotificationCenter : NotificationCenter {
         case PostNotificationName
     }
     
-    var invocation: Invocation<Method, String>?
+    var invocation: Invocation<Method>?
     
     func addObserverForName(name: String?, object obj: AnyObject?, queue: NSOperationQueue?, usingBlock block: (NSNotification) -> Void) -> NSObjectProtocol {
         invocation = Invocation(.AddObserverForName, name)
@@ -25,5 +26,12 @@ class MockNotificationCenter : NotificationCenter {
     
     func postNotificationName(aName: String, object anObject: AnyObject?){
         invocation = Invocation(.PostNotificationName, aName)
+    }
+    
+}
+
+extension Invocations {
+    static func notification(method: MockNotificationCenter.Method, _ key: SettingsManager.NotificationName) -> ExpectedInvocation<MockNotificationCenter.Method, VerifierOf> {
+        return ExpectedInvocation(method, VerifierOf(key.rawValue))
     }
 }

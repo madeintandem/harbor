@@ -17,22 +17,28 @@ class MockProjectsProvider : ProjectsInteractor {
     }
     
     let projects  : [Project]
-    var invocation: Invocation<Method, None>?
+    var invocation: Invocation<Method>?
 
     init() {
-        self.projects = MockCodeshipApi().generateProjects()
+        projects = MockCodeshipApi().generateProjects()
     }
     
     func refreshProjects(){
-        self.invocation = Invocation(.RefreshProjects, .Nothing)
+        invocation = Invocation(.RefreshProjects, None.Nothing)
     }
     
     func refreshCurrentProjects(){
-        self.invocation = Invocation(.RefreshCurrentProjects, .Nothing)
+        invocation = Invocation(.RefreshCurrentProjects, None.Nothing)
     }
     
     func addListener(listener: ProjectHandler){
-        self.invocation = Invocation(.AddListener, .Nothing)
+        invocation = Invocation(.AddListener, None.Nothing)
         listener(self.projects)
+    }
+}
+
+extension Invocations {
+    static func projectsInteractor<E: Verifiable>(method: MockProjectsProvider.Method, _ value: E) -> ExpectedInvocation<MockProjectsProvider.Method, E> {
+        return ExpectedInvocation(method, value)
     }
 }

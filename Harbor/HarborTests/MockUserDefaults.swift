@@ -17,27 +17,26 @@ class MockUserDefaults : UserDefaults {
         case DoubleForKey
     }
     
-    var objectInvocation: Invocation<Method, AnyObject>?
-    var doubleInvocation: Invocation<Method, Double>?
+    var invocation: Invocation<Method>?
     
     func setObject(object: AnyObject?, forKey key: CustomStringConvertible) {
-        self.objectInvocation = Invocation(.SetObject, object)
+        self.invocation = Invocation(.SetObject, object)
     }
     
     func objectForKey(key: CustomStringConvertible) -> AnyObject? {
-        let lastValue = self.objectInvocation?.value
-        self.objectInvocation = Invocation(.ObjectForKey, lastValue)
-        return lastValue
+        let lastValue = self.invocation?.value
+        self.invocation = Invocation(.ObjectForKey, lastValue)
+        return lastValue as! AnyObject?
     }
     
     func setDouble(double: Double, forKey key: CustomStringConvertible) {
-        self.doubleInvocation = Invocation(.SetDouble, double)
+        self.invocation = Invocation(.SetDouble, double)
     }
     
     func doubleForKey(key: CustomStringConvertible) -> Double {
-        let lastValue = self.doubleInvocation?.value
-        self.doubleInvocation = Invocation(.DoubleForKey, lastValue)
-        return lastValue != nil ? lastValue! : 0.0
+        let lastValue = self.invocation?.value
+        self.invocation = Invocation(.DoubleForKey, lastValue)
+        return lastValue as? Double ?? 0.0
     }
     
     func setBool(bool: Bool, forKey key: CustomStringConvertible) {
@@ -52,4 +51,10 @@ class MockUserDefaults : UserDefaults {
     
     }
     
+}
+
+extension Invocations {
+    static func defaults<E: Verifiable>(method: MockUserDefaults.Method, _ value: E) -> ExpectedInvocation<MockUserDefaults.Method, E> {
+        return ExpectedInvocation(method, value)
+    }
 }
