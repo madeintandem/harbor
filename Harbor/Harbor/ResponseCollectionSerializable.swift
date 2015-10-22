@@ -14,10 +14,12 @@ public protocol ResponseCollectionSerializable {
 }
 
 extension Alamofire.Request {
-    public func responseCollection<T: ResponseCollectionSerializable>(completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<[T]>) -> Void) -> Self {
-        let responseSerializer = GenericResponseSerializer<[T]> { request, response, data in
+    public func responseCollection<T: ResponseCollectionSerializable>(completionHandler: Response<[T], NSError> -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<[T], NSError> { request, response, data, error in
+            guard error == nil else { return .Failure(error!) }
+            
             let JSONSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONSerializer.serializeResponse(request, response, data)
+            let result = JSONSerializer.serializeResponse(request, response, data, error)
             
             switch result {
             case .Success(let value):
@@ -26,10 +28,10 @@ extension Alamofire.Request {
                 } else {
                     let failureReason = "Response collection could not be serialized due to nil response"
                     let error = Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
-                    return .Failure(data, error)
+                    return .Failure(error)
                 }
-            case .Failure(let data, let error):
-                return .Failure(data, error)
+            case .Failure(let error):
+                return .Failure(error)
             }
         }
         

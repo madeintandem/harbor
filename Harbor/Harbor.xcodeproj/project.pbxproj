@@ -32,9 +32,9 @@
 		10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90771BBF1CB700811234 /* BuildViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 		10DC909A1BC2E20F00811234 /* HarborHelper.app in Copy Helper App */ = {isa = PBXBuildFile; fileRef = 10DC90981BC2E13000811234 /* HarborHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		10DC909C1BC2E23600811234 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DC909B1BC2E23600811234 /* ServiceManagement.framework */; };
-		23DAEB6AAFDED0A1B6F5EF30 /* Pods_HarborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9CCE64A5D0F6E239A1EC0F /* Pods_HarborUITests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		6805408B79168B08E38757B1 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8CA28B6D0AC674E407CBCC /* Pods_Harbor.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		93C12D67F9C905852DCF6664 /* Pods_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB94A0F2C30A0ACB3EC7BD82 /* Pods_HarborTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		23DAEB6AAFDED0A1B6F5EF30 /* Pods_HarborUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9CCE64A5D0F6E239A1EC0F /* Pods_HarborUITests.framework */; };
+		6805408B79168B08E38757B1 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8CA28B6D0AC674E407CBCC /* Pods_Harbor.framework */; };
+		93C12D67F9C905852DCF6664 /* Pods_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB94A0F2C30A0ACB3EC7BD82 /* Pods_HarborTests.framework */; };
 		D01093BC1BB5B3D7002D5794 /* SettingsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BB1BB5B3D7002D5794 /* SettingsManagerTests.swift */; settings = {ASSET_TAGS = (); }; };
 		D01093BF1BB5D932002D5794 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BE1BB5D932002D5794 /* NotificationCenter.swift */; settings = {ASSET_TAGS = (); }; };
 		D01093C11BB5D93D002D5794 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093C01BB5D93D002D5794 /* UserDefaults.swift */; settings = {ASSET_TAGS = (); }; };

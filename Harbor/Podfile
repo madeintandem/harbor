@@ -7,7 +7,7 @@ def testing_pods
 end
 
 target 'Harbor' do
-    pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'swift-2.0'
+    pod 'Alamofire', '~> 3.0'
 end
 
 target 'HarborTests' do

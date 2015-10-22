@@ -26,12 +26,13 @@ class CodeshipApi : CodeshipApiType {
         let apiKey = self.settingsManager.apiKey
         let apiURL = "\(CodeshipApi.apiRootPath)\(apiKey)"
         
-        Alamofire.request(.GET, apiURL).responseCollection{(_, _, result: Result<[Project]> ) in
-            if(result.isSuccess) {
-                successHandler(result.value!)
+        Alamofire.request(.GET, apiURL).responseCollection{(response: Response<[Project], NSError> ) in
+
+            if(response.result.isSuccess) {
+                successHandler(response.result.value!)
             } else {
                 //log the error
-                debugPrint(result)
+                debugPrint(response.result)
                 errorHandler("Error!")
             }
         }

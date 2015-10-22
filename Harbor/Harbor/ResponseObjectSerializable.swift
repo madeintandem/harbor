@@ -14,10 +14,12 @@ public protocol ResponseObjectSerializable {
 }
 
 extension Request {
-    public func responseObject<T: ResponseObjectSerializable>(completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<T>) -> Void) -> Self {
-        let responseSerializer = GenericResponseSerializer<T> { request, response, data in
+    public func responseObject<T: ResponseObjectSerializable>(completionHandler: (Response<T, NSError>) -> Void) -> Self {
+        let responseSerializer = ResponseSerializer<T, NSError> { request, response, data, error in
+            guard error == nil else { return .Failure(error!) }
+            
             let JSONResponseSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
-            let result = JSONResponseSerializer.serializeResponse(request, response, data)
+            let result = JSONResponseSerializer.serializeResponse(request, response, data, error)
             
             switch result {
             case .Success(let value):
@@ -29,10 +31,10 @@ extension Request {
                 } else {
                     let failureReason = "JSON could not be serialized into response object: \(value)"
                     let error = Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
-                    return .Failure(data, error)
+                    return .Failure(error)
                 }
-            case .Failure(let data, let error):
-                return .Failure(data, error)
+            case .Failure(let error):
+                return .Failure(error)
             }
         }
         

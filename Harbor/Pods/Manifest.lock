@@ -1,26 +1,16 @@
 PODS:
-  - Alamofire (2.0.0-beta.4)
+  - Alamofire (3.0.1)
   - Nimble (2.0.0-rc.3)
   - Quick (0.6.0)
 
 DEPENDENCIES:
-  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift-2.0`)
+  - Alamofire (~> 3.0)
   - Nimble (= 2.0.0-rc.3)
   - Quick (~> 0.6.0)
 
-EXTERNAL SOURCES:
-  Alamofire:
-    :branch: swift-2.0
-    :git: https://github.com/Alamofire/Alamofire.git
-
-CHECKOUT OPTIONS:
-  Alamofire:
-    :commit: 1108ae4461baa99d9c4898c213ec3e2e2956fab3
-    :git: https://github.com/Alamofire/Alamofire.git
-
 SPEC CHECKSUMS:
-  Alamofire: 20df1a4740a69d7cf6caf7fd06b8a8fc782f1ebd
+  Alamofire: 2457e1b2e6c46bb05c3a598c542b7bfd08893775
   Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948
   Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
