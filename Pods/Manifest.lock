@@ -1,14 +1,14 @@
 PODS:
   - Alamofire (3.2.1)
   - Drip (0.0.1)
-  - Nimble (2.0.0-rc.3)
-  - Quick (0.6.0)
+  - Nimble (3.0.0)
+  - Quick (0.9.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - Drip (from `~/Projects/drip/Drip`)
-  - Nimble (= 2.0.0-rc.3)
-  - Quick (~> 0.6.0)
+  - Nimble (= 3.0.0)
+  - Quick (~> 0.9.0)
 
 EXTERNAL SOURCES:
   Drip:
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   Drip: 8d6cf221cfda6780bd08677957a52a179064ac69
-  Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948
-  Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
+  Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
+  Quick: a5221fc21788b6aeda934805e68b061839bc3165
 
 COCOAPODS: 0.39.0

@@ -1,81 +1,70 @@
-//
-//  AppDelegate.swift
-//  Harbor
-//
-//  Created by Erin Hochstatter on 6/25/15.
-//  Copyright © 2015 DevMynd. All rights reserved.
-//
-
 import Cocoa
 import Alamofire
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
+  @IBOutlet weak var statusItemMenu: StatusMenu!
 
-    @IBOutlet weak var statusItemMenu: StatusMenu!
-    
-    var preferencesWindowController: PreferencesPaneWindowController!
-    
-    var settings:         SettingsManager!
-    var projectsProvider: ProjectsInteractor!
-    var timerCoordinator: TimerCoordinator!
-    
-    override init() {
-        super.init()
-        
-        // inject the proper modules
-        Injector
-            .module(CoreModuleType.self, CoreModule()).start()
+  var preferencesWindowController: PreferencesPaneWindowController!
+
+  var settings:         SettingsManager!
+  var projectsProvider: ProjectsInteractor!
+  var timerCoordinator: TimerCoordinator!
+
+  override init() {
+    super.init()
+
+    // inject the proper modules
+    Injector
+      .module(CoreModuleType.self, CoreModule()).start()
+  }
+
+  func applicationDidFinishLaunching(aNotification: NSNotification) {
+    preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
+
+    settings         = core().inject()
+    projectsProvider = core().inject()
+    timerCoordinator = core().inject()
+
+    statusItemMenu.statusMenuDelegate = self
+
+    // run startup logic
+    self.startup()
+  }
+
+  //
+  // MARK: Startup
+  //
+
+  private func startup() {
+    settings.startup()
+    timerCoordinator.startup()
+
+    self.refreshProjects()
+  }
+
+  private func refreshProjects() {
+    if !settings.apiKey.isEmpty {
+      projectsProvider.refreshProjects()
+    } else {
+      self.showPreferencesPane()
     }
-    
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
-        
-        settings         = core().inject()
-        projectsProvider = core().inject()
-        timerCoordinator = core().inject()
-      
-        statusItemMenu.statusMenuDelegate = self
-   
-        // run startup logic
-        self.startup()
-    }
-    
-    //
-    // MARK: Startup
-    //
-    
-    private func startup() {
-        settings.startup()
-        timerCoordinator.startup()
-        
-        self.refreshProjects()
-    }
-    
-    private func refreshProjects() {
-        if !settings.apiKey.isEmpty {
-            projectsProvider.refreshProjects()
-        } else {
-            self.showPreferencesPane()
-        }
-    }
-   
-   
-    //
-    // MARK: StatusMenuDelegate
-    //
-    
-    func statusMenuDidSelectPreferences(statusMenu: StatusMenu) {
-        self.showPreferencesPane()
-    }
-    
-    private func showPreferencesPane() {
-        preferencesWindowController.window?.center()
-        preferencesWindowController.window?.orderFront(self)
-        
-        // Show your window in front of all other apps
-        NSApp.activateIgnoringOtherApps(true)
-    }
-        
+  }
+
+
+  //
+  // MARK: StatusMenuDelegate
+  //
+
+  func statusMenuDidSelectPreferences(statusMenu: StatusMenu) {
+    self.showPreferencesPane()
+  }
+
+  private func showPreferencesPane() {
+    preferencesWindowController.window?.center()
+    preferencesWindowController.window?.orderFront(self)
+
+    // Show your window in front of all other apps
+    NSApp.activateIgnoringOtherApps(true)
+  }
 }
-

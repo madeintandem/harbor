@@ -54,7 +54,6 @@
 		D0772F1F1B3C437800031FB9 /* HarborTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F1E1B3C437800031FB9 /* HarborTests.swift */; };
 		D0772F2A1B3C437800031FB9 /* HarborUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F291B3C437800031FB9 /* HarborUITests.swift */; };
 		D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F391B3C43B200031FB9 /* Project.swift */; };
-		D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */; };
 		D0772F401B3C44C000031FB9 /* SamplePayload.json in Resources */ = {isa = PBXBuildFile; fileRef = D0772F3F1B3C44C000031FB9 /* SamplePayload.json */; };
 		D08EAB321B97531A009564CE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB311B97531A009564CE /* MainMenu.xib */; };
 		D08EAB391B98A60A009564CE /* codeshipLogo_green.png in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB351B98A60A009564CE /* codeshipLogo_green.png */; };
@@ -78,7 +77,6 @@
 		D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C81BB49334006A058C /* TimerCoordinator.swift */; };
 		D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CA1BB49445006A058C /* ProjectsProvider.swift */; };
 		D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */; };
-		D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */; };
 		D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */; };
 		D0E3C0C51B9F45FC00D1966C /* PreferencesPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */; };
 		D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */; };
@@ -188,7 +186,6 @@
 		D0772F291B3C437800031FB9 /* HarborUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborUITests.swift; sourceTree = "<group>"; };
 		D0772F2B1B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0772F391B3C43B200031FB9 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTest.swift; sourceTree = "<group>"; };
 		D0772F3F1B3C44C000031FB9 /* SamplePayload.json */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.json; path = SamplePayload.json; sourceTree = "<group>"; tabWidth = 2; };
 		D08EAB311B97531A009564CE /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		D08EAB351B98A60A009564CE /* codeshipLogo_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_green.png; sourceTree = "<group>"; };
@@ -215,7 +212,6 @@
 		D0C002C81BB49334006A058C /* TimerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		D0C002CA1BB49445006A058C /* ProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsProvider.swift; sourceTree = "<group>"; };
 		D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApi.swift; sourceTree = "<group>"; };
-		D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApiTests.swift; sourceTree = "<group>"; };
 		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
 		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
 		D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -467,7 +463,6 @@
 			children = (
 				D01093BA1BB5B355002D5794 /* Interactors */,
 				D0704EA61BBB1168005C808B /* Presenters */,
-				D0A3E7471B73A849006E4350 /* API */,
 				D0772F381B3C439100031FB9 /* Domain */,
 				D01093C51BB5F049002D5794 /* Helpers */,
 				D01093C21BB5DB27002D5794 /* Mocks */,
@@ -500,7 +495,6 @@
 		D0772F381B3C439100031FB9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				D0772F3C1B3C43C900031FB9 /* ProjectTest.swift */,
 				D0772F3F1B3C44C000031FB9 /* SamplePayload.json */,
 				D0F5B19A1B4578D400D30EEF /* SampleBuild.json */,
 			);
@@ -522,14 +516,6 @@
 			isa = PBXGroup;
 			children = (
 				D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */,
-			);
-			name = API;
-			sourceTree = "<group>";
-		};
-		D0A3E7471B73A849006E4350 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				D0D36A441B7CE3EB006530DB /* CodeshipApiTests.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -940,13 +926,11 @@
 				D01093C71BB5F05E002D5794 /* Invocation.swift in Sources */,
 				D01093C41BB5DB33002D5794 /* MockUserDefaults.swift in Sources */,
 				108689CB1BC841BE00B2DD87 /* InvocationMatchers.swift in Sources */,
-				D0772F3E1B3C43C900031FB9 /* ProjectTest.swift in Sources */,
 				D0704EAE1BBB1851005C808B /* None.swift in Sources */,
 				D0704EAA1BBB1418005C808B /* MockPreferencesView.swift in Sources */,
 				D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */,
 				10DC90521BBDD29500811234 /* MockCoreModule.swift in Sources */,
 				D01093BC1BB5B3D7002D5794 /* SettingsManagerTests.swift in Sources */,
-				D0D36A451B7CE3EB006530DB /* CodeshipApiTests.swift in Sources */,
 				D0704EA81BBB117C005C808B /* PreferencesPresenterTests.swift in Sources */,
 				D0B1E16C1BB9E74D009D0151 /* ProjectsProviderTests.swift in Sources */,
 				D0AB5CE51BB9A31100F57790 /* MockKeychain.swift in Sources */,
