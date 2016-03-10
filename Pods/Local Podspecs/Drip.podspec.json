@@ -1,0 +1,25 @@
+{
+  "name": "Drip",
+  "version": "0.0.1",
+  "summary": "Lightweight dependency injection for Swift",
+  "platforms": {
+    "osx": "10.9",
+    "ios": "8.0"
+  },
+  "description": "A lightweight Swift DI library, inspired by Dagger. Provides a mechanism for scoping\ndependencies and eliminating the shared instance pattern. Relies on type inference to\ndetermine injected dependencies, rather than require it be passed explicitly.",
+  "homepage": "https://github.com/devmynd/Drip",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ty Cobb": "ty.cobb.m@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/wzrad",
+  "source": {
+    "git": "https://github.com/devmynd/drip.git",
+    "tag": "v0.0.1"
+  },
+  "source_files": "Drip/**/*.swift",
+  "requires_arc": true
+}
