@@ -1,11 +1,7 @@
-import Quick
 @testable import Harbor
 
+import Quick
+
 class HarborSpec : QuickSpec {
-  override func spec() {
-    beforeEach {
-      Injector
-        .module(CoreModuleType.self, MockCoreModule()).start()
-    }
-  }
+
 }

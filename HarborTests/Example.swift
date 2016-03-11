@@ -1,29 +1,43 @@
 @testable import Harbor
 
-struct Example<T> {
-  private let constructor: () -> T
+import Drip
 
-  let subject: T
-  let runLoop: MockRunLoop
-  let keychain: MockKeychain
-  let defaults: MockUserDefaults
-  let settings: SettingsManager
-  let codeshipApi: MockCodeshipApi
-  let notificationCenter: MockNotificationCenter
+class Example<T> {
+  //
+  // MARK: Subject
+  private let constructor: (Example<T>) -> T
 
-  init(constructor: () -> T) {
+  var subject: T!
+
+  //
+  // MARK: Components
+  lazy var app: AppComponent = AppComponent()
+    .module(InteractorModule.self) { InteractorModule($0) }
+    .module(ServiceModule.self) { ServiceModule($0) }
+    .module(SystemModule.self) { SystemModule($0) }
+
+  lazy var view: ViewComponent = ViewComponent()
+    .parent { self.app }
+
+  //
+  // MARK: Dependencies
+  lazy var api = MockCodeshipApi()
+  lazy var runLoop = MockRunLoop()
+  lazy var keychain = MockKeychain()
+  lazy var defaults = MockUserDefaults()
+
+  lazy var settings: SettingsManager = self.app.interactor.inject()
+  lazy var projectsInteractor = MockProjectsProvider()
+  lazy var notificationCenter = MockNotificationCenter()
+
+  //
+  // MARK: Lifecycle
+  init(_ constructor: (Example<T>) -> T) {
     self.constructor = constructor
-
-    self.subject     = constructor()
-    self.runLoop     = (core().inject() as RunLoop) as! MockRunLoop
-    self.keychain    = (core().inject() as Keychain) as! MockKeychain
-    self.defaults    = (core().inject() as UserDefaults) as! MockUserDefaults
-    self.settings    = (core().inject())
-    self.codeshipApi = (core().inject() as CodeshipApiType) as! MockCodeshipApi
-    self.notificationCenter = (core().inject() as NotificationCenter) as! MockNotificationCenter
+    subject = constructor(self)
   }
 
   func rebuild() -> Example<T> {
-    return Example(constructor: self.constructor)
+    return Example(constructor)
   }
 }

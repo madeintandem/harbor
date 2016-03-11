@@ -1,18 +1,23 @@
-import Quick
-import Nimble
-
 @testable import Harbor
 
-class TimerCoordinatorTests : HarborSpec {
+import Quick
+import Nimble
+import Drip
+
+class TimerCoordinatorSpec: HarborSpec {
   override func spec() {
     super.spec()
 
     var example: Example<TimerCoordinator>!
 
     beforeEach {
-      example = Example(constructor: {
-        return TimerCoordinator()
-      })
+      example = Example { ex in
+        ex.app
+          .override(ex.runLoop as RunLoop)
+          .override(ex.projectsInteractor as ProjectsInteractor)
+
+        return ex.app.interactor.inject()
+      }
     }
 
     it("the initializer observes the settings manager notification"){

@@ -1,19 +1,24 @@
-import Quick
-import Nimble
-
 @testable import Harbor
 
-class ProjectsProviderTests : HarborSpec {
+import Quick
+import Nimble
+import Drip
+
+class ProjectsProviderSpec: HarborSpec {
   override func spec() {
     super.spec()
 
-    var example:  Example<ProjectsProvider>!
+    var example:  Example<ProjectsInteractor>!
     var projects: [Project]?
 
     beforeEach {
-      example = Example(constructor: {
-        return ProjectsProvider()
-      })
+      example = Example { ex in
+        ex.app
+          .override(ex.notificationCenter as NotificationCenter)
+          .override(ex.api as CodeshipApiType)
+        
+        return ex.app.interactor.inject()
+      }
 
       example.subject.addListener { local in
         projects = local
@@ -22,12 +27,12 @@ class ProjectsProviderTests : HarborSpec {
 
     describe("refreshing projects") {
       beforeEach {
-        example.codeshipApi.mockProjects()
+        example.api.mockProjects()
         example.subject.refreshProjects()
       }
 
       it("refreshes all projects") {
-        expect(projects).to(equal(example.codeshipApi.projects!))
+        expect(projects).to(equal(example.api.projects!))
       }
 
       it("updates the disabled projects when the disabledProjectIds change") {
@@ -46,9 +51,8 @@ class ProjectsProviderTests : HarborSpec {
       it("calls the listener back immediately with the current projects") {
         let projects = [ Project(id: 5) ]
 
-        example.codeshipApi.projects = projects
+        example.api.projects = projects
         example.subject.refreshProjects()
-
         example.subject.addListener { local in
           expect(local).to(equal(projects))
         }

@@ -21,56 +21,50 @@ class StatusMenu: NSMenu, StatusMenuView {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
-    self.presenter.didInitialize()
+    presenter.didInitialize()
   }
 
   //
   // MARK: StatusMenuView
-  //
-
   func createCoreMenuItems() {
-    self.statusBarItem.menu = self
+    statusBarItem.menu = self
 
-    let preferences    = self.itemAtIndex(1)!
+    let preferences    = itemAtIndex(1)!
     preferences.target = self
     preferences.action = Selector("didClickPreferencesItem")
   }
 
   func updateBuildStatus(status: BuildStatus) {
-    self.statusBarItem.image = status.icon()
+    statusBarItem.image = status.icon()
   }
 
   func updateProjects(projects: [ProjectMenuItemModel]) {
     // clear stale projects, if any, from menu
-    let range = self.fixedMenuItemCount..<self.itemArray.count
+    let range = fixedMenuItemCount..<itemArray.count
     for index in range.reverse() {
-      self.removeItemAtIndex(index)
+      removeItemAtIndex(index)
     }
 
     // add the separator between fixed items and projects
     let separatorItem = NSMenuItem.separatorItem()
-    self.addItem(separatorItem)
+    addItem(separatorItem)
 
     // add each project
     for project in projects {
-      self.addItem(ProjectMenuItem(model: project))
+      addItem(ProjectMenuItem(model: project))
     }
   }
 
   //
   // MARK: Interface Actions
-  //
-
   func didClickPreferencesItem() {
-    self.statusMenuDelegate.statusMenuDidSelectPreferences(self)
+    statusMenuDelegate.statusMenuDidSelectPreferences(self)
   }
 
   //
   // MARK: Custom Delegate
-  //
-
   var statusMenuDelegate: StatusMenuDelegate {
-    get { return self.delegate as! StatusMenuDelegate }
-    set { self.delegate = newValue }
+    get { return delegate as! StatusMenuDelegate }
+    set { delegate = newValue }
   }
 }

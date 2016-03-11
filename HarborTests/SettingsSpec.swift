@@ -1,18 +1,24 @@
-import Quick
-import Nimble
-
 @testable import Harbor
 
-class SettingsManagerTests: HarborSpec {
+import Quick
+import Nimble
+import Drip
+
+class SettingsSpec: HarborSpec {
   override func spec() {
     super.spec()
 
     var example: Example<SettingsManager>!
 
     beforeEach {
-      example = Example(constructor: {
-        return SettingsManager()
-      })
+      example = Example { ex in
+        ex.app
+          .override(ex.keychain as Keychain)
+          .override(ex.defaults as UserDefaults)
+          .override(ex.notificationCenter as NotificationCenter)
+
+        return ex.app.interactor.inject()
+      }
     }
 
     describe("Properties") {
