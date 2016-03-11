@@ -21,22 +21,19 @@ class ProjectsProvider : ProjectsInteractor {
   private var projects:  [Project]
   private var listeners: [ProjectHandler]
 
-  init(
-    codeshipApi:     CodeshipApiType = core().inject(),
-    settingsManager: SettingsManager = core().inject()) {
+  init(api: CodeshipApiType, settings: SettingsManager) {
+    self.projects    = [Project]()
+    self.listeners   = [ProjectHandler]()
+    self.codeshipApi = api
+    self.settingsManager = settings
 
-      self.projects  =   [Project]()
-      self.listeners =   [ProjectHandler]()
-      self.codeshipApi = codeshipApi
-      self.settingsManager = settingsManager
+    self.settingsManager.observeNotification(.ApiKey) { _ in
+      self.refreshProjects()
+    }
 
-      self.settingsManager.observeNotification(.ApiKey) { _ in
-        self.refreshProjects()
-      }
-
-      self.settingsManager.observeNotification(.DisabledProjects) { _ in
-        self.refreshCurrentProjects()
-      }
+    self.settingsManager.observeNotification(.DisabledProjects) { _ in
+      self.refreshCurrentProjects()
+    }
   }
 
   func refreshProjects() {

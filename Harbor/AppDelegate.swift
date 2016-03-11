@@ -3,61 +3,50 @@ import Alamofire
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
-  @IBOutlet weak var statusItemMenu: StatusMenu!
+  //
+  // MARK: Dependencies
+  var component: AppComponent { return Application.component() }
 
+  private lazy var settings:           SettingsManager    = self.component.interactor.inject()
+  private lazy var projectsInteractor: ProjectsInteractor = self.component.interactor.inject()
+  private lazy var timerCoordinator:   TimerCoordinator   = self.component.interactor.inject()
+
+  //
+  // MARK: Interface Elements
+  @IBOutlet weak var statusItemMenu: StatusMenu!
   var preferencesWindowController: PreferencesPaneWindowController!
 
-  var settings:         SettingsManager!
-  var projectsProvider: ProjectsInteractor!
-  var timerCoordinator: TimerCoordinator!
-
-  override init() {
-    super.init()
-
-    // inject the proper modules
-    Injector
-      .module(CoreModuleType.self, CoreModule()).start()
-  }
-
+  //
+  // MARK: NSApplicationDelegate
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
-
-    settings         = core().inject()
-    projectsProvider = core().inject()
-    timerCoordinator = core().inject()
-
     statusItemMenu.statusMenuDelegate = self
 
     // run startup logic
-    self.startup()
+    startup()
   }
 
   //
   // MARK: Startup
-  //
-
   private func startup() {
     settings.startup()
     timerCoordinator.startup()
 
-    self.refreshProjects()
+    refreshProjects()
   }
 
   private func refreshProjects() {
     if !settings.apiKey.isEmpty {
-      projectsProvider.refreshProjects()
+      projectsInteractor.refreshProjects()
     } else {
-      self.showPreferencesPane()
+      showPreferencesPane()
     }
   }
 
-
   //
   // MARK: StatusMenuDelegate
-  //
-
   func statusMenuDidSelectPreferences(statusMenu: StatusMenu) {
-    self.showPreferencesPane()
+    showPreferencesPane()
   }
 
   private func showPreferencesPane() {

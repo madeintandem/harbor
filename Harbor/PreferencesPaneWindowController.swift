@@ -7,11 +7,15 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   }
 
   //
-  // MARK: Properties
+  // MARK: Dependencies
+  private var component = ViewComponent()
+    .parent { Application.component() }
+    .module(PreferencesViewModule.self) { PreferencesViewModule($0) }
+
+  private lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = self.component.preferences.inject(self)
+
   //
-
-  var presenter: PreferencesPresenter<PreferencesPaneWindowController>!
-
+  // MARK: Interface Elements
   @IBOutlet weak var codeshipAPIKey: TextField!
   @IBOutlet weak var refreshRateTextField: TextField!
   @IBOutlet weak var projectTableView: NSTableView!
@@ -19,8 +23,6 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
 
   override init(window: NSWindow?) {
     super.init(window: window)
-
-    self.presenter = PreferencesPresenter(view: self)
   }
 
   required init?(coder: NSCoder) {
@@ -37,85 +39,75 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     let window = notification.object!
 
     if window.occlusionState.contains(NSWindowOcclusionState.Visible) {
-      self.presenter.didBecomeActive()
+      presenter.didBecomeActive()
     } else {
-      self.presenter.didResignActive()
+      presenter.didResignActive()
     }
   }
 
   //
   // MARK: PreferencesView
-  //
-
   func updateProjects(projects: [Project]) {
-    self.projectTableView.reloadData()
+    projectTableView.reloadData()
   }
 
   func updateApiKey(apiKey: String) {
-    self.codeshipAPIKey.stringValue = apiKey
+    codeshipAPIKey.stringValue = apiKey
   }
 
   func updateRefreshRate(refreshRate: String) {
-    self.refreshRateTextField.stringValue = refreshRate
+    refreshRateTextField.stringValue = refreshRate
   }
 
   func updateLaunchOnLogin(launchOnLogin: Bool) {
-    self.launchOnLoginCheckbox.enabled = launchOnLogin
+    launchOnLoginCheckbox.enabled = launchOnLogin
   }
 
   //
   // MARK: Interface Actions
-  //
-
   @IBAction func launchOnLoginCheckboxClicked(sender: AnyObject) {
-    self.presenter.updateLaunchOnLogin(self.launchOnLoginCheckbox.enabled)
+    presenter.updateLaunchOnLogin(launchOnLoginCheckbox.enabled)
   }
 
   @IBAction func isEnabledCheckboxClicked(sender: AnyObject) {
     let button = sender as? NSButton
 
     if let view = button?.nextKeyView as? NSTableCellView {
-      let row = self.projectTableView.rowForView(view)
-      self.presenter.toggleEnabledStateForProjectAtIndex(row)
+      let row = projectTableView.rowForView(view)
+      presenter.toggleEnabledStateForProjectAtIndex(row)
     }
   }
 
   @IBAction func saveButton(sender: AnyObject) {
-    self.presenter.savePreferences()
-    self.close()
+    presenter.savePreferences()
+    close()
   }
 
   //
   // MARK: NSTextFieldDelegate
-  //
-
   override func controlTextDidChange(obj: NSNotification) {
     if let textField = obj.object as? TextField {
-      if textField == self.codeshipAPIKey {
-        self.presenter.updateApiKey(textField.stringValue)
-      } else if textField == self.refreshRateTextField {
-        self.presenter.updateRefreshRate(textField.stringValue)
+      if textField == codeshipAPIKey {
+        presenter.updateApiKey(textField.stringValue)
+      } else if textField == refreshRateTextField {
+        presenter.updateRefreshRate(textField.stringValue)
       }
     }
   }
 
   //
   // MARK: NSTableViewDataSource
-  //
-
   func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-    return self.presenter.numberOfProjects
+    return presenter.numberOfProjects
   }
 
   //
   // MARK: NSTableViewDelegate
-  //
-
   func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
     var view: NSView? = nil
 
     if let tableColumn = tableColumn {
-      let project  = self.presenter.projectAtIndex(row)
+      let project  = presenter.projectAtIndex(row)
       let cellView = tableView.makeViewWithIdentifier(tableColumn.identifier, owner: self) as! NSTableCellView
 
       switch ColumnIdentifier(rawValue: tableColumn.identifier)! {

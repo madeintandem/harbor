@@ -7,21 +7,20 @@ protocol StatusMenuDelegate: NSMenuDelegate {
 class StatusMenu: NSMenu, StatusMenuView {
   //
   // MARK: Dependencies
-  //
+  private var component = ViewComponent()
+    .parent { Application.component() }
+    .module(StatusMenuModule.self) { StatusMenuModule($0) }
 
-  private var presenter: StatusMenuPresenter<StatusMenu>!
+  private lazy var presenter: StatusMenuPresenter<StatusMenu> = self.component.status.inject(self)
 
   //
   // MARK: Properties
-  //
-
   private let fixedMenuItemCount = 3
   private let statusBarItem      = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
-    self.presenter = StatusMenuPresenter(view: self)
     self.presenter.didInitialize()
   }
 

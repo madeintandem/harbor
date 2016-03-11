@@ -3,61 +3,54 @@ import Foundation
 class TimerCoordinator : NSObject {
   //
   // MARK: Dependencies
-  //
-
   var currentRunLoop:     RunLoop!
   var projectsInteractor: ProjectsInteractor!
   var settingsManager:    SettingsManager!
 
   //
   // MARK: Properties
-  //
-
   private var currentTimer: NSTimer?
 
-  init(
-    runLoop:            RunLoop            = core().inject(),
-    projectsInteractor: ProjectsInteractor = core().inject(),
-    settingsManager:    SettingsManager    = core().inject()) {
-      self.currentRunLoop     = runLoop
-      self.projectsInteractor = projectsInteractor
-      self.settingsManager    = settingsManager
+  init(runLoop: RunLoop, projectsInteractor: ProjectsInteractor, settings: SettingsManager) {
+    self.currentRunLoop     = runLoop
+    self.projectsInteractor = projectsInteractor
+    self.settingsManager    = settings
 
-      super.init()
+    super.init()
 
-      settingsManager.observeNotification(.RefreshRate) { notification in
-        self.startTimer()
-      }
+    settingsManager.observeNotification(.RefreshRate) { notification in
+      self.startTimer()
+    }
   }
 
   //
   // MARK: Scheduling
-  //
-
   func startup() {
-    self.startTimer()
+    startTimer()
   }
 
   func startTimer() -> NSTimer? {
-    return self.setupTimer(self.settingsManager.refreshRate)
+    return setupTimer(settingsManager.refreshRate)
   }
 
+  //
+  // MARK: Helpers
   private func setupTimer(refreshRate: Double) -> NSTimer? {
     // cancel current timer if necessary
-    self.currentTimer?.invalidate()
-    self.currentTimer = nil
+    currentTimer?.invalidate()
+    currentTimer = nil
 
     if !refreshRate.isZero {
-      self.currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:"handleUpdateTimer:", userInfo: nil, repeats: true)
-      self.currentRunLoop.addTimer(self.currentTimer!, forMode: NSDefaultRunLoopMode)
+      currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:"handleUpdateTimer:", userInfo: nil, repeats: true)
+      currentRunLoop.addTimer(currentTimer!, forMode: NSDefaultRunLoopMode)
     }
 
-    return self.currentTimer
+    return currentTimer
   }
 
   func handleUpdateTimer(timer: NSTimer) {
-    if(timer == self.currentTimer) {
-      self.projectsInteractor.refreshProjects()
+    if(timer == currentTimer) {
+      projectsInteractor.refreshProjects()
     }
   }
 }

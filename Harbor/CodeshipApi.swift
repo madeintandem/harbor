@@ -9,12 +9,12 @@ class CodeshipApi : CodeshipApiType {
 
   private let settingsManager: SettingsManager
 
-  init(settingsManager: SettingsManager = core().inject()) {
-    self.settingsManager = settingsManager
+  init(settings: SettingsManager) {
+    self.settingsManager = settings
   }
 
   func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->()){
-    let apiKey = self.settingsManager.apiKey
+    let apiKey = settingsManager.apiKey
     let apiURL = "\(CodeshipApi.apiRootPath)\(apiKey)"
 
     Alamofire.request(.GET, apiURL).responseCollection{(response: Response<[Project], NSError> ) in

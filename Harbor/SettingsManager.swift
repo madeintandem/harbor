@@ -67,20 +67,16 @@ class SettingsManager {
 
   var isFirstRun: Bool
 
-  init(
-    defaults: UserDefaults = core().inject(),
-    keychain: Keychain = core().inject(),
-    notificationCenter: NotificationCenter = core().inject()) {
+  init(defaults: UserDefaults, keychain: Keychain, notificationCenter: NotificationCenter) {
+    self.defaults           = defaults
+    self.keychain           = keychain
+    self.notificationCenter = notificationCenter
 
-      self.defaults           = defaults
-      self.keychain           = keychain
-      self.notificationCenter = notificationCenter
-
-      apiKey             = keychain.stringForKey(Key.ApiKey) ?? ""
-      refreshRate        = defaults.doubleForKey(Key.RefreshRate)
-      disabledProjectIds = defaults.objectForKey(Key.DisabledProjects) as? [Int] ?? [Int]()
-      isFirstRun         = !defaults.boolForKey(Key.HasLaunched)
-      launchOnLogin      = isFirstRun ? true : defaults.boolForKey(Key.LaunchOnLogin)
+    apiKey             = keychain.stringForKey(Key.ApiKey) ?? ""
+    refreshRate        = defaults.doubleForKey(Key.RefreshRate)
+    disabledProjectIds = defaults.objectForKey(Key.DisabledProjects) as? [Int] ?? [Int]()
+    isFirstRun         = !defaults.boolForKey(Key.HasLaunched)
+    launchOnLogin      = isFirstRun ? true : defaults.boolForKey(Key.LaunchOnLogin)
   }
 
   func startup() {
