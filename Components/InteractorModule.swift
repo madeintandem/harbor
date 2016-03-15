@@ -12,7 +12,7 @@ class InteractorModule: AppModule {
     return single {
       ProjectsProvider(
         api: $0.service.inject(),
-        settings: $0.interactor.inject())
+        settings: $0.interactor.inject()) as ProjectsInteractor
     }
   }
 

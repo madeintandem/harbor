@@ -1,6 +1,6 @@
-import Foundation
-
 @testable import Harbor
+
+import Foundation
 
 class MockNotificationCenter : NotificationCenter {
   enum Method : MethodType {

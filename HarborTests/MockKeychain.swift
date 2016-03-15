@@ -1,4 +1,4 @@
-import Harbor
+@testable import Harbor
 
 class MockKeychain : Keychain {
   enum Method : MethodType {

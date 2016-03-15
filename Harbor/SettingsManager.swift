@@ -100,7 +100,6 @@ class SettingsManager {
 
   private func updateHelperLoginItem(launchOnLogin: Bool) {
     let result = SMLoginItemSetEnabled("com.dvm.Harbor.Helper", launchOnLogin)
-
     let enabled = launchOnLogin ? "enabling" : "disabling"
     let success = result ? "succeeded" : "failed"
     print("\(enabled) launch on login \(success)")

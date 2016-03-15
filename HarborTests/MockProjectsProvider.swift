@@ -1,7 +1,6 @@
 @testable import Harbor
 
 class MockProjectsProvider : ProjectsInteractor {
-
   enum Method : MethodType {
     case RefreshProjects
     case RefreshCurrentProjects

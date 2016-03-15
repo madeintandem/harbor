@@ -21,7 +21,9 @@ class StatusMenu: NSMenu, StatusMenuView {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
-    presenter.didInitialize()
+    if Environment.active != .Testing {
+      presenter.didInitialize()
+    }
   }
 
   //

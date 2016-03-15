@@ -87,6 +87,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-HarborTests/Nimble.framework"
   install_framework "Pods-HarborTests/Quick.framework"
 fi
+if [[ "$CONFIGURATION" == "Test" ]]; then
+  install_framework "Pods-HarborTests/Nimble.framework"
+  install_framework "Pods-HarborTests/Quick.framework"
+fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-HarborTests/Nimble.framework"
   install_framework "Pods-HarborTests/Quick.framework"

@@ -1,4 +1,5 @@
-import Harbor
+@testable import Harbor
+
 import Foundation
 
 class MockRunLoop : RunLoop {

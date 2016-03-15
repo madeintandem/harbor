@@ -19,6 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
   //
   // MARK: NSApplicationDelegate
   func applicationDidFinishLaunching(aNotification: NSNotification) {
+    if Environment.active == .Testing {
+      return
+    }
+
     preferencesWindowController = PreferencesPaneWindowController(windowNibName: "PreferencesPaneWindowController")
     statusItemMenu.statusMenuDelegate = self
 

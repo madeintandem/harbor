@@ -5,7 +5,7 @@ import Drip
 class Example<T> {
   //
   // MARK: Subject
-  private let constructor: (Example<T>) -> T
+  private let constructor: Example<T> -> T
 
   var subject: T!
 
@@ -32,12 +32,17 @@ class Example<T> {
 
   //
   // MARK: Lifecycle
-  init(_ constructor: (Example<T>) -> T) {
+  init(_ constructor: Example<T> -> T) {
     self.constructor = constructor
     subject = constructor(self)
   }
 
-  func rebuild() -> Example<T> {
-    return Example(constructor)
+  func rebuild(update: (Example<T> -> Void)? = nil) -> Example<T> {
+    let original = constructor
+
+    return Example { copy in
+      update?(copy)
+      return original(copy)
+    }
   }
 }

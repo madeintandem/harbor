@@ -15,8 +15,8 @@ class PreferencesPresenterSpec: HarborSpec {
       view = MockPreferencesView()
 
       example = Example { ex in
-        ex.app.override(ex.projectsInteractor as ProjectsInteractor)
         ex.view.module(PreferencesViewModule.self) { PreferencesViewModule($0) }
+        ex.app.override(ex.projectsInteractor as ProjectsInteractor)
 
         return ex.view.preferences.inject(view)
       }

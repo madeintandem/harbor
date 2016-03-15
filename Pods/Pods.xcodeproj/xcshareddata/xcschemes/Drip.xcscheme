@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C162FFB4606841C1A46784C1'
+               BlueprintIdentifier = '9D83338B6D4E7835B5E32907'
                BlueprintName = 'Drip'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Drip.framework'>

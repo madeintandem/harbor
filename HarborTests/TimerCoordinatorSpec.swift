@@ -14,15 +14,18 @@ class TimerCoordinatorSpec: HarborSpec {
       example = Example { ex in
         ex.app
           .override(ex.runLoop as RunLoop)
+          .override(ex.notificationCenter as NotificationCenter)
           .override(ex.projectsInteractor as ProjectsInteractor)
 
         return ex.app.interactor.inject()
       }
     }
 
-    it("the initializer observes the settings manager notification"){
-      let invocation = Invocations.notification(.AddObserverForName, .RefreshRate)
-      expect(example.notificationCenter.invocation).to(match(invocation))
+    describe("the initializer") {
+      it("observes the settings' refresh rate"){
+        let invocation = Invocations.notification(.AddObserverForName, .RefreshRate)
+        expect(example.notificationCenter.invocation).to(match(invocation))
+      }
     }
 
     describe("when starting a timer") {

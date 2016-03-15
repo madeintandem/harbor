@@ -87,6 +87,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Harbor/Alamofire.framework"
   install_framework "Pods-Harbor/Drip.framework"
 fi
+if [[ "$CONFIGURATION" == "Test" ]]; then
+  install_framework "Pods-Harbor/Alamofire.framework"
+  install_framework "Pods-Harbor/Drip.framework"
+fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Harbor/Alamofire.framework"
   install_framework "Pods-Harbor/Drip.framework"

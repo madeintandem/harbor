@@ -1,7 +1,7 @@
 class ServiceModule: AppModule {
   func inject() -> CodeshipApiType {
-    return transient {
-      CodeshipApi(settings: $0.interactor.inject())
+    return transient { component in
+      CodeshipApi(settings: component.interactor.inject()) as CodeshipApiType
     }
   }
 }

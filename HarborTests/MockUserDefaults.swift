@@ -11,22 +11,22 @@ class MockUserDefaults : UserDefaults {
   var invocation: Invocation<Method>?
 
   func setObject(object: AnyObject?, forKey key: CustomStringConvertible) {
-    self.invocation = Invocation(.SetObject, object)
+    invocation = Invocation(.SetObject, object)
   }
 
   func objectForKey(key: CustomStringConvertible) -> AnyObject? {
-    let lastValue = self.invocation?.value
-    self.invocation = Invocation(.ObjectForKey, lastValue)
+    let lastValue = invocation?.value
+    invocation = Invocation(.ObjectForKey, lastValue)
     return lastValue as! AnyObject?
   }
 
   func setDouble(double: Double, forKey key: CustomStringConvertible) {
-    self.invocation = Invocation(.SetDouble, double)
+    invocation = Invocation(.SetDouble, double)
   }
 
   func doubleForKey(key: CustomStringConvertible) -> Double {
-    let lastValue = self.invocation?.value
-    self.invocation = Invocation(.DoubleForKey, lastValue)
+    let lastValue = invocation?.value
+    invocation = Invocation(.DoubleForKey, lastValue)
     return lastValue as? Double ?? 0.0
   }
 
