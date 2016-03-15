@@ -1,7 +1,7 @@
 class InteractorModule: AppModule {
-  func inject() -> SettingsManager {
+  func inject() -> Settings {
     return single {
-      SettingsManager(
+      Settings(
         defaults: $0.system.inject(),
         keychain: $0.system.inject(),
         notificationCenter: $0.system.inject())

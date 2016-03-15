@@ -4,13 +4,13 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
   //
   // MARK: Dependencies
   private let projectsInteractor: ProjectsInteractor
-  private let settingsManager: SettingsManager
+  private let settings: Settings
 
   //
   // MARK: Properties
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsManager) {
+  init(view: V, projectsInteractor: ProjectsInteractor, settings: Settings) {
     self.projectsInteractor = projectsInteractor
-    self.settingsManager = settings
+    self.settings = settings
 
     super.init(view: view)
   }
@@ -26,7 +26,7 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
   // MARK: Projects
   private func handleProjects(projects: [Project]) {
     // filter out projects the user disabled and convert them to menu item models
-    let disabledProjectIds = settingsManager.disabledProjectIds
+    let disabledProjectIds = settings.disabledProjectIds
     let enabledProjects = projects
       .filter { !disabledProjectIds.contains($0.id) }
       .map { ProjectMenuItemModel(project: $0) }

@@ -21,7 +21,7 @@ class MockNotificationCenter : NotificationCenter {
 }
 
 extension Invocations {
-  static func notification(method: MockNotificationCenter.Method, _ key: SettingsManager.NotificationName) -> ExpectedInvocation<MockNotificationCenter.Method, VerifierOf> {
+  static func notification(method: MockNotificationCenter.Method, _ key: Settings.NotificationName) -> ExpectedInvocation<MockNotificationCenter.Method, VerifierOf> {
     return ExpectedInvocation(method, VerifierOf(key.rawValue))
   }
 }

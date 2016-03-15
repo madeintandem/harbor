@@ -26,7 +26,7 @@ class Example<T> {
   lazy var keychain = MockKeychain()
   lazy var defaults = MockUserDefaults()
 
-  lazy var settings: SettingsManager = self.app.interactor.inject()
+  lazy var settings: Settings = self.app.interactor.inject()
   lazy var projectsInteractor = MockProjectsProvider()
   lazy var notificationCenter = MockNotificationCenter()
 

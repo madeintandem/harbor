@@ -12,7 +12,7 @@ class ProjectsProvider : ProjectsInteractor {
   //
   // MARK: dependencies
   //
-  private let settingsManager: SettingsManager
+  private let settings:    Settings
   private let codeshipApi: CodeshipApiType
 
   //
@@ -21,17 +21,17 @@ class ProjectsProvider : ProjectsInteractor {
   private var projects:  [Project]
   private var listeners: [ProjectHandler]
 
-  init(api: CodeshipApiType, settings: SettingsManager) {
+  init(api: CodeshipApiType, settings: Settings) {
     self.projects    = [Project]()
     self.listeners   = [ProjectHandler]()
+    self.settings    = settings
     self.codeshipApi = api
-    self.settingsManager = settings
 
-    settingsManager.observeNotification(.ApiKey) { _ in
+    settings.observeNotification(.ApiKey) { _ in
       self.refreshProjects()
     }
 
-    settingsManager.observeNotification(.DisabledProjects) { _ in
+    settings.observeNotification(.DisabledProjects) { _ in
       self.refreshCurrentProjects()
     }
   }
@@ -49,7 +49,7 @@ class ProjectsProvider : ProjectsInteractor {
   private func didRefreshProjects(projects: [Project]){
     // update our projects hidden state appropriately according to the user settings
     for project in projects {
-      project.isEnabled = !settingsManager.disabledProjectIds.contains(project.id)
+      project.isEnabled = !settings.disabledProjectIds.contains(project.id)
     }
 
     self.projects = projects

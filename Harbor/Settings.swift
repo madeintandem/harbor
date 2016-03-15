@@ -2,7 +2,7 @@ import Foundation
 import ServiceManagement
 import CoreServices
 
-class SettingsManager {
+class Settings {
   private enum Key: String, CustomStringConvertible {
     case ApiKey           = "ApiKey"
     case RefreshRate      = "RefreshRate"
@@ -11,7 +11,7 @@ class SettingsManager {
     case HasLaunched      = "HasLaunched"
 
     var description: String {
-      get { return self.rawValue }
+      get { return rawValue }
     }
 
     var storedInKeychain: Bool {
@@ -25,42 +25,38 @@ class SettingsManager {
 
   //
   // MARK: Dependencies
-  //
-
   private let defaults:           UserDefaults
   private let keychain:           Keychain
   private let notificationCenter: NotificationCenter
 
   //
   // MARK: Properties
-  //
-
   var apiKey: String {
     didSet {
       keychain.setString(apiKey, forKey: Key.ApiKey)
-      self.postNotification(.ApiKey)
+      postNotification(.ApiKey)
     }
   }
 
   var refreshRate: Double {
     didSet {
       defaults.setDouble(refreshRate, forKey: Key.RefreshRate)
-      self.postNotification(.RefreshRate)
+      postNotification(.RefreshRate)
     }
   }
 
   var disabledProjectIds: [Int] {
     didSet {
       defaults.setObject(disabledProjectIds, forKey: Key.DisabledProjects)
-      self.postNotification(.DisabledProjects)
+      postNotification(.DisabledProjects)
     }
   }
 
   var launchOnLogin: Bool {
     didSet {
       defaults.setBool(launchOnLogin, forKey: Key.LaunchOnLogin)
-      if oldValue != self.launchOnLogin {
-        self.updateHelperLoginItem(self.launchOnLogin)
+      if oldValue != launchOnLogin {
+        updateHelperLoginItem(launchOnLogin)
       }
     }
   }
@@ -83,7 +79,7 @@ class SettingsManager {
     // on first run, update the login item immediately and mark the app as launched
     if isFirstRun {
       defaults.setBool(true, forKey: Key.HasLaunched)
-      self.updateHelperLoginItem(launchOnLogin)
+      updateHelperLoginItem(launchOnLogin)
     }
   }
 
@@ -108,20 +104,18 @@ class SettingsManager {
 
 //
 // MARK: Notifications
-//
-
-extension SettingsManager {
+extension Settings {
   enum NotificationName: String {
     case ApiKey           = "ApiKey"
     case RefreshRate      = "RefreshRate"
     case DisabledProjects = "DisabledProjects"
   }
 
-  func observeNotification(notification: SettingsManager.NotificationName, handler: (NSNotification -> Void)) -> NSObjectProtocol {
-    return self.notificationCenter.addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
+  func observeNotification(notification: Settings.NotificationName, handler: (NSNotification -> Void)) -> NSObjectProtocol {
+    return notificationCenter.addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
   }
 
-  private func postNotification(notification: SettingsManager.NotificationName) {
-    self.notificationCenter.postNotificationName(notification.rawValue, object: nil)
+  private func postNotification(notification: Settings.NotificationName) {
+    notificationCenter.postNotificationName(notification.rawValue, object: nil)
   }
 }

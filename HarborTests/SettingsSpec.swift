@@ -8,7 +8,7 @@ class SettingsSpec: HarborSpec {
   override func spec() {
     super.spec()
 
-    var example: Example<SettingsManager>!
+    var example: Example<Settings>!
 
     beforeEach {
       example = Example { ex in
@@ -105,7 +105,7 @@ class SettingsSpec: HarborSpec {
     describe("notification extension") {
       describe("observeNotification") {
         it("should add an observer to notification center") {
-          let notification = SettingsManager.NotificationName.ApiKey
+          let notification = Settings.NotificationName.ApiKey
           let invocation   = Invocations.notification(.AddObserverForName, notification)
 
           example.subject.observeNotification(notification, handler: { _ in })

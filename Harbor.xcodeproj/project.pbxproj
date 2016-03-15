@@ -70,7 +70,7 @@
 		D0C002C11BB3472B006A058C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C01BB3472B006A058C /* TextField.swift */; };
 		D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C21BB35114006A058C /* PreferencesPresenter.swift */; };
 		D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C41BB35136006A058C /* PreferencesView.swift */; };
-		D0C002C71BB48801006A058C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C61BB48801006A058C /* SettingsManager.swift */; };
+		D0C002C71BB48801006A058C /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C61BB48801006A058C /* Settings.swift */; };
 		D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002C81BB49334006A058C /* TimerCoordinator.swift */; };
 		D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CA1BB49445006A058C /* ProjectsProvider.swift */; };
 		D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */; };
@@ -167,7 +167,7 @@
 		D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProjectsProvider.swift; sourceTree = "<group>"; };
 		D0704EAD1BBB1851005C808B /* None.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = None.swift; sourceTree = "<group>"; };
 		D0772F081B3C437800031FB9 /* Harbor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Harbor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0772F0B1B3C437800031FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D0772F0B1B3C437800031FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0772F0E1B3C437800031FB9 /* Harbor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harbor.xcdatamodel; sourceTree = "<group>"; };
 		D0772F101B3C437800031FB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0772F151B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -198,10 +198,10 @@
 		D0C002C01BB3472B006A058C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		D0C002C21BB35114006A058C /* PreferencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPresenter.swift; sourceTree = "<group>"; };
 		D0C002C41BB35136006A058C /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		D0C002C61BB48801006A058C /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		D0C002C61BB48801006A058C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D0C002C81BB49334006A058C /* TimerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
 		D0C002CA1BB49445006A058C /* ProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsProvider.swift; sourceTree = "<group>"; };
-		D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeshipApi.swift; sourceTree = "<group>"; };
+		D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodeshipApi.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
 		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
 		D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -526,7 +526,7 @@
 		D0C002CC1BB49452006A058C /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				D0C002C61BB48801006A058C /* SettingsManager.swift */,
+				D0C002C61BB48801006A058C /* Settings.swift */,
 				D0C002C81BB49334006A058C /* TimerCoordinator.swift */,
 				D0C002CA1BB49445006A058C /* ProjectsProvider.swift */,
 			);
@@ -831,7 +831,7 @@
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */,
 				10DC90701BBF096400811234 /* BuildStatus.swift in Sources */,
-				D0C002C71BB48801006A058C /* SettingsManager.swift in Sources */,
+				D0C002C71BB48801006A058C /* Settings.swift in Sources */,
 				D01093C11BB5D93D002D5794 /* UserDefaults.swift in Sources */,
 				10FA1FF81C9237D800A642A7 /* AppComponent.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,

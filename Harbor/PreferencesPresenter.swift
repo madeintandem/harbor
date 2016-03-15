@@ -4,8 +4,8 @@ import Cocoa
 class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   //
   // MARK: Dependencies
+  private let settings:           Settings
   private let projectsInteractor: ProjectsInteractor
-  private let settingsManager:    SettingsManager
 
   //
   // MARK: Properties
@@ -16,9 +16,9 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   private(set) var needsRefresh: Bool = true
 
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsManager) {
+  init(view: V, projectsInteractor: ProjectsInteractor, settings: Settings) {
     self.projectsInteractor = projectsInteractor
-    self.settingsManager = settings
+    self.settings = settings
     self.allProjects = [Project]()
 
     super.init(view: view)
@@ -58,11 +58,11 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   // MARK: Preferences
   func savePreferences() {
     // persist our configuration
-    settingsManager.apiKey = apiKey
-    settingsManager.refreshRate = refreshRate
+    settings.apiKey = apiKey
+    settings.refreshRate = refreshRate
 
     // serialize the hidden projects
-    settingsManager.disabledProjectIds = allProjects.reduce([Int]()) { (var memo, project) in
+    settings.disabledProjectIds = allProjects.reduce([Int]()) { (var memo, project) in
       if !project.isEnabled {
         memo.append(project.id)
       }
@@ -89,9 +89,9 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   private func refreshConfiguration() {
     // load data from user defaults
-    launchOnLogin = settingsManager.launchOnLogin
-    refreshRate   = settingsManager.refreshRate
-    apiKey        = settingsManager.apiKey
+    launchOnLogin = settings.launchOnLogin
+    refreshRate   = settings.refreshRate
+    apiKey        = settings.apiKey
 
     // update our view after refreshing
     view.updateApiKey(apiKey)
