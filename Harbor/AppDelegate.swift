@@ -1,5 +1,5 @@
+
 import Cocoa
-import Alamofire
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {

@@ -1,8 +1,8 @@
+
 import AppKit
 
 @objc(Application)
 class Application: NSApplication {
-  //
   // MARK: Dependencies
   private let _component = AppComponent()
     .module(InteractorModule.self) { InteractorModule($0) }

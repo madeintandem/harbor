@@ -1,6 +1,0 @@
-framework module Pods_HarborTests {
-  umbrella header "Pods-HarborTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
