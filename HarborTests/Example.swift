@@ -9,20 +9,19 @@ class Example<T> {
 
   var subject: T!
 
-  //
   // MARK: Components
   lazy var app: AppComponent = AppComponent()
-    .module(InteractorModule.self) { InteractorModule($0) }
-    .module(ServiceModule.self) { ServiceModule($0) }
-    .module(SystemModule.self) { SystemModule($0) }
+    .module { InteractorModule($0) }
+    .module { ServiceModule($0) }
+    .module { SystemModule($0) }
 
   lazy var view: ViewComponent = ViewComponent()
     .parent { self.app }
 
   //
   // MARK: Dependencies
-  lazy var api = MockCodeshipApi()
-  lazy var runLoop = MockRunLoop()
+  lazy var api      = MockCodeshipApi()
+  lazy var runLoop  = MockRunLoop()
   lazy var keychain = MockKeychain()
   lazy var defaults = MockUserDefaults()
 

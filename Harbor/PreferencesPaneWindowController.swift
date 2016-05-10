@@ -10,7 +10,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   // MARK: Dependencies
   private var component = ViewComponent()
     .parent { Application.component() }
-    .module(PreferencesViewModule.self) { PreferencesViewModule($0) }
+    .module { PreferencesViewModule($0) }
 
   private lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = self.component.preferences.inject(self)
 

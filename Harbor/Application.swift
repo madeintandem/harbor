@@ -5,9 +5,9 @@ import AppKit
 class Application: NSApplication {
   // MARK: Dependencies
   private let _component = AppComponent()
-    .module(InteractorModule.self) { InteractorModule($0) }
-    .module(ServiceModule.self) { ServiceModule($0) }
-    .module(SystemModule.self) { SystemModule($0) }
+    .module { InteractorModule($0) }
+    .module { ServiceModule($0) }
+    .module { SystemModule($0) }
 
   class func component() -> AppComponent {
     return (NSApp as! Application)._component

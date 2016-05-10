@@ -9,7 +9,7 @@ class StatusMenu: NSMenu, StatusMenuView {
   // MARK: Dependencies
   private var component = ViewComponent()
     .parent { Application.component() }
-    .module(StatusMenuModule.self) { StatusMenuModule($0) }
+    .module { StatusMenuModule($0) }
 
   private lazy var presenter: StatusMenuPresenter<StatusMenu> = self.component.status.inject(self)
 
