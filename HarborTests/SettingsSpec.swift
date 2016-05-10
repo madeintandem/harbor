@@ -22,7 +22,7 @@ class SettingsSpec: HarborSpec {
     }
 
     describe("the initializer"){
-      fit("retrieves the correct API Key") {
+      it("retrieves the correct API Key") {
         let apiKey = "12903jasjfd0aj21"
         example.subject.apiKey = apiKey
 

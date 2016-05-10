@@ -173,8 +173,6 @@
 		D0772F151B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0772F1A1B3C437800031FB9 /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0772F201B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0772F291B3C437800031FB9 /* HarborUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborUITests.swift; sourceTree = "<group>"; };
-		D0772F2B1B3C437800031FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0772F391B3C43B200031FB9 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		D0772F3F1B3C44C000031FB9 /* SamplePayload.json */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.json; path = SamplePayload.json; sourceTree = "<group>"; tabWidth = 2; };
 		D08EAB311B97531A009564CE /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
@@ -413,7 +411,6 @@
 				10DC90931BC2E13000811234 /* HarborHelper.xcodeproj */,
 				D0772F0A1B3C437800031FB9 /* Harbor */,
 				D0772F1D1B3C437800031FB9 /* HarborTests */,
-				D0772F281B3C437800031FB9 /* HarborUITests */,
 				D0772F091B3C437800031FB9 /* Products */,
 				C61573DD1BA5E0B634D1395C /* Frameworks */,
 				565CC38C5FD77CEB790F2179 /* Pods */,
@@ -460,15 +457,6 @@
 				D0772F201B3C437800031FB9 /* Info.plist */,
 			);
 			path = HarborTests;
-			sourceTree = "<group>";
-		};
-		D0772F281B3C437800031FB9 /* HarborUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D0772F291B3C437800031FB9 /* HarborUITests.swift */,
-				D0772F2B1B3C437800031FB9 /* Info.plist */,
-			);
-			path = HarborUITests;
 			sourceTree = "<group>";
 		};
 		D0772F371B3C438900031FB9 /* Domain */ = {
