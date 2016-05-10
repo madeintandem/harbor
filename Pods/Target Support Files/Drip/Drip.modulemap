@@ -1,0 +1,6 @@
+framework module Drip {
+  umbrella header "Drip-umbrella.h"
+
+  export *
+  module * { export * }
+}

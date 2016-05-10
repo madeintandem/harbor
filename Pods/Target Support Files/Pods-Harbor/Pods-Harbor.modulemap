@@ -1,0 +1,6 @@
+framework module Pods_Harbor {
+  umbrella header "Pods-Harbor-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6CE47EAE52B57371B61AB99B723F18899AD99FD4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E42085E796FF8DBAE442FD4D0A31934D03C74DEE" : 0,
+    "6CE47EAE52B57371B61AB99B723F18899AD99FD4" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "190B933B-84F0-4E21-83F3-2D28D1D744AD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E42085E796FF8DBAE442FD4D0A31934D03C74DEE" : "..\/drip\/Drip",
+    "6CE47EAE52B57371B61AB99B723F18899AD99FD4" : "repo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Harbor",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Harbor.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:devmynd\/harbor.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6CE47EAE52B57371B61AB99B723F18899AD99FD4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:devmynd\/drip.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E42085E796FF8DBAE442FD4D0A31934D03C74DEE"
+    }
+  ]
+}

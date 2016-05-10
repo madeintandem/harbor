@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BuildView" customModule="Harbor" customModuleProvider="target">
+            <connections>
+                <outlet property="buildMessageLabel" destination="Cb4-Q4-QWN" id="6uL-PS-YSE"/>
+                <outlet property="dateAndUsernameLabel" destination="OSC-SL-OJ4" id="q8j-MZ-oUA"/>
+                <outlet property="view" destination="c22-O7-iKe" id="SEF-KH-efC"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OSC-SL-OJ4">
+                    <rect key="frame" x="8" y="30" width="224" height="17"/>
+                    <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Mm9-zm-5dn">
+                        <font key="font" metaFont="menu"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cb4-Q4-QWN">
+                    <rect key="frame" x="8" y="-1" width="234" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="4WN-On-Q3E"/>
+                    </constraints>
+                    <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="Multiline Label" id="YzS-2h-RVh">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OSC-SL-OJ4" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="3" id="2QU-mn-43j"/>
+                <constraint firstAttribute="bottom" secondItem="Cb4-Q4-QWN" secondAttribute="bottom" constant="-1" id="C39-z1-BM7"/>
+                <constraint firstAttribute="trailing" secondItem="OSC-SL-OJ4" secondAttribute="trailing" constant="20" id="OpU-nO-qMw"/>
+                <constraint firstItem="Cb4-Q4-QWN" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="aDF-aS-qwl"/>
+                <constraint firstAttribute="trailing" secondItem="Cb4-Q4-QWN" secondAttribute="trailing" constant="10" id="eJ5-XX-Wsg"/>
+                <constraint firstItem="Cb4-Q4-QWN" firstAttribute="top" secondItem="OSC-SL-OJ4" secondAttribute="bottom" id="poh-kg-bFa"/>
+                <constraint firstItem="OSC-SL-OJ4" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="s3p-sU-tlg"/>
+            </constraints>
+            <point key="canvasLocation" x="1187" y="570"/>
+        </customView>
+    </objects>
+</document>

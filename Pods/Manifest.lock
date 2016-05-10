@@ -1,0 +1,21 @@
+PODS:
+  - Alamofire (3.2.1)
+  - Drip (0.1.0)
+  - Nimble (4.0.1)
+  - Quick (0.9.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - Drip (~> 0.1)
+  - Nimble (~> 4.0)
+  - Quick (~> 0.9)
+
+SPEC CHECKSUMS:
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  Drip: b499d3537bbe35630bde86a95a0d6521520c7625
+  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
+  Quick: a5221fc21788b6aeda934805e68b061839bc3165
+
+PODFILE CHECKSUM: 48a24fdf9dc6683748ff23878c99f0e521ea7b97
+
+COCOAPODS: 1.0.0
