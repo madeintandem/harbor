@@ -10,10 +10,10 @@ xcodeproj 'Harbor', 'Test' => :debug
 # harbor 
 target 'Harbor' do
   pod 'Alamofire', '~> 3.0'
-  pod 'Drip', path: '~/Projects/drip/Drip' #git: 'https://github.com/devmynd/Drip', tag: 'v0.0.1'
+  pod 'Drip', :git => 'https://github.com/devmynd/Drip', :tag => 'v0.1.0'
 end
 
 target 'HarborTests' do
-  pod 'Quick', '~> 0.9.0'
-  pod 'Nimble', '3.0.0'
+  pod 'Quick', '~> 0.9'
+  pod 'Nimble', '~> 4.0'
 end

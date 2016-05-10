@@ -1,3 +1,4 @@
+
 class InteractorModule: AppModule {
   func inject() -> Settings {
     return single {

@@ -1,3 +1,4 @@
+
 class ServiceModule: AppModule {
   func inject() -> CodeshipApiType {
     return transient { component in

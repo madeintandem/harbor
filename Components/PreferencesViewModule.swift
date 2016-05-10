@@ -1,3 +1,4 @@
+
 class PreferencesViewModule: ViewModule {
   func inject<V: PreferencesView>(view: V) -> PreferencesPresenter<V> {
     return single {

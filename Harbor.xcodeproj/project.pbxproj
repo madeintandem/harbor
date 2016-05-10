@@ -283,13 +283,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		10FA1FF51C9236A400A642A7 /* Injection */ = {
+		10FA1FF51C9236A400A642A7 /* Drip */ = {
 			isa = PBXGroup;
 			children = (
 				10FA20061C93280C00A642A7 /* App */,
 				10FA20071C93295700A642A7 /* View */,
 			);
-			name = Injection;
+			name = Drip;
 			path = ../Components;
 			sourceTree = "<group>";
 		};
@@ -433,7 +433,7 @@
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
 				D08EAB3F1B98D5D5009564CE /* Views */,
 				D0C002CC1BB49452006A058C /* Interactors */,
-				10FA1FF51C9236A400A642A7 /* Injection */,
+				10FA1FF51C9236A400A642A7 /* Drip */,
 				D0A3E7441B73A764006E4350 /* API */,
 				D0772F371B3C438900031FB9 /* Domain */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,

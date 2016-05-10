@@ -1,3 +1,4 @@
+
 class StatusMenuModule: ViewModule {
   func inject<V: StatusMenuView>(view: V) -> StatusMenuPresenter<V> {
     return single {
