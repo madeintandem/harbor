@@ -33,7 +33,7 @@ class StatusMenu: NSMenu, StatusMenuView {
 
     let preferences    = itemAtIndex(1)!
     preferences.target = self
-    preferences.action = Selector("didClickPreferencesItem")
+    preferences.action = #selector(StatusMenu.didClickPreferencesItem)
   }
 
   func updateBuildStatus(status: BuildStatus) {

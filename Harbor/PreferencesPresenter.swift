@@ -62,10 +62,13 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     settings.refreshRate = refreshRate
 
     // serialize the hidden projects
-    settings.disabledProjectIds = allProjects.reduce([Int]()) { (var memo, project) in
+    settings.disabledProjectIds = allProjects.reduce([Int]()) { memo, project in
+      var memo = memo
+
       if !project.isEnabled {
         memo.append(project.id)
       }
+
       return memo
     }
 

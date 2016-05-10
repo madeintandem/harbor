@@ -41,7 +41,7 @@ class TimerCoordinator : NSObject {
     currentTimer = nil
 
     if !refreshRate.isZero {
-      currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:"handleUpdateTimer:", userInfo: nil, repeats: true)
+      currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:#selector(TimerCoordinator.handleUpdateTimer(_:)), userInfo: nil, repeats: true)
       runLoop.addTimer(currentTimer!, forMode: NSDefaultRunLoopMode)
     }
 

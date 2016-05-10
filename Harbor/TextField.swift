@@ -28,11 +28,11 @@ class TextField: NSTextField {
   func actionForKey(key: String) -> Selector? {
     switch(key) {
     case "x":
-      return Selector("cut:")
+      return #selector(NSText.cut(_:))
     case "c":
-      return Selector("copy:")
+      return #selector(NSText.copy(_:))
     case "v":
-      return Selector("paste:")
+      return #selector(NSText.paste(_:))
     default:
       return nil
     }
