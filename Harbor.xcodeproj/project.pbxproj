@@ -34,7 +34,7 @@
 		10FA20111C97770600A642A7 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20101C97770600A642A7 /* Environment.swift */; };
 		2E0EB95307EB9B5CA6ACB161 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE3D042DFD06CDDD92762A5 /* Pods_Harbor.framework */; };
 		4C0EB9D11CE39B2900AC9557 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0EB9D01CE39B2900AC9557 /* Status.swift */; };
-		CDD5638F36C28F1CBED22C30 /* Pods_Harbor_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */; };
+		4CFBDEF91CE3B15600D65D29 /* Pods_Harbor_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */; };
 		D01093BC1BB5B3D7002D5794 /* SettingsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BB1BB5B3D7002D5794 /* SettingsSpec.swift */; };
 		D01093BF1BB5D932002D5794 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BE1BB5D932002D5794 /* NotificationCenter.swift */; };
 		D01093C11BB5D93D002D5794 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093C01BB5D93D002D5794 /* UserDefaults.swift */; };
@@ -82,7 +82,6 @@
 		D0F5B1991B45786500D30EEF /* SampleProject.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B1981B45786500D30EEF /* SampleProject.json */; };
 		D0F5B19B1B4578D400D30EEF /* SampleBuild.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B19A1B4578D400D30EEF /* SampleBuild.json */; };
 		D0F5B19D1B45821200D30EEF /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B19C1B45821200D30EEF /* Build.swift */; };
-		DFB8B53BFCAB01E8787FC59C /* Pods_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7150961101FB11B6275D20F3 /* Pods_HarborTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,8 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB8B53BFCAB01E8787FC59C /* Pods_HarborTests.framework in Frameworks */,
-				CDD5638F36C28F1CBED22C30 /* Pods_Harbor_HarborTests.framework in Frameworks */,
+				4CFBDEF91CE3B15600D65D29 /* Pods_Harbor_HarborTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
