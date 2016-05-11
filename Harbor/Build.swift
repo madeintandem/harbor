@@ -4,7 +4,7 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
   var id: Int?
   var uuid: String?
   var projectID: Int?
-  var status: String?
+  var status: Status?
   var gitHubUsername: String?
   var commitID: String?
   var message: String?
@@ -17,7 +17,7 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
     self.id = representation.valueForKeyPath("id") as? Int
     self.uuid = representation.valueForKeyPath("uuid") as? String
     self.projectID = representation.valueForKeyPath("project_id") as? Int
-    self.status = representation.valueForKeyPath("status") as? String
+    self.status = getStatus(representation.valueForKeyPath("status") as? String)
     self.gitHubUsername = representation.valueForKeyPath("github_username") as? String
     self.commitID = representation.valueForKeyPath("commit_id") as? String
     self.message = representation.valueForKeyPath("message") as? String
@@ -27,6 +27,20 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
       self.finishedAt = self.convertDateFromString(finishedAtString)
     }
   }
+
+  private func getStatus(stringStatus: String?) -> Status? {
+    if let actualStatus = stringStatus {
+      switch actualStatus {
+        case "success":
+          return .Success
+        case "error":
+          return .Error
+        default:
+          return .Building
+        }
+      }
+      return nil
+    }
 
   static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Build] {
     var builds: [Build] = []
