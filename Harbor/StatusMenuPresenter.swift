@@ -40,6 +40,8 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
       return .Unknown
     } else if (projects.any { $0.isFailing }) {
       return .Failing
+    } else if (projects.any { $0.isBuilding }) {
+      return .Building
     } else {
       return .Passing
     }
