@@ -4,7 +4,7 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
   var id: Int?
   var uuid: String?
   var projectID: Int?
-  var status: String?
+  var status: BuildStatus
   var gitHubUsername: String?
   var commitID: String?
   var message: String?
@@ -17,7 +17,7 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
     self.id = representation.valueForKeyPath("id") as? Int
     self.uuid = representation.valueForKeyPath("uuid") as? String
     self.projectID = representation.valueForKeyPath("project_id") as? Int
-    self.status = representation.valueForKeyPath("status") as? String
+    self.status = Build.parseStatus(representation.valueForKeyPath("status") as? String)
     self.gitHubUsername = representation.valueForKeyPath("github_username") as? String
     self.commitID = representation.valueForKeyPath("commit_id") as? String
     self.message = representation.valueForKeyPath("message") as? String
@@ -25,6 +25,18 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
     self.startedAt = self.convertDateFromString(representation.valueForKeyPath("started_at") as? String)
     if let finishedAtString = representation.valueForKeyPath("finished_at") as? String{
       self.finishedAt = self.convertDateFromString(finishedAtString)
+    }
+  }
+
+  private class func parseStatus(givenStatus: String?) -> BuildStatus {
+    guard let givenStatus = givenStatus else { return .Unknown }
+    switch givenStatus {
+    case "success":
+      return .Passing
+    case "error":
+      return .Failing
+    default:
+      return .Unknown
     }
   }
 

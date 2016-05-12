@@ -22,7 +22,7 @@ struct ProjectMenuItemModel {
   //
 
   var status: BuildStatus {
-    return self.project.status == 0 ? .Passing : .Failing
+    return self.project.status
   }
 
   var isFailing: Bool {
