@@ -29,6 +29,10 @@ struct ProjectMenuItemModel {
     get { return self.status == .Failing }
   }
 
+  var isBuilding: Bool {
+    get { return self.status == .Building }
+  }
+
   //
   // MARK: Children
   //
