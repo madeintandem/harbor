@@ -36,7 +36,7 @@ class StatusMenu: NSMenu, StatusMenuView {
     preferences.action = #selector(StatusMenu.didClickPreferencesItem)
   }
 
-  func updateBuildStatus(status: BuildStatus) {
+  func updateBuildStatus(status: Build.Status) {
     statusBarItem.image = status.icon()
   }
 

@@ -17,7 +17,6 @@
 		10DC90641BBEE17A00811234 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90631BBEE17A00811234 /* Presenter.swift */; };
 		10DC90661BBEE47C00811234 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90651BBEE47C00811234 /* ViewType.swift */; };
 		10DC906A1BBF088800811234 /* ProjectMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90691BBF088800811234 /* ProjectMenuItem.swift */; };
-		10DC90701BBF096400811234 /* BuildStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC906F1BBF096400811234 /* BuildStatus.swift */; };
 		10DC90721BBF16C900811234 /* ProjectMenuItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90711BBF16C900811234 /* ProjectMenuItemModel.swift */; };
 		10DC90741BBF198900811234 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90731BBF198900811234 /* Collections.swift */; };
 		10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90771BBF1CB700811234 /* BuildViewModel.swift */; };
@@ -33,6 +32,8 @@
 		10FA200F1C933E1B00A642A7 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA200E1C933E1B00A642A7 /* Application.swift */; };
 		10FA20111C97770600A642A7 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20101C97770600A642A7 /* Environment.swift */; };
 		2E0EB95307EB9B5CA6ACB161 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE3D042DFD06CDDD92762A5 /* Pods_Harbor.framework */; };
+		4C86D9FC1CE50142008E91E4 /* codeshipLogo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */; };
+		4C86D9FD1CE50142008E91E4 /* codeshipLogo_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FB1CE50142008E91E4 /* codeshipLogo_blue@2x.png */; };
 		CDD5638F36C28F1CBED22C30 /* Pods_Harbor_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */; };
 		D01093BC1BB5B3D7002D5794 /* SettingsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BB1BB5B3D7002D5794 /* SettingsSpec.swift */; };
 		D01093BF1BB5D932002D5794 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BE1BB5D932002D5794 /* NotificationCenter.swift */; };
@@ -125,7 +126,6 @@
 		10DC90631BBEE17A00811234 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		10DC90651BBEE47C00811234 /* ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
 		10DC90691BBF088800811234 /* ProjectMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectMenuItem.swift; sourceTree = "<group>"; };
-		10DC906F1BBF096400811234 /* BuildStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildStatus.swift; sourceTree = "<group>"; };
 		10DC90711BBF16C900811234 /* ProjectMenuItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectMenuItemModel.swift; sourceTree = "<group>"; };
 		10DC90731BBF198900811234 /* Collections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		10DC90771BBF1CB700811234 /* BuildViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +145,8 @@
 		1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harbor_HarborTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CFCBB97ED57DD01D949C73 /* Pods-Harbor-HarborTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor-HarborTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests.test.xcconfig"; sourceTree = "<group>"; };
 		3C6502C802E8A7C8D358AB2E /* Pods-HarborTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests.test.xcconfig"; sourceTree = "<group>"; };
+		4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_blue.png; sourceTree = "<group>"; };
+		4C86D9FB1CE50142008E91E4 /* codeshipLogo_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_blue@2x.png"; sourceTree = "<group>"; };
 		5D9CECB5F6F368D2C4628413 /* Pods-Harbor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.debug.xcconfig"; sourceTree = "<group>"; };
 		6A44CEAA7EBDF79EBEA74B01 /* Pods-Harbor-HarborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor-HarborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests.release.xcconfig"; sourceTree = "<group>"; };
 		6AB17BFC533903194B2259FA /* Pods-HarborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -254,7 +256,6 @@
 				D08EAB401B98D5EA009564CE /* BuildView.xib */,
 				D08EAB3D1B98D5C8009564CE /* BuildView.swift */,
 				10DC90771BBF1CB700811234 /* BuildViewModel.swift */,
-				10DC906F1BBF096400811234 /* BuildStatus.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -503,6 +504,8 @@
 		D0B1777B1B9651C30055ECC6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */,
+				4C86D9FB1CE50142008E91E4 /* codeshipLogo_blue@2x.png */,
 				D08EAB351B98A60A009564CE /* codeshipLogo_green.png */,
 				D08EAB361B98A60A009564CE /* codeshipLogo_green@2px.png */,
 				D08EAB371B98A60A009564CE /* codeshipLogo_red.png */,
@@ -634,8 +637,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0E3C0C51B9F45FC00D1966C /* PreferencesPaneWindowController.xib in Resources */,
+				4C86D9FC1CE50142008E91E4 /* codeshipLogo_blue.png in Resources */,
 				D0772F111B3C437800031FB9 /* Assets.xcassets in Resources */,
 				D08EAB411B98D5EA009564CE /* BuildView.xib in Resources */,
+				4C86D9FD1CE50142008E91E4 /* codeshipLogo_blue@2x.png in Resources */,
 				D08EAB3B1B98A60A009564CE /* codeshipLogo_red.png in Resources */,
 				D08EAB391B98A60A009564CE /* codeshipLogo_green.png in Resources */,
 				D08EAB321B97531A009564CE /* MainMenu.xib in Resources */,
@@ -788,7 +793,6 @@
 				D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */,
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */,
-				10DC90701BBF096400811234 /* BuildStatus.swift in Sources */,
 				D0C002C71BB48801006A058C /* Settings.swift in Sources */,
 				D01093C11BB5D93D002D5794 /* UserDefaults.swift in Sources */,
 				10FA1FF81C9237D800A642A7 /* AppComponent.swift in Sources */,

@@ -5,7 +5,7 @@ public final class Project: ResponseObjectSerializable, ResponseCollectionSerial
   let id: Int
   let uuid: String
   let repositoryName: String!
-  let status : Int
+  let status : Build.Status
   let builds: [Build]
   var isEnabled : Bool
 
@@ -14,7 +14,7 @@ public final class Project: ResponseObjectSerializable, ResponseCollectionSerial
     self.uuid = NSUUID().UUIDString
     self.repositoryName = ""
     self.builds = [Build]()
-    self.status = 0
+    self.status = .Unknown
     self.isEnabled = false
   }
 
@@ -33,15 +33,7 @@ public final class Project: ResponseObjectSerializable, ResponseCollectionSerial
       self.repositoryName = nil
     }
 
-    let firstBuild = self.builds.first
-    // make this an enum
-    if firstBuild?.status == "success" {
-      self.status = 0
-    } else if firstBuild?.status == "error" {
-      self.status = 1
-    } else {
-      self.status = 2
-    }
+    self.status = self.builds.first?.status ?? .Unknown
   }
 
   public static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {
