@@ -56,6 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
   private func showPreferencesPane() {
     preferencesWindowController.window?.center()
     preferencesWindowController.window?.orderFront(self)
+    preferencesWindowController.window?.title = "Harbor Preferences"
 
     // Show your window in front of all other apps
     NSApp.activateIgnoringOtherApps(true)

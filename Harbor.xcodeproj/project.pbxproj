@@ -81,7 +81,6 @@
 		D0F5B1991B45786500D30EEF /* SampleProject.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B1981B45786500D30EEF /* SampleProject.json */; };
 		D0F5B19B1B4578D400D30EEF /* SampleBuild.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B19A1B4578D400D30EEF /* SampleBuild.json */; };
 		D0F5B19D1B45821200D30EEF /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F5B19C1B45821200D30EEF /* Build.swift */; };
-		DFB8B53BFCAB01E8787FC59C /* Pods_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7150961101FB11B6275D20F3 /* Pods_HarborTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,7 +224,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB8B53BFCAB01E8787FC59C /* Pods_HarborTests.framework in Frameworks */,
 				CDD5638F36C28F1CBED22C30 /* Pods_Harbor_HarborTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
