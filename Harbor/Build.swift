@@ -35,6 +35,8 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
       return .Passing
     case "error":
       return .Failing
+    case "testing":
+      return .Building
     default:
       return .Unknown
     }
