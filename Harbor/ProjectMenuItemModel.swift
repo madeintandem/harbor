@@ -21,7 +21,7 @@ struct ProjectMenuItemModel {
   // MARK: Status
   //
 
-  var status: BuildStatus {
+  var status: Build.Status {
     return self.project.status
   }
 

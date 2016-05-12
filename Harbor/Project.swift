@@ -5,7 +5,7 @@ public final class Project: ResponseObjectSerializable, ResponseCollectionSerial
   let id: Int
   let uuid: String
   let repositoryName: String!
-  let status : BuildStatus
+  let status : Build.Status
   let builds: [Build]
   var isEnabled : Bool
 

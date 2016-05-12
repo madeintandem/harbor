@@ -35,7 +35,7 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
     view.updateBuildStatus(self.buildStatusFromProjects(enabledProjects))
   }
 
-  private func buildStatusFromProjects(projects: [ProjectMenuItemModel]) -> BuildStatus {
+  private func buildStatusFromProjects(projects: [ProjectMenuItemModel]) -> Build.Status {
     if projects.count == 0 {
       return .Unknown
     } else if (projects.any { $0.isFailing }) {
