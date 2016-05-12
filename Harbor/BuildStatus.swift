@@ -4,7 +4,6 @@ enum BuildStatus : String {
   case Unknown  = "codeshipLogo_black"
   case Passing  = "codeshipLogo_green"
   case Failing  = "codeshipLogo_red"
-  // TODO: The blue image is actually black for now.
   case Building = "codeshipLogo_blue"
 
   func icon() -> NSImage {
