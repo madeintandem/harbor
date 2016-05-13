@@ -1,7 +1,7 @@
 import Foundation
-import Cocoa
+import ObjectMapper
 
-final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
+final class Build: Mappable {
   enum Status : String {
     case Unknown  = "codeshipLogo_black"
     case Passing  = "codeshipLogo_green"
@@ -28,59 +28,75 @@ final class Build: ResponseObjectSerializable, ResponseCollectionSerializable {
   var startedAt: NSDate?
   var finishedAt: NSDate?
   var codeshipLinkString: String?
+//
+//  let transformDate = TransformOf<NSDate, String>(fromJSON: { (value: String?) -> NSDate? in
+//    let dateFormatter = NSDateFormatter();
+//    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
+//
+//    var date : String
+//    if let dateString = value {
+//      date = dateString
+//    } else {
+//      date = ""
+//    }
+//    return dateFormatter.dateFromString(date)
+//
+//    }, toJSON: { nil })
 
-  init?(response: NSHTTPURLResponse, representation: AnyObject){
-    self.id = representation.valueForKeyPath("id") as? Int
-    self.uuid = representation.valueForKeyPath("uuid") as? String
-    self.projectID = representation.valueForKeyPath("project_id") as? Int
-    self.status = Build.parseStatus(representation.valueForKeyPath("status") as? String)
-    self.gitHubUsername = representation.valueForKeyPath("github_username") as? String
-    self.commitID = representation.valueForKeyPath("commit_id") as? String
-    self.message = representation.valueForKeyPath("message") as? String
-    self.branch = representation.valueForKeyPath("branch") as? String
-    self.startedAt = self.convertDateFromString(representation.valueForKeyPath("started_at") as? String)
-    if let finishedAtString = representation.valueForKeyPath("finished_at") as? String{
-      self.finishedAt = self.convertDateFromString(finishedAtString)
-    }
+  // MARK: ObjectMapper - Mappable
+  init(_ map: Map) { }
+
+  func mapping(map: Map) {
+    id <- map["id"]
+    uuid <- map["uuid"]
+    projectID <- map["project_id"]
+    status <- map["status"]
+    gitHubUsername <- map["github_username"]
+    commitID <- map["commit_id"]
+    message <- map["message"]
+    branch <- map["branch"]
+//    startedAt <- (map["started_at"], transformDate)
+//    finishedAt <- (map["finished_at"], transformDate)
   }
 
-  private class func parseStatus(givenStatus: String?) -> Status {
-    guard let givenStatus = givenStatus else { return .Unknown }
-    switch givenStatus {
-    case "success":
-      return .Passing
-    case "error":
-      return .Failing
-    case "testing":
-      return .Building
-    default:
-      return .Unknown
-    }
-  }
+//  init?(response: NSHTTPURLResponse, representation: AnyObject){
+//    self.id = representation.valueForKeyPath("id") as? Int
+//    self.uuid = representation.valueForKeyPath("uuid") as? String
+//    self.projectID = representation.valueForKeyPath("project_id") as? Int
+//    self.status = representation.valueForKeyPath("status") as? String
+//    self.gitHubUsername = representation.valueForKeyPath("github_username") as? String
+//    self.commitID = representation.valueForKeyPath("commit_id") as? String
+//    self.message = representation.valueForKeyPath("message") as? String
+//    self.branch = representation.valueForKeyPath("branch") as? String
+//    self.startedAt = self.convertDateFromString(representation.valueForKeyPath("started_at") as? String)
+//    if let finishedAtString = representation.valueForKeyPath("finished_at") as? String{
+//      self.finishedAt = self.convertDateFromString(finishedAtString)
+//    }
+//  }
 
-  static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Build] {
-    var builds: [Build] = []
+//  static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Build] {
+//    var builds: [Build] = []
+//
+//    if let representation = representation.valueForKeyPath("builds") as? [[String: AnyObject]] {
+//      for buildRepresentation in representation {
+//        if let build = Build(response: response, representation: buildRepresentation) {
+//          builds.append(build)
+//        }
+//      }
+//    }
+//    return builds
+//  }
 
-    if let representation = representation.valueForKeyPath("builds") as? [[String: AnyObject]] {
-      for buildRepresentation in representation {
-        if let build = Build(response: response, representation: buildRepresentation) {
-          builds.append(build)
-        }
-      }
-    }
-    return builds
-  }
-
-  func convertDateFromString(aString: String?) -> NSDate{
-    let dateFormatter = NSDateFormatter();
-    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
-
-    var date : String
-    if let dateString = aString {
-      date = dateString
-    } else {
-      date = ""
-    }
-    return dateFormatter.dateFromString(date)!
-  }
+//  func convertDateFromString(aString: String?) -> NSDate{
+//    let dateFormatter = NSDateFormatter();
+//    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
+//
+//    var date : String
+//    if let dateString = aString {
+//      date = dateString
+//    } else {
+//      date = ""
+//    }
+//    return dateFormatter.dateFromString(date)!
+//  }
 }
