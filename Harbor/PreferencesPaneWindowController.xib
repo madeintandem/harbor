@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesPaneWindowController" customModule="Harbor" customModuleProvider="target">
             <connections>
                 <outlet property="codeshipAPIKey" destination="CDc-TA-dvy" id="oU0-Dn-bve"/>
+                <outlet property="codeshipAPIKeyError" destination="nGP-fQ-xcu" id="fcq-di-ZU6"/>
                 <outlet property="launchOnLoginCheckbox" destination="4bT-18-ouZ" id="vF1-g9-7Fy"/>
                 <outlet property="projectTableView" destination="BWA-i0-ssi" id="p15-Sh-twa"/>
                 <outlet property="refreshRateTextField" destination="4xB-Mv-cNJ" id="aN8-M9-NGq"/>
@@ -28,8 +29,8 @@
                         <rect key="frame" x="20" y="389" width="440" height="47"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IaN-Sc-IBA">
-                                <rect key="frame" x="-2" y="30" width="444" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Codeship API Key" id="V6K-1U-4Sb">
+                                <rect key="frame" x="-2" y="30" width="115" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Codeship API Key " id="V6K-1U-4Sb">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -46,11 +47,19 @@
                                     <outlet property="delegate" destination="-2" id="MD6-kP-28Q"/>
                                 </connections>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-fQ-xcu">
+                                <rect key="frame" x="110" y="30" width="262" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="i3y-a6-Cej">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="0.76394305631752413" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="IaN-Sc-IBA" firstAttribute="leading" secondItem="S0U-yZ-Vui" secondAttribute="leading" id="37W-r8-cFM"/>
                             <constraint firstAttribute="bottom" secondItem="CDc-TA-dvy" secondAttribute="bottom" id="8Hc-fl-Vkw"/>
-                            <constraint firstAttribute="trailing" secondItem="IaN-Sc-IBA" secondAttribute="trailing" id="NPe-DD-tFf"/>
+                            <constraint firstAttribute="trailing" secondItem="IaN-Sc-IBA" secondAttribute="trailing" constant="329" id="NPe-DD-tFf"/>
                             <constraint firstItem="IaN-Sc-IBA" firstAttribute="top" secondItem="S0U-yZ-Vui" secondAttribute="top" id="YZK-oC-sfI"/>
                             <constraint firstItem="CDc-TA-dvy" firstAttribute="leading" secondItem="S0U-yZ-Vui" secondAttribute="leading" id="oZP-wc-dgB"/>
                             <constraint firstAttribute="trailing" secondItem="CDc-TA-dvy" secondAttribute="trailing" id="xaS-05-gD4"/>
