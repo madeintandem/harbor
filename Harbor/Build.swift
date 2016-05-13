@@ -17,6 +17,7 @@ final class Build: Mappable {
     }
   }
 
+  static let dateFormatter = NSDateFormatter()
   var id: Int?
   var uuid: String?
   var projectID: Int?
@@ -28,35 +29,28 @@ final class Build: Mappable {
   var startedAt: NSDate?
   var finishedAt: NSDate?
   var codeshipLinkString: String?
-//
-//  let transformDate = TransformOf<NSDate, String>(fromJSON: { (value: String?) -> NSDate? in
-//    let dateFormatter = NSDateFormatter();
-//    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
-//
-//    var date : String
-//    if let dateString = value {
-//      date = dateString
-//    } else {
-//      date = ""
-//    }
-//    return dateFormatter.dateFromString(date)
-//
-//    }, toJSON: { nil })
+
+  let transformDate = TransformOf<NSDate, String>(
+    fromJSON: Build.convertDateFromString,
+    toJSON: { _ in "" }
+  )
 
   // MARK: ObjectMapper - Mappable
-  init(_ map: Map) { }
+  init(_ map: Map) {
+    status = .Unknown
+  }
 
   func mapping(map: Map) {
-    id <- map["id"]
-    uuid <- map["uuid"]
-    projectID <- map["project_id"]
-    status <- map["status"]
+    id             <- map["id"]
+    uuid           <- map["uuid"]
+    projectID      <- map["project_id"]
+    status         <- map["status"]
     gitHubUsername <- map["github_username"]
-    commitID <- map["commit_id"]
-    message <- map["message"]
-    branch <- map["branch"]
-//    startedAt <- (map["started_at"], transformDate)
-//    finishedAt <- (map["finished_at"], transformDate)
+    commitID       <- map["commit_id"]
+    message        <- map["message"]
+    branch         <- map["branch"]
+    startedAt      <- (map["started_at"], transformDate)
+    finishedAt     <- (map["finished_at"], transformDate)
   }
 
 //  init?(response: NSHTTPURLResponse, representation: AnyObject){
@@ -87,16 +81,16 @@ final class Build: Mappable {
 //    return builds
 //  }
 
-//  func convertDateFromString(aString: String?) -> NSDate{
-//    let dateFormatter = NSDateFormatter();
-//    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
-//
-//    var date : String
-//    if let dateString = aString {
-//      date = dateString
-//    } else {
-//      date = ""
-//    }
-//    return dateFormatter.dateFromString(date)!
-//  }
+  private class func convertDateFromString(aString: String?) -> NSDate? {
+    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
+
+    var date : String
+    if let dateString = aString {
+      date = dateString
+    } else {
+      date = ""
+    }
+
+    return dateFormatter.dateFromString(date)
+  }
 }
