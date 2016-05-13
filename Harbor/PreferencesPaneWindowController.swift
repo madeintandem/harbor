@@ -138,14 +138,14 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   }
 
   func validateRefreshRate(value: String) {
-    if let intValue = Int(value) {
-      if !(5 ... 600 ~= intValue) {
-        refreshRateError.stringValue = "must be between 5 and 600 seconds"
-      } else {
-        refreshRateError.stringValue = ""
-      }
-    } else {
+    let doubleValue = Double(value)
+
+    if doubleValue == nil {
       refreshRateError.stringValue = "must be a number"
+    } else if !(5 ... 600 ~= doubleValue!) {
+      refreshRateError.stringValue = "must be between 5 and 600 seconds"
+    } else {
+      refreshRateError.stringValue = ""
     }
   }
 }
