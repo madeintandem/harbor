@@ -14,6 +14,11 @@ public final class Project: Equatable, Mappable {
     toJSON: { _ in "" }
   )
 
+  public init(id: Int) {
+    self.id = id
+    self.uuid = NSUUID().UUIDString
+  }
+
   // MARK: ObjectMapper - Mappable
   public init(_ map: Map) {
     isEnabled = true
