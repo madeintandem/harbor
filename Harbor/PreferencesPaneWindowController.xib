@@ -10,6 +10,7 @@
                 <outlet property="codeshipAPIKeyError" destination="nGP-fQ-xcu" id="fcq-di-ZU6"/>
                 <outlet property="launchOnLoginCheckbox" destination="4bT-18-ouZ" id="vF1-g9-7Fy"/>
                 <outlet property="projectTableView" destination="BWA-i0-ssi" id="p15-Sh-twa"/>
+                <outlet property="refreshRateError" destination="wKc-VT-seL" id="EmW-ih-1tf"/>
                 <outlet property="refreshRateTextField" destination="4xB-Mv-cNJ" id="aN8-M9-NGq"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -70,7 +71,7 @@
                         <rect key="frame" x="20" y="327" width="440" height="47"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Lz-X4-zMd">
-                                <rect key="frame" x="-2" y="30" width="444" height="17"/>
+                                <rect key="frame" x="-2" y="30" width="82" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh Rate" placeholderString="60.0" id="Qax-W2-i0Z">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -88,6 +89,14 @@
                                     <outlet property="delegate" destination="-2" id="oME-lo-bBl"/>
                                 </connections>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-VT-seL">
+                                <rect key="frame" x="84" y="30" width="318" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="TZy-ud-hpf">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="0.76394305630000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="4xB-Mv-cNJ" secondAttribute="bottom" id="9aN-Cr-daL"/>
@@ -95,7 +104,7 @@
                             <constraint firstItem="7Lz-X4-zMd" firstAttribute="top" secondItem="z1k-12-2Xh" secondAttribute="top" id="VxL-51-HBE"/>
                             <constraint firstAttribute="trailing" secondItem="4xB-Mv-cNJ" secondAttribute="trailing" id="aOe-vz-M8L"/>
                             <constraint firstItem="4xB-Mv-cNJ" firstAttribute="top" secondItem="7Lz-X4-zMd" secondAttribute="bottom" constant="8" id="lVy-hA-4no"/>
-                            <constraint firstAttribute="trailing" secondItem="7Lz-X4-zMd" secondAttribute="trailing" id="mvB-M3-pUj"/>
+                            <constraint firstAttribute="trailing" secondItem="7Lz-X4-zMd" secondAttribute="trailing" constant="362" id="mvB-M3-pUj"/>
                             <constraint firstItem="7Lz-X4-zMd" firstAttribute="leading" secondItem="z1k-12-2Xh" secondAttribute="leading" id="pe2-yT-jW7"/>
                         </constraints>
                     </customView>

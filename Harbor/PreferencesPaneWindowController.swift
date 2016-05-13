@@ -21,6 +21,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   @IBOutlet weak var projectTableView: NSTableView!
   @IBOutlet weak var launchOnLoginCheckbox: NSButton!
   @IBOutlet weak var codeshipAPIKeyError: NSTextField!
+  @IBOutlet weak var refreshRateError: NSTextField!
 
   override init(window: NSWindow?) {
     super.init(window: window)
@@ -93,6 +94,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
         validateCodeshipAPIKey(textField.stringValue)
       } else if textField == refreshRateTextField {
         presenter.updateRefreshRate(textField.stringValue)
+        validateRefreshRate(textField.stringValue)
       }
     }
   }
@@ -132,6 +134,18 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
       codeshipAPIKeyError.stringValue = "can't be blank"
     } else {
       codeshipAPIKeyError.stringValue = ""
+    }
+  }
+
+  func validateRefreshRate(value: String) {
+    if let intValue = Int(value) {
+      if !(5 ... 600 ~= intValue) {
+        refreshRateError.stringValue = "must be between 5 and 600 seconds"
+      } else {
+        refreshRateError.stringValue = ""
+      }
+    } else {
+      refreshRateError.stringValue = "must be a number"
     }
   }
 }
