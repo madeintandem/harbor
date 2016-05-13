@@ -29,13 +29,15 @@ public final class Project: Equatable, Mappable {
   }
 
   private class func convertStatusFromInt(value: String?) -> Build.Status? {
-    if value == "success" {
-      return Build.Status.Passing
-    } else if value == "error" {
-      return Build.Status.Failing
-    } else if value == "testing" {
-      return Build.Status.Building
-    } else {
+    guard let unwrappedValue = value else { return nil }
+    switch unwrappedValue {
+    case "success":
+      return .Passing
+    case "error":
+      return .Failing
+    case "testing":
+      return .Building
+    default:
       return nil
     }
   }
