@@ -53,34 +53,6 @@ final class Build: Mappable {
     finishedAt     <- (map["finished_at"], transformDate)
   }
 
-//  init?(response: NSHTTPURLResponse, representation: AnyObject){
-//    self.id = representation.valueForKeyPath("id") as? Int
-//    self.uuid = representation.valueForKeyPath("uuid") as? String
-//    self.projectID = representation.valueForKeyPath("project_id") as? Int
-//    self.status = representation.valueForKeyPath("status") as? String
-//    self.gitHubUsername = representation.valueForKeyPath("github_username") as? String
-//    self.commitID = representation.valueForKeyPath("commit_id") as? String
-//    self.message = representation.valueForKeyPath("message") as? String
-//    self.branch = representation.valueForKeyPath("branch") as? String
-//    self.startedAt = self.convertDateFromString(representation.valueForKeyPath("started_at") as? String)
-//    if let finishedAtString = representation.valueForKeyPath("finished_at") as? String{
-//      self.finishedAt = self.convertDateFromString(finishedAtString)
-//    }
-//  }
-
-//  static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Build] {
-//    var builds: [Build] = []
-//
-//    if let representation = representation.valueForKeyPath("builds") as? [[String: AnyObject]] {
-//      for buildRepresentation in representation {
-//        if let build = Build(response: response, representation: buildRepresentation) {
-//          builds.append(build)
-//        }
-//      }
-//    }
-//    return builds
-//  }
-
   private class func convertDateFromString(aString: String?) -> NSDate? {
     dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
 
