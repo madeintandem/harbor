@@ -9,34 +9,35 @@ public final class Project: Equatable, Mappable {
   var builds: [Build] = [Build]()
   var isEnabled : Bool = false
 
-//  let transformStatus = TransformOf<Int, String>(
-//    fromJSON: { (value: String?) -> Int? in
-//    guard let value = value else { return Int(2) }
-//
-//    if value == "success" {
-//      return Int(0)
-//    } else if value == "error" {
-//      return Int(1)
-//    } else {
-//      return Int(2)
-//    }
-//
-//    }, toJSON: { nil })
-//
+  let transformStatus = TransformOf<Build.Status, String>(
+    fromJSON: Project.convertStatusFromInt,
+    toJSON: { _ in "" }
+  )
 
   // MARK: ObjectMapper - Mappable
   public init(_ map: Map) {
     isEnabled = true
-//    status = map["builds.0.status"].value()!
   }
 
   public func mapping(map: Map) {
-    id <- map["id"]
-    uuid <- map["uuid"]
+    id             <- map["id"]
+    uuid           <- map["uuid"]
     repositoryName <- map["repository_name"]
-//    status <- (map["builds.0.status"], transformStatus)
-    builds <- map["builds"]
+    status         <- (map["builds.0.status"], transformStatus)
+    builds         <- map["builds"]
 
+  }
+
+  private class func convertStatusFromInt(value: String?) -> Build.Status? {
+    if value == "success" {
+      return Build.Status.Passing
+    } else if value == "error" {
+      return Build.Status.Failing
+    } else if value == "testing" {
+      return Build.Status.Building
+    } else {
+      return nil
+    }
   }
 }
 
