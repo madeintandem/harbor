@@ -6,6 +6,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   // MARK: Dependencies
   private let settings:           Settings
   private let projectsInteractor: ProjectsInteractor
+  private let timerCoordinator:   TimerCoordinator
 
   //
   // MARK: Properties
@@ -16,9 +17,10 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   private(set) var needsRefresh: Bool = true
 
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: Settings) {
+  init(view: V, projectsInteractor: ProjectsInteractor, settings: Settings, timerCoordinator: TimerCoordinator) {
     self.projectsInteractor = projectsInteractor
     self.settings = settings
+    self.timerCoordinator = timerCoordinator
     self.allProjects = [Project]()
 
     super.init(view: view)
@@ -34,11 +36,13 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   override func didBecomeActive() {
     super.didBecomeActive()
     refreshIfNecessary()
+    timerCoordinator.stopTimer()
   }
 
   override func didResignActive() {
     super.didResignActive()
     refreshIfNecessary()
+    timerCoordinator.startTimer()
   }
 
   func setNeedsRefresh() {

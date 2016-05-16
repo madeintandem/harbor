@@ -33,12 +33,16 @@ class TimerCoordinator : NSObject {
     return setupTimer(settings.refreshRate)
   }
 
+  func stopTimer() {
+    currentTimer?.invalidate()
+    currentTimer = nil
+  }
+
   //
   // MARK: Helpers
   private func setupTimer(refreshRate: Double) -> NSTimer? {
     // cancel current timer if necessary
-    currentTimer?.invalidate()
-    currentTimer = nil
+    stopTimer()
 
     if !refreshRate.isZero {
       currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:#selector(TimerCoordinator.handleUpdateTimer(_:)), userInfo: nil, repeats: true)
