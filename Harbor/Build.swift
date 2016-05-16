@@ -17,14 +17,6 @@ final class Build: Mappable {
     }
   }
 
-  static var dateFormatter: NSDateFormatter {
-    if _dateFormatter == nil {
-      _dateFormatter = NSDateFormatter()
-      _dateFormatter!.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
-    }
-    return _dateFormatter!
-  }
-  private static var _dateFormatter: NSDateFormatter?
   var id: Int?
   var uuid: String?
   var projectID: Int?
@@ -37,10 +29,6 @@ final class Build: Mappable {
   var finishedAt: NSDate?
   var codeshipLinkString: String?
 
-  let transformDate = TransformOf<NSDate, String>(
-    fromJSON: Build.convertDateFromString,
-    toJSON: { _ in "" }
-  )
 
   // MARK: ObjectMapper - Mappable
   init(_ map: Map) {  }
@@ -54,18 +42,34 @@ final class Build: Mappable {
     commitID       <- map["commit_id"]
     message        <- map["message"]
     branch         <- map["branch"]
-    startedAt      <- (map["started_at"], transformDate)
-    finishedAt     <- (map["finished_at"], transformDate)
+    startedAt      <- (map["started_at"], Transforms.date)
+    finishedAt     <- (map["finished_at"], Transforms.date)
   }
 
-  private class func convertDateFromString(aString: String?) -> NSDate? {
-    var date : String
-    if let dateString = aString {
-      date = dateString
-    } else {
-      date = ""
+  private struct Transforms {
+    private static var dateFormatter: NSDateFormatter {
+      if _dateFormatter == nil {
+        _dateFormatter = NSDateFormatter()
+        _dateFormatter!.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
+      }
+      return _dateFormatter!
     }
+    private static var _dateFormatter: NSDateFormatter?
 
-    return dateFormatter.dateFromString(date)
+    static let date = TransformOf<NSDate, String>(
+      fromJSON: Transforms.convertDateFromString,
+      toJSON: { _ in "" }
+    )
+
+    private static func convertDateFromString(aString: String?) -> NSDate? {
+      var date : String
+      if let dateString = aString {
+        date = dateString
+      } else {
+        date = ""
+      }
+
+      return dateFormatter.dateFromString(date)
+    }
   }
 }
