@@ -9,11 +9,6 @@ public final class Project: Equatable, Mappable {
   var builds: [Build] = [Build]()
   var isEnabled : Bool = false
 
-  let transformStatus = TransformOf<Build.Status, String>(
-    fromJSON: Project.convertStatusFromInt,
-    toJSON: { _ in "" }
-  )
-
   public init(id: Int) {
     self.id = id
     self.uuid = NSUUID().UUIDString
@@ -28,22 +23,28 @@ public final class Project: Equatable, Mappable {
     id             <- map["id"]
     uuid           <- map["uuid"]
     repositoryName <- map["repository_name"]
-    status         <- (map["builds.0.status"], transformStatus)
+    status         <- (map["builds.0.status"], Transforms.status)
     builds         <- map["builds"]
-
   }
 
-  private class func convertStatusFromInt(value: String?) -> Build.Status? {
-    guard let unwrappedValue = value else { return nil }
-    switch unwrappedValue {
-    case "success":
-      return .Passing
-    case "error":
-      return .Failing
-    case "testing":
-      return .Building
-    default:
-      return nil
+  private struct Transforms {
+    static let status = TransformOf<Build.Status, String>(
+      fromJSON: Transforms.convertStatusFromString,
+      toJSON: { _ in "" }
+    )
+
+    private static func convertStatusFromString(value: String?) -> Build.Status? {
+      guard let unwrappedValue = value else { return nil }
+      switch unwrappedValue {
+      case "success":
+        return .Passing
+      case "error":
+        return .Failing
+      case "testing":
+        return .Building
+      default:
+        return nil
+      }
     }
   }
 }
