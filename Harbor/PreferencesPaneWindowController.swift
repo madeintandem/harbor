@@ -130,7 +130,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   //
   // MARK: Validations
   func validateCodeshipAPIKey(value: String) {
-    if value == "" {
+    if value.isEmpty {
       codeshipAPIKeyError.stringValue = "can't be blank"
     } else {
       codeshipAPIKeyError.stringValue = ""
