@@ -5,7 +5,8 @@ class PreferencesViewModule: ViewModule {
       PreferencesPresenter(
         view: view,
         projectsInteractor: $0.app.interactor.inject(),
-        settings: $0.app.interactor.inject())
+        settings: $0.app.interactor.inject(),
+        timerCoordinator: $0.app.interactor.inject())
     }
   }
 }
