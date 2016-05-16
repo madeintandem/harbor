@@ -28,7 +28,7 @@ final class Build: Mappable {
   var id: Int?
   var uuid: String?
   var projectID: Int?
-  var status: Status
+  var status = Build.Status.Unknown
   var gitHubUsername: String?
   var commitID: String?
   var message: String?
@@ -43,9 +43,7 @@ final class Build: Mappable {
   )
 
   // MARK: ObjectMapper - Mappable
-  init(_ map: Map) {
-    status = .Unknown
-  }
+  init(_ map: Map) {  }
 
   func mapping(map: Map) {
     id             <- map["id"]
