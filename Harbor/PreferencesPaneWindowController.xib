@@ -12,6 +12,7 @@
                 <outlet property="projectTableView" destination="BWA-i0-ssi" id="p15-Sh-twa"/>
                 <outlet property="refreshRateError" destination="wKc-VT-seL" id="EmW-ih-1tf"/>
                 <outlet property="refreshRateTextField" destination="4xB-Mv-cNJ" id="aN8-M9-NGq"/>
+                <outlet property="savePreferencesButton" destination="Cnb-EQ-tes" id="It7-i5-EzR"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -209,7 +210,7 @@
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="GjY-GJ-Pak">
-                            <rect key="frame" x="1" y="2" width="0.0" height="15"/>
+                            <rect key="frame" x="1" y="205" width="438" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Uuf-bT-kzU">

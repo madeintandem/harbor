@@ -22,6 +22,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   @IBOutlet weak var launchOnLoginCheckbox: NSButton!
   @IBOutlet weak var codeshipAPIKeyError: NSTextField!
   @IBOutlet weak var refreshRateError: NSTextField!
+  @IBOutlet weak var savePreferencesButton: NSButton!
 
   override init(window: NSWindow?) {
     super.init(window: window)
@@ -65,6 +66,16 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     launchOnLoginCheckbox.enabled = launchOnLogin
   }
 
+  func updateApiKeyError(errorMessage: String) {
+    codeshipAPIKeyError.stringValue = errorMessage
+    enableOrDisableSaveButton()
+  }
+
+  func updateRefreshRateError(errorMessage: String) {
+    refreshRateError.stringValue = errorMessage
+    enableOrDisableSaveButton()
+  }
+
   //
   // MARK: Interface Actions
   @IBAction func launchOnLoginCheckboxClicked(sender: AnyObject) {
@@ -91,11 +102,10 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     if let textField = obj.object as? TextField {
       if textField == codeshipAPIKey {
         presenter.updateApiKey(textField.stringValue)
-        validateCodeshipAPIKey(textField.stringValue)
       } else if textField == refreshRateTextField {
         presenter.updateRefreshRate(textField.stringValue)
-        validateRefreshRate(textField.stringValue)
       }
+      enableOrDisableSaveButton()
     }
   }
 
@@ -129,23 +139,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
 
   //
   // MARK: Validations
-  func validateCodeshipAPIKey(value: String) {
-    if value.isEmpty {
-      codeshipAPIKeyError.stringValue = "can't be blank"
-    } else {
-      codeshipAPIKeyError.stringValue = ""
-    }
-  }
-
-  func validateRefreshRate(value: String) {
-    let doubleValue = Double(value)
-
-    if doubleValue == nil {
-      refreshRateError.stringValue = "must be a number"
-    } else if !(5 ... 600 ~= doubleValue!) {
-      refreshRateError.stringValue = "must be between 5 and 600 seconds"
-    } else {
-      refreshRateError.stringValue = ""
-    }
+  private func enableOrDisableSaveButton() {
+    savePreferencesButton.enabled = codeshipAPIKeyError.stringValue.isEmpty && refreshRateError.stringValue.isEmpty
   }
 }
