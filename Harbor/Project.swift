@@ -4,7 +4,7 @@ import ObjectMapper
 public final class Project: Equatable, Mappable {
   var id: Int = 0
   var uuid: String = ""
-  var repositoryName: String! = ""
+  var repositoryName: String = ""
   var status : Build.Status = .Unknown
   var builds: [Build] = [Build]()
   var isEnabled : Bool = false
