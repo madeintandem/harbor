@@ -63,8 +63,6 @@
 		D08EAB411B98D5EA009564CE /* BuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08EAB401B98D5EA009564CE /* BuildView.xib */; };
 		D0AB5CE51BB9A31100F57790 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AB5CE41BB9A31100F57790 /* MockKeychain.swift */; };
 		D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */; };
-		D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */; };
-		D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */; };
 		D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */; };
 		D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */; };
 		D0B1E16C1BB9E74D009D0151 /* ProjectsProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1E16B1BB9E74D009D0151 /* ProjectsProviderSpec.swift */; };
@@ -188,8 +186,6 @@
 		D0AB5CE41BB9A31100F57790 /* MockKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		D0B156FE1B9A361B00A8D95A /* StatusMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenu.swift; sourceTree = "<group>"; };
 		D0B177701B9611400055ECC6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Harbor-heejklmuxvludkgdxatbozvazkoh/Build/Products/Debug/Alamofire.framework"; sourceTree = "<group>"; };
-		D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
-		D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		D0B177771B9651BD0055ECC6 /* codeshipLogo_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_black.png; sourceTree = "<group>"; };
 		D0B177781B9651BD0055ECC6 /* codeshipLogo_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "codeshipLogo_black@2x.png"; sourceTree = "<group>"; };
 		D0B1E16B1BB9E74D009D0151 /* ProjectsProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsProviderSpec.swift; sourceTree = "<group>"; };
@@ -388,8 +384,6 @@
 		D0254DA91B95FD1A00D12AF0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D0B177731B962A110055ECC6 /* ResponseObjectSerializable.swift */,
-				D0B177751B9631BE0055ECC6 /* ResponseCollectionSerializable.swift */,
 				D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */,
 				D01093C01BB5D93D002D5794 /* UserDefaults.swift */,
 				D01093BE1BB5D932002D5794 /* NotificationCenter.swift */,
@@ -765,7 +759,6 @@
 				10DC90641BBEE17A00811234 /* Presenter.swift in Sources */,
 				D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */,
 				D0C002C11BB3472B006A058C /* TextField.swift in Sources */,
-				D0B177761B9631BE0055ECC6 /* ResponseCollectionSerializable.swift in Sources */,
 				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
 				10FA20031C93272B00A642A7 /* ServiceModule.swift in Sources */,
 				10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */,
@@ -798,7 +791,6 @@
 				10FA1FF81C9237D800A642A7 /* AppComponent.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
 				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,
-				D0B177741B962A110055ECC6 /* ResponseObjectSerializable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
