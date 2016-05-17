@@ -20,6 +20,9 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   @IBOutlet weak var refreshRateTextField: TextField!
   @IBOutlet weak var projectTableView: NSTableView!
   @IBOutlet weak var launchOnLoginCheckbox: NSButton!
+  @IBOutlet weak var codeshipAPIKeyError: NSTextField!
+  @IBOutlet weak var refreshRateError: NSTextField!
+  @IBOutlet weak var savePreferencesButton: NSButton!
 
   override init(window: NSWindow?) {
     super.init(window: window)
@@ -63,6 +66,16 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     launchOnLoginCheckbox.enabled = launchOnLogin
   }
 
+  func updateApiKeyError(errorMessage: String) {
+    codeshipAPIKeyError.stringValue = errorMessage
+    enableOrDisableSaveButton()
+  }
+
+  func updateRefreshRateError(errorMessage: String) {
+    refreshRateError.stringValue = errorMessage
+    enableOrDisableSaveButton()
+  }
+
   //
   // MARK: Interface Actions
   @IBAction func launchOnLoginCheckboxClicked(sender: AnyObject) {
@@ -92,6 +105,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
       } else if textField == refreshRateTextField {
         presenter.updateRefreshRate(textField.stringValue)
       }
+      enableOrDisableSaveButton()
     }
   }
 
@@ -121,5 +135,11 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     }
 
     return view
+  }
+
+  //
+  // MARK: Validations
+  private func enableOrDisableSaveButton() {
+    savePreferencesButton.enabled = codeshipAPIKeyError.stringValue.isEmpty && refreshRateError.stringValue.isEmpty
   }
 }

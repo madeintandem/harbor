@@ -10,10 +10,12 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   //
   // MARK: Properties
-  private var apiKey:        String = ""
-  private var refreshRate:   Double = 60.0
-  private var launchOnLogin: Bool   = true
-  private var allProjects:   [Project]
+  private var apiKey:           String = ""
+  private var refreshRate:      Double = 60.0
+  private var launchOnLogin:    Bool   = true
+  private var allProjects:      [Project]
+  private var apiKeyError:      String = ""
+  private var refreshRateError: String = ""
 
   private(set) var needsRefresh: Bool = true
 
@@ -81,11 +83,13 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   func updateApiKey(apiKey: String) {
     self.apiKey = apiKey
+    validateApiKey(apiKey)
     setNeedsRefresh()
   }
 
   func updateRefreshRate(refreshRate: String) {
     self.refreshRate = (refreshRate as NSString).doubleValue
+    validateRefreshRate(refreshRate)
     setNeedsRefresh()
   }
 
@@ -100,10 +104,15 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     refreshRate   = settings.refreshRate
     apiKey        = settings.apiKey
 
+    updateApiKey(apiKey)
+    updateRefreshRate(refreshRate.description)
+
     // update our view after refreshing
     view.updateApiKey(apiKey)
     view.updateRefreshRate(refreshRate.description)
     view.updateLaunchOnLogin(launchOnLogin)
+    view.updateApiKeyError(apiKeyError)
+    view.updateRefreshRateError(refreshRateError)
   }
 
   //
@@ -134,5 +143,31 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   // MARK: Accessors
   private var defaults: NSUserDefaults {
     get { return NSUserDefaults.standardUserDefaults() }
+  }
+
+  //
+  // MARK: Validations
+  private func validateApiKey(value: String) {
+    if value.isEmpty {
+      apiKeyError = "can't be blank"
+    } else {
+      apiKeyError = ""
+    }
+
+    view.updateApiKeyError(apiKeyError)
+  }
+
+  private func validateRefreshRate(value: String) {
+    let doubleValue = Double(value)
+
+    if doubleValue == nil {
+      refreshRateError = "must be a number"
+    } else if !(5 ... 600 ~= doubleValue!) {
+      refreshRateError = "must be between 5 and 600 seconds"
+    } else {
+      refreshRateError = ""
+    }
+
+    view.updateRefreshRateError(refreshRateError)
   }
 }
