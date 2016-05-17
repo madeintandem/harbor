@@ -7,17 +7,16 @@ public final class Project: Equatable, Mappable {
   var repositoryName: String = ""
   var status : Build.Status = .Unknown
   var builds: [Build] = [Build]()
-  var isEnabled : Bool = false
+  var isEnabled : Bool = true
 
   public init(id: Int) {
     self.id = id
     self.uuid = NSUUID().UUIDString
+    self.isEnabled = false
   }
 
   // MARK: ObjectMapper - Mappable
-  public init(_ map: Map) {
-    isEnabled = true
-  }
+  public init(_ map: Map) { }
 
   public func mapping(map: Map) {
     id             <- map["id"]

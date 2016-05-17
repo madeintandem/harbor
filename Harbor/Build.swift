@@ -47,14 +47,11 @@ final class Build: Mappable {
   }
 
   private struct Transforms {
-    private static var dateFormatter: NSDateFormatter {
-      if _dateFormatter == nil {
-        _dateFormatter = NSDateFormatter()
-        _dateFormatter!.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
-      }
-      return _dateFormatter!
-    }
-    private static var _dateFormatter: NSDateFormatter?
+    static let dateFormatter: NSDateFormatter = ({ () -> NSDateFormatter in
+      let formatter = NSDateFormatter()
+      formatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
+      return formatter
+    })()
 
     static let date = TransformOf<NSDate, String>(
       fromJSON: Transforms.convertDateFromString,
