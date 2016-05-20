@@ -57,7 +57,7 @@ class BuildView: NSView {
 
 extension BuildView {
   class func menuItemForModel(model: BuildViewModel) -> NSMenuItem {
-    let result = NSMenuItem(title: model.message, action: #selector(BuildView.didClickBuild(_:)), keyEquivalent: "")
+    let result = NSMenuItem(title: model.message, action: #selector(BuildView.didClickBuild), keyEquivalent: "")
     result.representedObject = model.build
 
     result.view   = BuildView(model: model)

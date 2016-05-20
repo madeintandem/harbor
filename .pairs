@@ -1,0 +1,8 @@
+# .pairs - configuration for 'git pair'
+      # place in project or home directory
+      pairs:
+        rc: Ryan Clark
+        mc: Michael Crismali
+      email:
+        prefix: pair
+        domain: devmynd.com

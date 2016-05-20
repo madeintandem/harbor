@@ -55,6 +55,14 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   }
 
   func updateApiKey(apiKey: String) {
+    if let undoManager = undoManager{
+      print("************")
+      print("************")
+      print("************")
+      print("************")
+    }
+    undoManager?.registerUndoWithTarget(self, selector: #selector(PreferencesPaneWindowController.updateApiKey(_:)), object: codeshipAPIKey.stringValue)
+    undoManager?.setActionName(NSLocalizedString("update key", comment: "Updating the key"))
     codeshipAPIKey.stringValue = apiKey
   }
 
