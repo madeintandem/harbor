@@ -36,7 +36,12 @@ class BuildView: NSView {
   override func drawRect(dirtyRect: NSRect) {
     let menuItem = self.enclosingMenuItem
     if menuItem?.highlighted == true {
-      NSColor.blueColor().set()
+        if (NSAppearance.currentAppearance().name.hasPrefix("NSAppearanceNameVibrantDark")) {
+            NSColor(red: 0.004, green: 0.380, blue: 0.750, alpha: 1.0).set()
+        }
+        else {
+            NSColor(red: 0.705, green: 0.847, blue: 0.989, alpha: 1.0).set()
+        }
       NSBezierPath.fillRect(dirtyRect)
     } else {
       super.drawRect(dirtyRect)
