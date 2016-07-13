@@ -32,6 +32,11 @@
 		10FA200F1C933E1B00A642A7 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA200E1C933E1B00A642A7 /* Application.swift */; };
 		10FA20111C97770600A642A7 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20101C97770600A642A7 /* Environment.swift */; };
 		2E0EB95307EB9B5CA6ACB161 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE3D042DFD06CDDD92762A5 /* Pods_Harbor.framework */; };
+		31121DF81D359B3E00525EA2 /* MockSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31121DF71D359B3E00525EA2 /* MockSettings.swift */; };
+		3123E2BF1D3693AF009303A9 /* SettingsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123E2BE1D3693AF009303A9 /* SettingsType.swift */; };
+		3123E2C31D3699B6009303A9 /* TimerCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123E2C21D3699B6009303A9 /* TimerCoordinatorType.swift */; };
+		3123E2C61D369CD5009303A9 /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123E2C51D369CD5009303A9 /* ProjectsInteractor.swift */; };
+		3123E2C81D369DD9009303A9 /* MockTimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123E2C71D369DD9009303A9 /* MockTimerCoordinator.swift */; };
 		4C86D9FC1CE50142008E91E4 /* codeshipLogo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */; };
 		4C86D9FD1CE50142008E91E4 /* codeshipLogo_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FB1CE50142008E91E4 /* codeshipLogo_blue@2x.png */; };
 		CDD5638F36C28F1CBED22C30 /* Pods_Harbor_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */; };
@@ -118,8 +123,8 @@
 		108689C81BC826C400B2DD87 /* Verifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verifiable.swift; sourceTree = "<group>"; };
 		108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvocationMatchers.swift; sourceTree = "<group>"; };
 		10DC90531BBDD31C00811234 /* HarborSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarborSpec.swift; sourceTree = "<group>"; };
-		10DC90551BBDDABF00811234 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		10DC905E1BBEE12F00811234 /* StatusMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuPresenter.swift; sourceTree = "<group>"; };
+		10DC90551BBDDABF00811234 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Example.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		10DC905E1BBEE12F00811234 /* StatusMenuPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StatusMenuPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10DC90601BBEE13700811234 /* StatusMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuView.swift; sourceTree = "<group>"; };
 		10DC90631BBEE17A00811234 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		10DC90651BBEE47C00811234 /* ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
@@ -132,7 +137,7 @@
 		10DC909D1BC2E27600811234 /* Harbor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Harbor.entitlements; sourceTree = "<group>"; };
 		10DC909E1BC2F85C00811234 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		10FA1FF71C9237D800A642A7 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
-		10FA20001C9326D600A642A7 /* InteractorModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractorModule.swift; sourceTree = "<group>"; };
+		10FA20001C9326D600A642A7 /* InteractorModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InteractorModule.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		10FA20021C93272B00A642A7 /* ServiceModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModule.swift; sourceTree = "<group>"; };
 		10FA20041C93274500A642A7 /* SystemModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemModule.swift; sourceTree = "<group>"; };
 		10FA20081C93297B00A642A7 /* ViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewComponent.swift; sourceTree = "<group>"; };
@@ -141,6 +146,11 @@
 		10FA200E1C933E1B00A642A7 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		10FA20101C97770600A642A7 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harbor_HarborTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31121DF71D359B3E00525EA2 /* MockSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MockSettings.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3123E2BE1D3693AF009303A9 /* SettingsType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3123E2C21D3699B6009303A9 /* TimerCoordinatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerCoordinatorType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		3123E2C51D369CD5009303A9 /* ProjectsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
+		3123E2C71D369DD9009303A9 /* MockTimerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTimerCoordinator.swift; sourceTree = "<group>"; };
 		39CFCBB97ED57DD01D949C73 /* Pods-Harbor-HarborTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor-HarborTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests.test.xcconfig"; sourceTree = "<group>"; };
 		3C6502C802E8A7C8D358AB2E /* Pods-HarborTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests.test.xcconfig"; sourceTree = "<group>"; };
 		4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_blue.png; sourceTree = "<group>"; };
@@ -151,17 +161,17 @@
 		7150961101FB11B6275D20F3 /* Pods_HarborTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarborTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F06F0036A0C8CA9A3D11BA6 /* Pods-Harbor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.release.xcconfig"; sourceTree = "<group>"; };
 		C0CEA4AAFB6873D19A822129 /* Pods-Harbor.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.test.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.test.xcconfig"; sourceTree = "<group>"; };
-		D01093BB1BB5B3D7002D5794 /* SettingsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSpec.swift; sourceTree = "<group>"; };
+		D01093BB1BB5B3D7002D5794 /* SettingsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D01093BE1BB5D932002D5794 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		D01093C01BB5D93D002D5794 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D01093C31BB5DB33002D5794 /* MockUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		D01093C61BB5F05E002D5794 /* Invocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invocation.swift; sourceTree = "<group>"; };
-		D0458F4D1BB9B83000DCC4A6 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
-		D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCoordinatorSpec.swift; sourceTree = "<group>"; };
+		D0458F4D1BB9B83000DCC4A6 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MockNotificationCenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerCoordinatorSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunLoop.swift; sourceTree = "<group>"; };
 		D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRunLoop.swift; sourceTree = "<group>"; };
 		D06054241B57F880007A5F81 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
-		D0704EA71BBB117C005C808B /* PreferencesPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPresenterSpec.swift; sourceTree = "<group>"; };
+		D0704EA71BBB117C005C808B /* PreferencesPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PreferencesPresenterSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0704EA91BBB1418005C808B /* MockPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPreferencesView.swift; sourceTree = "<group>"; };
 		D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProjectsProvider.swift; sourceTree = "<group>"; };
 		D0704EAD1BBB1851005C808B /* None.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = None.swift; sourceTree = "<group>"; };
@@ -191,11 +201,11 @@
 		D0B1E16B1BB9E74D009D0151 /* ProjectsProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsProviderSpec.swift; sourceTree = "<group>"; };
 		D0B1E16D1BB9EA4C009D0151 /* MockCodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCodeshipApi.swift; sourceTree = "<group>"; };
 		D0C002C01BB3472B006A058C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		D0C002C21BB35114006A058C /* PreferencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPresenter.swift; sourceTree = "<group>"; };
+		D0C002C21BB35114006A058C /* PreferencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PreferencesPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0C002C41BB35136006A058C /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		D0C002C61BB48801006A058C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		D0C002C81BB49334006A058C /* TimerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerCoordinator.swift; sourceTree = "<group>"; };
-		D0C002CA1BB49445006A058C /* ProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsProvider.swift; sourceTree = "<group>"; };
+		D0C002C61BB48801006A058C /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Settings.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D0C002C81BB49334006A058C /* TimerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerCoordinator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D0C002CA1BB49445006A058C /* ProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProjectsProvider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodeshipApi.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
 		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
@@ -363,6 +373,8 @@
 				D0B1E16D1BB9EA4C009D0151 /* MockCodeshipApi.swift */,
 				D0704EA91BBB1418005C808B /* MockPreferencesView.swift */,
 				D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */,
+				31121DF71D359B3E00525EA2 /* MockSettings.swift */,
+				3123E2C71D369DD9009303A9 /* MockTimerCoordinator.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -513,8 +525,11 @@
 		D0C002CC1BB49452006A058C /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				3123E2BE1D3693AF009303A9 /* SettingsType.swift */,
 				D0C002C61BB48801006A058C /* Settings.swift */,
+				3123E2C21D3699B6009303A9 /* TimerCoordinatorType.swift */,
 				D0C002C81BB49334006A058C /* TimerCoordinator.swift */,
+				3123E2C51D369CD5009303A9 /* ProjectsInteractor.swift */,
 				D0C002CA1BB49445006A058C /* ProjectsProvider.swift */,
 			);
 			name = Interactors;
@@ -757,9 +772,11 @@
 			files = (
 				D0772F0C1B3C437800031FB9 /* AppDelegate.swift in Sources */,
 				10DC90641BBEE17A00811234 /* Presenter.swift in Sources */,
+				3123E2C31D3699B6009303A9 /* TimerCoordinatorType.swift in Sources */,
 				D08EAB3E1B98D5C8009564CE /* BuildView.swift in Sources */,
 				D0C002C11BB3472B006A058C /* TextField.swift in Sources */,
 				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
+				3123E2C61D369CD5009303A9 /* ProjectsInteractor.swift in Sources */,
 				10FA20031C93272B00A642A7 /* ServiceModule.swift in Sources */,
 				10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */,
 				10DC90721BBF16C900811234 /* ProjectMenuItemModel.swift in Sources */,
@@ -776,6 +793,7 @@
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
+				3123E2BF1D3693AF009303A9 /* SettingsType.swift in Sources */,
 				10DC90741BBF198900811234 /* Collections.swift in Sources */,
 				10FA200F1C933E1B00A642A7 /* Application.swift in Sources */,
 				10FA20011C9326D600A642A7 /* InteractorModule.swift in Sources */,
@@ -800,6 +818,7 @@
 			files = (
 				D0B1E16E1BB9EA4C009D0151 /* MockCodeshipApi.swift in Sources */,
 				D0458F4E1BB9B83000DCC4A6 /* MockNotificationCenter.swift in Sources */,
+				31121DF81D359B3E00525EA2 /* MockSettings.swift in Sources */,
 				108689C91BC826C400B2DD87 /* Verifiable.swift in Sources */,
 				108689C61BC8227D00B2DD87 /* VerifierOf.swift in Sources */,
 				D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift in Sources */,
@@ -809,6 +828,7 @@
 				D01093C41BB5DB33002D5794 /* MockUserDefaults.swift in Sources */,
 				108689CB1BC841BE00B2DD87 /* InvocationMatchers.swift in Sources */,
 				D0704EAE1BBB1851005C808B /* None.swift in Sources */,
+				3123E2C81D369DD9009303A9 /* MockTimerCoordinator.swift in Sources */,
 				D0704EAA1BBB1418005C808B /* MockPreferencesView.swift in Sources */,
 				D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */,
 				D01093BC1BB5B3D7002D5794 /* SettingsSpec.swift in Sources */,

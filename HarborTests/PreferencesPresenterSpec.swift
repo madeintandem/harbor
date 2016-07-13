@@ -4,57 +4,82 @@ import Quick
 import Nimble
 import Drip
 
-class PreferencesPresenterSpec: HarborSpec {
-  override func spec() {
-    super.spec()
+class PreferencesPresenterSpec: HarborSpec { override func spec() {
+  var subject:   PreferencesPresenter<MockPreferencesView>!
 
-    var view: MockPreferencesView!
-    var example: Example<PreferencesPresenter<MockPreferencesView>>!
+  // MARK: Dependencies
+  var view:     MockPreferencesView!
+  var provider: MockProjectsProvider!
+  var settings: MockSettings!
+  var timers:   MockTimerCoordinator!
 
-    beforeEach{
-      view = MockPreferencesView()
+  beforeEach {
+    view     = MockPreferencesView()
+    provider = MockProjectsProvider()
+    settings = MockSettings()
+    timers   = MockTimerCoordinator()
 
-      example = Example { ex in
-        ex.view.module(PreferencesViewModule.self) { PreferencesViewModule($0) }
-        ex.app.override(ex.projectsInteractor as ProjectsInteractor)
+    subject = PreferencesPresenter(
+      view: view,
+      projectsInteractor: provider,
+      settings: settings,
+      timerCoordinator: timers)
+  }
 
-        return ex.view.preferences.inject(view)
-      }
+  describe("#didInitialize") {
+    it("listens to the projectsProvider") {
+      subject.didInitialize()
+
+      let invocation = Invocations.projectsInteractor(.AddListener, VerifierOf(None.Nothing))
+      expect(provider.invocation).to(match(invocation))
     }
+  }
 
-    describe("presentation cycle"){
-      it("listens to the projectsProvider") {
-        let invocation = Invocations.projectsInteractor(.AddListener, VerifierOf(None.Nothing))
+  describe("#setNeedsRefresh") {
+    it("sets the needsRefresh flag properly") {
+      subject.setNeedsRefresh()
+      expect(subject.needsRefresh).to(beTrue())
+    }
+  }
 
-        example.subject.didInitialize()
-        expect(example.projectsInteractor.invocation).to(match(invocation))
+  describe("#didBecomeActive") {
+    context("when needsRefresh is true") {
+      beforeEach {
+        subject.setNeedsRefresh()
       }
 
-      it("sets the needsRefresh flag properly") {
-        example.subject.setNeedsRefresh()
-        expect(example.subject.needsRefresh).to(beTrue())
-      }
-
-      it("refreshes the view when it appears") {
-        example.subject.setNeedsRefresh()
-        expect(example.subject.needsRefresh).to(beTrue())
-
-        example.subject.didBecomeActive()
-        expect(example.subject.needsRefresh).to(beFalse())
-      }
-
-      it("refreshes the view when it disappears") {
-        example.subject.setNeedsRefresh()
-        expect(example.subject.needsRefresh).to(beTrue())
-
-        example.subject.didResignActive()
-        expect(example.subject.needsRefresh).to(beFalse())
-      }
-
-      xit("updates the view when refreshing") {
-        let invocation = Invocations.preferencesView(.UpdateApiKey, VerifierOf("asdf"))
-        expect(view.invocations).to(haveAnyMatch(invocation))
+      it("refreshes the view") {
+        expect(subject.needsRefresh).to(beTrue())
+        subject.didBecomeActive()
+        expect(subject.needsRefresh).to(beFalse())
       }
     }
   }
-}
+
+  describe("#didResignActive") {
+    context("when needsRefresh is true") {
+      beforeEach {
+        subject.setNeedsRefresh()
+      }
+
+      it("refreshes the view when it disappears") {
+        expect(subject.needsRefresh).to(beTrue())
+        subject.didResignActive()
+        expect(subject.needsRefresh).to(beFalse())
+      }
+    }
+  }
+
+  describe("on refresh") {
+    func refresh() {
+      subject.setNeedsRefresh()
+      subject.didBecomeActive()
+    }
+
+    it("updates the view's api key") {
+      settings.apiKey = "test-key"
+      refresh()
+      expect(view.apiKey) == "test-key"
+    }
+  }
+}}

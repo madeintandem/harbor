@@ -8,9 +8,9 @@ protocol CodeshipApiType {
 class CodeshipApi : CodeshipApiType {
   static let apiRootPath = "https://codeship.com/api/v1/projects.json?api_key="
 
-  private let settings: Settings
+  private let settings: SettingsType
 
-  init(settings: Settings) {
+  init(settings: SettingsType) {
     self.settings = settings
   }
 

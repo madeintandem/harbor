@@ -4,9 +4,9 @@ import Cocoa
 class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   //
   // MARK: Dependencies
-  private let settings:           Settings
+  private var settings:           SettingsType
   private let projectsInteractor: ProjectsInteractor
-  private let timerCoordinator:   TimerCoordinator
+  private let timerCoordinator:   TimerCoordinatorType
 
   //
   // MARK: Properties
@@ -19,7 +19,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   private(set) var needsRefresh: Bool = true
 
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: Settings, timerCoordinator: TimerCoordinator) {
+  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsType, timerCoordinator: TimerCoordinatorType) {
     self.projectsInteractor = projectsInteractor
     self.settings = settings
     self.timerCoordinator = timerCoordinator
