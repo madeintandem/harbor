@@ -2,7 +2,7 @@ import Foundation
 import ServiceManagement
 import CoreServices
 
-class Settings {
+class Settings: SettingsType {
   private enum Key: String, CustomStringConvertible {
     case ApiKey           = "ApiKey"
     case RefreshRate      = "RefreshRate"
@@ -105,17 +105,11 @@ class Settings {
 //
 // MARK: Notifications
 extension Settings {
-  enum NotificationName: String {
-    case ApiKey           = "ApiKey"
-    case RefreshRate      = "RefreshRate"
-    case DisabledProjects = "DisabledProjects"
-  }
-
-  func observeNotification(notification: Settings.NotificationName, handler: (NSNotification -> Void)) -> NSObjectProtocol {
+  func observeNotification(notification: SettingsNotification, handler: (NSNotification -> Void)) -> NSObjectProtocol {
     return notificationCenter.addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
   }
 
-  private func postNotification(notification: Settings.NotificationName) {
+  private func postNotification(notification: SettingsNotification) {
     notificationCenter.postNotificationName(notification.rawValue, object: nil)
   }
 }

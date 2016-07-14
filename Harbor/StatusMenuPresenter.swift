@@ -4,11 +4,11 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
   //
   // MARK: Dependencies
   private let projectsInteractor: ProjectsInteractor
-  private let settings: Settings
+  private let settings: SettingsType
 
   //
   // MARK: Properties
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: Settings) {
+  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsType) {
     self.projectsInteractor = projectsInteractor
     self.settings = settings
 

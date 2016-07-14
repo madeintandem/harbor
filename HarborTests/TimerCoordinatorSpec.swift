@@ -8,7 +8,7 @@ class TimerCoordinatorSpec: HarborSpec {
   override func spec() {
     super.spec()
 
-    var example: Example<TimerCoordinator>!
+    var example: Example<TimerCoordinatorType>!
 
     beforeEach {
       example = Example { ex in

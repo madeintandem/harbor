@@ -1,9 +1,9 @@
 import Foundation
 
-class TimerCoordinator : NSObject {
+class TimerCoordinator: NSObject, TimerCoordinatorType {
   //
   // MARK: Dependencies
-  var settings: Settings!
+  var settings: SettingsType!
   var runLoop:  RunLoop!
   var projectsInteractor: ProjectsInteractor!
 
@@ -11,7 +11,7 @@ class TimerCoordinator : NSObject {
   // MARK: Properties
   private var currentTimer: NSTimer?
 
-  init(runLoop: RunLoop, projectsInteractor: ProjectsInteractor, settings: Settings) {
+  init(runLoop: RunLoop, projectsInteractor: ProjectsInteractor, settings: SettingsType) {
     self.runLoop  = runLoop
     self.settings = settings
     self.projectsInteractor = projectsInteractor

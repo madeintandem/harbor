@@ -63,7 +63,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   }
 
   func updateLaunchOnLogin(launchOnLogin: Bool) {
-    launchOnLoginCheckbox.enabled = launchOnLogin
+    launchOnLoginCheckbox.on = launchOnLogin
   }
 
   func updateApiKeyError(errorMessage: String) {
@@ -79,7 +79,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   //
   // MARK: Interface Actions
   @IBAction func launchOnLoginCheckboxClicked(sender: AnyObject) {
-    presenter.updateLaunchOnLogin(launchOnLoginCheckbox.enabled)
+    presenter.updateLaunchOnLogin(launchOnLoginCheckbox.on)
   }
 
   @IBAction func isEnabledCheckboxClicked(sender: AnyObject) {

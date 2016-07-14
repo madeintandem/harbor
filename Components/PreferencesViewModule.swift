@@ -1,12 +1,12 @@
 
 class PreferencesViewModule: ViewModule {
   func inject<V: PreferencesView>(view: V) -> PreferencesPresenter<V> {
-    return single {
+    return single { component in
       PreferencesPresenter(
         view: view,
-        projectsInteractor: $0.app.interactor.inject(),
-        settings: $0.app.interactor.inject(),
-        timerCoordinator: $0.app.interactor.inject())
+        projectsInteractor: component.app.interactor.inject(),
+        settings: component.app.interactor.inject(),
+        timerCoordinator: component.app.interactor.inject())
     }
   }
 }
