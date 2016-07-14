@@ -70,6 +70,38 @@ class PreferencesPresenterSpec: HarborSpec { override func spec() {
     }
   }
 
+  describe("#updateLaunchOnLogin") {
+    beforeEach {
+      subject.setNeedsRefresh()
+    }
+
+    it("updates launchOnLogin to user selection") {
+      subject.updateLaunchOnLogin(true)
+      expect(subject.launchOnLogin).to(beTrue())
+      subject.updateLaunchOnLogin(false)
+      expect(subject.launchOnLogin).to(beFalse())
+      subject.updateLaunchOnLogin(true)
+      expect(subject.launchOnLogin).to(beTrue())
+    }
+  }
+
+  describe("#savePreferences") {
+    beforeEach {
+      subject.updateApiKey("abc123")
+      subject.updateRefreshRate("10.0")
+      subject.updateLaunchOnLogin(true)
+      subject.setNeedsRefresh()
+      subject.savePreferences()
+    }
+
+    it("updates settings"){
+      expect(settings.apiKey) == "abc123"
+      expect(settings.refreshRate) == Double("10.0")
+      expect(settings.launchOnLogin) == true
+      expect(subject.needsRefresh).to(beFalse())
+    }
+  }
+
   describe("on refresh") {
     func refresh() {
       subject.setNeedsRefresh()
