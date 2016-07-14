@@ -63,7 +63,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   }
 
   func updateLaunchOnLogin(launchOnLogin: Bool) {
-    launchOnLoginCheckbox.state = convertBooleanToInt(launchOnLogin)
+    launchOnLoginCheckbox.on = launchOnLogin
   }
 
   func updateApiKeyError(errorMessage: String) {
@@ -79,7 +79,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   //
   // MARK: Interface Actions
   @IBAction func launchOnLoginCheckboxClicked(sender: AnyObject) {
-    presenter.updateLaunchOnLogin(convertIntToBoolean((sender as! NSButton).state))
+    presenter.updateLaunchOnLogin(launchOnLoginCheckbox.on)
   }
 
   @IBAction func isEnabledCheckboxClicked(sender: AnyObject) {
@@ -141,25 +141,5 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   // MARK: Validations
   private func enableOrDisableSaveButton() {
     savePreferencesButton.enabled = codeshipAPIKeyError.stringValue.isEmpty && refreshRateError.stringValue.isEmpty
-  }
-
-  private func convertIntToBoolean(loginState: Int) -> Bool {
-    var boolean = true
-
-    if loginState == 0 {
-      boolean = false
-    }
-
-    return boolean
-  }
-
-  private func convertBooleanToInt(loginState: Bool) -> Int {
-    var integer = 1
-
-    if loginState == false {
-      integer = 0
-    }
-
-    return integer
   }
 }

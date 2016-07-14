@@ -37,6 +37,7 @@
 		3123E2C31D3699B6009303A9 /* TimerCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123E2C21D3699B6009303A9 /* TimerCoordinatorType.swift */; };
 		3123E2C61D369CD5009303A9 /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123E2C51D369CD5009303A9 /* ProjectsInteractor.swift */; };
 		3123E2C81D369DD9009303A9 /* MockTimerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123E2C71D369DD9009303A9 /* MockTimerCoordinator.swift */; };
+		31CEEC161D3826BD0023A5AC /* NSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC151D3826BD0023A5AC /* NSButton.swift */; };
 		4C86D9FC1CE50142008E91E4 /* codeshipLogo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */; };
 		4C86D9FD1CE50142008E91E4 /* codeshipLogo_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FB1CE50142008E91E4 /* codeshipLogo_blue@2x.png */; };
 		CDD5638F36C28F1CBED22C30 /* Pods_Harbor_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */; };
@@ -151,6 +152,7 @@
 		3123E2C21D3699B6009303A9 /* TimerCoordinatorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerCoordinatorType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3123E2C51D369CD5009303A9 /* ProjectsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
 		3123E2C71D369DD9009303A9 /* MockTimerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTimerCoordinator.swift; sourceTree = "<group>"; };
+		31CEEC151D3826BD0023A5AC /* NSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSButton.swift; sourceTree = "<group>"; };
 		39CFCBB97ED57DD01D949C73 /* Pods-Harbor-HarborTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor-HarborTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests.test.xcconfig"; sourceTree = "<group>"; };
 		3C6502C802E8A7C8D358AB2E /* Pods-HarborTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests.test.xcconfig"; sourceTree = "<group>"; };
 		4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeshipLogo_blue.png; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */,
 				10DC90731BBF198900811234 /* Collections.swift */,
 				10FA20101C97770600A642A7 /* Environment.swift */,
+				31CEEC151D3826BD0023A5AC /* NSButton.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				D01093C11BB5D93D002D5794 /* UserDefaults.swift in Sources */,
 				10FA1FF81C9237D800A642A7 /* AppComponent.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
+				31CEEC161D3826BD0023A5AC /* NSButton.swift in Sources */,
 				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
