@@ -91,7 +91,7 @@
 				TargetAttributes = {
 					10DC90821BC2E09800811234 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 5T84PP4W5D;
+						DevelopmentTeam = XYSLJDS3VA;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -238,6 +238,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HarborHelper/HarborHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HarborHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -252,6 +253,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HarborHelper/HarborHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = HarborHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
