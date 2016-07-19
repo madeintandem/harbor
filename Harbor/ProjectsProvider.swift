@@ -1,18 +1,10 @@
 import Foundation
 
-typealias ProjectHandler = ([Project] -> Void)
-
-protocol ProjectsInteractor {
-  func refreshProjects()
-  func refreshCurrentProjects()
-  func addListener(listener: ProjectHandler)
-}
-
 class ProjectsProvider : ProjectsInteractor {
   //
   // MARK: dependencies
   //
-  private let settings:    Settings
+  private let settings:    SettingsType
   private let codeshipApi: CodeshipApiType
 
   //
@@ -21,7 +13,7 @@ class ProjectsProvider : ProjectsInteractor {
   private var projects:  [Project]
   private var listeners: [ProjectHandler]
 
-  init(api: CodeshipApiType, settings: Settings) {
+  init(api: CodeshipApiType, settings: SettingsType) {
     self.projects    = [Project]()
     self.listeners   = [ProjectHandler]()
     self.settings    = settings

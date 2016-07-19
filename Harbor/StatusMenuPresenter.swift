@@ -4,11 +4,11 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
   //
   // MARK: Dependencies
   private let projectsInteractor: ProjectsInteractor
-  private let settings: Settings
+  private let settings: SettingsType
 
   //
   // MARK: Properties
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: Settings) {
+  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsType) {
     self.projectsInteractor = projectsInteractor
     self.settings = settings
 
@@ -35,11 +35,13 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
     view.updateBuildStatus(self.buildStatusFromProjects(enabledProjects))
   }
 
-  private func buildStatusFromProjects(projects: [ProjectMenuItemModel]) -> BuildStatus {
+  private func buildStatusFromProjects(projects: [ProjectMenuItemModel]) -> Build.Status {
     if projects.count == 0 {
       return .Unknown
     } else if (projects.any { $0.isFailing }) {
       return .Failing
+    } else if (projects.any { $0.isBuilding }) {
+      return .Building
     } else {
       return .Passing
     }

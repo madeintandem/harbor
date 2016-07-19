@@ -10,6 +10,7 @@ project 'Harbor', 'Test' => :debug
 # dependencies
 target 'Harbor' do
   pod 'Alamofire', '~> 3.0'
+  pod 'AlamofireObjectMapper', '~> 3.0'
   pod 'Drip', '~> 0.1'
 
   target 'HarborTests' do

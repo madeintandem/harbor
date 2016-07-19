@@ -10,13 +10,8 @@ class Example<T> {
   var subject: T!
 
   // MARK: Components
-  lazy var app: AppComponent = AppComponent()
-    .module { InteractorModule($0) }
-    .module { ServiceModule($0) }
-    .module { SystemModule($0) }
-
-  lazy var view: ViewComponent = ViewComponent()
-    .parent { self.app }
+  lazy var app: AppComponent = stubAppComponent()
+  lazy var view: ViewComponent = stubViewComponent()
 
   //
   // MARK: Dependencies
@@ -25,7 +20,7 @@ class Example<T> {
   lazy var keychain = MockKeychain()
   lazy var defaults = MockUserDefaults()
 
-  lazy var settings: Settings = self.app.interactor.inject()
+  lazy var settings: SettingsType = self.app.interactor.inject()
   lazy var projectsInteractor = MockProjectsProvider()
   lazy var notificationCenter = MockNotificationCenter()
 
@@ -44,4 +39,16 @@ class Example<T> {
       return original(copy)
     }
   }
+}
+
+func stubAppComponent() -> AppComponent {
+  return AppComponent()
+    .module { InteractorModule($0) }
+    .module { ServiceModule($0) }
+    .module { SystemModule($0) }
+}
+
+func stubViewComponent() -> ViewComponent {
+  return ViewComponent()
+    .parent { stubAppComponent() }
 }

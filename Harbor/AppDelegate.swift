@@ -7,9 +7,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
   // MARK: Dependencies
   var component: AppComponent { return Application.component() }
 
-  private lazy var settings:           Settings           = self.component.interactor.inject()
+  private lazy var settings:           SettingsType           = self.component.interactor.inject()
   private lazy var projectsInteractor: ProjectsInteractor = self.component.interactor.inject()
-  private lazy var timerCoordinator:   TimerCoordinator   = self.component.interactor.inject()
+  private lazy var timerCoordinator:   TimerCoordinatorType   = self.component.interactor.inject()
 
   //
   // MARK: Interface Elements
