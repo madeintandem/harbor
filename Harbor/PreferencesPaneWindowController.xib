@@ -223,7 +223,7 @@
                         </tableHeaderView>
                     </scrollView>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="4bT-18-ouZ">
-                        <rect key="frame" x="18" y="47" width="454" height="18"/>
+                        <rect key="frame" x="18" y="23" width="454" height="18"/>
                         <buttonCell key="cell" type="check" title="Launch on login?" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Gu8-xB-7kn">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -255,7 +255,7 @@
                     <constraint firstItem="S0U-yZ-Vui" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="Hho-9S-RJN"/>
                     <constraint firstItem="Cnb-EQ-tes" firstAttribute="top" secondItem="lvP-5J-dv5" secondAttribute="bottom" constant="46" id="Irl-qz-fpm"/>
                     <constraint firstItem="lvP-5J-dv5" firstAttribute="trailing" secondItem="4bT-18-ouZ" secondAttribute="trailing" id="MZF-X5-8XH"/>
-                    <constraint firstItem="4bT-18-ouZ" firstAttribute="top" secondItem="lvP-5J-dv5" secondAttribute="bottom" constant="24" id="RaP-zu-ZTf"/>
+                    <constraint firstItem="4bT-18-ouZ" firstAttribute="top" secondItem="lvP-5J-dv5" secondAttribute="bottom" constant="48" id="RaP-zu-ZTf"/>
                     <constraint firstItem="lvP-5J-dv5" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="SbG-Vb-f2p"/>
                     <constraint firstItem="4bT-18-ouZ" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" id="VS2-VD-lCl"/>
                     <constraint firstItem="z1k-12-2Xh" firstAttribute="top" secondItem="S0U-yZ-Vui" secondAttribute="bottom" constant="15" id="Wl1-wP-SXs"/>
