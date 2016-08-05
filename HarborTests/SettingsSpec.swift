@@ -30,8 +30,8 @@ class SettingsSpec: HarborSpec {
         expect(local.subject.apiKey).to(equal(apiKey))
       }
 
-      it("retrieves the correct refresh rate if it's been set"){
-        let refreshRate = 90.0
+      it("retrieves the correct refresh rate"){
+        let refreshRate = 90
         example.subject.refreshRate = refreshRate
 
         let local = example.rebuild { $0.defaults = example.defaults }
@@ -39,7 +39,7 @@ class SettingsSpec: HarborSpec {
       }
       
       it("provides a default refresh rate if it has not been set"){
-        let refreshRate = 60.0
+        let refreshRate = 60
         
         let local = example.rebuild { $0.defaults = example.defaults }
         expect(local.subject.refreshRate).to(equal(refreshRate))
@@ -56,10 +56,10 @@ class SettingsSpec: HarborSpec {
 
     describe("setting") {
       describe("the refresh rate") {
-        let value = 60.0
+        let value = 60
 
         it("updates user defaults with the given rate"){
-          let invocation = Invocations.defaults(.SetDouble, VerifierOf(value))
+          let invocation = Invocations.defaults(.SetInteger, VerifierOf(value))
 
           example.subject.refreshRate = value
           expect(example.defaults.invocation).to(match(invocation))

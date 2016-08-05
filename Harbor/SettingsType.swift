@@ -3,7 +3,7 @@ import Foundation
 
 protocol SettingsType {
   var apiKey: String { get set }
-  var refreshRate: Double { get set }
+  var refreshRate: Int { get set }
   var disabledProjectIds: [Int] { get set }
   var launchOnLogin: Bool { get set }
   var isFirstRun: Bool { get set }

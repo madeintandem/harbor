@@ -88,7 +88,7 @@ class PreferencesPresenterSpec: HarborSpec { override func spec() {
   describe("#savePreferences") {
     beforeEach {
       subject.updateApiKey("abc123")
-      subject.updateRefreshRate("10.0")
+      subject.updateRefreshRate("10")
       subject.updateLaunchOnLogin(true)
       subject.setNeedsRefresh()
       subject.savePreferences()
@@ -96,7 +96,7 @@ class PreferencesPresenterSpec: HarborSpec { override func spec() {
 
     it("updates settings"){
       expect(settings.apiKey) == "abc123"
-      expect(settings.refreshRate) == Double("10.0")
+      expect(settings.refreshRate) == Int("10")
       expect(settings.launchOnLogin) == true
       expect(subject.needsRefresh).to(beFalse())
     }
