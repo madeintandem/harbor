@@ -31,7 +31,7 @@ class SettingsSpec: HarborSpec {
       }
 
       it("retrieves the correct refresh rate"){
-        let refreshRate = 60.0
+        let refreshRate = 60
         example.subject.refreshRate = refreshRate
 
         let local = example.rebuild { $0.defaults = example.defaults }
@@ -49,10 +49,10 @@ class SettingsSpec: HarborSpec {
 
     describe("setting") {
       describe("the refresh rate") {
-        let value = 60.0
+        let value = 60
 
         it("updates user defaults with the given rate"){
-          let invocation = Invocations.defaults(.SetDouble, VerifierOf(value))
+          let invocation = Invocations.defaults(.SetInteger, VerifierOf(value))
 
           example.subject.refreshRate = value
           expect(example.defaults.invocation).to(match(invocation))

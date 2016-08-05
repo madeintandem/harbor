@@ -3,7 +3,7 @@ import Foundation
 
 class MockSettings: SettingsType {
   var apiKey: String = ""
-  var refreshRate: Double = 0.0
+  var refreshRate: Int = 0
   var disabledProjectIds: [Int] = []
   var launchOnLogin: Bool = false
   var isFirstRun: Bool = false

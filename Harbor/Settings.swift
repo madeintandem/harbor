@@ -38,9 +38,9 @@ class Settings: SettingsType {
     }
   }
 
-  var refreshRate: Double {
+  var refreshRate: Int {
     didSet {
-      defaults.setDouble(refreshRate, forKey: Key.RefreshRate)
+      defaults.setInteger(refreshRate, forKey: Key.RefreshRate)
       postNotification(.RefreshRate)
     }
   }
@@ -69,7 +69,7 @@ class Settings: SettingsType {
     self.notificationCenter = notificationCenter
 
     apiKey             = keychain.stringForKey(Key.ApiKey) ?? ""
-    refreshRate        = defaults.doubleForKey(Key.RefreshRate)
+    refreshRate        = defaults.integerForKey(Key.RefreshRate)
     disabledProjectIds = defaults.objectForKey(Key.DisabledProjects) as? [Int] ?? [Int]()
     isFirstRun         = !defaults.boolForKey(Key.HasLaunched)
     launchOnLogin      = isFirstRun ? true : defaults.boolForKey(Key.LaunchOnLogin)

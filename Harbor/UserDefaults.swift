@@ -4,8 +4,8 @@ protocol UserDefaults {
   func setObject(object: AnyObject?, forKey key: CustomStringConvertible)
   func objectForKey(key: CustomStringConvertible) -> AnyObject?
 
-  func setDouble(double: Double, forKey key: CustomStringConvertible)
-  func doubleForKey(key: CustomStringConvertible) -> Double
+  func setInteger(integer: Int, forKey key: CustomStringConvertible)
+  func integerForKey(key: CustomStringConvertible) -> Int
 
   func setBool(bool: Bool, forKey key: CustomStringConvertible)
   func boolForKey(key: CustomStringConvertible) -> Bool
@@ -22,12 +22,17 @@ extension NSUserDefaults : UserDefaults {
     return self.objectForKey(key.description)
   }
 
-  func setDouble(double: Double, forKey key: CustomStringConvertible) {
-    self.setDouble(double, forKey: key.description)
+  func setInteger(integer: Int, forKey key: CustomStringConvertible) {
+    if let currentObject = objectForKey(key.description) {
+      if currentObject is Double {
+        removeObjectForKey(key.description)
+      }
+    }
+    self.setInteger(integer, forKey: key.description)
   }
 
-  func doubleForKey(key: CustomStringConvertible) -> Double {
-    return self.doubleForKey(key.description)
+  func integerForKey(key: CustomStringConvertible) -> Int {
+    return self.integerForKey(key.description)
   }
 
   func setBool(bool: Bool, forKey key: CustomStringConvertible) {
