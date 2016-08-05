@@ -4,8 +4,8 @@ class MockUserDefaults : UserDefaults {
   enum Method : MethodType {
     case SetObject
     case ObjectForKey
-    case SetDouble
-    case DoubleForKey
+    case SetInteger
+    case IntegerForKey
   }
 
   var invocation: Invocation<Method>?
@@ -20,14 +20,14 @@ class MockUserDefaults : UserDefaults {
     return lastValue as! AnyObject?
   }
 
-  func setDouble(double: Double, forKey key: CustomStringConvertible) {
-    invocation = Invocation(.SetDouble, double)
+  func setInteger(integer: Int, forKey key: CustomStringConvertible) {
+    invocation = Invocation(.SetInteger, integer)
   }
 
-  func doubleForKey(key: CustomStringConvertible) -> Double {
+  func integerForKey(key: CustomStringConvertible) -> Int {
     let lastValue = invocation?.value
-    invocation = Invocation(.DoubleForKey, lastValue)
-    return lastValue as? Double ?? 0.0
+    invocation = Invocation(.IntegerForKey, lastValue)
+    return lastValue as? Int ?? 0
   }
 
   func setBool(bool: Bool, forKey key: CustomStringConvertible) {
