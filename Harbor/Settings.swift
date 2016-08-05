@@ -62,6 +62,7 @@ class Settings: SettingsType {
   }
 
   var isFirstRun: Bool
+  private let defaultRefreshRate = 60.0
 
   init(defaults: UserDefaults, keychain: Keychain, notificationCenter: NotificationCenter) {
     self.defaults           = defaults
@@ -69,7 +70,7 @@ class Settings: SettingsType {
     self.notificationCenter = notificationCenter
 
     apiKey             = keychain.stringForKey(Key.ApiKey) ?? ""
-    refreshRate        = defaults.doubleForKey(Key.RefreshRate)
+    refreshRate        = (defaults.doubleForKey(Key.RefreshRate) > 0.0) ? defaults.doubleForKey(Key.RefreshRate) : defaultRefreshRate
     disabledProjectIds = defaults.objectForKey(Key.DisabledProjects) as? [Int] ?? [Int]()
     isFirstRun         = !defaults.boolForKey(Key.HasLaunched)
     launchOnLogin      = isFirstRun ? true : defaults.boolForKey(Key.LaunchOnLogin)
