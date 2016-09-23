@@ -26,7 +26,7 @@ public extension ComponentType {
   func parent<P: ComponentType>() -> P {
     do {
       return try registry.get()
-    } catch Error.ComponentNotFound(let type) {
+    } catch Error.componentNotFound(let type) {
       terminate("failed to find parent: \(type)")
     } catch {
       terminate()
@@ -42,7 +42,7 @@ public extension ComponentType {
 
    - Returns: This component for chaining
   */
-  func parent<P: ComponentType>(initializer: () -> P) -> Self {
+  func parent<P: ComponentType>(_ initializer: () -> P) -> Self {
     registry.set(initializer())
     return self
   }
@@ -59,10 +59,10 @@ public extension ComponentType {
    - Parameter key: A key used to match the correct module; defaults to `M.self`
    - Returns: A pre-registered module of type `M`
   */
-  func module<M: ModuleType where M.Owner == Self>(key: KeyConvertible = Key(M.self)) -> M {
+  func module<M: ModuleType>(_ key: KeyConvertible = Key(M.self)) -> M where M.Owner == Self {
     do {
       return try registry.get(key)
-    } catch Error.ModuleNotFound(let type) {
+    } catch Error.moduleNotFound(let type) {
       terminate("failed to find module \(type)")
     } catch {
       terminate()
@@ -79,7 +79,7 @@ public extension ComponentType {
 
    - Returns: This component for chaining
   */
-  func module<M: ModuleType where M.Owner == Self>(type: M.Type, initializer: Self -> M) -> Self {
+  func module<M: ModuleType>(_ type: M.Type, initializer: (Self) -> M) -> Self where M.Owner == Self {
     return self.module(Key(type), initializer: initializer)
   }
 
@@ -93,7 +93,7 @@ public extension ComponentType {
 
    - Returns: This component for chaining
   */
-  func module<M: ModuleType where M.Owner == Self>(key: KeyConvertible = Key(M.self), initializer: Self -> M) -> Self {
+  func module<M: ModuleType>(_ key: KeyConvertible = Key(M.self), initializer: (Self) -> M) -> Self where M.Owner == Self {
     registry.set(key, value: initializer(self))
     return self
   }
@@ -112,16 +112,16 @@ public extension ComponentType {
 
    - Returns: An instance of `T`
   */
-  func resolve<T>(key: KeyConvertible = Key(T.self), generator: Self -> T) -> T {
+  func resolve<T>(_ key: KeyConvertible = Key(T.self), generator: @escaping (Self) -> T) -> T {
     return lazyMatchFor(key, generator: generator)(self)
   }
 }
 
 extension ComponentType {
-  func lazyMatchFor<T>(key: KeyConvertible, generator: Self -> T) -> Self -> T {
-    var result: Self -> T
+  func lazyMatchFor<T>(_ key: KeyConvertible, generator: @escaping (Self) -> T) -> (Self) -> T {
+    var result: (Self) -> T
 
-    if let match: Self -> T = registry.get(key) {
+    if let match: (Self) -> T = registry.get(key) {
       result = match
     } else {
       result = generator
@@ -140,7 +140,7 @@ public extension ComponentType {
    - Parameter instance: The instance to return whenever a `T` is injected
    - Returns: This component for chaining
   */
-  func override<T>(instance: T) -> Self {
+  func override<T>(_ instance: T) -> Self {
     return override(Key(T.self), instance)
   }
 
@@ -152,7 +152,7 @@ public extension ComponentType {
 
    - Returns: This component for chaining
   */
-  func override<T>(key: KeyConvertible, _ instance: T) -> Self {
+  func override<T>(_ key: KeyConvertible, _ instance: T) -> Self {
     return override(key) { _ in instance }
   }
 
@@ -165,7 +165,7 @@ public extension ComponentType {
 
    - Returns: This component for chaining
   */
-  func override<T>(key: KeyConvertible = Key(T.self), generator: Self -> T) -> Self {
+  func override<T>(_ key: KeyConvertible = Key(T.self), generator: (Self) -> T) -> Self {
     registry.set(key, value: generator)
     return self
   }
@@ -173,7 +173,7 @@ public extension ComponentType {
 
 // MARK: Errors
 extension ComponentType {
-  @noreturn func terminate(message: String = "unknown error") {
+  func terminate(_ message: String = "unknown error") -> Never  {
     fatalError("[component: \(self)] \(message)")
   }
 }

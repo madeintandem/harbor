@@ -1,6 +1,6 @@
 
 /// Base class for components. Functionality provided by `ComponentType`.
-public class Component: ComponentType {
-  public let registry = Registry()
+open class Component: ComponentType {
+  open let registry = Registry()
   public required init() {}
 }
