@@ -2,49 +2,49 @@
 
 class MockUserDefaults : UserDefaults {
   enum Method : MethodType {
-    case SetObject
-    case ObjectForKey
-    case SetInteger
-    case IntegerForKey
+    case setObject
+    case objectForKey
+    case setInteger
+    case integerForKey
   }
 
   var invocation: Invocation<Method>?
 
-  func setObject(object: AnyObject?, forKey key: CustomStringConvertible) {
-    invocation = Invocation(.SetObject, object)
+  func setObject(_ object: AnyObject?, forKey key: CustomStringConvertible) {
+    invocation = Invocation(.setObject, object)
   }
 
-  func objectForKey(key: CustomStringConvertible) -> AnyObject? {
+  func objectForKey(_ key: CustomStringConvertible) -> AnyObject? {
     let lastValue = invocation?.value
-    invocation = Invocation(.ObjectForKey, lastValue)
-    return lastValue as! AnyObject?
+    invocation = Invocation(.objectForKey, lastValue)
+    return lastValue as AnyObject?
   }
 
-  func setInteger(integer: Int, forKey key: CustomStringConvertible) {
-    invocation = Invocation(.SetInteger, integer)
+  func setInteger(_ integer: Int, forKey key: CustomStringConvertible) {
+    invocation = Invocation(.setInteger, integer)
   }
 
-  func integerForKey(key: CustomStringConvertible) -> Int {
+  func integerForKey(_ key: CustomStringConvertible) -> Int {
     let lastValue = invocation?.value
-    invocation = Invocation(.IntegerForKey, lastValue)
+    invocation = Invocation(.integerForKey, lastValue)
     return lastValue as? Int ?? 0
   }
 
-  func setBool(bool: Bool, forKey key: CustomStringConvertible) {
+  func setBool(_ bool: Bool, forKey key: CustomStringConvertible) {
 
   }
 
-  func boolForKey(key: CustomStringConvertible) -> Bool {
+  func boolForKey(_ key: CustomStringConvertible) -> Bool {
     return false
   }
 
-  func removeValueForKey(key: CustomStringConvertible) {
+  func removeValueForKey(_ key: CustomStringConvertible) {
 
   }
 }
 
 extension Invocations {
-  static func defaults<E: Verifiable>(method: MockUserDefaults.Method, _ value: E) -> ExpectedInvocation<MockUserDefaults.Method, E> {
+  static func defaults<E: Verifiable>(_ method: MockUserDefaults.Method, _ value: E) -> ExpectedInvocation<MockUserDefaults.Method, E> {
     return ExpectedInvocation(method, value)
   }
 }

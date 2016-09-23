@@ -92,6 +92,7 @@
 					10DC90821BC2E09800811234 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = XYSLJDS3VA;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -245,6 +246,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor.Helper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -260,6 +262,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor.Helper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

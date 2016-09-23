@@ -7,27 +7,27 @@ class MockPreferencesView : PreferencesView {
 
   var apiKey: String?
 
-  func updateProjects(projects: [Project]) {
+  func updateProjects(_ projects: [Project]) {
     
   }
 
-  func updateRefreshRate(refreshRate: String) {
+  func updateRefreshRate(_ refreshRate: String) {
     
   }
 
-  func updateApiKey(apiKey: String) {
+  func updateApiKey(_ apiKey: String) {
     self.apiKey = apiKey
   }
 
-  func updateLaunchOnLogin(launchOnLogin: Bool) {
+  func updateLaunchOnLogin(_ launchOnLogin: Bool) {
 
   }
 
-  func updateApiKeyError(errorMessage: String) {
+  func updateApiKeyError(_ errorMessage: String) {
 
   }
 
-  func updateRefreshRateError(errorMessage: String) {
+  func updateRefreshRateError(_ errorMessage: String) {
 
   }
 }

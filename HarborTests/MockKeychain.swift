@@ -2,29 +2,29 @@
 
 class MockKeychain : Keychain {
   enum Method : MethodType {
-    case SetString
-    case StringForKey
+    case setString
+    case stringForKey
   }
 
   var invocation: Invocation<Method>?
 
-  func setString(value: String, forKey keyName: CustomStringConvertible) -> Bool {
-    invocation = Invocation(.SetString, value)
+  func setString(_ value: String, forKey keyName: CustomStringConvertible) -> Bool {
+    invocation = Invocation(.setString, value)
     return true
   }
 
-  func stringForKey(keyName: CustomStringConvertible) -> String? {
-    invocation = Invocation(.StringForKey, self.invocation?.value)
+  func stringForKey(_ keyName: CustomStringConvertible) -> String? {
+    invocation = Invocation(.stringForKey, self.invocation?.value)
     return invocation?.value as! String?
   }
 
-  func removeValueForKey(key: CustomStringConvertible) -> Bool {
+  func removeValueForKey(_ key: CustomStringConvertible) -> Bool {
     return false
   }
 }
 
 extension Invocations {
-  static func keychain<E: Verifiable>(method: MockKeychain.Method, _ value: E) -> ExpectedInvocation<MockKeychain.Method, E> {
+  static func keychain<E: Verifiable>(_ method: MockKeychain.Method, _ value: E) -> ExpectedInvocation<MockKeychain.Method, E> {
     return ExpectedInvocation(method, value)
   }
 }

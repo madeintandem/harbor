@@ -5,7 +5,7 @@ class MockTimerCoordinator: TimerCoordinatorType {
   func startup() {
   }
 
-  func startTimer() -> NSTimer? {
+  func startTimer() -> Timer? {
     return nil
   }
 
