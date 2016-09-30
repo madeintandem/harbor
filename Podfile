@@ -15,7 +15,7 @@ target 'Harbor' do
 
   target 'HarborTests' do
     pod 'Quick', '~> 0.9'
-    pod 'Nimble', '~> 4.0'
+    pod 'Nimble', '~> 5.0'
   end
 end
 
