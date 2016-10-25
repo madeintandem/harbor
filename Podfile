@@ -14,8 +14,8 @@ target 'Harbor' do
   pod 'Drip', '~> 0.1'
 
   target 'HarborTests' do
-    pod 'Quick', '~> 0.9'
-    pod 'Nimble', '~> 5.0'
+    pod 'Quick', '~> 0.10'
+    pod 'Nimble', '~> 5.1'
   end
 end
 

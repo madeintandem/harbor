@@ -1,5 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
+#import "CwlCatchException.h"
+#import "CwlCatchBadInstruction.h"
 #import "Nimble.h"
 #import "DSL.h"
 #import "NMBExceptionCapture.h"
