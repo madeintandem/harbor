@@ -2,7 +2,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 protocol CodeshipApiType {
-  func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->())
+  func getProjects(_ successHandler: @escaping ([Project]) -> (), errorHandler: @escaping (String) -> ())
 }
 
 class CodeshipApi : CodeshipApiType {
@@ -14,11 +14,11 @@ class CodeshipApi : CodeshipApiType {
     self.settings = settings
   }
 
-  func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->()){
+  func getProjects(_ successHandler: @escaping ([Project]) -> (), errorHandler: @escaping (String) -> ()) {
     let apiKey = settings.apiKey
     let apiURL = "\(CodeshipApi.apiRootPath)\(apiKey)"
 
-    Alamofire.request(.GET, apiURL).responseObject{(response: Response<ProjectCollection, NSError> ) in
+    Alamofire.request(apiURL).responseObject { (response: DataResponse<ProjectCollection> ) in
       if(response.result.isSuccess) {
         successHandler(response.result.value!.projects)
       } else {

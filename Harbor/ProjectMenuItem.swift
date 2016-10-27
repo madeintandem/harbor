@@ -1,7 +1,7 @@
 import Cocoa
 
 class ProjectMenuItem : NSMenuItem {
-  required init?(coder aDecoder: NSCoder) {
+  required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
 
@@ -9,13 +9,13 @@ class ProjectMenuItem : NSMenuItem {
     super.init(title: model.title, action: nil, keyEquivalent: "")
 
     self.image   = model.status.icon()
-    self.submenu = self.submenuForModel(model)
+    self.submenu = self.submenuForModel(model: model)
   }
 
   func submenuForModel(model: ProjectMenuItemModel) -> NSMenu {
     let menu = NSMenu(title: model.submenuTitle)
     for build in model.builds() {
-      menu.addItem(BuildView.menuItemForModel(build))
+      menu.addItem(BuildView.menuItemForModel(model: build))
     }
 
     return menu

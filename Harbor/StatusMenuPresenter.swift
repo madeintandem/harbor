@@ -15,6 +15,10 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
     super.init(view: view)
   }
 
+  required init(view: V) {
+    fatalError("init(view:) has not been implemented")
+  }
+
   override func didInitialize() {
     super.didInitialize()
 
@@ -32,10 +36,10 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
       .map { ProjectMenuItemModel(project: $0) }
 
     view.updateProjects(enabledProjects)
-    view.updateBuildStatus(self.buildStatusFromProjects(enabledProjects))
+    view.updateBuildStatus(self.buildStatus(from: enabledProjects))
   }
 
-  private func buildStatusFromProjects(projects: [ProjectMenuItemModel]) -> Build.Status {
+  private func buildStatus(from projects: [ProjectMenuItemModel]) -> Build.Status {
     if projects.count == 0 {
       return .Unknown
     } else if (projects.any { $0.isFailing }) {

@@ -36,7 +36,7 @@ extension ModuleType {
 
    - Returns: An instance of the dependency
   */
-  public func single<T>(_ key: KeyConvertible = Key(T.self), generator: () -> T) -> T {
+  public func single<T>(_ key: KeyConvertible = Key(T.self), generator: @escaping () -> T) -> T {
     return single(key) { (_: Owner) in generator() }
   }
 
@@ -50,7 +50,7 @@ extension ModuleType {
 
    - Returns: An instance of the dependency
   */
-  public func single<T>(_ key: KeyConvertible = Key(T.self), generator: (Owner) -> T) -> T {
+  public func single<T>(_ key: KeyConvertible = Key(T.self), generator: @escaping (Owner) -> T) -> T {
     return component.resolve(key, generator: cache(generator))
   }
 
@@ -63,7 +63,7 @@ extension ModuleType {
 
    - Returns: An instance of the dependency
   */ 
-  public func transient<T>(_ key: KeyConvertible = Key(T.self), generator: () -> T) -> T {
+  public func transient<T>(_ key: KeyConvertible = Key(T.self), generator: @escaping () -> T) -> T {
     return transient(key) { (_: Owner) in generator() }
   }
 
@@ -77,7 +77,7 @@ extension ModuleType {
 
    - Returns: An instance of the dependency
   */
-  public func transient<T>(_ key: KeyConvertible = Key(T.self), generator: (Owner) -> T) -> T {
+  public func transient<T>(_ key: KeyConvertible = Key(T.self), generator: @escaping (Owner) -> T) -> T {
     return component.resolve(key, generator: generator)
   }
 

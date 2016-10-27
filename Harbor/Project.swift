@@ -11,12 +11,12 @@ public final class Project: Equatable, Mappable {
 
   public init(id: Int) {
     self.id = id
-    self.uuid = NSUUID().UUIDString
+    self.uuid = NSUUID().uuidString
     self.isEnabled = false
   }
 
   // MARK: ObjectMapper - Mappable
-  public init(_ map: Map) { }
+  public init(map: Map) { }
 
   public func mapping(map: Map) {
     id             <- map["id"]
@@ -55,7 +55,7 @@ public func ==(lhs: Project, rhs: Project) -> Bool {
 public final class ProjectCollection: Mappable {
   var projects = [Project]()
 
-  public init(_ map: Map) {  }
+  public init(map: Map) {  }
 
   public func mapping(map: Map) {
     projects <- map["projects"]

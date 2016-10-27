@@ -1,8 +1,8 @@
 import Foundation
 
-protocol UserDefaults {
+protocol KeyValueStore {
   func setObject(object: AnyObject?, forKey key: CustomStringConvertible)
-  func objectForKey(key: CustomStringConvertible) -> AnyObject?
+  func objectForKey(key: CustomStringConvertible) -> Any?
 
   func setInteger(integer: Int, forKey key: CustomStringConvertible)
   func integerForKey(key: CustomStringConvertible) -> Int
@@ -13,37 +13,37 @@ protocol UserDefaults {
   func removeValueForKey(key: CustomStringConvertible)
 }
 
-extension NSUserDefaults : UserDefaults {
+extension UserDefaults: KeyValueStore {
   func setObject(object: AnyObject?, forKey key: CustomStringConvertible) {
-    self.setObject(object, forKey: key.description)
+    set(object, forKey: key.description)
   }
 
-  func objectForKey(key: CustomStringConvertible) -> AnyObject? {
-    return self.objectForKey(key.description)
+  func objectForKey(key: CustomStringConvertible) -> Any? {
+    return object(forKey: key.description)
   }
 
   func setInteger(integer: Int, forKey key: CustomStringConvertible) {
-    if let currentObject = objectForKey(key.description) {
+    if let currentObject = object(forKey: key.description) {
       if currentObject is Double {
-        removeObjectForKey(key.description)
+        removeObject(forKey: key.description)
       }
     }
-    self.setInteger(integer, forKey: key.description)
+    set(integer, forKey: key.description)
   }
 
   func integerForKey(key: CustomStringConvertible) -> Int {
-    return self.integerForKey(key.description)
+    return integer(forKey: key.description)
   }
 
   func setBool(bool: Bool, forKey key: CustomStringConvertible) {
-    self.setBool(bool, forKey: key.description)
+    set(bool, forKey: key.description)
   }
 
   func boolForKey(key: CustomStringConvertible) -> Bool {
-    return self.boolForKey(key.description)
+    return bool(forKey: key.description)
   }
 
   func removeValueForKey(key: CustomStringConvertible) {
-    self.removeObjectForKey(key.description)
+    removeObject(forKey: key.description)
   }
 }

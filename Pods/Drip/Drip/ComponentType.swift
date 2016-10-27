@@ -26,7 +26,7 @@ public extension ComponentType {
   func parent<P: ComponentType>() -> P {
     do {
       return try registry.get()
-    } catch Error.componentNotFound(let type) {
+    } catch DripError.componentNotFound(let type) {
       terminate("failed to find parent: \(type)")
     } catch {
       terminate()
@@ -62,7 +62,7 @@ public extension ComponentType {
   func module<M: ModuleType>(_ key: KeyConvertible = Key(M.self)) -> M where M.Owner == Self {
     do {
       return try registry.get(key)
-    } catch Error.moduleNotFound(let type) {
+    } catch DripError.moduleNotFound(let type) {
       terminate("failed to find module \(type)")
     } catch {
       terminate()
@@ -165,7 +165,7 @@ public extension ComponentType {
 
    - Returns: This component for chaining
   */
-  func override<T>(_ key: KeyConvertible = Key(T.self), generator: (Self) -> T) -> Self {
+  func override<T>(_ key: KeyConvertible = Key(T.self), generator: @escaping (Self) -> T) -> Self {
     registry.set(key, value: generator)
     return self
   }

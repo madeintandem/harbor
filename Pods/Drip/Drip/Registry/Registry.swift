@@ -16,7 +16,7 @@ open class Registry {
 extension Registry {
   func get<C: ComponentType>() throws -> C {
     guard let parent = parents[Key(C.self)] as? C else {
-      throw Error.componentNotFound(type: C.self)
+      throw DripError.componentNotFound(type: C.self)
     }
 
     return parent
@@ -31,7 +31,7 @@ extension Registry {
 extension Registry {
   func get<M: ModuleType>(_ key: KeyConvertible) throws -> M {
     guard let module = modules[key.key()] as? M else {
-      throw Error.moduleNotFound(type: M.self)
+      throw DripError.moduleNotFound(type: M.self)
     }
 
     return module

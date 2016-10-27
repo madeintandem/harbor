@@ -2,21 +2,21 @@
 import Foundation
 
 class SystemModule: AppModule {
-  func inject() -> UserDefaults {
+  func inject() -> KeyValueStore {
     return transient {
-      NSUserDefaults.standardUserDefaults() as UserDefaults
+      UserDefaults.standard as KeyValueStore
     }
   }
 
-  func inject() -> NotificationCenter {
+  func inject() -> NotificationBus {
     return transient {
-      NSNotificationCenter.defaultCenter() as NotificationCenter
+      NotificationCenter.default as NotificationBus
     }
   }
 
-  func inject() -> RunLoop {
+  func inject() -> Scheduler {
     return transient {
-      NSRunLoop.mainRunLoop() as RunLoop
+      RunLoop.main as Scheduler
     }
   }
 

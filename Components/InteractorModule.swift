@@ -5,7 +5,7 @@ class InteractorModule: AppModule {
       Settings(
         defaults: $0.system.inject(),
         keychain: $0.system.inject(),
-        notificationCenter: $0.system.inject()) as SettingsType
+        notificationBus: $0.system.inject()) as SettingsType
     }
   }
 
@@ -20,7 +20,7 @@ class InteractorModule: AppModule {
   func inject() -> TimerCoordinatorType {
     return single {
       TimerCoordinator(
-        runLoop: $0.system.inject(),
+        scheduler: $0.system.inject(),
         projectsInteractor: $0.interactor.inject(),
         settings: $0.interactor.inject()) as TimerCoordinatorType
     }
