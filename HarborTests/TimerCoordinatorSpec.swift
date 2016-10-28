@@ -30,11 +30,11 @@ class TimerCoordinatorSpec: HarborSpec {
 
     describe("when starting a timer") {
       beforeEach {
-        example.settings.refreshRate = 60.0
+        example.settings.refreshRate = 60
       }
 
       it("should not create a timer when the refresh rate is 0.0") {
-        example.settings.refreshRate = 0.0
+        example.settings.refreshRate = 0
 
         let timer = example.subject.startTimer()
         expect(timer).to(beNil())
@@ -42,8 +42,9 @@ class TimerCoordinatorSpec: HarborSpec {
 
       it("creates a timer") {
         let timer = example.subject.startTimer()
+        let refreshRateAsDouble = Double(example.settings.refreshRate)
         expect(timer).toNot(beNil())
-        expect(timer!.timeInterval).to(equal(example.settings.refreshRate))
+        expect(timer!.timeInterval).to(equal(refreshRateAsDouble))
       }
 
       it("adds the timer to the run loop") {

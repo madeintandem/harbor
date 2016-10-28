@@ -40,12 +40,12 @@ class TimerCoordinator: NSObject, TimerCoordinatorType {
 
   //
   // MARK: Helpers
-  private func setupTimer(refreshRate: Double) -> NSTimer? {
+  private func setupTimer(refreshRate: Int) -> NSTimer? {
     // cancel current timer if necessary
     stopTimer()
 
-    if !refreshRate.isZero {
-      currentTimer = NSTimer(timeInterval: refreshRate, target: self, selector:#selector(TimerCoordinator.handleUpdateTimer(_:)), userInfo: nil, repeats: true)
+    if refreshRate != 0 {
+      currentTimer = NSTimer(timeInterval: convertIntToDouble(refreshRate), target: self, selector:#selector(TimerCoordinator.handleUpdateTimer(_:)), userInfo: nil, repeats: true)
       runLoop.addTimer(currentTimer!, forMode: NSDefaultRunLoopMode)
     }
 
@@ -56,5 +56,9 @@ class TimerCoordinator: NSObject, TimerCoordinatorType {
     if(timer == currentTimer) {
       projectsInteractor.refreshProjects()
     }
+  }
+  
+  private func convertIntToDouble(integer: Int) -> Double {
+    return Double(integer)
   }
 }

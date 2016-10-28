@@ -85,10 +85,40 @@ class PreferencesPresenterSpec: HarborSpec { override func spec() {
     }
   }
 
+  describe("#updateRefreshRate") {
+    context("when the refresh rate is valid") {
+      it("renders no error message") {
+        subject.updateRefreshRate("5.01")
+        expect(view.refreshRateError) == ""
+      }
+    }
+
+    context("when the refresh rate is not a number") {
+      it("renders the the numeric validation error") {
+        subject.updateRefreshRate("asdf")
+        expect(view.refreshRateError) == "must be a number"
+      }
+    }
+
+    context("when the refresh rate is less than 5") {
+      it("renders the range validation error") {
+        subject.updateRefreshRate("4.9")
+        expect(view.refreshRateError) == "must be between 5 and 600 seconds"
+      }
+    }
+
+    context("when the refresh rate is greater than 600") {
+      it("renders the range validation error") {
+        subject.updateRefreshRate("600.1")
+        expect(view.refreshRateError) == "must be between 5 and 600 seconds"
+      }
+    }
+  }
+
   describe("#savePreferences") {
     beforeEach {
       subject.updateApiKey("abc123")
-      subject.updateRefreshRate("10.0")
+      subject.updateRefreshRate("10")
       subject.updateLaunchOnLogin(true)
       subject.setNeedsRefresh()
       subject.savePreferences()
@@ -96,7 +126,7 @@ class PreferencesPresenterSpec: HarborSpec { override func spec() {
 
     it("updates settings"){
       expect(settings.apiKey) == "abc123"
-      expect(settings.refreshRate) == Double("10.0")
+      expect(settings.refreshRate) == Int("10")
       expect(settings.launchOnLogin) == true
       expect(subject.needsRefresh).to(beFalse())
     }

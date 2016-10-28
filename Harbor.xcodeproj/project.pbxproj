@@ -40,6 +40,7 @@
 		31CEEC161D3826BD0023A5AC /* NSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CEEC151D3826BD0023A5AC /* NSButton.swift */; };
 		4C86D9FC1CE50142008E91E4 /* codeshipLogo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FA1CE50142008E91E4 /* codeshipLogo_blue.png */; };
 		4C86D9FD1CE50142008E91E4 /* codeshipLogo_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C86D9FB1CE50142008E91E4 /* codeshipLogo_blue@2x.png */; };
+		721620151D401E4A00EE239C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 721620141D401E4A00EE239C /* Credits.rtf */; };
 		CDD5638F36C28F1CBED22C30 /* Pods_Harbor_HarborTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */; };
 		D01093BC1BB5B3D7002D5794 /* SettingsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BB1BB5B3D7002D5794 /* SettingsSpec.swift */; };
 		D01093BF1BB5D932002D5794 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01093BE1BB5D932002D5794 /* NotificationCenter.swift */; };
@@ -161,6 +162,7 @@
 		6A44CEAA7EBDF79EBEA74B01 /* Pods-Harbor-HarborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor-HarborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests.release.xcconfig"; sourceTree = "<group>"; };
 		6AB17BFC533903194B2259FA /* Pods-HarborTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HarborTests/Pods-HarborTests.release.xcconfig"; sourceTree = "<group>"; };
 		7150961101FB11B6275D20F3 /* Pods_HarborTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HarborTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		721620141D401E4A00EE239C /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		9F06F0036A0C8CA9A3D11BA6 /* Pods-Harbor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.release.xcconfig"; sourceTree = "<group>"; };
 		C0CEA4AAFB6873D19A822129 /* Pods-Harbor.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Harbor.test.xcconfig"; path = "Pods/Target Support Files/Pods-Harbor/Pods-Harbor.test.xcconfig"; sourceTree = "<group>"; };
 		D01093BB1BB5B3D7002D5794 /* SettingsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SettingsSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -324,6 +326,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		721620101D401E0000EE239C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				721620141D401E4A00EE239C /* Credits.rtf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A338C7D8E749FE47B694D06D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +451,7 @@
 		D0772F0A1B3C437800031FB9 /* Harbor */ = {
 			isa = PBXGroup;
 			children = (
+				721620101D401E0000EE239C /* Resources */,
 				10FA200E1C933E1B00A642A7 /* Application.swift */,
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
 				D08EAB3F1B98D5D5009564CE /* Views */,
@@ -655,6 +666,7 @@
 				4C86D9FD1CE50142008E91E4 /* codeshipLogo_blue@2x.png in Resources */,
 				D08EAB3B1B98A60A009564CE /* codeshipLogo_red.png in Resources */,
 				D08EAB391B98A60A009564CE /* codeshipLogo_green.png in Resources */,
+				721620151D401E4A00EE239C /* Credits.rtf in Resources */,
 				D08EAB321B97531A009564CE /* MainMenu.xib in Resources */,
 				D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */,
 				D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */,

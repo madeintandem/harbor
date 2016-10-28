@@ -11,7 +11,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   //
   // MARK: Properties
   private var apiKey:           String = ""
-  private var refreshRate:      Double = 60.0
+  private var refreshRate:      Int = 60
   private(set) var launchOnLogin:    Bool   = true
   private var allProjects:      [Project]
   private var apiKeyError:      String = ""
@@ -95,7 +95,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   }
 
   func updateRefreshRate(refreshRate: String) {
-    self.refreshRate = (refreshRate as NSString).doubleValue
+    self.refreshRate = (refreshRate as NSString).integerValue
     validateRefreshRate(refreshRate)
     setNeedsRefresh()
   }
@@ -174,11 +174,11 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   }
 
   private func validateRefreshRate(value: String) {
-    let doubleValue = Double(value)
+    let refreshValue = Double(value)
 
-    if doubleValue == nil {
+    if refreshValue == nil {
       refreshRateError = "must be a number"
-    } else if !(5 ... 600 ~= doubleValue!) {
+    } else if !(5.0...600.0 ~= refreshValue!) {
       refreshRateError = "must be between 5 and 600 seconds"
     } else {
       refreshRateError = ""
