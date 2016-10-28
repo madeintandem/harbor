@@ -1,18 +1,13 @@
 @testable import Harbor
 
 class MockPreferencesView : PreferencesView {
-  init() {
-    
-  }
-
+  var refreshRateError: String?
   var apiKey: String?
 
   func updateProjects(_ projects: [Project]) {
-    
   }
 
   func updateRefreshRate(_ refreshRate: String) {
-    
   }
 
   func updateApiKey(_ apiKey: String) {
@@ -20,14 +15,12 @@ class MockPreferencesView : PreferencesView {
   }
 
   func updateLaunchOnLogin(_ launchOnLogin: Bool) {
-
   }
 
   func updateApiKeyError(_ errorMessage: String) {
-
   }
 
   func updateRefreshRateError(_ errorMessage: String) {
-
+    refreshRateError = errorMessage
   }
 }
