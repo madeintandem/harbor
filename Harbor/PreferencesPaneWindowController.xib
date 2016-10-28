@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesPaneWindowController" customModule="Harbor" customModuleProvider="target">
@@ -22,7 +22,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="490" height="456"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="490" height="456"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -30,8 +30,8 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="S0U-yZ-Vui" userLabel="API Key Field">
                         <rect key="frame" x="20" y="389" width="450" height="47"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IaN-Sc-IBA">
-                                <rect key="frame" x="-2" y="30" width="125" height="17"/>
+                            <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IaN-Sc-IBA">
+                                <rect key="frame" x="-2" y="30" width="115" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Codeship API Key " id="V6K-1U-4Sb">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -49,8 +49,8 @@
                                     <outlet property="delegate" destination="-2" id="MD6-kP-28Q"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-fQ-xcu">
-                                <rect key="frame" x="-2" y="0.0" width="4" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nGP-fQ-xcu">
+                                <rect key="frame" x="114" y="30" width="338" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="i3y-a6-Cej">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.76394305631752413" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,11 +59,13 @@
                             </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nGP-fQ-xcu" secondAttribute="trailing" id="0MP-CB-QMX"/>
                             <constraint firstItem="IaN-Sc-IBA" firstAttribute="leading" secondItem="S0U-yZ-Vui" secondAttribute="leading" id="37W-r8-cFM"/>
                             <constraint firstAttribute="bottom" secondItem="CDc-TA-dvy" secondAttribute="bottom" id="8Hc-fl-Vkw"/>
-                            <constraint firstAttribute="trailing" secondItem="IaN-Sc-IBA" secondAttribute="trailing" constant="329" id="NPe-DD-tFf"/>
+                            <constraint firstItem="nGP-fQ-xcu" firstAttribute="leading" secondItem="IaN-Sc-IBA" secondAttribute="trailing" constant="5" id="XRj-Yy-qM5"/>
                             <constraint firstItem="IaN-Sc-IBA" firstAttribute="top" secondItem="S0U-yZ-Vui" secondAttribute="top" id="YZK-oC-sfI"/>
                             <constraint firstItem="CDc-TA-dvy" firstAttribute="leading" secondItem="S0U-yZ-Vui" secondAttribute="leading" id="oZP-wc-dgB"/>
+                            <constraint firstItem="nGP-fQ-xcu" firstAttribute="centerY" secondItem="IaN-Sc-IBA" secondAttribute="centerY" id="qmx-pa-SsN"/>
                             <constraint firstAttribute="trailing" secondItem="CDc-TA-dvy" secondAttribute="trailing" id="xaS-05-gD4"/>
                             <constraint firstItem="CDc-TA-dvy" firstAttribute="top" secondItem="IaN-Sc-IBA" secondAttribute="bottom" constant="8" id="yQY-pM-udg"/>
                         </constraints>
@@ -71,8 +73,8 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="z1k-12-2Xh" userLabel="Refresh Rate Field">
                         <rect key="frame" x="20" y="327" width="450" height="47"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Lz-X4-zMd">
-                                <rect key="frame" x="-2" y="30" width="92" height="17"/>
+                            <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Lz-X4-zMd">
+                                <rect key="frame" x="-2" y="30" width="82" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh Rate" placeholderString="60.0" id="Qax-W2-i0Z">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -90,8 +92,8 @@
                                     <outlet property="delegate" destination="-2" id="oME-lo-bBl"/>
                                 </connections>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-VT-seL">
-                                <rect key="frame" x="-2" y="0.0" width="4" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-VT-seL">
+                                <rect key="frame" x="81" y="30" width="371" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="TZy-ud-hpf">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.76394305630000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,11 +102,13 @@
                             </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="wKc-VT-seL" firstAttribute="centerY" secondItem="7Lz-X4-zMd" secondAttribute="centerY" id="4H9-Fn-7Ps"/>
                             <constraint firstItem="4xB-Mv-cNJ" firstAttribute="top" secondItem="7Lz-X4-zMd" secondAttribute="bottom" constant="8" id="Uq2-zL-hHn"/>
                             <constraint firstItem="7Lz-X4-zMd" firstAttribute="top" secondItem="z1k-12-2Xh" secondAttribute="top" id="VxL-51-HBE"/>
                             <constraint firstAttribute="trailing" secondItem="4xB-Mv-cNJ" secondAttribute="trailing" id="aOe-vz-M8L"/>
+                            <constraint firstAttribute="trailing" secondItem="wKc-VT-seL" secondAttribute="trailing" id="mot-Jy-ozx"/>
                             <constraint firstItem="7Lz-X4-zMd" firstAttribute="leading" secondItem="z1k-12-2Xh" secondAttribute="leading" id="pe2-yT-jW7"/>
-                            <constraint firstAttribute="trailing" secondItem="7Lz-X4-zMd" secondAttribute="trailing" constant="362" id="ssK-Ji-i3G"/>
+                            <constraint firstItem="wKc-VT-seL" firstAttribute="leading" secondItem="7Lz-X4-zMd" secondAttribute="trailing" constant="5" id="s7B-I2-PJs"/>
                         </constraints>
                     </customView>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvP-5J-dv5">

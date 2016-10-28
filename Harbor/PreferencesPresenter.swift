@@ -174,11 +174,11 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   }
 
   private func validateRefreshRate(value: String) {
-    let refreshValue = Int(value)
+    let refreshValue = Double(value)
 
     if refreshValue == nil {
       refreshRateError = "must be a number"
-    } else if !(5 ... 600 ~= refreshValue!) {
+    } else if !(5.0...600.0 ~= refreshValue!) {
       refreshRateError = "must be between 5 and 600 seconds"
     } else {
       refreshRateError = ""
