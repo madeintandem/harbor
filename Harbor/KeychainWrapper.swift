@@ -59,7 +59,7 @@ public class KeychainWrapper : Keychain {
   public class var serviceName: String {
     get {
     if internalVars.serviceName.isEmpty {
-    internalVars.serviceName = NSBundle.mainBundle().bundleIdentifier ?? "SwiftKeychainWrapper"
+    internalVars.serviceName = Bundle.main.bundleIdentifier ?? "SwiftKeychainWrapper"
     }
     return internalVars.serviceName
     }
@@ -89,10 +89,10 @@ public class KeychainWrapper : Keychain {
   /// :param: keyName The key to lookup data for.
   /// :returns: The String associated with the key if it exists. If no data exists, or the data found cannot be encoded as a string, returns nil.
   public func stringForKey(keyName: CustomStringConvertible) -> String? {
-    let keychainData: NSData? = KeychainWrapper.dataForKey(keyName.description)
+    let keychainData: Data? = KeychainWrapper.dataForKey(keyName: keyName.description) as Data?
     var stringValue: String?
     if let data = keychainData {
-      stringValue = NSString(data: data, encoding: NSUTF8StringEncoding) as String?
+      stringValue = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as String?
     }
 
     return stringValue
@@ -104,12 +104,12 @@ public class KeychainWrapper : Keychain {
   /// :param: keyName The key to lookup data for.
   /// :returns: The decoded object associated with the key if it exists. If no data exists, or the data found cannot be decoded, returns nil.
   public class func objectForKey(keyName: String) -> NSCoding? {
-    let dataValue: NSData? = self.dataForKey(keyName)
+    let dataValue: NSData? = self.dataForKey(keyName: keyName)
 
     var objectValue: NSCoding?
 
     if let data = dataValue {
-      objectValue = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? NSCoding
+      objectValue = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as? NSCoding
     }
 
     return objectValue;
@@ -121,7 +121,7 @@ public class KeychainWrapper : Keychain {
   /// :param: keyName The key to lookup data for.
   /// :returns: The NSData object associated with the key if it exists. If no data exists, returns nil.
   public class func dataForKey(keyName: String) -> NSData? {
-    var keychainQueryDictionary = self.setupKeychainQueryDictionaryForKey(keyName)
+    var keychainQueryDictionary = self.setupKeychainQueryDictionaryForKey(keyName: keyName)
     var result: AnyObject?
 
     // Limit search results to one
@@ -131,8 +131,8 @@ public class KeychainWrapper : Keychain {
     keychainQueryDictionary[SecReturnData] = kCFBooleanTrue
 
     // Search
-    let status = withUnsafeMutablePointer(&result) {
-      SecItemCopyMatching(keychainQueryDictionary, UnsafeMutablePointer($0))
+    let status = withUnsafeMutablePointer(to: &result) {
+      SecItemCopyMatching(keychainQueryDictionary as CFDictionary, UnsafeMutablePointer($0))
     }
 
     return status == noErr ? result as? NSData : nil
@@ -144,8 +144,8 @@ public class KeychainWrapper : Keychain {
   /// :param: forKey The key to save the String under.
   /// :returns: True if the save was successful, false otherwise.
   public func setString(value: String, forKey keyName: CustomStringConvertible) -> Bool {
-    if let data = value.dataUsingEncoding(NSUTF8StringEncoding) {
-      return KeychainWrapper.setData(data, forKey: keyName.description)
+    if let data = value.data(using: String.Encoding.utf8) {
+      return KeychainWrapper.setData(value: data as NSData, forKey: keyName.description)
     } else {
       return false
     }
@@ -157,9 +157,9 @@ public class KeychainWrapper : Keychain {
   /// :param: forKey The key to save the object under.
   /// :returns: True if the save was successful, false otherwise.
   public class func setObject(value: NSCoding, forKey keyName: String) -> Bool {
-    let data = NSKeyedArchiver.archivedDataWithRootObject(value)
+    let data = NSKeyedArchiver.archivedData(withRootObject: value)
 
-    return self.setData(data, forKey: keyName)
+    return self.setData(value: data as NSData, forKey: keyName)
   }
 
   /// Save a NSData object to the keychain associated with a specified key. If data already exists for the given keyname, the data will be overwritten with the new value.
@@ -168,19 +168,19 @@ public class KeychainWrapper : Keychain {
   /// :param: forKey The key to save the object under.
   /// :returns: True if the save was successful, false otherwise.
   public class func setData(value: NSData, forKey keyName: String) -> Bool {
-    var keychainQueryDictionary: [String:AnyObject] = self.setupKeychainQueryDictionaryForKey(keyName)
+    var keychainQueryDictionary: [String:AnyObject] = self.setupKeychainQueryDictionaryForKey(keyName: keyName)
 
     keychainQueryDictionary[SecValueData] = value
 
     // Protect the keychain entry so it's only valid when the device is unlocked
     keychainQueryDictionary[SecAttrAccessible] = kSecAttrAccessibleWhenUnlocked
 
-    let status: OSStatus = SecItemAdd(keychainQueryDictionary, nil)
+    let status: OSStatus = SecItemAdd(keychainQueryDictionary as CFDictionary, nil)
 
     if status == errSecSuccess {
       return true
     } else if status == errSecDuplicateItem {
-      return self.updateData(value, forKey: keyName)
+      return self.updateData(value: value, forKey: keyName)
     } else {
       return false
     }
@@ -191,10 +191,10 @@ public class KeychainWrapper : Keychain {
   /// :param: key The key value to remove data for.
   /// :returns: True if successful, false otherwise.
   public func removeValueForKey(key: CustomStringConvertible) -> Bool {
-    let keychainQueryDictionary: [String:AnyObject] = KeychainWrapper.setupKeychainQueryDictionaryForKey(key.description)
+    let keychainQueryDictionary: [String:AnyObject] = KeychainWrapper.setupKeychainQueryDictionaryForKey(keyName: key.description)
 
     // Delete
-    let status: OSStatus =  SecItemDelete(keychainQueryDictionary);
+    let status: OSStatus =  SecItemDelete(keychainQueryDictionary as CFDictionary);
 
     if status == errSecSuccess {
       return true
@@ -207,11 +207,11 @@ public class KeychainWrapper : Keychain {
 
   /// Update existing data associated with a specified key name. The existing data will be overwritten by the new data
   private class func updateData(value: NSData, forKey keyName: String) -> Bool {
-    let keychainQueryDictionary: [String:AnyObject] = self.setupKeychainQueryDictionaryForKey(keyName)
+    let keychainQueryDictionary: [String:AnyObject] = self.setupKeychainQueryDictionaryForKey(keyName: keyName)
     let updateDictionary = [SecValueData:value]
 
     // Update
-    let status: OSStatus = SecItemUpdate(keychainQueryDictionary, updateDictionary)
+    let status: OSStatus = SecItemUpdate(keychainQueryDictionary as CFDictionary, updateDictionary as CFDictionary)
 
     if status == errSecSuccess {
       return true
@@ -229,15 +229,15 @@ public class KeychainWrapper : Keychain {
     var keychainQueryDictionary: [String:AnyObject] = [SecClass:kSecClassGenericPassword]
 
     // Uniquely identify this keychain accessor
-    keychainQueryDictionary[SecAttrService] = KeychainWrapper.serviceName
+    keychainQueryDictionary[SecAttrService] = KeychainWrapper.serviceName as AnyObject?
 
     // Set the keychain access group if defined
     if !KeychainWrapper.accessGroup.isEmpty {
-      keychainQueryDictionary[SecAttrAccessGroup] = KeychainWrapper.accessGroup
+      keychainQueryDictionary[SecAttrAccessGroup] = KeychainWrapper.accessGroup as AnyObject?
     }
 
     // Uniquely identify the account who will be accessing the keychain
-    let encodedIdentifier: NSData? = keyName.dataUsingEncoding(NSUTF8StringEncoding)
+    let encodedIdentifier: NSData? = keyName.data(using: String.Encoding.utf8) as NSData?
     keychainQueryDictionary[SecAttrAccount] = encodedIdentifier
 
     return keychainQueryDictionary

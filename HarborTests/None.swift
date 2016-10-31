@@ -1,3 +1,3 @@
 enum None {
-  case Nothing
+  case nothing
 }

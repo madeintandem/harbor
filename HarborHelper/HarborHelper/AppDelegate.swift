@@ -10,35 +10,35 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-  func applicationDidFinishLaunching(aNotification: NSNotification) {
-    let app = NSWorkspace.sharedWorkspace().runningApplications.find { app in
+  func applicationDidFinishLaunching(_ aNotification: Notification) {
+    let app = NSWorkspace.shared().runningApplications.find { app in
       return app.bundleIdentifier == "com.dvm.Harbor"
     }
 
     // if the app isn't running, then let's start it
-    if app == nil || !app!.active {
+    if app == nil || !app!.isActive {
       let path = self.applicationPath()
-      NSWorkspace.sharedWorkspace().launchApplication(path)
+      NSWorkspace.shared().launchApplication(path)
     }
 
     // kill the helper app
     NSApp.terminate(nil)
   }
 
-  private func applicationPath() -> String {
-    var components = NSBundle.mainBundle().bundlePath.componentsSeparatedByString("/")
+  fileprivate func applicationPath() -> String {
+    var components = Bundle.main.bundlePath.components(separatedBy: "/")
 
     // helper is at "Library/LoginItems/HarborHelper" relative to the app root
-    components.removeRange(components.count-3..<components.count)
+    components.removeSubrange(components.count-3..<components.count)
     // and the main app is at "MacOS/Harbor"
-    components.appendContentsOf(["MacOS", "Harbor"])
+    components.append(contentsOf: ["MacOS", "Harbor"])
 
-    return components.joinWithSeparator("/")
+    return components.joined(separator: "/")
   }
 }
 
-extension SequenceType {
-  func find(predicate: (Generator.Element) -> Bool) -> Generator.Element? {
+extension Sequence {
+  func find(_ predicate: (Iterator.Element) -> Bool) -> Iterator.Element? {
     return self.filter(predicate).first
   }
 }

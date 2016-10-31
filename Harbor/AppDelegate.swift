@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
 
   //
   // MARK: NSApplicationDelegate
-  func applicationDidFinishLaunching(aNotification: NSNotification) {
+  func applicationDidFinishLaunching(_ notification: Notification) {
     if Environment.active == .Testing {
       return
     }
@@ -58,6 +58,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
     preferencesWindowController.window?.orderFront(self)
 
     // Show your window in front of all other apps
-    NSApp.activateIgnoringOtherApps(true)
+    NSApp.activate(ignoringOtherApps: true)
   }
 }

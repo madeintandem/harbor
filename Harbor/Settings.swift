@@ -23,40 +23,38 @@ class Settings: SettingsType {
     }
   }
 
-  //
   // MARK: Dependencies
-  private let defaults:           UserDefaults
-  private let keychain:           Keychain
-  private let notificationCenter: NotificationCenter
+  private let defaults:        KeyValueStore
+  private let keychain:        Keychain
+  private let notificationBus: NotificationBus
 
-  //
   // MARK: Properties
   var apiKey: String {
     didSet {
-      keychain.setString(apiKey, forKey: Key.ApiKey)
+      _ = keychain.setString(value: apiKey, forKey: Key.ApiKey)
       postNotification(.ApiKey)
     }
   }
 
   var refreshRate: Int {
     didSet {
-      defaults.setInteger(refreshRate, forKey: Key.RefreshRate)
+      defaults.setInteger(integer: refreshRate, forKey: Key.RefreshRate)
       postNotification(.RefreshRate)
     }
   }
 
   var disabledProjectIds: [Int] {
     didSet {
-      defaults.setObject(disabledProjectIds, forKey: Key.DisabledProjects)
+      defaults.setObject(object: disabledProjectIds as AnyObject?, forKey: Key.DisabledProjects)
       postNotification(.DisabledProjects)
     }
   }
 
   var launchOnLogin: Bool {
     didSet {
-      defaults.setBool(launchOnLogin, forKey: Key.LaunchOnLogin)
+      defaults.setBool(bool: launchOnLogin, forKey: Key.LaunchOnLogin)
       if oldValue != launchOnLogin {
-        updateHelperLoginItem(launchOnLogin)
+        updateHelperLoginItem(launchOnLogin: launchOnLogin)
       }
     }
   }
@@ -64,23 +62,23 @@ class Settings: SettingsType {
   var isFirstRun: Bool
   private let defaultRefreshRate: Int = 60
 
-  init(defaults: UserDefaults, keychain: Keychain, notificationCenter: NotificationCenter) {
-    self.defaults           = defaults
-    self.keychain           = keychain
-    self.notificationCenter = notificationCenter
+  init(defaults: KeyValueStore, keychain: Keychain, notificationBus: NotificationBus) {
+    self.defaults        = defaults
+    self.keychain        = keychain
+    self.notificationBus = notificationBus
 
-    apiKey             = keychain.stringForKey(Key.ApiKey) ?? ""
-    refreshRate        = (defaults.integerForKey(Key.RefreshRate) > 0) ? defaults.integerForKey(Key.RefreshRate) : defaultRefreshRate
-    disabledProjectIds = defaults.objectForKey(Key.DisabledProjects) as? [Int] ?? [Int]()
-    isFirstRun         = !defaults.boolForKey(Key.HasLaunched)
-    launchOnLogin      = isFirstRun ? true : defaults.boolForKey(Key.LaunchOnLogin)
+    apiKey             = keychain.stringForKey(keyName: Key.ApiKey) ?? ""
+    refreshRate        = (defaults.integerForKey(key: Key.RefreshRate) > 0) ? defaults.integerForKey(key: Key.RefreshRate) : defaultRefreshRate
+    disabledProjectIds = defaults.objectForKey(key: Key.DisabledProjects) as? [Int] ?? [Int]()
+    isFirstRun         = !defaults.boolForKey(key: Key.HasLaunched)
+    launchOnLogin      = isFirstRun ? true : defaults.boolForKey(key: Key.LaunchOnLogin)
   }
 
   func startup() {
     // on first run, update the login item immediately and mark the app as launched
     if isFirstRun {
-      defaults.setBool(true, forKey: Key.HasLaunched)
-      updateHelperLoginItem(launchOnLogin)
+      defaults.setBool(bool: true, forKey: Key.HasLaunched)
+      updateHelperLoginItem(launchOnLogin: launchOnLogin)
     }
   }
 
@@ -88,29 +86,26 @@ class Settings: SettingsType {
     // clear out values for all the stored keys
     for key in Key.all() {
       if key.storedInKeychain {
-        keychain.removeValueForKey(key)
+        _ = keychain.removeValueForKey(key: key)
       } else {
-        defaults.removeValueForKey(key)
+        defaults.removeValueForKey(key: key)
       }
     }
   }
 
   private func updateHelperLoginItem(launchOnLogin: Bool) {
-    let result = SMLoginItemSetEnabled("com.dvm.Harbor.Helper", launchOnLogin)
+    let result = SMLoginItemSetEnabled("com.dvm.Harbor.Helper" as CFString, launchOnLogin)
     let enabled = launchOnLogin ? "enabling" : "disabling"
     let success = result ? "succeeded" : "failed"
     print("\(enabled) launch on login \(success)")
   }
-}
 
-//
-// MARK: Notifications
-extension Settings {
-  func observeNotification(notification: SettingsNotification, handler: (NSNotification -> Void)) -> NSObjectProtocol {
-    return notificationCenter.addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
+  // MARK: Notifications
+  func observeNotification(_ notification: SettingsNotification, handler: @escaping (Notification) -> Void) -> NSObjectProtocol {
+    return notificationBus.addObserverForName(name: notification.rawValue, object: nil, queue: nil, usingBlock: handler)
   }
 
-  private func postNotification(notification: SettingsNotification) {
-    notificationCenter.postNotificationName(notification.rawValue, object: nil)
+  private func postNotification(_ notification: SettingsNotification) {
+    notificationBus.postNotificationName(aName: notification.rawValue, object: nil)
   }
 }

@@ -38,9 +38,9 @@ struct BuildViewModel {
 
     // TODO: date formatters are expensive (on iOS at least) so it might be worth
     // caching this
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MM/dd/YY 'at' hh:mm a"
-    return dateFormatter.stringFromDate(date)
+    return dateFormatter.string(from: date as Date)
   }
 
   //
@@ -48,9 +48,9 @@ struct BuildViewModel {
   //
 
   func openBuildUrl() {
-    let buildURL  = NSURL(string: self.buildUrl)!
-    let workspace = NSWorkspace.sharedWorkspace()
+    let buildURL  = URL(string: self.buildUrl)!
+    let workspace = NSWorkspace.shared()
 
-    workspace.openURL(buildURL)
+    workspace.open(buildURL)
   }
 }

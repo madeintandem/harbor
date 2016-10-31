@@ -12,7 +12,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     .parent { Application.component() }
     .module { PreferencesViewModule($0) }
 
-  private lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = self.component.preferences.inject(self)
+  private lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = self.component.preferences.inject(view: self)
 
   //
   // MARK: Interface Elements
@@ -38,10 +38,10 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
     self.presenter.didInitialize()
   }
 
-  func windowDidChangeOcclusionState(notification: NSNotification) {
-    let window = notification.object!
+  func windowDidChangeOcclusionState(_ notification: Notification) {
+    guard let window = notification.object as? NSWindow else { return }
 
-    if window.occlusionState.contains(NSWindowOcclusionState.Visible) {
+    if window.occlusionState.contains(NSWindowOcclusionState.visible) {
       presenter.didBecomeActive()
     } else {
       presenter.didResignActive()
@@ -50,55 +50,55 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
 
   //
   // MARK: PreferencesView
-  func updateProjects(projects: [Project]) {
+  func updateProjects(_ projects: [Project]) {
     projectTableView.reloadData()
   }
 
-  func updateApiKey(apiKey: String) {
+  func updateApiKey(_ apiKey: String) {
     codeshipAPIKey.stringValue = apiKey
   }
 
-  func updateRefreshRate(refreshRate: String) {
+  func updateRefreshRate(_ refreshRate: String) {
     refreshRateTextField.stringValue = refreshRate
   }
 
-  func updateLaunchOnLogin(launchOnLogin: Bool) {
+  func updateLaunchOnLogin(_ launchOnLogin: Bool) {
     launchOnLoginCheckbox.on = launchOnLogin
   }
 
-  func updateApiKeyError(errorMessage: String) {
+  func updateApiKeyError(_ errorMessage: String) {
     codeshipAPIKeyError.stringValue = errorMessage
     enableOrDisableSaveButton()
   }
 
-  func updateRefreshRateError(errorMessage: String) {
+  func updateRefreshRateError(_ errorMessage: String) {
     refreshRateError.stringValue = errorMessage
     enableOrDisableSaveButton()
   }
 
   //
   // MARK: Interface Actions
-  @IBAction func launchOnLoginCheckboxClicked(sender: AnyObject) {
+  @IBAction func launchOnLoginCheckboxClicked(_ sender: AnyObject) {
     presenter.updateLaunchOnLogin(launchOnLoginCheckbox.on)
   }
 
-  @IBAction func isEnabledCheckboxClicked(sender: AnyObject) {
+  @IBAction func isEnabledCheckboxClicked(_ sender: AnyObject) {
     let button = sender as? NSButton
 
     if let view = button?.nextKeyView as? NSTableCellView {
-      let row = projectTableView.rowForView(view)
+      let row = projectTableView.row(for: view)
       presenter.toggleEnabledStateForProjectAtIndex(row)
     }
   }
 
-  @IBAction func saveButton(sender: AnyObject) {
+  @IBAction func saveButton(_ sender: AnyObject) {
     presenter.savePreferences()
     close()
   }
 
   //
   // MARK: NSTextFieldDelegate
-  override func controlTextDidChange(obj: NSNotification) {
+  override func controlTextDidChange(_ obj: Notification) {
     if let textField = obj.object as? TextField {
       if textField == codeshipAPIKey {
         presenter.updateApiKey(textField.stringValue)
@@ -111,18 +111,18 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
 
   //
   // MARK: NSTableViewDataSource
-  func numberOfRowsInTableView(tableView: NSTableView) -> Int {
+  func numberOfRows(in tableView: NSTableView) -> Int {
     return presenter.numberOfProjects
   }
 
   //
   // MARK: NSTableViewDelegate
-  func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+  func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     var view: NSView? = nil
 
     if let tableColumn = tableColumn {
       let project  = presenter.projectAtIndex(row)
-      let cellView = tableView.makeViewWithIdentifier(tableColumn.identifier, owner: self) as! NSTableCellView
+      let cellView = tableView.make(withIdentifier: tableColumn.identifier, owner: self) as! NSTableCellView
 
       switch ColumnIdentifier(rawValue: tableColumn.identifier)! {
       case .ShowProject:
@@ -140,6 +140,6 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   //
   // MARK: Validations
   private func enableOrDisableSaveButton() {
-    savePreferencesButton.enabled = codeshipAPIKeyError.stringValue.isEmpty && refreshRateError.stringValue.isEmpty
+    savePreferencesButton.isEnabled = codeshipAPIKeyError.stringValue.isEmpty && refreshRateError.stringValue.isEmpty
   }
 }

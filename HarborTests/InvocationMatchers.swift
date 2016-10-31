@@ -1,6 +1,6 @@
 import Nimble
 
-func match<M, E: Verifiable>(expected: ExpectedInvocation<M, E>) -> NonNilMatcherFunc<Invocation<M>> {
+func match<M, E: Verifiable>(_ expected: ExpectedInvocation<M, E>) -> NonNilMatcherFunc<Invocation<M>> {
   return NonNilMatcherFunc { actualExpression, failureMessage in
     if let actual = try actualExpression.evaluate() {
       return verifyInvocations(actual, expected)
@@ -10,7 +10,7 @@ func match<M, E: Verifiable>(expected: ExpectedInvocation<M, E>) -> NonNilMatche
   }
 }
 
-func haveAnyMatch<S: SequenceType, M, E: Verifiable where S.Generator.Element == Invocation<M>>(expected: ExpectedInvocation<M, E>) -> NonNilMatcherFunc<S> {
+func haveAnyMatch<S: Sequence, M, E: Verifiable>(_ expected: ExpectedInvocation<M, E>) -> NonNilMatcherFunc<S> where S.Iterator.Element == Invocation<M> {
   return NonNilMatcherFunc { actualExpression, failureMessage in
     guard let actual = try actualExpression.evaluate() else {
       return false
@@ -31,7 +31,7 @@ func haveAnyMatch<S: SequenceType, M, E: Verifiable where S.Generator.Element ==
 // MARK: Helpers
 //
 
-private func verifyInvocations<M, E: Verifiable>(actual: Invocation<M>, _ expected: ExpectedInvocation<M, E>) -> Bool {
+private func verifyInvocations<M, E: Verifiable>(_ actual: Invocation<M>, _ expected: ExpectedInvocation<M, E>) -> Bool {
   // check methods and allow the comparator to evaluate value equality
   let methodsEqual = actual.method == expected.method
   // TODO: customize failure message if method comparison fails

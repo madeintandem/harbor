@@ -6,7 +6,7 @@
  enforced.
 */
 public struct Key {
-  private let value: Int
+  fileprivate let value: Int
 
   /**
    Initializes a `Key` from a type.
@@ -15,7 +15,7 @@ public struct Key {
    - Returns: A new key
   */
   public init(_ type: Any.Type) {
-    self.init(String(type))
+    self.init(String(describing: type))
   }
 
   /**

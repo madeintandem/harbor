@@ -1,5 +1,5 @@
 
-func cache<I, O>(function: I -> O) -> I -> O {
+func cache<I, O>(_ function: @escaping (I) -> O) -> (I) -> O {
   var memo: O?
 
   return { input in

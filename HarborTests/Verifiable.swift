@@ -1,3 +1,3 @@
 protocol Verifiable {
-  func verify(actual: Any) -> Bool
+  func verify(_ actual: Any) -> Bool
 }

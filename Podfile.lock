@@ -1,28 +1,28 @@
 PODS:
-  - Alamofire (3.2.1)
-  - AlamofireObjectMapper (3.0.0):
-    - Alamofire (~> 3.2)
-    - ObjectMapper (~> 1.0)
+  - Alamofire (4.0.0)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
   - Drip (0.1.0)
-  - Nimble (4.0.1)
-  - ObjectMapper (1.2.0)
-  - Quick (0.9.1)
+  - Nimble (5.1.0)
+  - ObjectMapper (2.0.0)
+  - Quick (0.10.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
-  - AlamofireObjectMapper (~> 3.0)
+  - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (~> 4.0)
   - Drip (~> 0.1)
-  - Nimble (~> 4.0)
-  - Quick (~> 0.9)
+  - Nimble (~> 5.1)
+  - Quick (~> 0.10)
 
 SPEC CHECKSUMS:
-  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
-  AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   Drip: b499d3537bbe35630bde86a95a0d6521520c7625
-  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
-  ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
-  Quick: a5221fc21788b6aeda934805e68b061839bc3165
+  Nimble: 5ea121a2eda60440287054cde077fc0ad22227b3
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
 
-PODFILE CHECKSUM: a183dfc39970238616f1f467e41dae2fbbf2ef2c
+PODFILE CHECKSUM: cc25a968a2a7d33623dbf6a07abc9f5f76d3eb37
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.1

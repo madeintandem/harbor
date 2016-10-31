@@ -1,5 +1,5 @@
 
-enum Error: ErrorType {
-  case ModuleNotFound(type: Any.Type)
-  case ComponentNotFound(type: Any.Type)
+enum DripError: Error {
+  case moduleNotFound(type: Any.Type)
+  case componentNotFound(type: Any.Type)
 }

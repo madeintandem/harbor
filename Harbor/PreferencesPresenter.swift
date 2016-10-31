@@ -27,6 +27,10 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
     super.init(view: view)
   }
+  
+  required init(view: V) {
+    fatalError("init(view:) has not been implemented")
+  }
 
   //
   // MARK: Presentation Cycle
@@ -51,7 +55,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   override func didResignActive() {
     super.didResignActive()
     refreshIfNecessary()
-    timerCoordinator.startTimer()
+    _ = timerCoordinator.startTimer()
   }
 
   func setNeedsRefresh() {
@@ -89,18 +93,18 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     needsRefresh = false
   }
 
-  func updateApiKey(apiKey: String) {
+  func updateApiKey(_ apiKey: String) {
     self.apiKey = apiKey
-    validateApiKey(apiKey)
+    validate(apiKey: apiKey)
   }
 
-  func updateRefreshRate(refreshRate: String) {
+  func updateRefreshRate(_ refreshRate: String) {
     self.refreshRate = (refreshRate as NSString).integerValue
-    validateRefreshRate(refreshRate)
+    validate(refreshRate: refreshRate)
     setNeedsRefresh()
   }
 
-  func updateLaunchOnLogin(launchOnLogin: Bool) {
+  func updateLaunchOnLogin(_ launchOnLogin: Bool) {
     self.launchOnLogin = launchOnLogin
     setNeedsRefresh()
   }
@@ -137,18 +141,18 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     get { return allProjects.count }
   }
 
-  func projectAtIndex(index: Int) -> Project {
+  func projectAtIndex(_ index: Int) -> Project {
     return allProjects[index];
   }
 
-  func toggleEnabledStateForProjectAtIndex(index: Int) {
+  func toggleEnabledStateForProjectAtIndex(_ index: Int) {
     let project = projectAtIndex(index)
     project.isEnabled = !project.isEnabled
 
     setNeedsRefresh()
   }
 
-  private func refreshProjects(projects: [Project]) {
+  private func refreshProjects(_ projects: [Project]) {
     allProjects = projects
 
     // notify the view that the projects refreshed
@@ -157,14 +161,14 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   //
   // MARK: Accessors
-  private var defaults: NSUserDefaults {
-    get { return NSUserDefaults.standardUserDefaults() }
+  private var defaults: UserDefaults {
+    get { return UserDefaults.standard }
   }
 
   //
   // MARK: Validations
-  private func validateApiKey(value: String) {
-    if value.isEmpty {
+  private func validate(apiKey: String) {
+    if apiKey.isEmpty {
       apiKeyError = "can't be blank"
     } else {
       apiKeyError = ""
@@ -173,8 +177,8 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     view.updateApiKeyError(apiKeyError)
   }
 
-  private func validateRefreshRate(value: String) {
-    let refreshValue = Double(value)
+  private func validate(refreshRate: String) {
+    let refreshValue = Double(refreshRate)
 
     if refreshValue == nil {
       refreshRateError = "must be a number"

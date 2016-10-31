@@ -4,10 +4,10 @@
 
  `let registry = Registry()`
 */
-public class Registry {
-  private var modules    = [Key: Any]()
-  private var parents    = [Key: Any]()
-  private var generators = [Key: Any]()
+open class Registry {
+  fileprivate var modules    = [Key: Any]()
+  fileprivate var parents    = [Key: Any]()
+  fileprivate var generators = [Key: Any]()
 
   public init() {}
 }
@@ -16,39 +16,39 @@ public class Registry {
 extension Registry {
   func get<C: ComponentType>() throws -> C {
     guard let parent = parents[Key(C.self)] as? C else {
-      throw Error.ComponentNotFound(type: C.self)
+      throw DripError.componentNotFound(type: C.self)
     }
 
     return parent
   }
 
-  func set<C: ComponentType>(value: C?) {
+  func set<C: ComponentType>(_ value: C?) {
     parents[Key(C.self)] = value
   }
 }
 
 // MARK: Modules
 extension Registry {
-  func get<M: ModuleType>(key: KeyConvertible) throws -> M {
+  func get<M: ModuleType>(_ key: KeyConvertible) throws -> M {
     guard let module = modules[key.key()] as? M else {
-      throw Error.ModuleNotFound(type: M.self)
+      throw DripError.moduleNotFound(type: M.self)
     }
 
     return module
   }
 
-  func set<M: ModuleType>(key: KeyConvertible, value: M?) {
+  func set<M: ModuleType>(_ key: KeyConvertible, value: M?) {
     modules[key.key()] = value
   }
 }
 
 // MARK: Generators
 extension Registry {
-  func get<C: ComponentType, T>(key: KeyConvertible) -> (C -> T)? {
-    return generators[key.key()] as? C -> T
+  func get<C: ComponentType, T>(_ key: KeyConvertible) -> ((C) -> T)? {
+    return generators[key.key()] as? (C) -> T
   }
 
-  func set<C: ComponentType, T>(key: KeyConvertible, value: C -> T) {
+  func set<C: ComponentType, T>(_ key: KeyConvertible, value: @escaping (C) -> T) {
     generators[key.key()] = value
   }
 }

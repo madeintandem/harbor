@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1067D7D61DC401AA0075AE42 /* PreferencesPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1067D7D51DC401AA0075AE42 /* PreferencesPaneWindowController.xib */; };
 		108689C61BC8227D00B2DD87 /* VerifierOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689C51BC8227D00B2DD87 /* VerifierOf.swift */; };
 		108689C91BC826C400B2DD87 /* Verifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689C81BC826C400B2DD87 /* Verifiable.swift */; };
 		108689CB1BC841BE00B2DD87 /* InvocationMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */; };
@@ -51,7 +52,6 @@
 		D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift */; };
 		D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */; };
 		D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */; };
-		D06054251B57F880007A5F81 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06054241B57F880007A5F81 /* Playground.swift */; };
 		D0704EA81BBB117C005C808B /* PreferencesPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EA71BBB117C005C808B /* PreferencesPresenterSpec.swift */; };
 		D0704EAA1BBB1418005C808B /* MockPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EA91BBB1418005C808B /* MockPreferencesView.swift */; };
 		D0704EAC1BBB1584005C808B /* MockProjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */; };
@@ -82,7 +82,6 @@
 		D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CA1BB49445006A058C /* ProjectsProvider.swift */; };
 		D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */; };
 		D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */; };
-		D0E3C0C51B9F45FC00D1966C /* PreferencesPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */; };
 		D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */; };
 		D0F5B1991B45786500D30EEF /* SampleProject.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B1981B45786500D30EEF /* SampleProject.json */; };
 		D0F5B19B1B4578D400D30EEF /* SampleBuild.json in Resources */ = {isa = PBXBuildFile; fileRef = D0F5B19A1B4578D400D30EEF /* SampleBuild.json */; };
@@ -121,6 +120,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1067D7D51DC401AA0075AE42 /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
 		108689C51BC8227D00B2DD87 /* VerifierOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifierOf.swift; sourceTree = "<group>"; };
 		108689C81BC826C400B2DD87 /* Verifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verifiable.swift; sourceTree = "<group>"; };
 		108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvocationMatchers.swift; sourceTree = "<group>"; };
@@ -174,7 +174,6 @@
 		D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerCoordinatorSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunLoop.swift; sourceTree = "<group>"; };
 		D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRunLoop.swift; sourceTree = "<group>"; };
-		D06054241B57F880007A5F81 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		D0704EA71BBB117C005C808B /* PreferencesPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PreferencesPresenterSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0704EA91BBB1418005C808B /* MockPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPreferencesView.swift; sourceTree = "<group>"; };
 		D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProjectsProvider.swift; sourceTree = "<group>"; };
@@ -212,7 +211,6 @@
 		D0C002CA1BB49445006A058C /* ProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProjectsProvider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0C002CD1BB4A3E2006A058C /* CodeshipApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CodeshipApi.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesPaneWindowController.swift; sourceTree = "<group>"; };
-		D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
 		D0E3C0C81B9F8F2C00D1966C /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		D0F5B1981B45786500D30EEF /* SampleProject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SampleProject.json; path = HarborTests/SampleProject.json; sourceTree = SOURCE_ROOT; };
 		D0F5B19A1B4578D400D30EEF /* SampleBuild.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SampleBuild.json; sourceTree = "<group>"; };
@@ -246,7 +244,7 @@
 		10DC905A1BBED7A000811234 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				D0E3C0C31B9F45FC00D1966C /* PreferencesPaneWindowController.xib */,
+				1067D7D51DC401AA0075AE42 /* PreferencesPaneWindowController.xib */,
 				D0E3C0C21B9F45FC00D1966C /* PreferencesPaneWindowController.swift */,
 				D0C002C41BB35136006A058C /* PreferencesView.swift */,
 				D0C002C21BB35114006A058C /* PreferencesPresenter.swift */,
@@ -487,7 +485,6 @@
 			children = (
 				D0772F391B3C43B200031FB9 /* Project.swift */,
 				D0F5B19C1B45821200D30EEF /* Build.swift */,
-				D06054241B57F880007A5F81 /* Playground.swift */,
 				D0F5B1981B45786500D30EEF /* SampleProject.json */,
 			);
 			name = Domain;
@@ -556,13 +553,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0772F2E1B3C437800031FB9 /* Build configuration list for PBXNativeTarget "Harbor" */;
 			buildPhases = (
-				74748A0262D4DB5BB92BFA43 /* 📦 Check Pods Manifest.lock */,
+				74748A0262D4DB5BB92BFA43 /* [CP] Check Pods Manifest.lock */,
 				D0772F041B3C437800031FB9 /* Sources */,
 				D0772F051B3C437800031FB9 /* Frameworks */,
 				D0772F061B3C437800031FB9 /* Resources */,
 				10DC90991BC2E1E500811234 /* Copy Helper App */,
-				151204C4C159CC2997B64C1B /* 📦 Embed Pods Frameworks */,
-				A870D6751F5FCECE247C0B90 /* 📦 Copy Pods Resources */,
+				151204C4C159CC2997B64C1B /* [CP] Embed Pods Frameworks */,
+				A870D6751F5FCECE247C0B90 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -577,12 +574,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0772F311B3C437800031FB9 /* Build configuration list for PBXNativeTarget "HarborTests" */;
 			buildPhases = (
-				C74A075B257374DF83F3EEA0 /* 📦 Check Pods Manifest.lock */,
+				C74A075B257374DF83F3EEA0 /* [CP] Check Pods Manifest.lock */,
 				D0772F161B3C437800031FB9 /* Sources */,
 				D0772F171B3C437800031FB9 /* Frameworks */,
 				D0772F181B3C437800031FB9 /* Resources */,
-				4D6108BCB9DD434C1F0F72E0 /* 📦 Embed Pods Frameworks */,
-				B384A84D6DFD9BC94E8D5E31 /* 📦 Copy Pods Resources */,
+				4D6108BCB9DD434C1F0F72E0 /* [CP] Embed Pods Frameworks */,
+				B384A84D6DFD9BC94E8D5E31 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -607,6 +604,8 @@
 					D0772F071B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = XYSLJDS3VA;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -615,6 +614,7 @@
 					};
 					D0772F191B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = D0772F071B3C437800031FB9;
 					};
 				};
@@ -659,7 +659,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0E3C0C51B9F45FC00D1966C /* PreferencesPaneWindowController.xib in Resources */,
 				4C86D9FC1CE50142008E91E4 /* codeshipLogo_blue.png in Resources */,
 				D0772F111B3C437800031FB9 /* Assets.xcassets in Resources */,
 				D08EAB411B98D5EA009564CE /* BuildView.xib in Resources */,
@@ -667,6 +666,7 @@
 				D08EAB3B1B98A60A009564CE /* codeshipLogo_red.png in Resources */,
 				D08EAB391B98A60A009564CE /* codeshipLogo_green.png in Resources */,
 				721620151D401E4A00EE239C /* Credits.rtf in Resources */,
+				1067D7D61DC401AA0075AE42 /* PreferencesPaneWindowController.xib in Resources */,
 				D08EAB321B97531A009564CE /* MainMenu.xib in Resources */,
 				D0B1777A1B9651BD0055ECC6 /* codeshipLogo_black@2x.png in Resources */,
 				D0B177791B9651BD0055ECC6 /* codeshipLogo_black.png in Resources */,
@@ -688,14 +688,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		151204C4C159CC2997B64C1B /* 📦 Embed Pods Frameworks */ = {
+		151204C4C159CC2997B64C1B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -703,14 +703,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harbor/Pods-Harbor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4D6108BCB9DD434C1F0F72E0 /* 📦 Embed Pods Frameworks */ = {
+		4D6108BCB9DD434C1F0F72E0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,29 +718,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74748A0262D4DB5BB92BFA43 /* 📦 Check Pods Manifest.lock */ = {
+		74748A0262D4DB5BB92BFA43 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A870D6751F5FCECE247C0B90 /* 📦 Copy Pods Resources */ = {
+		A870D6751F5FCECE247C0B90 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,14 +748,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harbor/Pods-Harbor-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B384A84D6DFD9BC94E8D5E31 /* 📦 Copy Pods Resources */ = {
+		B384A84D6DFD9BC94E8D5E31 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,19 +763,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C74A075B257374DF83F3EEA0 /* 📦 Check Pods Manifest.lock */ = {
+		C74A075B257374DF83F3EEA0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -804,7 +804,6 @@
 				10FA200D1C932A2400A642A7 /* StatusMenuViewModule.swift in Sources */,
 				10FA20091C93297B00A642A7 /* ViewComponent.swift in Sources */,
 				10DC90611BBEE13700811234 /* StatusMenuView.swift in Sources */,
-				D06054251B57F880007A5F81 /* Playground.swift in Sources */,
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
@@ -920,13 +919,15 @@
 				CODE_SIGN_ENTITLEMENTS = Harbor/Harbor.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = XYSLJDS3VA;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Test;
 		};
@@ -941,6 +942,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.HarborTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
 			};
 			name = Test;
@@ -1036,13 +1038,15 @@
 				CODE_SIGN_ENTITLEMENTS = Harbor/Harbor.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = XYSLJDS3VA;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1054,13 +1058,15 @@
 				CODE_SIGN_ENTITLEMENTS = Harbor/Harbor.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = XYSLJDS3VA;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Harbor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1075,6 +1081,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.HarborTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
 			};
 			name = Debug;
@@ -1090,6 +1097,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.HarborTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
 			};
 			name = Release;
