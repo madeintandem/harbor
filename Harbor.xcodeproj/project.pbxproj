@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1067D7D61DC401AA0075AE42 /* PreferencesPaneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1067D7D51DC401AA0075AE42 /* PreferencesPaneWindowController.xib */; };
+		10303FF91F4CD38F00C8C7C4 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10303FF81F4CD38F00C8C7C4 /* Application.swift */; };
 		108689C61BC8227D00B2DD87 /* VerifierOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689C51BC8227D00B2DD87 /* VerifierOf.swift */; };
 		108689C91BC826C400B2DD87 /* Verifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689C81BC826C400B2DD87 /* Verifiable.swift */; };
 		108689CB1BC841BE00B2DD87 /* InvocationMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */; };
@@ -23,14 +23,6 @@
 		10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DC90771BBF1CB700811234 /* BuildViewModel.swift */; };
 		10DC909A1BC2E20F00811234 /* HarborHelper.app in Copy Helper App */ = {isa = PBXBuildFile; fileRef = 10DC90981BC2E13000811234 /* HarborHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		10DC909C1BC2E23600811234 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DC909B1BC2E23600811234 /* ServiceManagement.framework */; };
-		10FA1FF81C9237D800A642A7 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA1FF71C9237D800A642A7 /* AppComponent.swift */; };
-		10FA20011C9326D600A642A7 /* InteractorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20001C9326D600A642A7 /* InteractorModule.swift */; };
-		10FA20031C93272B00A642A7 /* ServiceModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20021C93272B00A642A7 /* ServiceModule.swift */; };
-		10FA20051C93274500A642A7 /* SystemModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20041C93274500A642A7 /* SystemModule.swift */; };
-		10FA20091C93297B00A642A7 /* ViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20081C93297B00A642A7 /* ViewComponent.swift */; };
-		10FA200B1C932A0800A642A7 /* PreferencesViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA200A1C932A0800A642A7 /* PreferencesViewModule.swift */; };
-		10FA200D1C932A2400A642A7 /* StatusMenuViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA200C1C932A2400A642A7 /* StatusMenuViewModule.swift */; };
-		10FA200F1C933E1B00A642A7 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA200E1C933E1B00A642A7 /* Application.swift */; };
 		10FA20111C97770600A642A7 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FA20101C97770600A642A7 /* Environment.swift */; };
 		2E0EB95307EB9B5CA6ACB161 /* Pods_Harbor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE3D042DFD06CDDD92762A5 /* Pods_Harbor.framework */; };
 		31121DF81D359B3E00525EA2 /* MockSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31121DF71D359B3E00525EA2 /* MockSettings.swift */; };
@@ -120,7 +112,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1067D7D51DC401AA0075AE42 /* PreferencesPaneWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesPaneWindowController.xib; sourceTree = "<group>"; };
+		10303FF81F4CD38F00C8C7C4 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		108689C51BC8227D00B2DD87 /* VerifierOf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifierOf.swift; sourceTree = "<group>"; };
 		108689C81BC826C400B2DD87 /* Verifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verifiable.swift; sourceTree = "<group>"; };
 		108689CA1BC841BE00B2DD87 /* InvocationMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvocationMatchers.swift; sourceTree = "<group>"; };
@@ -138,14 +130,6 @@
 		10DC909B1BC2E23600811234 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		10DC909D1BC2E27600811234 /* Harbor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Harbor.entitlements; sourceTree = "<group>"; };
 		10DC909E1BC2F85C00811234 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		10FA1FF71C9237D800A642A7 /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
-		10FA20001C9326D600A642A7 /* InteractorModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InteractorModule.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		10FA20021C93272B00A642A7 /* ServiceModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceModule.swift; sourceTree = "<group>"; };
-		10FA20041C93274500A642A7 /* SystemModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemModule.swift; sourceTree = "<group>"; };
-		10FA20081C93297B00A642A7 /* ViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewComponent.swift; sourceTree = "<group>"; };
-		10FA200A1C932A0800A642A7 /* PreferencesViewModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewModule.swift; sourceTree = "<group>"; };
-		10FA200C1C932A2400A642A7 /* StatusMenuViewModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuViewModule.swift; sourceTree = "<group>"; };
-		10FA200E1C933E1B00A642A7 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		10FA20101C97770600A642A7 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		1EF75FA103814CE2B8C146C9 /* Pods_Harbor_HarborTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Harbor_HarborTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31121DF71D359B3E00525EA2 /* MockSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MockSettings.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -293,37 +277,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		10FA1FF51C9236A400A642A7 /* Drip */ = {
-			isa = PBXGroup;
-			children = (
-				10FA20061C93280C00A642A7 /* App */,
-				10FA20071C93295700A642A7 /* View */,
-			);
-			name = Drip;
-			path = ../Components;
-			sourceTree = "<group>";
-		};
-		10FA20061C93280C00A642A7 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				10FA1FF71C9237D800A642A7 /* AppComponent.swift */,
-				10FA20041C93274500A642A7 /* SystemModule.swift */,
-				10FA20021C93272B00A642A7 /* ServiceModule.swift */,
-				10FA20001C9326D600A642A7 /* InteractorModule.swift */,
-			);
-			name = App;
-			sourceTree = "<group>";
-		};
-		10FA20071C93295700A642A7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				10FA20081C93297B00A642A7 /* ViewComponent.swift */,
-				10FA200C1C932A2400A642A7 /* StatusMenuViewModule.swift */,
-				10FA200A1C932A0800A642A7 /* PreferencesViewModule.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		721620101D401E0000EE239C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,14 +402,13 @@
 		D0772F0A1B3C437800031FB9 /* Harbor */ = {
 			isa = PBXGroup;
 			children = (
-				721620101D401E0000EE239C /* Resources */,
-				10FA200E1C933E1B00A642A7 /* Application.swift */,
+				10303FF81F4CD38F00C8C7C4 /* Application.swift */,
 				D0772F0B1B3C437800031FB9 /* AppDelegate.swift */,
 				D08EAB3F1B98D5D5009564CE /* Views */,
 				D0C002CC1BB49452006A058C /* Interactors */,
-				10FA1FF51C9236A400A642A7 /* Drip */,
 				D0A3E7441B73A764006E4350 /* API */,
 				D0772F371B3C438900031FB9 /* Domain */,
+				721620101D401E0000EE239C /* Resources */,
 				D0254DA91B95FD1A00D12AF0 /* Extensions */,
 				10DC909D1BC2E27600811234 /* Harbor.entitlements */,
 				D0772F101B3C437800031FB9 /* Assets.xcassets */,
@@ -604,8 +556,8 @@
 					D0772F071B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = XYSLJDS3VA;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -614,7 +566,7 @@
 					};
 					D0772F191B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = D0772F071B3C437800031FB9;
 					};
 				};
@@ -694,9 +646,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Harbor/Pods-Harbor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -709,9 +668,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Harbor-HarborTests/Pods-Harbor-HarborTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -724,13 +694,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Harbor-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A870D6751F5FCECE247C0B90 /* [CP] Copy Pods Resources */ = {
@@ -769,13 +742,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Harbor-HarborTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -792,7 +768,6 @@
 				D0C002C11BB3472B006A058C /* TextField.swift in Sources */,
 				D0E3C0C41B9F45FC00D1966C /* PreferencesPaneWindowController.swift in Sources */,
 				3123E2C61D369CD5009303A9 /* ProjectsInteractor.swift in Sources */,
-				10FA20031C93272B00A642A7 /* ServiceModule.swift in Sources */,
 				10DC90781BBF1CB700811234 /* BuildViewModel.swift in Sources */,
 				10DC90721BBF16C900811234 /* ProjectMenuItemModel.swift in Sources */,
 				10FA20111C97770600A642A7 /* Environment.swift in Sources */,
@@ -800,27 +775,21 @@
 				D01093BF1BB5D932002D5794 /* NotificationCenter.swift in Sources */,
 				D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */,
 				D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */,
-				10FA200B1C932A0800A642A7 /* PreferencesViewModule.swift in Sources */,
-				10FA200D1C932A2400A642A7 /* StatusMenuViewModule.swift in Sources */,
-				10FA20091C93297B00A642A7 /* ViewComponent.swift in Sources */,
 				10DC90611BBEE13700811234 /* StatusMenuView.swift in Sources */,
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
 				3123E2BF1D3693AF009303A9 /* SettingsType.swift in Sources */,
 				10DC90741BBF198900811234 /* Collections.swift in Sources */,
-				10FA200F1C933E1B00A642A7 /* Application.swift in Sources */,
-				10FA20011C9326D600A642A7 /* InteractorModule.swift in Sources */,
-				10FA20051C93274500A642A7 /* SystemModule.swift in Sources */,
 				D0C002CE1BB4A3E2006A058C /* CodeshipApi.swift in Sources */,
 				10DC905F1BBEE12F00811234 /* StatusMenuPresenter.swift in Sources */,
 				10DC90661BBEE47C00811234 /* ViewType.swift in Sources */,
+				10303FF91F4CD38F00C8C7C4 /* Application.swift in Sources */,
 				D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */,
 				D0B156FF1B9A361B00A8D95A /* StatusMenu.swift in Sources */,
 				D0C002C91BB49334006A058C /* TimerCoordinator.swift in Sources */,
 				D0C002C71BB48801006A058C /* Settings.swift in Sources */,
 				D01093C11BB5D93D002D5794 /* UserDefaults.swift in Sources */,
-				10FA1FF81C9237D800A642A7 /* AppComponent.swift in Sources */,
 				D0F5B19D1B45821200D30EEF /* Build.swift in Sources */,
 				31CEEC161D3826BD0023A5AC /* NSButton.swift in Sources */,
 				D0772F3A1B3C43B200031FB9 /* Project.swift in Sources */,
@@ -917,7 +886,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Harbor/Harbor.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XYSLJDS3VA;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -926,6 +895,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1036,7 +1006,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Harbor/Harbor.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XYSLJDS3VA;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1045,6 +1015,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1056,7 +1027,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Harbor/Harbor.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XYSLJDS3VA;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1065,6 +1036,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 3.0;
 			};

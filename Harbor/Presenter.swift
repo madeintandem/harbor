@@ -1,10 +1,10 @@
 import Foundation
 
 class Presenter<V: ViewType> {
-  private(set) weak var view: V!
-  private(set) var isActive: Bool = false
+  fileprivate(set) weak var view: V!
+  fileprivate(set) var isActive: Bool = false
 
-  required init(view: V) {
+  init(view: V) {
     self.view = view
   }
 

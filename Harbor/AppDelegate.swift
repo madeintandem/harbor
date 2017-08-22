@@ -5,11 +5,9 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
   //
   // MARK: Dependencies
-  var component: AppComponent { return Application.component() }
-
-  private lazy var settings:           SettingsType           = self.component.interactor.inject()
-  private lazy var projectsInteractor: ProjectsInteractor = self.component.interactor.inject()
-  private lazy var timerCoordinator:   TimerCoordinatorType   = self.component.interactor.inject()
+  fileprivate lazy var settings: SettingsType = Settings.instance
+  fileprivate lazy var projectsInteractor: ProjectsInteractor = ProjectsProvider.instance
+  fileprivate lazy var timerCoordinator: TimerCoordinatorType = TimerCoordinator.instance
 
   //
   // MARK: Interface Elements
@@ -18,8 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
 
   //
   // MARK: NSApplicationDelegate
-  func applicationDidFinishLaunching(_ notification: Notification) {
-    if Environment.active == .Testing {
+  func applicationDidFinishLaunching(_ aNotification: Notification) {
+    if Environment.active == .testing {
       return
     }
 
@@ -32,14 +30,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
 
   //
   // MARK: Startup
-  private func startup() {
+  fileprivate func startup() {
     settings.startup()
     timerCoordinator.startup()
 
     refreshProjects()
   }
 
-  private func refreshProjects() {
+  fileprivate func refreshProjects() {
     if !settings.apiKey.isEmpty {
       projectsInteractor.refreshProjects()
     } else {
@@ -49,11 +47,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
 
   //
   // MARK: StatusMenuDelegate
-  func statusMenuDidSelectPreferences(statusMenu: StatusMenu) {
+  func statusMenuDidSelectPreferences(_ statusMenu: StatusMenu) {
     showPreferencesPane()
   }
 
-  private func showPreferencesPane() {
+  fileprivate func showPreferencesPane() {
     preferencesWindowController.window?.center()
     preferencesWindowController.window?.orderFront(self)
 

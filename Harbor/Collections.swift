@@ -1,5 +1,5 @@
 extension Sequence {
-  func any(predicate: (Iterator.Element) -> Bool) -> Bool {
+  func any(_ predicate: (Iterator.Element) -> Bool) -> Bool {
     for element in self {
       if(predicate(element)) {
         return true

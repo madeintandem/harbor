@@ -11,11 +11,10 @@ project 'Harbor', 'Test' => :debug
 target 'Harbor' do
   pod 'Alamofire', '~> 4.0'
   pod 'AlamofireObjectMapper', '~> 4.0'
-  pod 'Drip', '~> 0.1'
 
   target 'HarborTests' do
-    pod 'Quick', '~> 0.10'
-    pod 'Nimble', '~> 5.1'
+    pod 'Quick', '~> 1.0'
+    pod 'Nimble', '~> 5.0'
   end
 end
 

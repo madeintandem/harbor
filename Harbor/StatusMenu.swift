@@ -1,27 +1,23 @@
 import Cocoa
 
 protocol StatusMenuDelegate: NSMenuDelegate {
-  func statusMenuDidSelectPreferences(statusMenu: StatusMenu)
+  func statusMenuDidSelectPreferences(_ statusMenu: StatusMenu)
 }
 
 class StatusMenu: NSMenu, StatusMenuView {
   //
   // MARK: Dependencies
-  private var component = ViewComponent()
-    .parent { Application.component() }
-    .module { StatusMenuModule($0) }
-
-  private lazy var presenter: StatusMenuPresenter<StatusMenu> = self.component.status.inject(view: self)
+  fileprivate lazy var presenter: StatusMenuPresenter<StatusMenu> = StatusMenuPresenter(view: self)
 
   //
   // MARK: Properties
-  private let fixedMenuItemCount = 3
-  private let statusBarItem      = NSStatusBar.system().statusItem(withLength: -1) // NSVariableStatusItemLength
+  fileprivate let fixedMenuItemCount = 3
+  fileprivate let statusBarItem = NSStatusBar.system().statusItem(withLength: -1) // NSVariableStatusItemLength
 
   required init(coder: NSCoder) {
     super.init(coder: coder)
 
-    if Environment.active != .Testing {
+    if Environment.active != .testing {
       presenter.didInitialize()
     }
   }
@@ -60,7 +56,7 @@ class StatusMenu: NSMenu, StatusMenuView {
   //
   // MARK: Interface Actions
   func didClickPreferencesItem() {
-    statusMenuDelegate.statusMenuDidSelectPreferences(statusMenu: self)
+    statusMenuDelegate.statusMenuDidSelectPreferences(self)
   }
 
   //

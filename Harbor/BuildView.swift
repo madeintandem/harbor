@@ -1,7 +1,7 @@
 import Cocoa
 
 class BuildView: NSView {
-  private var model: BuildViewModel!
+  fileprivate var model: BuildViewModel!
 
   @IBOutlet var view: NSView!
   @IBOutlet weak var buildMessageLabel: NSTextField!
@@ -15,7 +15,7 @@ class BuildView: NSView {
     self.dateAndUsernameLabel.stringValue = model.authorshipInformation()
   }
 
-  func didClickBuild(sender: NSMenuItem) {
+  func didClickBuild(_ sender: NSMenuItem) {
     self.model.openBuildUrl()
   }
 
@@ -49,7 +49,7 @@ class BuildView: NSView {
   }
 
   // enables selecting view on mouseup
-  override func mouseUp(with event: NSEvent) {
+  override func mouseUp(with theEvent: NSEvent) {
     let menuItem = self.enclosingMenuItem
     let menu = menuItem?.menu
     menu?.cancelTracking()
@@ -61,8 +61,8 @@ class BuildView: NSView {
 }
 
 extension BuildView {
-  class func menuItemForModel(model: BuildViewModel) -> NSMenuItem {
-    let result = NSMenuItem(title: model.message, action: #selector(BuildView.didClickBuild), keyEquivalent: "")
+  class func menuItemForModel(_ model: BuildViewModel) -> NSMenuItem {
+    let result = NSMenuItem(title: model.message, action: #selector(BuildView.didClickBuild(_:)), keyEquivalent: "")
     result.representedObject = model.build
 
     result.view   = BuildView(model: model)

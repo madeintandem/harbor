@@ -1,17 +1,22 @@
 import Foundation
 
 class ProjectsProvider : ProjectsInteractor {
+  static let instance = ProjectsProvider(
+    api: CodeshipApi(settings: Settings.instance),
+    settings: Settings.instance
+  )
+
   //
   // MARK: dependencies
   //
-  private let settings:    SettingsType
-  private let codeshipApi: CodeshipApiType
+  fileprivate let settings:    SettingsType
+  fileprivate let codeshipApi: CodeshipApiType
 
   //
   // MARK: properties
   //
-  private var projects:  [Project]
-  private var listeners: [ProjectHandler]
+  fileprivate var projects:  [Project]
+  fileprivate var listeners: [ProjectHandler]
 
   init(api: CodeshipApiType, settings: SettingsType) {
     self.projects    = [Project]()
@@ -38,7 +43,7 @@ class ProjectsProvider : ProjectsInteractor {
     didRefreshProjects(projects)
   }
 
-  private func didRefreshProjects(_ projects: [Project]){
+  fileprivate func didRefreshProjects(_ projects: [Project]){
     // update our projects hidden state appropriately according to the user settings
     for project in projects {
       project.isEnabled = !settings.disabledProjectIds.contains(project.id)
@@ -51,7 +56,7 @@ class ProjectsProvider : ProjectsInteractor {
     }
   }
 
-  func addListener(_ listener: @escaping ProjectHandler){
+  func addListener(_ listener: @escaping ([Project]) -> Void) {
     listeners.append(listener)
     listener(projects)
   }

@@ -11,7 +11,7 @@ protocol SettingsType {
   func startup()
   func reset()
 
-  func observeNotification(_ notification: SettingsNotification, handler: @escaping (Notification) -> Void) -> NSObjectProtocol
+  func observeNotification(_ notification: SettingsNotification, handler: @escaping ((Notification) -> Void)) -> NSObjectProtocol
 }
 
 // MARK: Notifications

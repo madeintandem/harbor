@@ -8,11 +8,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
 
   //
   // MARK: Dependencies
-  private var component = ViewComponent()
-    .parent { Application.component() }
-    .module { PreferencesViewModule($0) }
-
-  private lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = self.component.preferences.inject(view: self)
+  fileprivate lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = PreferencesPresenter(view: self)
 
   //
   // MARK: Interface Elements
@@ -39,9 +35,9 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
   }
 
   func windowDidChangeOcclusionState(_ notification: Notification) {
-    guard let window = notification.object as? NSWindow else { return }
+    let window = notification.object!
 
-    if window.occlusionState.contains(NSWindowOcclusionState.visible) {
+    if (window as AnyObject).occlusionState.contains(NSWindowOcclusionState.visible) {
       presenter.didBecomeActive()
     } else {
       presenter.didResignActive()
@@ -139,7 +135,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
 
   //
   // MARK: Validations
-  private func enableOrDisableSaveButton() {
+  fileprivate func enableOrDisableSaveButton() {
     savePreferencesButton.isEnabled = codeshipAPIKeyError.stringValue.isEmpty && refreshRateError.stringValue.isEmpty
   }
 }

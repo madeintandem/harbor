@@ -46,8 +46,8 @@ final class Build: Mappable {
     finishedAt     <- (map["finished_at"], Transforms.date)
   }
 
-  private struct Transforms {
-    static let dateFormatter = ({ () -> DateFormatter in
+  fileprivate struct Transforms {
+    static let dateFormatter: DateFormatter = ({ () -> DateFormatter in
       let formatter = DateFormatter()
       formatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
       return formatter
@@ -58,7 +58,7 @@ final class Build: Mappable {
       toJSON: { _ in "" }
     )
 
-    private static func convertDateFromString(aString: String?) -> Date? {
+    fileprivate static func convertDateFromString(_ aString: String?) -> Date? {
       var date : String
       if let dateString = aString {
         date = dateString

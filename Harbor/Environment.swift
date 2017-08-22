@@ -1,15 +1,15 @@
 enum Environment {
-  case Debug
-  case Release
-  case Testing
+  case debug
+  case release
+  case testing
 
   static var active: Environment {
     #if TEST
-      return .Testing
+      return .testing
     #elseif DEBUG
-      return .Debug
+      return .debug
     #else
-      return .Release
+      return .release
     #endif
   }
 }

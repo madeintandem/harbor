@@ -31,7 +31,7 @@ struct BuildViewModel {
     }
   }
 
-  private func dateString() -> String {
+  fileprivate func dateString() -> String {
     guard let date = self.build.startedAt else {
       return "Unknown Date"
     }

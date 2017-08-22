@@ -1,6 +1,6 @@
 import Foundation
 
-class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
+class StatusMenuPresenter<V: StatusMenuView>: Presenter<V> {
   //
   // MARK: Dependencies
   private let projectsInteractor: ProjectsInteractor
@@ -8,15 +8,14 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
 
   //
   // MARK: Properties
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsType) {
+  init(view: V,
+    projectsInteractor: ProjectsInteractor = ProjectsProvider.instance,
+    settings: SettingsType = Settings.instance) {
+
     self.projectsInteractor = projectsInteractor
     self.settings = settings
 
     super.init(view: view)
-  }
-
-  required init(view: V) {
-    fatalError("init(view:) has not been implemented")
   }
 
   override func didInitialize() {
@@ -28,7 +27,7 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
 
   //
   // MARK: Projects
-  private func handleProjects(projects: [Project]) {
+  private func handleProjects(_ projects: [Project]) {
     // filter out projects the user disabled and convert them to menu item models
     let disabledProjectIds = settings.disabledProjectIds
     let enabledProjects = projects
@@ -36,10 +35,10 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
       .map { ProjectMenuItemModel(project: $0) }
 
     view.updateProjects(enabledProjects)
-    view.updateBuildStatus(self.buildStatus(from: enabledProjects))
+    view.updateBuildStatus(self.buildStatus(fromProjects: enabledProjects))
   }
 
-  private func buildStatus(from projects: [ProjectMenuItemModel]) -> Build.Status {
+  private func buildStatus(fromProjects projects: [ProjectMenuItemModel]) -> Build.Status {
     if projects.count == 0 {
       return .Unknown
     } else if (projects.any { $0.isFailing }) {

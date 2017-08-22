@@ -4,32 +4,32 @@ import Cocoa
 class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   //
   // MARK: Dependencies
-  private var settings:           SettingsType
-  private let projectsInteractor: ProjectsInteractor
-  private let timerCoordinator:   TimerCoordinatorType
+  fileprivate var settings:           SettingsType
+  fileprivate let projectsInteractor: ProjectsInteractor
+  fileprivate let timerCoordinator:   TimerCoordinatorType
 
   //
   // MARK: Properties
-  private var apiKey:           String = ""
-  private var refreshRate:      Int = 60
-  private(set) var launchOnLogin:    Bool   = true
-  private var allProjects:      [Project]
-  private var apiKeyError:      String = ""
-  private var refreshRateError: String = ""
+  fileprivate var apiKey:           String = ""
+  fileprivate var refreshRate:      Int = 60
+  fileprivate(set) var launchOnLogin:    Bool   = true
+  fileprivate var allProjects:      [Project]
+  fileprivate var apiKeyError:      String = ""
+  fileprivate var refreshRateError: String = ""
 
-  private(set) var needsRefresh: Bool = true
+  fileprivate(set) var needsRefresh: Bool = true
 
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsType, timerCoordinator: TimerCoordinatorType) {
+  init(view: V,
+    projectsInteractor: ProjectsInteractor = ProjectsProvider.instance,
+    settings: SettingsType = Settings.instance,
+    timerCoordinator: TimerCoordinatorType = TimerCoordinator.instance) {
+
     self.projectsInteractor = projectsInteractor
     self.settings = settings
     self.timerCoordinator = timerCoordinator
     self.allProjects = [Project]()
 
     super.init(view: view)
-  }
-  
-  required init(view: V) {
-    fatalError("init(view:) has not been implemented")
   }
 
   //
@@ -64,7 +64,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     }
   }
 
-  private func refreshIfNecessary() {
+  fileprivate func refreshIfNecessary() {
     if(needsRefresh) {
       refreshConfiguration()
       needsRefresh = false
@@ -109,7 +109,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     setNeedsRefresh()
   }
 
-  private func refreshConfiguration() {
+  fileprivate func refreshConfiguration() {
     // TODO: if we only refresh on initialize (more of a sync) then we can throw out the 
     // setNeedsRefresh/refreshIfNeeded stuff completely. this method can instead call individual
     // update methods like `updateApiKey(settings.apiKey)`
@@ -152,7 +152,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     setNeedsRefresh()
   }
 
-  private func refreshProjects(_ projects: [Project]) {
+  fileprivate func refreshProjects(_ projects: [Project]) {
     allProjects = projects
 
     // notify the view that the projects refreshed
@@ -161,14 +161,14 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   //
   // MARK: Accessors
-  private var defaults: UserDefaults {
-    get { return UserDefaults.standard }
+  fileprivate var defaults: Foundation.UserDefaults {
+    get { return Foundation.UserDefaults.standard }
   }
 
   //
   // MARK: Validations
-  private func validate(apiKey: String) {
-    if apiKey.isEmpty {
+  fileprivate func validate(apiKey value: String) {
+    if value.isEmpty {
       apiKeyError = "can't be blank"
     } else {
       apiKeyError = ""
@@ -177,8 +177,8 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     view.updateApiKeyError(apiKeyError)
   }
 
-  private func validate(refreshRate: String) {
-    let refreshValue = Double(refreshRate)
+  fileprivate func validate(refreshRate value: String) {
+    let refreshValue = Double(value)
 
     if refreshValue == nil {
       refreshRateError = "must be a number"

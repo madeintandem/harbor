@@ -2,6 +2,6 @@ import Foundation
 
 protocol TimerCoordinatorType {
   func startup()
-  func startTimer()
+  func startTimer() -> Timer?
   func stopTimer()
 }

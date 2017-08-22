@@ -11,7 +11,7 @@ public final class Project: Equatable, Mappable {
 
   public init(id: Int) {
     self.id = id
-    self.uuid = NSUUID().uuidString
+    self.uuid = UUID().uuidString
     self.isEnabled = false
   }
 
@@ -26,13 +26,13 @@ public final class Project: Equatable, Mappable {
     builds         <- map["builds"]
   }
 
-  private struct Transforms {
+  fileprivate struct Transforms {
     static let status = TransformOf<Build.Status, String>(
       fromJSON: Transforms.convertStatusFromString,
       toJSON: { _ in "" }
     )
 
-    private static func convertStatusFromString(value: String?) -> Build.Status? {
+    fileprivate static func convertStatusFromString(_ value: String?) -> Build.Status? {
       guard let unwrappedValue = value else { return nil }
       switch unwrappedValue {
       case "success":
