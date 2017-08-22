@@ -44,7 +44,6 @@
 		D0458F501BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift */; };
 		D0458F521BB9C8AD00DCC4A6 /* RunLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */; };
 		D0458F561BB9CFCB00DCC4A6 /* MockRunLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */; };
-		D06054251B57F880007A5F81 /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06054241B57F880007A5F81 /* Playground.swift */; };
 		D0704EA81BBB117C005C808B /* PreferencesPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EA71BBB117C005C808B /* PreferencesPresenterSpec.swift */; };
 		D0704EAA1BBB1418005C808B /* MockPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EA91BBB1418005C808B /* MockPreferencesView.swift */; };
 		D0704EAC1BBB1584005C808B /* MockProjectsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */; };
@@ -160,7 +159,6 @@
 		D0458F4F1BB9C7B800DCC4A6 /* TimerCoordinatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimerCoordinatorSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0458F511BB9C8AD00DCC4A6 /* RunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunLoop.swift; sourceTree = "<group>"; };
 		D0458F551BB9CFCB00DCC4A6 /* MockRunLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRunLoop.swift; sourceTree = "<group>"; };
-		D06054241B57F880007A5F81 /* Playground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		D0704EA71BBB117C005C808B /* PreferencesPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PreferencesPresenterSpec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D0704EA91BBB1418005C808B /* MockPreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPreferencesView.swift; sourceTree = "<group>"; };
 		D0704EAB1BBB1584005C808B /* MockProjectsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProjectsProvider.swift; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 			children = (
 				D0772F391B3C43B200031FB9 /* Project.swift */,
 				D0F5B19C1B45821200D30EEF /* Build.swift */,
-				D06054241B57F880007A5F81 /* Playground.swift */,
 				D0F5B1981B45786500D30EEF /* SampleProject.json */,
 			);
 			name = Domain;
@@ -781,7 +778,6 @@
 				D0C002CB1BB49445006A058C /* ProjectsProvider.swift in Sources */,
 				D0E3C0C91B9F8F2C00D1966C /* KeychainWrapper.swift in Sources */,
 				10DC90611BBEE13700811234 /* StatusMenuView.swift in Sources */,
-				D06054251B57F880007A5F81 /* Playground.swift in Sources */,
 				D0772F0F1B3C437800031FB9 /* Harbor.xcdatamodeld in Sources */,
 				D0C002C31BB35114006A058C /* PreferencesPresenter.swift in Sources */,
 				D0C002C51BB35136006A058C /* PreferencesView.swift in Sources */,
