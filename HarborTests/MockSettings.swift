@@ -14,7 +14,7 @@ class MockSettings: SettingsType {
   func reset() {
   }
 
-  func observeNotification(notification: SettingsNotification, handler: (NSNotification -> Void)) -> NSObjectProtocol {
+  func observeNotification(_ notification: SettingsNotification, handler: ((Notification) -> Void)) -> NSObjectProtocol {
     return NSObject()
   }
 }

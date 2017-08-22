@@ -1,9 +1,9 @@
 import AppKit
 
 class TextField: NSTextField {
-  private let commandKey = NSEventModifierFlags.CommandKeyMask.rawValue
+  fileprivate let commandKey = NSEventModifierFlags.command.rawValue
 
-  override func performKeyEquivalent(theEvent: NSEvent) -> Bool {
+  override func performKeyEquivalent(with theEvent: NSEvent) -> Bool {
     if let key = self.unmodifiedKeyForEvent(theEvent) {
       if let action = self.actionForKey(key) {
         if NSApp.sendAction(action, to:nil, from:self) {
@@ -12,11 +12,11 @@ class TextField: NSTextField {
       }
     }
 
-    return super.performKeyEquivalent(theEvent)
+    return super.performKeyEquivalent(with: theEvent)
   }
 
-  func unmodifiedKeyForEvent(event: NSEvent) -> String? {
-    if event.type == .KeyDown {
+  func unmodifiedKeyForEvent(_ event: NSEvent) -> String? {
+    if event.type == .keyDown {
       if (event.modifierFlags.rawValue & NSEventModifierFlags.DeviceIndependentModifierFlagsMask.rawValue) == commandKey {
         return event.charactersIgnoringModifiers
       }
@@ -25,7 +25,7 @@ class TextField: NSTextField {
     return nil
   }
 
-  func actionForKey(key: String) -> Selector? {
+  func actionForKey(_ key: String) -> Selector? {
     switch(key) {
     case "x":
       return #selector(NSText.cut(_:))

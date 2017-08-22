@@ -9,7 +9,7 @@ class TimerCoordinator: NSObject, TimerCoordinatorType {
 
   //
   // MARK: Properties
-  private var currentTimer: NSTimer?
+  fileprivate var currentTimer: Timer?
 
   init(runLoop: RunLoop, projectsInteractor: ProjectsInteractor, settings: SettingsType) {
     self.runLoop  = runLoop
@@ -29,7 +29,7 @@ class TimerCoordinator: NSObject, TimerCoordinatorType {
     startTimer()
   }
 
-  func startTimer() -> NSTimer? {
+  func startTimer() -> Timer? {
     return setupTimer(settings.refreshRate)
   }
 
@@ -40,25 +40,25 @@ class TimerCoordinator: NSObject, TimerCoordinatorType {
 
   //
   // MARK: Helpers
-  private func setupTimer(refreshRate: Int) -> NSTimer? {
+  fileprivate func setupTimer(_ refreshRate: Int) -> Timer? {
     // cancel current timer if necessary
     stopTimer()
 
     if refreshRate != 0 {
-      currentTimer = NSTimer(timeInterval: convertIntToDouble(refreshRate), target: self, selector:#selector(TimerCoordinator.handleUpdateTimer(_:)), userInfo: nil, repeats: true)
-      runLoop.addTimer(currentTimer!, forMode: NSDefaultRunLoopMode)
+      currentTimer = Timer(timeInterval: convertIntToDouble(refreshRate), target: self, selector:#selector(TimerCoordinator.handleUpdateTimer(_:)), userInfo: nil, repeats: true)
+      runLoop.addTimer(currentTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
 
     return currentTimer
   }
 
-  func handleUpdateTimer(timer: NSTimer) {
+  func handleUpdateTimer(_ timer: Timer) {
     if(timer == currentTimer) {
       projectsInteractor.refreshProjects()
     }
   }
   
-  private func convertIntToDouble(integer: Int) -> Double {
+  fileprivate func convertIntToDouble(_ integer: Int) -> Double {
     return Double(integer)
   }
 }

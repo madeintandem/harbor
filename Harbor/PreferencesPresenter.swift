@@ -4,20 +4,20 @@ import Cocoa
 class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
   //
   // MARK: Dependencies
-  private var settings:           SettingsType
-  private let projectsInteractor: ProjectsInteractor
-  private let timerCoordinator:   TimerCoordinatorType
+  fileprivate var settings:           SettingsType
+  fileprivate let projectsInteractor: ProjectsInteractor
+  fileprivate let timerCoordinator:   TimerCoordinatorType
 
   //
   // MARK: Properties
-  private var apiKey:           String = ""
-  private var refreshRate:      Int = 60
-  private(set) var launchOnLogin:    Bool   = true
-  private var allProjects:      [Project]
-  private var apiKeyError:      String = ""
-  private var refreshRateError: String = ""
+  fileprivate var apiKey:           String = ""
+  fileprivate var refreshRate:      Int = 60
+  fileprivate(set) var launchOnLogin:    Bool   = true
+  fileprivate var allProjects:      [Project]
+  fileprivate var apiKeyError:      String = ""
+  fileprivate var refreshRateError: String = ""
 
-  private(set) var needsRefresh: Bool = true
+  fileprivate(set) var needsRefresh: Bool = true
 
   init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsType, timerCoordinator: TimerCoordinatorType) {
     self.projectsInteractor = projectsInteractor
@@ -26,6 +26,10 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     self.allProjects = [Project]()
 
     super.init(view: view)
+  }
+
+  required init(view: V) {
+      fatalError("init(view:) has not been implemented")
   }
 
   //
@@ -60,7 +64,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     }
   }
 
-  private func refreshIfNecessary() {
+  fileprivate func refreshIfNecessary() {
     if(needsRefresh) {
       refreshConfiguration()
       needsRefresh = false
@@ -89,23 +93,23 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     needsRefresh = false
   }
 
-  func updateApiKey(apiKey: String) {
+  func updateApiKey(_ apiKey: String) {
     self.apiKey = apiKey
     validateApiKey(apiKey)
   }
 
-  func updateRefreshRate(refreshRate: String) {
+  func updateRefreshRate(_ refreshRate: String) {
     self.refreshRate = (refreshRate as NSString).integerValue
     validateRefreshRate(refreshRate)
     setNeedsRefresh()
   }
 
-  func updateLaunchOnLogin(launchOnLogin: Bool) {
+  func updateLaunchOnLogin(_ launchOnLogin: Bool) {
     self.launchOnLogin = launchOnLogin
     setNeedsRefresh()
   }
 
-  private func refreshConfiguration() {
+  fileprivate func refreshConfiguration() {
     // TODO: if we only refresh on initialize (more of a sync) then we can throw out the 
     // setNeedsRefresh/refreshIfNeeded stuff completely. this method can instead call individual
     // update methods like `updateApiKey(settings.apiKey)`
@@ -137,18 +141,18 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     get { return allProjects.count }
   }
 
-  func projectAtIndex(index: Int) -> Project {
+  func projectAtIndex(_ index: Int) -> Project {
     return allProjects[index];
   }
 
-  func toggleEnabledStateForProjectAtIndex(index: Int) {
+  func toggleEnabledStateForProjectAtIndex(_ index: Int) {
     let project = projectAtIndex(index)
     project.isEnabled = !project.isEnabled
 
     setNeedsRefresh()
   }
 
-  private func refreshProjects(projects: [Project]) {
+  fileprivate func refreshProjects(_ projects: [Project]) {
     allProjects = projects
 
     // notify the view that the projects refreshed
@@ -157,13 +161,13 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   //
   // MARK: Accessors
-  private var defaults: NSUserDefaults {
-    get { return NSUserDefaults.standardUserDefaults() }
+  fileprivate var defaults: Foundation.UserDefaults {
+    get { return Foundation.UserDefaults.standard }
   }
 
   //
   // MARK: Validations
-  private func validateApiKey(value: String) {
+  fileprivate func validateApiKey(_ value: String) {
     if value.isEmpty {
       apiKeyError = "can't be blank"
     } else {
@@ -173,7 +177,7 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
     view.updateApiKeyError(apiKeyError)
   }
 
-  private func validateRefreshRate(value: String) {
+  fileprivate func validateRefreshRate(_ value: String) {
     let refreshValue = Double(value)
 
     if refreshValue == nil {

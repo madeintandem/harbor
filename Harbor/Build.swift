@@ -11,7 +11,7 @@ final class Build: Mappable {
     func icon() -> NSImage {
       let image = NSImage(named: self.rawValue)!
       // allows black icon to work with light & dark menubars
-      image.template = self == .Unknown
+      image.isTemplate = self == .Unknown
 
       return image
     }
@@ -25,15 +25,15 @@ final class Build: Mappable {
   var commitID: String?
   var message: String?
   var branch: String?
-  var startedAt: NSDate?
-  var finishedAt: NSDate?
+  var startedAt: Date?
+  var finishedAt: Date?
   var codeshipLinkString: String?
 
 
   // MARK: ObjectMapper - Mappable
   init(_ map: Map) {  }
 
-  func mapping(map: Map) {
+  func mapping(_ map: Map) {
     id             <- map["id"]
     uuid           <- map["uuid"]
     projectID      <- map["project_id"]
@@ -46,19 +46,19 @@ final class Build: Mappable {
     finishedAt     <- (map["finished_at"], Transforms.date)
   }
 
-  private struct Transforms {
-    static let dateFormatter: NSDateFormatter = ({ () -> NSDateFormatter in
-      let formatter = NSDateFormatter()
+  fileprivate struct Transforms {
+    static let dateFormatter: DateFormatter = ({ () -> DateFormatter in
+      let formatter = DateFormatter()
       formatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSZ"
       return formatter
     })()
 
-    static let date = TransformOf<NSDate, String>(
+    static let date = TransformOf<Date, String>(
       fromJSON: Transforms.convertDateFromString,
       toJSON: { _ in "" }
     )
 
-    private static func convertDateFromString(aString: String?) -> NSDate? {
+    fileprivate static func convertDateFromString(_ aString: String?) -> Date? {
       var date : String
       if let dateString = aString {
         date = dateString
@@ -66,7 +66,7 @@ final class Build: Mappable {
         date = ""
       }
 
-      return dateFormatter.dateFromString(date)
+      return dateFormatter.date(from: date)
     }
   }
 }

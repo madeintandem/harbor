@@ -2,19 +2,19 @@ import Alamofire
 import AlamofireObjectMapper
 
 protocol CodeshipApiType {
-  func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->())
+  func getProjects(_ successHandler: ([Project]) -> (), errorHandler: (String)->())
 }
 
 class CodeshipApi : CodeshipApiType {
   static let apiRootPath = "https://codeship.com/api/v1/projects.json?api_key="
 
-  private let settings: SettingsType
+  fileprivate let settings: SettingsType
 
   init(settings: SettingsType) {
     self.settings = settings
   }
 
-  func getProjects(successHandler: ([Project]) -> (), errorHandler: (String)->()){
+  func getProjects(_ successHandler: @escaping ([Project]) -> (), errorHandler: @escaping (String)->()){
     let apiKey = settings.apiKey
     let apiURL = "\(CodeshipApi.apiRootPath)\(apiKey)"
 

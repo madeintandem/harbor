@@ -1,27 +1,27 @@
 import Cocoa
 
 protocol StatusMenuDelegate: NSMenuDelegate {
-  func statusMenuDidSelectPreferences(statusMenu: StatusMenu)
+  func statusMenuDidSelectPreferences(_ statusMenu: StatusMenu)
 }
 
 class StatusMenu: NSMenu, StatusMenuView {
   //
   // MARK: Dependencies
-  private var component = ViewComponent()
+  fileprivate var component = ViewComponent()
     .parent { Application.component() }
     .module { StatusMenuModule($0) }
 
-  private lazy var presenter: StatusMenuPresenter<StatusMenu> = self.component.status.inject(self)
+  fileprivate lazy var presenter: StatusMenuPresenter<StatusMenu> = self.component.status.inject(self)
 
   //
   // MARK: Properties
-  private let fixedMenuItemCount = 3
-  private let statusBarItem      = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
+  fileprivate let fixedMenuItemCount = 3
+  fileprivate let statusBarItem      = NSStatusBar.system().statusItem(withLength: -1) // NSVariableStatusItemLength
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
 
-    if Environment.active != .Testing {
+    if Environment.active != .testing {
       presenter.didInitialize()
     }
   }
@@ -31,24 +31,24 @@ class StatusMenu: NSMenu, StatusMenuView {
   func createCoreMenuItems() {
     statusBarItem.menu = self
 
-    let preferences    = itemAtIndex(1)!
+    let preferences    = item(at: 1)!
     preferences.target = self
     preferences.action = #selector(StatusMenu.didClickPreferencesItem)
   }
 
-  func updateBuildStatus(status: Build.Status) {
+  func updateBuildStatus(_ status: Build.Status) {
     statusBarItem.image = status.icon()
   }
 
-  func updateProjects(projects: [ProjectMenuItemModel]) {
+  func updateProjects(_ projects: [ProjectMenuItemModel]) {
     // clear stale projects, if any, from menu
-    let range = fixedMenuItemCount..<itemArray.count
-    for index in range.reverse() {
-      removeItemAtIndex(index)
+    let range = fixedMenuItemCount..<items.count
+    for index in range.reversed() {
+      removeItem(at: index)
     }
 
     // add the separator between fixed items and projects
-    let separatorItem = NSMenuItem.separatorItem()
+    let separatorItem = NSMenuItem.separator()
     addItem(separatorItem)
 
     // add each project

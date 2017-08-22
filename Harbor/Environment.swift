@@ -1,7 +1,7 @@
 enum Environment {
-  case Debug
-  case Release
-  case Testing
+  case debug
+  case release
+  case testing
 
   static var active: Environment {
     #if TEST
@@ -9,7 +9,7 @@ enum Environment {
     #elseif DEBUG
       return .Debug
     #else
-      return .Release
+      return .release
     #endif
   }
 }

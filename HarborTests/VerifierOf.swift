@@ -1,7 +1,7 @@
 import Foundation
 
 struct VerifierOf : Verifiable {
-  private let verifier: (Any) -> Bool
+  fileprivate let verifier: (Any) -> Bool
 
   init<E: Equatable>(_ element: E?) {
     self.verifier = { actual in
@@ -13,7 +13,7 @@ struct VerifierOf : Verifiable {
     }
   }
 
-  init<S: SequenceType where S.Generator.Element: Equatable>(_ sequence: S?) {
+  init<S: Sequence>(_ sequence: S?) where S.Iterator.Element: Equatable {
     self.verifier = { actual in
       guard let sequence = sequence else {
         return false
@@ -23,7 +23,7 @@ struct VerifierOf : Verifiable {
     }
   }
 
-  func verify(actual: Any) -> Bool {
+  func verify(_ actual: Any) -> Bool {
     return self.verifier(actual)
   }
 }

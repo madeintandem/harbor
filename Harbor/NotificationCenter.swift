@@ -1,10 +1,10 @@
 import Foundation
 
 public protocol NotificationCenter {
-  func addObserverForName(name: String?, object obj: AnyObject?, queue: NSOperationQueue?, usingBlock block: (NSNotification) -> Void) -> NSObjectProtocol
-  func postNotificationName(aName: String, object anObject: AnyObject?)
+  func addObserverForName(_ name: String?, object obj: AnyObject?, queue: OperationQueue?, usingBlock block: (Notification) -> Void) -> NSObjectProtocol
+  func postNotificationName(_ aName: String, object anObject: AnyObject?)
 }
 
-extension NSNotificationCenter : NotificationCenter {
+extension Foundation.NotificationCenter : NotificationCenter {
 
 }

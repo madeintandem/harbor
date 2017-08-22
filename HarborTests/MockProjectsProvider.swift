@@ -2,9 +2,9 @@
 
 class MockProjectsProvider : ProjectsInteractor {
   enum Method : MethodType {
-    case RefreshProjects
-    case RefreshCurrentProjects
-    case AddListener
+    case refreshProjects
+    case refreshCurrentProjects
+    case addListener
   }
 
   let projects  : [Project]
@@ -15,21 +15,21 @@ class MockProjectsProvider : ProjectsInteractor {
   }
 
   func refreshProjects(){
-    invocation = Invocation(.RefreshProjects, None.Nothing)
+    invocation = Invocation(.refreshProjects, None.nothing)
   }
 
   func refreshCurrentProjects(){
-    invocation = Invocation(.RefreshCurrentProjects, None.Nothing)
+    invocation = Invocation(.refreshCurrentProjects, None.nothing)
   }
 
-  func addListener(listener: ProjectHandler){
-    invocation = Invocation(.AddListener, None.Nothing)
+  func addListener(_ listener: ProjectHandler){
+    invocation = Invocation(.addListener, None.nothing)
     listener(self.projects)
   }
 }
 
 extension Invocations {
-  static func projectsInteractor<E: Verifiable>(method: MockProjectsProvider.Method, _ value: E) -> ExpectedInvocation<MockProjectsProvider.Method, E> {
+  static func projectsInteractor<E: Verifiable>(_ method: MockProjectsProvider.Method, _ value: E) -> ExpectedInvocation<MockProjectsProvider.Method, E> {
     return ExpectedInvocation(method, value)
   }
 }

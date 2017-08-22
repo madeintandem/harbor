@@ -607,6 +607,7 @@
 					D0772F071B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = XYSLJDS3VA;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -615,6 +616,7 @@
 					};
 					D0772F191B3C437800031FB9 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0830;
 						TestTargetID = D0772F071B3C437800031FB9;
 					};
 				};
@@ -951,6 +953,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Test;
 		};
@@ -965,6 +968,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.HarborTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
 			};
 			name = Test;
@@ -1067,6 +1071,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1085,6 +1090,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.Harbor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1099,6 +1105,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.HarborTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
 			};
 			name = Debug;
@@ -1114,6 +1121,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DTEST";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dvm.HarborTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Harbor.app/Contents/MacOS/Harbor";
 			};
 			name = Release;

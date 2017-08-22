@@ -3,8 +3,8 @@ import Foundation
 class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
   //
   // MARK: Dependencies
-  private let projectsInteractor: ProjectsInteractor
-  private let settings: SettingsType
+  fileprivate let projectsInteractor: ProjectsInteractor
+  fileprivate let settings: SettingsType
 
   //
   // MARK: Properties
@@ -13,6 +13,10 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
     self.settings = settings
 
     super.init(view: view)
+  }
+
+  required init(view: V) {
+      fatalError("init(view:) has not been implemented")
   }
 
   override func didInitialize() {
@@ -24,7 +28,7 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
 
   //
   // MARK: Projects
-  private func handleProjects(projects: [Project]) {
+  fileprivate func handleProjects(_ projects: [Project]) {
     // filter out projects the user disabled and convert them to menu item models
     let disabledProjectIds = settings.disabledProjectIds
     let enabledProjects = projects
@@ -35,7 +39,7 @@ class StatusMenuPresenter<V: StatusMenuView> : Presenter<V> {
     view.updateBuildStatus(self.buildStatusFromProjects(enabledProjects))
   }
 
-  private func buildStatusFromProjects(projects: [ProjectMenuItemModel]) -> Build.Status {
+  fileprivate func buildStatusFromProjects(_ projects: [ProjectMenuItemModel]) -> Build.Status {
     if projects.count == 0 {
       return .Unknown
     } else if (projects.any { $0.isFailing }) {

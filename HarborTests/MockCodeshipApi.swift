@@ -7,7 +7,7 @@ class MockCodeshipApi : CodeshipApiType {
 
   }
 
-  func getProjects(successHandler:([Project]) -> (), errorHandler:(String) -> ()) {
+  func getProjects(_ successHandler:([Project]) -> (), errorHandler:(String) -> ()) {
     if let projects = self.projects {
       successHandler(projects)
     } else {

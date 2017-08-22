@@ -1,5 +1,5 @@
 struct ProjectMenuItemModel {
-  private let project: Project
+  fileprivate let project: Project
 
   init(project: Project) {
     self.project = project

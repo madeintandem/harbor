@@ -1,6 +1,6 @@
 
 class PreferencesViewModule: ViewModule {
-  func inject<V: PreferencesView>(view: V) -> PreferencesPresenter<V> {
+  func inject<V: PreferencesView>(_ view: V) -> PreferencesPresenter<V> {
     return single { component in
       PreferencesPresenter(
         view: view,

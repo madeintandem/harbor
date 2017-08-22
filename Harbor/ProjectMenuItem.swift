@@ -12,7 +12,7 @@ class ProjectMenuItem : NSMenuItem {
     self.submenu = self.submenuForModel(model)
   }
 
-  func submenuForModel(model: ProjectMenuItemModel) -> NSMenu {
+  func submenuForModel(_ model: ProjectMenuItemModel) -> NSMenu {
     let menu = NSMenu(title: model.submenuTitle)
     for build in model.builds() {
       menu.addItem(BuildView.menuItemForModel(build))

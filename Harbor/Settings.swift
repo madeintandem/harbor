@@ -3,7 +3,7 @@ import ServiceManagement
 import CoreServices
 
 class Settings: SettingsType {
-  private enum Key: String, CustomStringConvertible {
+  fileprivate enum Key: String, CustomStringConvertible {
     case ApiKey           = "ApiKey"
     case RefreshRate      = "RefreshRate"
     case DisabledProjects = "DisabledProjects"
@@ -25,9 +25,9 @@ class Settings: SettingsType {
 
   //
   // MARK: Dependencies
-  private let defaults:           UserDefaults
-  private let keychain:           Keychain
-  private let notificationCenter: NotificationCenter
+  fileprivate let defaults:           UserDefaults
+  fileprivate let keychain:           Keychain
+  fileprivate let notificationCenter: NotificationCenter
 
   //
   // MARK: Properties
@@ -62,7 +62,7 @@ class Settings: SettingsType {
   }
 
   var isFirstRun: Bool
-  private let defaultRefreshRate: Int = 60
+  fileprivate let defaultRefreshRate: Int = 60
 
   init(defaults: UserDefaults, keychain: Keychain, notificationCenter: NotificationCenter) {
     self.defaults           = defaults
@@ -95,8 +95,8 @@ class Settings: SettingsType {
     }
   }
 
-  private func updateHelperLoginItem(launchOnLogin: Bool) {
-    let result = SMLoginItemSetEnabled("com.dvm.Harbor.Helper", launchOnLogin)
+  fileprivate func updateHelperLoginItem(_ launchOnLogin: Bool) {
+    let result = SMLoginItemSetEnabled("com.dvm.Harbor.Helper" as CFString, launchOnLogin)
     let enabled = launchOnLogin ? "enabling" : "disabling"
     let success = result ? "succeeded" : "failed"
     print("\(enabled) launch on login \(success)")
@@ -106,11 +106,11 @@ class Settings: SettingsType {
 //
 // MARK: Notifications
 extension Settings {
-  func observeNotification(notification: SettingsNotification, handler: (NSNotification -> Void)) -> NSObjectProtocol {
+  func observeNotification(_ notification: SettingsNotification, handler: ((Notification) -> Void)) -> NSObjectProtocol {
     return notificationCenter.addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
   }
 
-  private func postNotification(notification: SettingsNotification) {
+  fileprivate func postNotification(_ notification: SettingsNotification) {
     notificationCenter.postNotificationName(notification.rawValue, object: nil)
   }
 }

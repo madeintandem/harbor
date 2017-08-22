@@ -1,11 +1,11 @@
 import Foundation
 
 class Playground {
-  func writeFile(text: String) -> Bool {
+  func writeFile(_ text: String) -> Bool {
 
     do {
-      let tempURL = NSURL(string: "file:///tmp/holyfuckingshit.txt")
-      try text.writeToURL(tempURL!, atomically: true, encoding: NSUTF8StringEncoding)
+      let tempURL = URL(string: "file:///tmp/holyfuckingshit.txt")
+      try text.write(to: tempURL!, atomically: true, encoding: String.Encoding.utf8)
       return true
     } catch {
       print("Failed to write file")
@@ -13,10 +13,10 @@ class Playground {
     }
   }
 
-  func readFromFile(fileName: String) throws -> String {
+  func readFromFile(_ fileName: String) throws -> String {
     //        let path = NSBundle.mainBundle().bundleURL
     //        let fileURL = path.URLByAppendingPathComponent(fileName);
-    let fileURL = NSURL(string: fileName);
-    return try String(contentsOfURL: fileURL!)
+    let fileURL = URL(string: fileName);
+    return try String(contentsOf: fileURL!)
   }
 }
