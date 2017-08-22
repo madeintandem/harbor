@@ -16,9 +16,9 @@ public final class Project: Equatable, Mappable {
   }
 
   // MARK: ObjectMapper - Mappable
-  public init(_ map: Map) { }
+  public init(map: Map) { }
 
-  public func mapping(_ map: Map) {
+  public func mapping(map: Map) {
     id             <- map["id"]
     uuid           <- map["uuid"]
     repositoryName <- map["repository_name"]
@@ -55,9 +55,9 @@ public func ==(lhs: Project, rhs: Project) -> Bool {
 public final class ProjectCollection: Mappable {
   var projects = [Project]()
 
-  public init(_ map: Map) {  }
+  public init(map: Map) {  }
 
-  public func mapping(_ map: Map) {
+  public func mapping(map: Map) {
     projects <- map["projects"]
   }
 }

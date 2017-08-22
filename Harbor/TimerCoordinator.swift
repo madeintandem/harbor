@@ -1,6 +1,12 @@
 import Foundation
 
 class TimerCoordinator: NSObject, TimerCoordinatorType {
+  static let instance = TimerCoordinator(
+    runLoop: Foundation.RunLoop.current,
+    projectsInteractor: ProjectsProvider.instance,
+    settings: Settings.instance
+  )
+
   //
   // MARK: Dependencies
   var settings: SettingsType!
@@ -46,7 +52,7 @@ class TimerCoordinator: NSObject, TimerCoordinatorType {
 
     if refreshRate != 0 {
       currentTimer = Timer(timeInterval: convertIntToDouble(refreshRate), target: self, selector:#selector(TimerCoordinator.handleUpdateTimer(_:)), userInfo: nil, repeats: true)
-      runLoop.addTimer(currentTimer!, forMode: RunLoopMode.defaultRunLoopMode)
+      runLoop.add(currentTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
 
     return currentTimer

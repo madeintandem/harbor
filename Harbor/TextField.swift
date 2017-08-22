@@ -17,7 +17,7 @@ class TextField: NSTextField {
 
   func unmodifiedKeyForEvent(_ event: NSEvent) -> String? {
     if event.type == .keyDown {
-      if (event.modifierFlags.rawValue & NSEventModifierFlags.DeviceIndependentModifierFlagsMask.rawValue) == commandKey {
+      if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == commandKey {
         return event.charactersIgnoringModifiers
       }
     }

@@ -4,7 +4,7 @@ class Presenter<V: ViewType> {
   fileprivate(set) weak var view: V!
   fileprivate(set) var isActive: Bool = false
 
-  required init(view: V) {
+  init(view: V) {
     self.view = view
   }
 

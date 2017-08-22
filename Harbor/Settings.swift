@@ -3,6 +3,12 @@ import ServiceManagement
 import CoreServices
 
 class Settings: SettingsType {
+  static let instance = Settings(
+    defaults: Foundation.UserDefaults.standard,
+    keychain: KeychainWrapper(),
+    notificationCenter: Foundation.NotificationCenter.default
+  )
+
   fileprivate enum Key: String, CustomStringConvertible {
     case ApiKey           = "ApiKey"
     case RefreshRate      = "RefreshRate"
@@ -47,7 +53,7 @@ class Settings: SettingsType {
 
   var disabledProjectIds: [Int] {
     didSet {
-      defaults.setObject(disabledProjectIds, forKey: Key.DisabledProjects)
+      defaults.setObject(disabledProjectIds as AnyObject, forKey: Key.DisabledProjects)
       postNotification(.DisabledProjects)
     }
   }
@@ -106,11 +112,11 @@ class Settings: SettingsType {
 //
 // MARK: Notifications
 extension Settings {
-  func observeNotification(_ notification: SettingsNotification, handler: ((Notification) -> Void)) -> NSObjectProtocol {
-    return notificationCenter.addObserverForName(notification.rawValue, object: nil, queue: nil, usingBlock: handler)
+  func observeNotification(_ notification: SettingsNotification, handler: @escaping ((Notification) -> Void)) -> NSObjectProtocol {
+    return notificationCenter.addObserver(forName: NSNotification.Name(rawValue: notification.rawValue), object: nil, queue: nil, using: handler)
   }
 
   fileprivate func postNotification(_ notification: SettingsNotification) {
-    notificationCenter.postNotificationName(notification.rawValue, object: nil)
+    notificationCenter.post(name: NSNotification.Name(rawValue: notification.rawValue), object: nil, userInfo: nil)
   }
 }

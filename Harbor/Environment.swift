@@ -5,9 +5,9 @@ enum Environment {
 
   static var active: Environment {
     #if TEST
-      return .Testing
+      return .testing
     #elseif DEBUG
-      return .Debug
+      return .debug
     #else
       return .release
     #endif

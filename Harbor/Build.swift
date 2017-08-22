@@ -31,9 +31,9 @@ final class Build: Mappable {
 
 
   // MARK: ObjectMapper - Mappable
-  init(_ map: Map) {  }
+  init(map: Map) {  }
 
-  func mapping(_ map: Map) {
+  func mapping(map: Map) {
     id             <- map["id"]
     uuid           <- map["uuid"]
     projectID      <- map["project_id"]

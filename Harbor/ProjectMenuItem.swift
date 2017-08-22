@@ -1,8 +1,8 @@
 import Cocoa
 
 class ProjectMenuItem : NSMenuItem {
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+  required init(coder decoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 
   init(model: ProjectMenuItemModel) {

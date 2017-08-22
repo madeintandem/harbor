@@ -8,11 +8,7 @@ class PreferencesPaneWindowController: NSWindowController, NSWindowDelegate, NST
 
   //
   // MARK: Dependencies
-  fileprivate var component = ViewComponent()
-    .parent { Application.component() }
-    .module { PreferencesViewModule($0) }
-
-  fileprivate lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = self.component.preferences.inject(self)
+  fileprivate lazy var presenter: PreferencesPresenter<PreferencesPaneWindowController> = PreferencesPresenter(view: self)
 
   //
   // MARK: Interface Elements

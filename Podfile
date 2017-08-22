@@ -9,6 +9,7 @@ project 'Harbor', 'Test' => :debug
 
 # dependencies
 target 'Harbor' do
+  pod 'Alamofire', '~> 4.0'
   pod 'AlamofireObjectMapper', '~> 4.0'
 
   target 'HarborTests' do

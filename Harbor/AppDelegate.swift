@@ -5,11 +5,9 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate, StatusMenuDelegate {
   //
   // MARK: Dependencies
-  var component: AppComponent { return Application.component() }
-
-  fileprivate lazy var settings:           SettingsType           = self.component.interactor.inject()
-  fileprivate lazy var projectsInteractor: ProjectsInteractor = self.component.interactor.inject()
-  fileprivate lazy var timerCoordinator:   TimerCoordinatorType   = self.component.interactor.inject()
+  fileprivate lazy var settings: SettingsType = Settings.instance
+  fileprivate lazy var projectsInteractor: ProjectsInteractor = ProjectsProvider.instance
+  fileprivate lazy var timerCoordinator: TimerCoordinatorType = TimerCoordinator.instance
 
   //
   // MARK: Interface Elements

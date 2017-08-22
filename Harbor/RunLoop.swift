@@ -1,9 +1,8 @@
 import Foundation
 
 public protocol RunLoop {
-  func addTimer(_ timer: Timer, forMode mode: String)
+  func add(_ timer: Timer, forMode mode: RunLoopMode)
 }
 
-extension Foundation.RunLoop : RunLoop {
-
+extension Foundation.RunLoop: RunLoop {
 }

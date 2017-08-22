@@ -19,17 +19,17 @@ class PreferencesPresenter<V: PreferencesView> : Presenter<V> {
 
   fileprivate(set) var needsRefresh: Bool = true
 
-  init(view: V, projectsInteractor: ProjectsInteractor, settings: SettingsType, timerCoordinator: TimerCoordinatorType) {
+  init(view: V,
+    projectsInteractor: ProjectsInteractor = ProjectsProvider.instance,
+    settings: SettingsType = Settings.instance,
+    timerCoordinator: TimerCoordinatorType = TimerCoordinator.instance) {
+
     self.projectsInteractor = projectsInteractor
     self.settings = settings
     self.timerCoordinator = timerCoordinator
     self.allProjects = [Project]()
 
     super.init(view: view)
-  }
-
-  required init(view: V) {
-      fatalError("init(view:) has not been implemented")
   }
 
   //

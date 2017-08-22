@@ -1,6 +1,11 @@
 import Foundation
 
 class ProjectsProvider : ProjectsInteractor {
+  static let instance = ProjectsProvider(
+    api: CodeshipApi(settings: Settings.instance),
+    settings: Settings.instance
+  )
+
   //
   // MARK: dependencies
   //
@@ -51,7 +56,7 @@ class ProjectsProvider : ProjectsInteractor {
     }
   }
 
-  func addListener(_ listener: @escaping ProjectHandler){
+  func addListener(_ listener: @escaping ([Project]) -> Void) {
     listeners.append(listener)
     listener(projects)
   }
