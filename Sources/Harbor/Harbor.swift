@@ -1,3 +1,3 @@
 struct Harbor {
-  var text = "hello, world!"
+  var version = "0.0.1"
 }

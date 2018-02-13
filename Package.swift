@@ -12,6 +12,12 @@ let package = Package(
   ],
   dependencies: [
     .package(
+      url: "https://github.com/Alamofire/Alamofire.git",
+      from: "4.6.0"),
+    .package(
+      url: "https://github.com/antitypical/Result.git",
+      from: "3.2.4"),
+    .package(
       url: "https://github.com/Quick/Quick.git",
       from: "1.2.0"),
     .package(
@@ -21,9 +27,16 @@ let package = Package(
   targets: [
     .target(
       name: "Harbor",
-      dependencies: []),
+      dependencies: [
+        "Alamofire",
+        "Result"
+      ]),
     .testTarget(
       name: "HarborTests",
-      dependencies: ["Harbor", "Quick", "Nimble"]),
+      dependencies: [
+        "Harbor",
+        "Quick",
+        "Nimble"
+      ]),
   ]
 )
