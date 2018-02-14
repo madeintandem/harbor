@@ -15,8 +15,11 @@ let package = Package(
       url: "https://github.com/Alamofire/Alamofire.git",
       from: "4.6.0"),
     .package(
-      url: "https://github.com/antitypical/Result.git",
-      from: "3.2.4"),
+      url: "https://github.com/SwiftyJSON/SwiftyJSON.git",
+      from: "4.0.0"),
+    .package(
+      url: "https://github.com/Thomvis/BrightFutures.git",
+      from: "6.0.0"),
     .package(
       url: "https://github.com/Quick/Quick.git",
       from: "1.2.0"),
@@ -29,7 +32,8 @@ let package = Package(
       name: "Harbor",
       dependencies: [
         "Alamofire",
-        "Result"
+        "SwiftyJSON",
+        "BrightFutures"
       ]),
     .testTarget(
       name: "HarborTests",

@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "Moya",
-        "repositoryURL": "https://github.com/Moya/Moya.git",
+        "package": "BrightFutures",
+        "repositoryURL": "https://github.com/Thomvis/BrightFutures.git",
         "state": {
           "branch": null,
-          "revision": "0b90f7ee8dcc378fe48db18c8b281e8792244de9",
-          "version": "11.0.0"
+          "revision": "8659746df02d8f62a112eda288f4f2f3bab368f1",
+          "version": "6.0.0"
         }
       },
       {
@@ -29,21 +29,21 @@
         }
       },
       {
+        "package": "ObjectMapper",
+        "repositoryURL": "https://github.com/Hearst-DD/ObjectMapper.git",
+        "state": {
+          "branch": null,
+          "revision": "04c624cbbc4f05659605ae72db0f3e9eaf2eeeef",
+          "version": "3.1.0"
+        }
+      },
+      {
         "package": "Quick",
         "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {
           "branch": null,
           "revision": "0ff81f2c665b4381f526bd656f8708dd52a9ea2f",
           "version": "1.2.0"
-        }
-      },
-      {
-        "package": "ReactiveSwift",
-        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "46fb4d4a8285286e54929add1d12f384675895c6",
-          "version": "3.1.0"
         }
       },
       {
@@ -56,12 +56,12 @@
         }
       },
       {
-        "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
         "state": {
           "branch": null,
-          "revision": "3e848781c7756accced855a6317a4c2ff5e8588b",
-          "version": "4.1.2"
+          "revision": "de309166a48a9dfc51d5bc4c55c0664d981de311",
+          "version": "4.0.0"
         }
       }
     ]
