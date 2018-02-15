@@ -1,9 +1,15 @@
 final class User {
-  let username: String?
-  let password: String?
+  var email: String?
+  var password: String?
+  var session: Session?
 
-  init (username: String, password: String) {
-    self.username = username
+  init (email: String?, password: String?) {
+    self.email = email
     self.password = password
+  }
+
+  func signIn (with session: Session) -> User {
+    self.session = session
+    return self
   }
 }

@@ -1,8 +1,3 @@
-import BrightFutures
-
-typealias UserProjectFuture<V> =
-  Future<V, UserProjectError>
-
 protocol UserProjectProvider {
   func fetch() -> UserProjectFuture<[Project]>
 }
