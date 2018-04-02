@@ -1,6 +1,6 @@
 import Foundation
 
-struct Session {
+struct Session: Equatable {
   let token: String
   let expiresAt: Date
 }

@@ -1,19 +1,27 @@
 import Quick
 import Nimble
+import Foundation
 
 @testable import Harbor
 
 class UserSpec: QuickSpec { override func spec() {
-  let subject = User()
+  var subject: User!
 
-  describe("#save") {
-    it("is correct") {
-      let user = User(
-        email: "ty@devmynd.com",
-        password: "0pxlHC#B5&5#KJYWSRd2XEN8kS$jPH6r"
+  beforeEach {
+    subject = User(
+      email: "test@email.com"
+    )
+  }
+
+  describe("#signIn") {
+    it("signs in the user") {
+      let session = Session(
+        token: "test-token",
+        expiresAt: Date()
       )
 
-      subject.save(user)
+      subject.signIn(with: session)
+      expect(subject.session) == session
     }
   }
 }}

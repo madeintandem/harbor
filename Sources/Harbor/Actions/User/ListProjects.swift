@@ -1,3 +1,5 @@
+import BrightFutures
+
 extension User {
   final class ListProjects {
     private let users: UserRepo
@@ -6,8 +8,9 @@ extension User {
       self.users = users
     }
 
-    func call() -> [Project] {
-      return users.current?.projects ?? []
+    func call() -> Future<[Project], FetchProjects.Failure> {
+      let projects = users.current?.projects ?? []
+      return .init(value: projects)
     }
   }
 }

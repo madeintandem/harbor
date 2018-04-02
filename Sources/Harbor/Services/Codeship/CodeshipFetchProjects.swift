@@ -1,10 +1,11 @@
 import Alamofire
+import BrightFutures
 
-struct CodeshipFetchProjects: AnyFetchProjects {
-  func call() -> FetchProjectsFuture<[Project]> {
+final class CodeshipFetchProjects {
+  func call() -> Future<[Project], FetchProjects.Failure> {
     return Alamofire
       .request(CodeshipUrl.projects)
-      .responseJson(onError: FetchProjectsError.network)
+      .responseJson(onError: FetchProjects.Failure.network)
       .map { _ in [] }
   }
 }

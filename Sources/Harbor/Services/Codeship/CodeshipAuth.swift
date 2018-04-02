@@ -1,21 +1,22 @@
 import Foundation
 import Alamofire
+import BrightFutures
 import SwiftyJSON
 
-struct CodeshipSignIn: AnySignIn {
-  func call(_ params: SignInParams) -> SignInFuture<Session> {
+final class CodeshipAuth {
+  func call(_ params: Auth.Params) -> Future<Session, Auth.Failure> {
     guard let headers = headers(from: params) else {
-      return SignInFuture<Session>(error: .network(nil))
+      return .init(error: .network(nil))
     }
 
     return Alamofire
       .request(CodeshipUrl.auth, headers: headers)
-      .responseJson(onError: SignInError.network)
+      .responseJson(onError: Auth.Failure.network)
       .flatMap(self.parseSession)
   }
 
   // helpers
-  private func headers(from params: SignInParams) -> [String: String]? {
+  private func headers(from params: Auth.Params) -> [String: String]? {
     let authorization = "\(params.email):\(params.email)"
       .data(using: .utf8)?
       .base64EncodedString()
@@ -24,11 +25,11 @@ struct CodeshipSignIn: AnySignIn {
       .map { value in ["Authorization": value] }
   }
 
-  private func parseSession(from json: JSON) -> SignInFuture<Session> {
+  private func parseSession(from json: JSON) -> Future<Session, Auth.Failure> {
     guard
       let token = json["authorization_token"].string,
       let expiresAt = json["expires_at"].double else {
-        return SignInFuture(error: .network(nil))
+        return .init(error: .network(nil))
       }
 
     let session = Session(
@@ -36,6 +37,6 @@ struct CodeshipSignIn: AnySignIn {
       expiresAt: Date(timeIntervalSince1970: expiresAt)
     )
 
-    return SignInFuture(value: session)
+    return .init(value: session)
   }
 }

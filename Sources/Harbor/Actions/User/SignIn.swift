@@ -1,23 +1,25 @@
+import BrightFutures
+
 extension User {
   final class SignIn {
-    private let users: UserRepo
-    private let signIn: AnySignIn
+    private let auth: Auth.Service
 
     init(
-      users: UserRepo = UserRepo(),
-      signIn: AnySignIn = CodeshipSignIn()
+      auth: @escaping Auth.Service = CodeshipAuth().call
     ) {
-      self.users = users
-      self.signIn = signIn
+      self.auth = auth
     }
 
-    func call(params: SignInParams) -> SignInFuture<User?> {
-      let user = users.current
-
-      return signIn.call(params).map { session in
-        user?.signIn(with: session)
-        return user
-      }
+    func call(_ params: Auth.Params) -> Future<User, Auth.Failure> {
+      return auth(params)
+        .map { session in
+          let user = User(email: params.email)
+          user.signIn(with: session)
+          return user
+        }
+        .onSuccess { user in
+          Current.user = user
+        }
     }
   }
 }
