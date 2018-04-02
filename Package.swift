@@ -6,6 +6,9 @@ import PackageDescription
 let package = Package(
   name: "Harbor",
   products: [
+    .executable(
+      name: "Harbor-CLI",
+      targets: ["CLI"]),
     .library(
       name: "Harbor",
       targets: ["Harbor"]),
@@ -26,8 +29,17 @@ let package = Package(
     .package(
       url: "https://github.com/Quick/Nimble.git",
       from: "7.0.3"),
+    .package(
+      url: "https://github.com/kylef/Commander",
+      from: "0.8.0"),
   ],
   targets: [
+    .target(
+      name: "CLI",
+      dependencies: [
+        "Harbor",
+        "Commander",
+      ]),
     .target(
       name: "Harbor",
       dependencies: [
@@ -40,7 +52,7 @@ let package = Package(
       dependencies: [
         "Harbor",
         "Quick",
-        "Nimble"
+        "Nimble",
       ]),
   ]
 )

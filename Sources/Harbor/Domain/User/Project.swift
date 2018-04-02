@@ -1,4 +1,4 @@
-final class Project {
-  final class Build {
+public final class Project {
+  public final class Build {
   }
 }

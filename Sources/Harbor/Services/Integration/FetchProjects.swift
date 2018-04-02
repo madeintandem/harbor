@@ -1,14 +1,13 @@
 import Alamofire
 import BrightFutures
-import Domain
 
-struct FetchProjects {
+public struct FetchProjects {
   // service
-  typealias Service
+  public typealias Service
     = () -> Future<[Project], Failure>
 
   // output
-  enum Failure: Error {
+  public enum Failure: Error {
     case network(Error?)
   }
 }

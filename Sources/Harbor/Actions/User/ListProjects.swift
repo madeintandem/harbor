@@ -1,14 +1,18 @@
 import BrightFutures
 
 extension User {
-  final class ListProjects {
+  public final class ListProjects {
     private let users: UserRepo
 
-    init(_ users: UserRepo = UserRepo()) {
+    public convenience init() {
+      self.init(users: UserRepo())
+    }
+
+    init(users: UserRepo) {
       self.users = users
     }
 
-    func call() -> Future<[Project], FetchProjects.Failure> {
+    public func call() -> Future<[Project], FetchProjects.Failure> {
       let projects = users.current?.projects ?? []
       return .init(value: projects)
     }

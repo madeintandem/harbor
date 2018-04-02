@@ -1,4 +1,4 @@
-final class User {
+public final class User {
   private(set) var email: String?
   private(set) var session: Session?
   private(set) var projects: [Project] = []

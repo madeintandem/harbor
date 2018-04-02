@@ -1,18 +1,20 @@
 import BrightFutures
 
-struct Auth {
+public struct Auth {
   // service
-  typealias Service =
+  public typealias Service =
     (_ params: Params) -> Future<Session, Failure>
 
   // input
-  struct Params {
+  public struct Params {
     let email: String
     let password: String
   }
 
   // output
-  enum Failure: Error {
+  public enum Failure: Error {
     case network(Error?)
+    case unauthorized
+    case invalidSessionData
   }
 }
