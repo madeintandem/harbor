@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/Thomvis/BrightFutures.git",
         "state": {
           "branch": null,
-          "revision": "8659746df02d8f62a112eda288f4f2f3bab368f1",
-          "version": "6.0.0"
+          "revision": "53732cf7bf02a547ab0c6851bdf0f20fb27d1b3e",
+          "version": "6.0.1"
         }
       },
       {
@@ -26,15 +26,6 @@
           "branch": null,
           "revision": "22800b0954c89344bb8c87f8ab93378076716fb7",
           "version": "7.0.3"
-        }
-      },
-      {
-        "package": "ObjectMapper",
-        "repositoryURL": "https://github.com/Hearst-DD/ObjectMapper.git",
-        "state": {
-          "branch": null,
-          "revision": "04c624cbbc4f05659605ae72db0f3e9eaf2eeeef",
-          "version": "3.1.0"
         }
       },
       {

@@ -19,7 +19,7 @@ let package = Package(
       from: "4.0.0"),
     .package(
       url: "https://github.com/Thomvis/BrightFutures.git",
-      from: "6.0.0"),
+      from: "6.0.1"),
     .package(
       url: "https://github.com/Quick/Quick.git",
       from: "1.2.0"),
@@ -33,7 +33,7 @@ let package = Package(
       dependencies: [
         "Alamofire",
         "SwiftyJSON",
-        "BrightFutures"
+        "BrightFutures",
       ]),
     .testTarget(
       name: "HarborTests",

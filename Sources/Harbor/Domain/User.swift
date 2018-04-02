@@ -1,15 +1,19 @@
 final class User {
-  var email: String?
-  var password: String?
-  var session: Session?
+  private(set) var email: String?
+  private(set) var password: String?
+  private(set) var session: Session?
+  private(set) var projects: [Project] = []
 
-  init (email: String?, password: String?) {
+  init(email: String?, password: String?) {
     self.email = email
     self.password = password
   }
 
-  func signIn (with session: Session) -> User {
+  func signIn(with session: Session) {
     self.session = session
-    return self
+  }
+
+  func setProjects (projects: [Project]) {
+    self.projects = projects
   }
 }

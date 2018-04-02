@@ -3,8 +3,8 @@ import Nimble
 
 @testable import Harbor
 
-class CodeshipUserProviderSpec: QuickSpec { override func spec() {
-  let subject = CodeshipUserProvider()
+class UserSpec: QuickSpec { override func spec() {
+  let subject = User()
 
   describe("#save") {
     it("is correct") {
