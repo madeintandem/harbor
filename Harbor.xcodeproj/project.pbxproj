@@ -35,6 +35,7 @@
 		10C26ADD2073DAD10092FE29 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26ADC2073DAD10092FE29 /* Store.swift */; };
 		10C26ADF2073DB220092FE29 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26ADE2073DB220092FE29 /* KeychainStore.swift */; };
 		10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE02073DE0A0092FE29 /* StoreKey.swift */; };
+		10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE22073E1D00092FE29 /* SignInCurrent.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -393,6 +394,7 @@
 		10C26ADC2073DAD10092FE29 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		10C26ADE2073DB220092FE29 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		10C26AE02073DE0A0092FE29 /* StoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKey.swift; sourceTree = "<group>"; };
+		10C26AE22073E1D00092FE29 /* SignInCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCurrent.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -746,6 +748,7 @@
 			children = (
 				OBJ_13 /* ListProjects.swift */,
 				OBJ_14 /* SignIn.swift */,
+				10C26AE22073E1D00092FE29 /* SignInCurrent.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1702,6 +1705,7 @@
 				OBJ_325 /* Project.swift in Sources */,
 				OBJ_326 /* Session.swift in Sources */,
 				OBJ_327 /* User.swift in Sources */,
+				10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */,
 				OBJ_328 /* RequestExt.swift in Sources */,
 				OBJ_329 /* Harbor.swift in Sources */,
 				OBJ_330 /* UserRepo.swift in Sources */,

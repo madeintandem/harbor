@@ -22,6 +22,21 @@ let main = Group {
 
     CFRunLoopRun()
   }
+
+  $0.command(
+    "projects"
+  ) {
+    User.ListProjects()
+      .call()
+      .onSuccess { projects in
+        print("projects: \(projects)")
+      }
+      .onFailure { error in
+        print("failued to list projects: \(error)")
+      }
+
+    CFRunLoopRun()
+  }
 }
 
 main.run()

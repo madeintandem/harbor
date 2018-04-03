@@ -2,19 +2,30 @@ import BrightFutures
 
 extension User {
   public final class ListProjects {
-    private let users: UserRepo
+    private let signIn: AnySignInCurrent
 
     public convenience init() {
-      self.init(users: UserRepo())
+      self.init(
+        signIn: SignInCurrent().call
+      )
     }
 
-    init(users: UserRepo) {
-      self.users = users
+    init(signIn: @escaping AnySignInCurrent) {
+      self.signIn = signIn
     }
 
-    public func call() -> Future<[Project], FetchProjects.Failure> {
-      let projects = users.current?.projects ?? []
-      return .init(value: projects)
+    public func call() -> Future<[Project], Failure> {
+      return self
+        .signIn()
+        .mapError(Failure.signIn)
+        .flatMap { user in
+          return .init(value: [] as [Project])
+        }
+    }
+
+    public enum Failure: Error {
+      case signIn(Error)
+      case fetchProjects(Error)
     }
   }
 }
