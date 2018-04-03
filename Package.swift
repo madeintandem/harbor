@@ -24,14 +24,17 @@ let package = Package(
       url: "https://github.com/Thomvis/BrightFutures.git",
       from: "6.0.1"),
     .package(
+      url: "https://github.com/kishikawakatsumi/KeychainAccess.git",
+      from: "3.1.0"),
+    .package(
+      url: "https://github.com/kylef/Commander",
+      from: "0.8.0"),
+    .package(
       url: "https://github.com/Quick/Quick.git",
       from: "1.2.0"),
     .package(
       url: "https://github.com/Quick/Nimble.git",
       from: "7.0.3"),
-    .package(
-      url: "https://github.com/kylef/Commander",
-      from: "0.8.0"),
   ],
   targets: [
     .target(
@@ -46,6 +49,7 @@ let package = Package(
         "Alamofire",
         "SwiftyJSON",
         "BrightFutures",
+        "KeychainAccess"
       ]),
     .testTarget(
       name: "HarborTests",

@@ -9,7 +9,10 @@ let main = Group {
     Argument<String>("password", description: "Your Codeship password")
   ) { email, password in
     User.SignIn()
-      .call(email: email, password: password)
+      .call(
+        email: email,
+        password: password
+      )
       .onSuccess { _ in
         print("signed in!")
       }

@@ -14,65 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Nimble::Nimble"
-               BuildableName = "Nimble.framework"
-               BlueprintName = "Nimble"
-               ReferencedContainer = "container:Harbor.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Quick::Quick"
-               BuildableName = "Quick.framework"
-               BlueprintName = "Quick"
-               ReferencedContainer = "container:Harbor.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Quick::QuickSpecBase"
                BuildableName = "QuickSpecBase.framework"
                BlueprintName = "QuickSpecBase"
-               ReferencedContainer = "container:Harbor.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BrightFutures::BrightFutures"
-               BuildableName = "BrightFutures.framework"
-               BlueprintName = "BrightFutures"
-               ReferencedContainer = "container:Harbor.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Result::Result"
-               BuildableName = "Result.framework"
-               BlueprintName = "Result"
                ReferencedContainer = "container:Harbor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -98,6 +42,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Harbor::Harbor"
+               BuildableName = "Harbor.framework"
+               BlueprintName = "Harbor"
+               ReferencedContainer = "container:Harbor.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Commander::Commander"
                BuildableName = "Commander.framework"
                BlueprintName = "Commander"
@@ -112,9 +70,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Harbor::Harbor"
-               BuildableName = "Harbor.framework"
-               BlueprintName = "Harbor"
+               BlueprintIdentifier = "KeychainAccess::KeychainAccess"
+               BuildableName = "KeychainAccess.framework"
+               BlueprintName = "KeychainAccess"
                ReferencedContainer = "container:Harbor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -140,9 +98,65 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BrightFutures::BrightFutures"
+               BuildableName = "BrightFutures.framework"
+               BlueprintName = "BrightFutures"
+               ReferencedContainer = "container:Harbor.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "Alamofire::Alamofire"
                BuildableName = "Alamofire.framework"
                BlueprintName = "Alamofire"
+               ReferencedContainer = "container:Harbor.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Result::Result"
+               BuildableName = "Result.framework"
+               BlueprintName = "Result"
+               ReferencedContainer = "container:Harbor.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Nimble::Nimble"
+               BuildableName = "Nimble.framework"
+               BlueprintName = "Nimble"
+               ReferencedContainer = "container:Harbor.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Quick::Quick"
+               BuildableName = "Quick.framework"
+               BlueprintName = "Quick"
                ReferencedContainer = "container:Harbor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -181,9 +195,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Nimble::Nimble"
-            BuildableName = "Nimble.framework"
-            BlueprintName = "Nimble"
+            BlueprintIdentifier = "Quick::QuickSpecBase"
+            BuildableName = "QuickSpecBase.framework"
+            BlueprintName = "QuickSpecBase"
             ReferencedContainer = "container:Harbor.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

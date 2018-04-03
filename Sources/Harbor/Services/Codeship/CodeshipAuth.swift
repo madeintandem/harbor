@@ -4,8 +4,8 @@ import BrightFutures
 import SwiftyJSON
 
 final class CodeshipAuth {
-  func call(_ params: Auth.Params) -> Future<Session, Auth.Failure> {
-    guard let headers = buildHeaders(from: params) else {
+  func call(_ credentials: Credentials) -> Future<Session, Auth.Failure> {
+    guard let headers = buildHeaders(from: credentials) else {
       return .init(error: .unauthorized)
     }
 
@@ -16,8 +16,8 @@ final class CodeshipAuth {
   }
 
   // helpers
-  private func buildHeaders(from params: Auth.Params) -> [String: String]? {
-    guard let authorization = encodeAuthorization(from: params) else {
+  private func buildHeaders(from credentials: Credentials) -> [String: String]? {
+    guard let authorization = encodeAuthorization(from: credentials) else {
       return nil
     }
 
@@ -26,8 +26,8 @@ final class CodeshipAuth {
     ]
   }
 
-  private func encodeAuthorization(from params: Auth.Params) -> String? {
-    return "\(params.email):\(params.password)"
+  private func encodeAuthorization(from credentials: Credentials) -> String? {
+    return "\(credentials.email):\(credentials.password)"
       .data(using: .utf8)?
       .base64EncodedString()
   }

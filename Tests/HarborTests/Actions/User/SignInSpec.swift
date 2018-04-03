@@ -18,12 +18,11 @@ class SignInSpec: QuickSpec { override func spec() {
         auth: { _ in .init(value: session) }
       )
 
-      let params = Auth.Params(
+      let response = subject.call(
         email: "test@email.com",
         password: "test-password"
       )
 
-      let response = subject.call(params)
       expect(response.value) === Current.user
     }
   }

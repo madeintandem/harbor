@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
         "state": {
           "branch": null,
-          "revision": "bc973c5311ce3db3f01a9fcde027fb11fa2254bf",
-          "version": "4.6.0"
+          "revision": "10323991876208d196c6d1bf91beeb2ec4383b27",
+          "version": "4.7.1"
         }
       },
       {
@@ -26,6 +26,15 @@
           "branch": null,
           "revision": "e5b50ad7b2e91eeb828393e89b03577b16be7db9",
           "version": "0.8.0"
+        }
+      },
+      {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
+        "state": {
+          "branch": null,
+          "revision": "5f5f8a1a9f802f0a0a7ba58fd2981f08f599134d",
+          "version": "3.1.0"
         }
       },
       {

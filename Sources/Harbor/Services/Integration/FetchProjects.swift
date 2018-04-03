@@ -3,7 +3,7 @@ import BrightFutures
 
 public struct FetchProjects {
   // service
-  public typealias Service
+  typealias Service
     = () -> Future<[Project], Failure>
 
   // output
