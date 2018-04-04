@@ -38,6 +38,8 @@
 		10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE22073E1D00092FE29 /* SignInCurrent.swift */; };
 		10C26AE520740B680092FE29 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE420740B680092FE29 /* Organization.swift */; };
 		10C26AE8207537830092FE29 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE62075372A0092FE29 /* FileStore.swift */; };
+		10C26AEE207570270092FE29 /* DateFormatterExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AEC20756EC60092FE29 /* DateFormatterExt.swift */; };
+		10C26AF1207574740092FE29 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AEF2075742A0092FE29 /* Build.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -373,6 +375,8 @@
 		10C26AE22073E1D00092FE29 /* SignInCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCurrent.swift; sourceTree = "<group>"; };
 		10C26AE420740B680092FE29 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		10C26AE62075372A0092FE29 /* FileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
+		10C26AEC20756EC60092FE29 /* DateFormatterExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExt.swift; sourceTree = "<group>"; };
+		10C26AEF2075742A0092FE29 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -816,6 +820,7 @@
 				OBJ_19 /* Session.swift */,
 				OBJ_20 /* User.swift */,
 				10C26AE420740B680092FE29 /* Organization.swift */,
+				10C26AEF2075742A0092FE29 /* Build.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_22 /* RequestExt.swift */,
+				10C26AEC20756EC60092FE29 /* DateFormatterExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1619,11 +1625,13 @@
 				10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */,
 				OBJ_322 /* ListProjects.swift in Sources */,
 				OBJ_323 /* SignIn.swift in Sources */,
+				10C26AEE207570270092FE29 /* DateFormatterExt.swift in Sources */,
 				OBJ_324 /* Credentials.swift in Sources */,
 				10C26ADD2073DAD10092FE29 /* Store.swift in Sources */,
 				OBJ_325 /* Project.swift in Sources */,
 				OBJ_326 /* Session.swift in Sources */,
 				OBJ_327 /* User.swift in Sources */,
+				10C26AF1207574740092FE29 /* Build.swift in Sources */,
 				10C26AE8207537830092FE29 /* FileStore.swift in Sources */,
 				10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */,
 				OBJ_328 /* RequestExt.swift in Sources */,

@@ -42,7 +42,6 @@ final class CodeshipAuth {
       .base64EncodedString()
   }
 
-
   private func buildDecoder() -> JSONDecoder {
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase

@@ -24,7 +24,7 @@ let package = Package(
       url: "https://github.com/kishikawakatsumi/KeychainAccess.git",
       from: "3.1.0"),
     .package(
-      url: "https://github.com/kylef/Commander",
+      url: "https://github.com/kylef/Commander.git",
       from: "0.8.0"),
     .package(
       url: "https://github.com/Quick/Quick.git",

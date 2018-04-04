@@ -19,7 +19,10 @@ extension User {
     public func call() -> Future<[Project], Failure> {
       return self.fetchProjects()
         .mapError(Failure.fetchProjects)
-        .map { _ in [] }
+        .map { response in
+          return response.projects
+            .map { data in Project(from: data) }
+        }
     }
 
     public enum Failure: Error {
