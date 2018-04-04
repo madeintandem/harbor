@@ -44,7 +44,6 @@ let package = Package(
       name: "Harbor",
       dependencies: [
         "Alamofire",
-        "SwiftyJSON",
         "BrightFutures",
         "KeychainAccess"
       ]),

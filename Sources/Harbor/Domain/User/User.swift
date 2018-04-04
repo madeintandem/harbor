@@ -1,6 +1,4 @@
-import Foundation
-
-public final class User {
+public final class User: Codable {
   private(set) var email: String
   private(set) var session: Session?
   private(set) var organizations: [Organization] = []

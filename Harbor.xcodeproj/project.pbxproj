@@ -37,6 +37,7 @@
 		10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE02073DE0A0092FE29 /* StoreKey.swift */; };
 		10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE22073E1D00092FE29 /* SignInCurrent.swift */; };
 		10C26AE520740B680092FE29 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE420740B680092FE29 /* Organization.swift */; };
+		10C26AE8207537830092FE29 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE62075372A0092FE29 /* FileStore.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -371,6 +372,7 @@
 		10C26AE02073DE0A0092FE29 /* StoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKey.swift; sourceTree = "<group>"; };
 		10C26AE22073E1D00092FE29 /* SignInCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCurrent.swift; sourceTree = "<group>"; };
 		10C26AE420740B680092FE29 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		10C26AE62075372A0092FE29 /* FileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -639,9 +641,10 @@
 		10C26ADB2073DAC20092FE29 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				10C26AE62075372A0092FE29 /* FileStore.swift */,
+				10C26ADE2073DB220092FE29 /* KeychainStore.swift */,
 				10C26ADC2073DAD10092FE29 /* Store.swift */,
 				10C26AE02073DE0A0092FE29 /* StoreKey.swift */,
-				10C26ADE2073DB220092FE29 /* KeychainStore.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -1621,6 +1624,7 @@
 				OBJ_325 /* Project.swift in Sources */,
 				OBJ_326 /* Session.swift in Sources */,
 				OBJ_327 /* User.swift in Sources */,
+				10C26AE8207537830092FE29 /* FileStore.swift in Sources */,
 				10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */,
 				OBJ_328 /* RequestExt.swift in Sources */,
 				OBJ_329 /* Harbor.swift in Sources */,
@@ -2117,7 +2121,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2359,7 +2363,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;

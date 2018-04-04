@@ -1,10 +1,8 @@
 struct Current {
   private var user: User?
-  private var session: Session?
+  private static var shared = Current()
 
   // static interface
-  static var shared = Current()
-
   static var user: User? {
     get {
       return shared.user

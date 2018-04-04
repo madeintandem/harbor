@@ -6,6 +6,8 @@ struct Session: Equatable, Codable {
 
   // accessors
   var isActive: Bool {
-    get { return expiresAt.timeIntervalSinceNow > 0 }
+    get {
+      return expiresAt.timeIntervalSinceNow > 0
+    }
   }
 }

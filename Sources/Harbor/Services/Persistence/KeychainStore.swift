@@ -6,7 +6,7 @@ final class KeychainStore: Store {
   private let encoder  = JSONEncoder()
   private let decoder  = JSONDecoder()
 
-  func save<T>(entity: T, as key: StoreKey) -> Bool where T: Encodable {
+  func save<T>(_ entity: T, as key: StoreKey) -> Bool where T: Encodable {
     guard let json = try? encoder.encode(entity) else {
       return false
     }
@@ -20,7 +20,7 @@ final class KeychainStore: Store {
     return true
   }
 
-  func load<T>(type: T.Type, key: StoreKey) -> T? where T: Decodable {
+  func load<T>(_ type: T.Type, key: StoreKey) -> T? where T: Decodable {
     guard
       let payload = try? keychain.getData(key.rawValue),
       let data = payload

@@ -3,24 +3,28 @@ import BrightFutures
 extension User {
   public final class SignInCurrent {
     private let users: UserRepo
-    private let store: Store
+    private let dataStore: Store
+    private let secureStore: Store
     private let signIn: AnySignIn
 
     public convenience init() {
       self.init(
         users: UserRepo(),
-        store: KeychainStore(),
+        dataStore: FileStore(),
+        secureStore: KeychainStore(),
         signIn: SignIn().call
       )
     }
 
     init(
       users: UserRepo,
-      store: Store,
+      dataStore: Store,
+      secureStore: Store,
       signIn: @escaping AnySignIn
     ) {
       self.users = users
-      self.store = store
+      self.dataStore = dataStore
+      self.secureStore = secureStore
       self.signIn = signIn
     }
 
@@ -31,14 +35,15 @@ extension User {
 
       // fail if no credentials
       guard
-        let credentials = store.load(type: Credentials.self, key: .credentials)
+        let credentials = secureStore.load(Credentials.self, key: .credentials)
         else {
           return .init(error: .noCredentials)
         }
 
       // re-auth if session is invalid
       guard
-        let session = store.load(type: Session.self, key: .session),
+        let user = dataStore.load(User.self, key: .user),
+        let session = user.session,
         session.isActive
         else {
           return self
@@ -46,9 +51,7 @@ extension User {
             .mapError(Failure.signIn)
         }
 
-      // otherwise, restore user with an active session and "sign-in"
-      let user = User(email: credentials.email)
-      user.signIn(session, [])
+      // otherwise, just set the current user
       Current.user = user
 
       return .init(value: user)

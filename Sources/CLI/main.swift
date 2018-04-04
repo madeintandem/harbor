@@ -2,10 +2,7 @@ import Foundation
 import Commander
 import Harbor
 
-struct NoError: Error {
-}
-
-let main = Group {
+let cli = Group {
   $0.command(
     "sign-in",
     Argument<String>("email", description: "Your Codeship e-mail"),
@@ -49,4 +46,4 @@ let main = Group {
   }
 }
 
-main.run()
+cli.run()

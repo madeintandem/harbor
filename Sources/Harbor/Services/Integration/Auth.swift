@@ -22,6 +22,11 @@ struct Auth {
     struct Organization: Decodable {
       let id: String
       let name: String
+
+      enum CodingKeys: String, CodingKey {
+        case id = "uuid"
+        case name
+      }
     }
   }
 }

@@ -6,18 +6,25 @@ extension User {
 
   public final class SignIn {
     private let auth: Auth.Service
-    private let store: Store
+    private let dataStore: Store
+    private let secureStore: Store
 
     public convenience init() {
       self.init(
         auth: CodeshipAuth().call,
-        store: KeychainStore()
+        dataStore: FileStore(),
+        secureStore: KeychainStore()
       )
     }
 
-    init(auth: @escaping Auth.Service, store: Store) {
+    init(
+      auth: @escaping Auth.Service,
+      dataStore: Store,
+      secureStore: Store
+    ) {
       self.auth = auth
-      self.store = store
+      self.dataStore = dataStore
+      self.secureStore = secureStore
     }
 
     public func call(email: String, password: String) -> Future<User, Failure> {
@@ -29,7 +36,9 @@ extension User {
       return auth(credentials)
         .mapError(Failure.auth)
         .map { response in
-          let user = User(email: credentials.email)
+          let user = User(
+            email: credentials.email
+          )
 
           user.signIn(
             self.session(from: response),
@@ -41,8 +50,8 @@ extension User {
         .onSuccess { user in
           Current.user = user
 
-          self.store.save(entity: credentials, as: .credentials)
-          self.store.save(entity: user.session!, as: .session)
+          self.dataStore.save(user, as: .user)
+          self.secureStore.save(credentials, as: .credentials)
         }
     }
 
