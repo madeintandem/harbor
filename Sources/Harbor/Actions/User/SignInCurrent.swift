@@ -1,15 +1,12 @@
 import BrightFutures
 
 extension User {
-  typealias AnySignInCurrent
-    = () -> Future<User, SignInCurrent.Failure>
-
-  final class SignInCurrent {
+  public final class SignInCurrent {
     private let users: UserRepo
     private let store: Store
     private let signIn: AnySignIn
 
-    convenience init() {
+    public convenience init() {
       self.init(
         users: UserRepo(),
         store: KeychainStore(),
@@ -27,7 +24,7 @@ extension User {
       self.signIn = signIn
     }
 
-    func call() -> Future<User, Failure> {
+    public func call() -> Future<User, Failure> {
       if let user = users.current {
         return .init(value: user)
       }
@@ -51,13 +48,13 @@ extension User {
 
       // otherwise, restore user with an active session and "sign-in"
       let user = User(email: credentials.email)
-      user.signIn(with: session)
+      user.signIn(session, [])
       Current.user = user
 
       return .init(value: user)
     }
 
-    enum Failure: Error {
+    public enum Failure: Error {
       case noCredentials
       case signIn(Error)
     }

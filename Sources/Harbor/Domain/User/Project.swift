@@ -1,4 +1,4 @@
-public final class Project {
-  public final class Build {
+public final class Project: Codable {
+  public final class Build: Codable {
   }
 }

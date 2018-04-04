@@ -2,6 +2,9 @@ import Foundation
 import Commander
 import Harbor
 
+struct NoError: Error {
+}
+
 let main = Group {
   $0.command(
     "sign-in",
@@ -26,13 +29,20 @@ let main = Group {
   $0.command(
     "projects"
   ) {
-    User.ListProjects()
+    User.SignInCurrent()
       .call()
-      .onSuccess { projects in
-        print("projects: \(projects)")
-      }
       .onFailure { error in
-        print("failued to list projects: \(error)")
+        print("failed to sign-in: \(error)")
+      }
+      .onSuccess { _ in
+        User.ListProjects()
+          .call()
+          .onSuccess { projects in
+            print("projects: \(projects)")
+          }
+          .onFailure { error in
+            print("failed to list projects: \(error)")
+          }
       }
 
     CFRunLoopRun()

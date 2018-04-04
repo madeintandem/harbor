@@ -1,19 +1,29 @@
+import Foundation
 import Alamofire
 import BrightFutures
 import SwiftyJSON
 
 struct NetworkError: Error {
   let statusCode: Int
-  let json: JSON
+  let response: String?
 }
 
 extension DataRequest {
-  func responseJson<E>(onError: @escaping (Error) -> E) -> Future<JSON, E> {
+  func decodedResponse<R, E>(
+    _ type: R.Type,
+    onError: @escaping (Error) -> E,
+    decoder: JSONDecoder = JSONDecoder()
+  ) -> Future<R, E> where R: Decodable, E: Error {
+    let serializer = ResponseSerializers.decodable(
+      type: type,
+      decoder: decoder
+    )
+
     return Future { complete in
-      self.response(responseSerializer: ResponseSerializers.Json) { response in
+      self.response(responseSerializer: serializer) { response in
         switch response.result {
-          case .success(let data):
-            complete(.success(data))
+          case .success(let decoded):
+            complete(.success(decoded))
           case .failure(let error):
             complete(.failure(onError(error)))
         }
@@ -23,30 +33,56 @@ extension DataRequest {
 }
 
 private struct ResponseSerializers {
-  static let Json = DataResponseSerializer<JSON> { request, response, data, error in
-    if let error = error {
-      return .failure(error)
-    }
+  static func decodable<T: Decodable>(
+    type: T.Type,
+    decoder: JSONDecoder
+  ) -> DataResponseSerializer<T> {
+    return DataResponseSerializer { request, response, data, error in
+      if let error = error {
+        return .failure(error)
+      }
 
-    guard let response = response else {
-      return .failure(AFError.responseSerializationFailed(reason: .inputDataNil))
-    }
+      // fail if there is no data
+      guard
+        let response = response,
+        let data = data, data.count > 0
+        else {
+          return .failure(serializationFailed(.inputDataNilOrZeroLength))
+        }
 
-    guard let data = data, data.count > 0 else {
-      return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
-    }
+      // fail if the status code is in the error range
+      guard
+        response.statusCode < 400
+        else {
+          return .failure(requestFailed(response, data))
+        }
 
-    let json: JSON
-    do {
-      json = try JSON(data: data)
-    } catch {
-      return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: error)))
-    }
+      // try to deserialize the data
+      let decodable: T
+      do {
+        decodable = try decoder.decode(type, from: data)
+      } catch {
+        return .failure(serializationFailed(.jsonSerializationFailed(error: error)))
+      }
 
-    guard response.statusCode < 400 else {
-      return .failure(NetworkError(statusCode: response.statusCode, json: json))
+      return .success(decodable)
     }
+  }
 
-    return .success(json)
+  // helpers
+  static func requestFailed(
+    _ response: HTTPURLResponse,
+    _ data: Data
+  ) -> Error {
+    return NetworkError(
+      statusCode: response.statusCode,
+      response: String(data: data, encoding: .utf8)
+    )
+  }
+
+  static func serializationFailed(
+    _ reason: AFError.ResponseSerializationFailureReason
+  ) -> Error {
+    return AFError.responseSerializationFailed(reason: reason)
   }
 }

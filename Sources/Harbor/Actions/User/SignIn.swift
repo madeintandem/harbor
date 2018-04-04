@@ -28,9 +28,14 @@ extension User {
 
       return auth(credentials)
         .mapError(Failure.auth)
-        .map { session in
+        .map { response in
           let user = User(email: credentials.email)
-          user.signIn(with: session)
+
+          user.signIn(
+            self.session(from: response),
+            self.organizations(from: response)
+          )
+
           return user
         }
         .onSuccess { user in
@@ -41,6 +46,20 @@ extension User {
         }
     }
 
+    // helpers
+    private func session(from response: Auth.Response) -> Session {
+      return Session(
+        accessToken: response.accessToken,
+        expiresAt:   response.expiresAt
+      )
+    }
+
+    private func organizations(from response: Auth.Response) -> [Organization] {
+      return response.organizations
+        .map { org in Organization(id: org.id) }
+    }
+
+    // failure
     public enum Failure: Error {
       case auth(Error)
     }

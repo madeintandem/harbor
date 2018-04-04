@@ -1,13 +1,16 @@
-public final class User {
-  private(set) var email: String?
-  private(set) var session: Session?
-  private(set) var projects: [Project] = []
+import Foundation
 
-  init(email: String?) {
+public final class User {
+  private(set) var email: String
+  private(set) var session: Session?
+  private(set) var organizations: [Organization] = []
+
+  init(email: String) {
     self.email = email
   }
 
-  func signIn(with session: Session) {
+  func signIn(_ session: Session, _ organizations: [Organization]) {
     self.session = session
+    self.organizations = organizations
   }
 }

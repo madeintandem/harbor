@@ -1,5 +1,6 @@
 struct Current {
   private var user: User?
+  private var session: Session?
 
   // static interface
   static var shared = Current()

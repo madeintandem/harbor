@@ -1,13 +1,17 @@
 import Alamofire
 import BrightFutures
 
-public struct FetchProjects {
+struct FetchProjects {
   // service
   typealias Service
-    = () -> Future<[Project], Failure>
+    = () -> Future<Response, Failure>
 
   // output
-  public enum Failure: Error {
-    case network(Error?)
+  enum Failure: Error {
+    case notAuthenticated
+    case network(Error)
+  }
+
+  struct Response: Decodable {
   }
 }

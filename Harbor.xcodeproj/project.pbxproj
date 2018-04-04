@@ -36,6 +36,7 @@
 		10C26ADF2073DB220092FE29 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26ADE2073DB220092FE29 /* KeychainStore.swift */; };
 		10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE02073DE0A0092FE29 /* StoreKey.swift */; };
 		10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE22073E1D00092FE29 /* SignInCurrent.swift */; };
+		10C26AE520740B680092FE29 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE420740B680092FE29 /* Organization.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -78,7 +79,6 @@
 		OBJ_282 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "KeychainAccess::KeychainAccess::Product" /* KeychainAccess.framework */; };
 		OBJ_283 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BrightFutures::BrightFutures::Product" /* BrightFutures.framework */; };
 		OBJ_284 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Result::Result::Product" /* Result.framework */; };
-		OBJ_285 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */; };
 		OBJ_286 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Alamofire::Alamofire::Product" /* Alamofire.framework */; };
 		OBJ_302 /* ArgumentConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* ArgumentConvertible.swift */; };
 		OBJ_303 /* ArgumentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* ArgumentDescription.swift */; };
@@ -108,7 +108,6 @@
 		OBJ_338 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "KeychainAccess::KeychainAccess::Product" /* KeychainAccess.framework */; };
 		OBJ_339 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BrightFutures::BrightFutures::Product" /* BrightFutures.framework */; };
 		OBJ_340 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Result::Result::Product" /* Result.framework */; };
-		OBJ_341 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */; };
 		OBJ_342 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Alamofire::Alamofire::Product" /* Alamofire.framework */; };
 		OBJ_358 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_369 /* ListProjectsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* ListProjectsSpec.swift */; };
@@ -124,7 +123,6 @@
 		OBJ_380 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "KeychainAccess::KeychainAccess::Product" /* KeychainAccess.framework */; };
 		OBJ_381 /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "BrightFutures::BrightFutures::Product" /* BrightFutures.framework */; };
 		OBJ_382 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Result::Result::Product" /* Result.framework */; };
-		OBJ_383 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */; };
 		OBJ_384 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Alamofire::Alamofire::Product" /* Alamofire.framework */; };
 		OBJ_401 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_153 /* Keychain.swift */; };
 		OBJ_408 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_152 /* Package.swift */; };
@@ -208,8 +206,6 @@
 		OBJ_516 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_175 /* Result.swift */; };
 		OBJ_517 /* ResultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_176 /* ResultProtocol.swift */; };
 		OBJ_524 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_177 /* Package.swift */; };
-		OBJ_529 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_180 /* SwiftyJSON.swift */; };
-		OBJ_536 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_179 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,13 +251,6 @@
 			remoteGlobalIDString = "Result::Result";
 			remoteInfo = Result;
 		};
-		10C26AC02073D64D0092FE29 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "SwiftyJSON::SwiftyJSON";
-			remoteInfo = SwiftyJSON;
-		};
 		10C26AC12073D64D0092FE29 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -289,13 +278,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = "Result::Result";
 			remoteInfo = Result;
-		};
-		10C26AC52073D64D0092FE29 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "SwiftyJSON::SwiftyJSON";
-			remoteInfo = SwiftyJSON;
 		};
 		10C26AC62073D64D0092FE29 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -360,13 +342,6 @@
 			remoteGlobalIDString = "Result::Result";
 			remoteInfo = Result;
 		};
-		10C26ACF2073D64D0092FE29 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "SwiftyJSON::SwiftyJSON";
-			remoteInfo = SwiftyJSON;
-		};
 		10C26AD02073D64D0092FE29 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
@@ -395,12 +370,13 @@
 		10C26ADE2073DB220092FE29 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		10C26AE02073DE0A0092FE29 /* StoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKey.swift; sourceTree = "<group>"; };
 		10C26AE22073E1D00092FE29 /* SignInCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCurrent.swift; sourceTree = "<group>"; };
+		10C26AE420740B680092FE29 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Harbor::CLI::Product" /* CLI */ = {isa = PBXFileReference; lastKnownFileType = text; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Harbor::Harbor::Product" /* Harbor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Harbor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Harbor::HarborTests::Product" /* HarborTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Harbor::HarborTests::Product" /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"KeychainAccess::KeychainAccess::Product" /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_101 /* AllPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPass.swift; sourceTree = "<group>"; };
@@ -475,9 +451,7 @@
 		OBJ_175 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		OBJ_176 /* ResultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProtocol.swift; sourceTree = "<group>"; };
 		OBJ_177 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ty/Projects/harbor/repo/.build/checkouts/Result.git-8684547452332391156/Package.swift"; sourceTree = "<group>"; };
-		OBJ_179 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ty/Projects/harbor/repo/.build/checkouts/SwiftyJSON.git-3043514560129222422/Package.swift"; sourceTree = "<group>"; };
 		OBJ_18 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		OBJ_180 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		OBJ_182 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ty/Projects/harbor/repo/.build/checkouts/Alamofire.git-6801331143877184500/Package.swift"; sourceTree = "<group>"; };
 		OBJ_183 /* AFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFError.swift; sourceTree = "<group>"; };
 		OBJ_184 /* Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
@@ -559,7 +533,6 @@
 		"Quick::Quick::Product" /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSpecBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Result::Result::Product" /* Result.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Result.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -587,7 +560,6 @@
 				OBJ_282 /* KeychainAccess.framework in Frameworks */,
 				OBJ_283 /* BrightFutures.framework in Frameworks */,
 				OBJ_284 /* Result.framework in Frameworks */,
-				OBJ_285 /* SwiftyJSON.framework in Frameworks */,
 				OBJ_286 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,7 +578,6 @@
 				OBJ_338 /* KeychainAccess.framework in Frameworks */,
 				OBJ_339 /* BrightFutures.framework in Frameworks */,
 				OBJ_340 /* Result.framework in Frameworks */,
-				OBJ_341 /* SwiftyJSON.framework in Frameworks */,
 				OBJ_342 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,7 +593,6 @@
 				OBJ_380 /* KeychainAccess.framework in Frameworks */,
 				OBJ_381 /* BrightFutures.framework in Frameworks */,
 				OBJ_382 /* Result.framework in Frameworks */,
-				OBJ_383 /* SwiftyJSON.framework in Frameworks */,
 				OBJ_384 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,13 +627,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		OBJ_518 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_530 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
@@ -849,6 +812,7 @@
 				OBJ_18 /* Project.swift */,
 				OBJ_19 /* Session.swift */,
 				OBJ_20 /* User.swift */,
+				10C26AE420740B680092FE29 /* Organization.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -870,16 +834,6 @@
 			);
 			name = Result;
 			path = ".build/checkouts/Result.git-8684547452332391156/Result";
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_178 /* SwiftyJSON 4.0.0 */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_179 /* Package.swift */,
-				OBJ_180 /* SwiftyJSON.swift */,
-			);
-			name = "SwiftyJSON 4.0.0";
-			path = ".build/checkouts/SwiftyJSON.git-3043514560129222422/Source";
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_181 /* Alamofire 4.7.1 */ = {
@@ -917,7 +871,6 @@
 				"Harbor::Harbor::Product" /* Harbor.framework */,
 				"Commander::Commander::Product" /* Commander.framework */,
 				"KeychainAccess::KeychainAccess::Product" /* KeychainAccess.framework */,
-				"SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */,
 				"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */,
 				"Alamofire::Alamofire::Product" /* Alamofire.framework */,
 				"Result::Result::Product" /* Result.framework */,
@@ -1036,7 +989,6 @@
 				OBJ_151 /* KeychainAccess 3.1.0 */,
 				OBJ_154 /* BrightFutures 6.0.1 */,
 				OBJ_173 /* Result 3.2.4 */,
-				OBJ_178 /* SwiftyJSON 4.0.0 */,
 				OBJ_181 /* Alamofire 4.7.1 */,
 			);
 			name = Dependencies;
@@ -1062,7 +1014,7 @@
 			path = ".build/checkouts/Quick.git-2733117082000052066/Sources/QuickSpecBase";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1071,7 +1023,6 @@
 				OBJ_47 /* Dependencies */,
 				OBJ_200 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_51 /* include */ = {
@@ -1314,7 +1265,6 @@
 				OBJ_291 /* PBXTargetDependency */,
 				OBJ_293 /* PBXTargetDependency */,
 				OBJ_294 /* PBXTargetDependency */,
-				OBJ_295 /* PBXTargetDependency */,
 				OBJ_297 /* PBXTargetDependency */,
 			);
 			name = CLI;
@@ -1335,7 +1285,6 @@
 				OBJ_343 /* PBXTargetDependency */,
 				OBJ_344 /* PBXTargetDependency */,
 				OBJ_345 /* PBXTargetDependency */,
-				OBJ_346 /* PBXTargetDependency */,
 				OBJ_347 /* PBXTargetDependency */,
 			);
 			name = Harbor;
@@ -1360,7 +1309,6 @@
 				OBJ_392 /* PBXTargetDependency */,
 				OBJ_393 /* PBXTargetDependency */,
 				OBJ_394 /* PBXTargetDependency */,
-				OBJ_395 /* PBXTargetDependency */,
 				OBJ_396 /* PBXTargetDependency */,
 			);
 			name = HarborTests;
@@ -1519,36 +1467,6 @@
 			productName = ResultPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
-		"SwiftyJSON::SwiftPMPackageDescription" /* SwiftyJSONPackageDescription */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_532 /* Build configuration list for PBXNativeTarget "SwiftyJSONPackageDescription" */;
-			buildPhases = (
-				OBJ_535 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftyJSONPackageDescription;
-			productName = SwiftyJSONPackageDescription;
-			productType = "com.apple.product-type.framework";
-		};
-		"SwiftyJSON::SwiftyJSON" /* SwiftyJSON */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_525 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
-			buildPhases = (
-				OBJ_528 /* Sources */,
-				OBJ_530 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftyJSON;
-			productName = SwiftyJSON;
-			productReference = "SwiftyJSON::SwiftyJSON::Product" /* SwiftyJSON.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1564,7 +1482,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_200 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1590,8 +1508,6 @@
 				"Quick::QuickSpecBase" /* QuickSpecBase */,
 				"Result::Result" /* Result */,
 				"Result::SwiftPMPackageDescription" /* ResultPackageDescription */,
-				"SwiftyJSON::SwiftyJSON" /* SwiftyJSON */,
-				"SwiftyJSON::SwiftPMPackageDescription" /* SwiftyJSONPackageDescription */,
 			);
 		};
 /* End PBXProject section */
@@ -1714,6 +1630,7 @@
 				OBJ_333 /* CodeshipUrl.swift in Sources */,
 				OBJ_334 /* Current.swift in Sources */,
 				OBJ_335 /* Auth.swift in Sources */,
+				10C26AE520740B680092FE29 /* Organization.swift in Sources */,
 				OBJ_336 /* FetchProjects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1883,22 +1800,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_528 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_529 /* SwiftyJSON.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		OBJ_535 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_536 /* Package.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1932,11 +1833,6 @@
 			target = "Result::Result" /* Result */;
 			targetProxy = 10C26AC42073D64D0092FE29 /* PBXContainerItemProxy */;
 		};
-		OBJ_295 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "SwiftyJSON::SwiftyJSON" /* SwiftyJSON */;
-			targetProxy = 10C26AC52073D64D0092FE29 /* PBXContainerItemProxy */;
-		};
 		OBJ_297 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Alamofire::Alamofire" /* Alamofire */;
@@ -1956,11 +1852,6 @@
 			isa = PBXTargetDependency;
 			target = "Result::Result" /* Result */;
 			targetProxy = 10C26ABF2073D64D0092FE29 /* PBXContainerItemProxy */;
-		};
-		OBJ_346 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "SwiftyJSON::SwiftyJSON" /* SwiftyJSON */;
-			targetProxy = 10C26AC02073D64D0092FE29 /* PBXContainerItemProxy */;
 		};
 		OBJ_347 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2011,11 +1902,6 @@
 			isa = PBXTargetDependency;
 			target = "Result::Result" /* Result */;
 			targetProxy = 10C26ACE2073D64D0092FE29 /* PBXContainerItemProxy */;
-		};
-		OBJ_395 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "SwiftyJSON::SwiftyJSON" /* SwiftyJSON */;
-			targetProxy = 10C26ACF2073D64D0092FE29 /* PBXContainerItemProxy */;
 		};
 		OBJ_396 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2754,70 +2640,6 @@
 			};
 			name = Release;
 		};
-		OBJ_526 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Harbor.xcodeproj/SwiftyJSON_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwiftyJSON;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGET_NAME = SwiftyJSON;
-			};
-			name = Debug;
-		};
-		OBJ_527 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Harbor.xcodeproj/SwiftyJSON_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = SwiftyJSON;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGET_NAME = SwiftyJSON;
-			};
-			name = Release;
-		};
-		OBJ_533 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		OBJ_534 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 3 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/3 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3015,24 +2837,6 @@
 			buildConfigurations = (
 				OBJ_521 /* Debug */,
 				OBJ_522 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_525 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_526 /* Debug */,
-				OBJ_527 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_532 /* Build configuration list for PBXNativeTarget "SwiftyJSONPackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_533 /* Debug */,
-				OBJ_534 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

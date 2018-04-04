@@ -18,9 +18,6 @@ let package = Package(
       url: "https://github.com/Alamofire/Alamofire.git",
       from: "4.6.0"),
     .package(
-      url: "https://github.com/SwiftyJSON/SwiftyJSON.git",
-      from: "4.0.0"),
-    .package(
       url: "https://github.com/Thomvis/BrightFutures.git",
       from: "6.0.1"),
     .package(

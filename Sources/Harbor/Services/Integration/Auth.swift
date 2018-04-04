@@ -1,14 +1,27 @@
+import Foundation
 import BrightFutures
 
-public struct Auth {
+struct Auth {
   // service
   typealias Service =
-    (_ params: Credentials) -> Future<Session, Failure>
+    (_ params: Credentials) -> Future<Response, Failure>
 
   // output
-  public enum Failure: Error {
-    case network(Error?)
+  enum Failure: Error {
     case unauthorized
     case invalidSessionData
+    case network(Error)
+  }
+
+  struct Response: Decodable {
+    let accessToken: String
+    let expiresAt: Date
+    let organizations: [Organization]
+
+    // children
+    struct Organization: Decodable {
+      let id: String
+      let name: String
+    }
   }
 }
