@@ -3,23 +3,16 @@ import Alamofire
 import BrightFutures
 
 final class CodeshipFetchProjects {
-  func call() -> Future<FetchProjects.Response, FetchProjects.Failure> {
+  func call(organization: Organization) -> Future<FetchProjects.Response, FetchProjects.Failure> {
     // TODO: SignInCurrent should handle setting the session before
     // this call. do we think it's okay to force unwrap here?
-    guard
-      let user = Current.user,
-      let session = user.session
-      else {
-        return .init(error: .notAuthenticated)
-      }
-
-    guard let organization = user.organizations.first else {
-      return .init(error: .noOrganization)
+    guard let session = Current.user?.session else {
+      return .init(error: .unauthenticated)
     }
 
     return Alamofire
       .request(
-        CodeshipUrl.projects(organization.id),
+        CodeshipUrl.projects(organization),
         headers: buildHeaders(from: session)
       )
       .decodedResponse(

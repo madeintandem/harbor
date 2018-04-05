@@ -5,12 +5,11 @@ import BrightFutures
 struct FetchProjects {
   // service
   typealias Service
-    = () -> Future<Response, Failure>
+    = (Organization) -> Future<Response, Failure>
 
   // output
   enum Failure: Error {
-    case notAuthenticated
-    case noOrganization
+    case unauthenticated
     case network(Error)
   }
 
