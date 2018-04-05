@@ -39,13 +39,14 @@ let package = Package(
       dependencies: [
         "Harbor",
         "Commander",
+        "BrightFutures",
       ]),
     .target(
       name: "Harbor",
       dependencies: [
         "Alamofire",
         "BrightFutures",
-        "KeychainAccess"
+        "KeychainAccess",
       ]),
     .testTarget(
       name: "HarborTests",

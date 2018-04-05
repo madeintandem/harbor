@@ -1,6 +1,7 @@
 import Foundation
 import Commander
 import Harbor
+import BrightFutures
 
 let cli = Group {
   $0.command(
@@ -26,21 +27,21 @@ let cli = Group {
   $0.command(
     "projects"
   ) {
-    User.SignInCurrent()
-      .call()
-      .onFailure { error in
-        print("failed to sign-in: \(error)")
-      }
-      .onSuccess { _ in
-        User.ListProjects()
-          .call()
-          .onSuccess { projects in
-            print("projects: \(projects)")
-          }
-          .onFailure { error in
-            print("failed to list projects: \(error)")
-          }
-      }
+    let operation = AnyFuture.serially(
+      User.SignInCurrent()
+        .call()
+        .anytyped(),
+      User.ListProjects()
+        .call()
+        .onSuccess { projects in
+          print("projects: \(projects)")
+        }
+        .anytyped()
+      )
+
+    operation.onFailure { error in
+      print("failed to list projects: \(error)")
+    }
 
     CFRunLoopRun()
   }
