@@ -41,6 +41,8 @@
 		10C26AEE207570270092FE29 /* DateFormatterExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AEC20756EC60092FE29 /* DateFormatterExt.swift */; };
 		10C26AF1207574740092FE29 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AEF2075742A0092FE29 /* Build.swift */; };
 		10C26AF320766EAE0092FE29 /* FutureExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AF220766EAE0092FE29 /* FutureExt.swift */; };
+		10C26AF52076B1710092FE29 /* FetchBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AF42076B1710092FE29 /* FetchBuilds.swift */; };
+		10C26AF72076B2670092FE29 /* CodeshipFetchBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -379,6 +381,8 @@
 		10C26AEC20756EC60092FE29 /* DateFormatterExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExt.swift; sourceTree = "<group>"; };
 		10C26AEF2075742A0092FE29 /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		10C26AF220766EAE0092FE29 /* FutureExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureExt.swift; sourceTree = "<group>"; };
+		10C26AF42076B1710092FE29 /* FetchBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBuilds.swift; sourceTree = "<group>"; };
+		10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeshipFetchBuilds.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -923,6 +927,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_28 /* CodeshipAuth.swift */,
+				10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */,
 				OBJ_29 /* CodeshipFetchProjects.swift */,
 				OBJ_30 /* CodeshipUrl.swift */,
 			);
@@ -933,6 +938,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_33 /* Auth.swift */,
+				10C26AF42076B1710092FE29 /* FetchBuilds.swift */,
 				OBJ_34 /* FetchProjects.swift */,
 			);
 			path = Integration;
@@ -1628,6 +1634,7 @@
 				10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */,
 				OBJ_322 /* ListProjects.swift in Sources */,
 				OBJ_323 /* SignIn.swift in Sources */,
+				10C26AF72076B2670092FE29 /* CodeshipFetchBuilds.swift in Sources */,
 				10C26AEE207570270092FE29 /* DateFormatterExt.swift in Sources */,
 				OBJ_324 /* Credentials.swift in Sources */,
 				10C26ADD2073DAD10092FE29 /* Store.swift in Sources */,
@@ -1642,6 +1649,7 @@
 				OBJ_330 /* UserRepo.swift in Sources */,
 				OBJ_331 /* CodeshipAuth.swift in Sources */,
 				OBJ_332 /* CodeshipFetchProjects.swift in Sources */,
+				10C26AF52076B1710092FE29 /* FetchBuilds.swift in Sources */,
 				OBJ_333 /* CodeshipUrl.swift in Sources */,
 				OBJ_334 /* Current.swift in Sources */,
 				OBJ_335 /* Auth.swift in Sources */,

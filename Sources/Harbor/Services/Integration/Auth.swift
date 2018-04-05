@@ -18,15 +18,9 @@ struct Auth {
     let expiresAt: Date
     let organizations: [Organization]
 
-    // children
     struct Organization: Decodable {
-      let id: String
+      let uuid: String
       let name: String
-
-      enum CodingKeys: String, CodingKey {
-        case id = "uuid"
-        case name
-      }
     }
   }
 }

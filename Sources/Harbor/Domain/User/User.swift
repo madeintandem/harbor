@@ -1,9 +1,9 @@
 public final class User: Codable {
-  private(set) var email: String
+  let email: String
   private(set) var session: Session?
   private(set) var organizations: [Organization] = []
 
-  init(email: String) {
+  init(_ email: String) {
     self.email = email
   }
 

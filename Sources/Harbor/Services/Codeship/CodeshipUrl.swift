@@ -4,6 +4,7 @@ import Alamofire
 enum CodeshipUrl {
   case auth
   case projects(Organization)
+  case builds(Organization, Project)
 }
 
 extension CodeshipUrl: URLConvertible {
@@ -17,6 +18,8 @@ extension CodeshipUrl: URLConvertible {
         return "/auth"
       case .projects(let org):
         return "/organizations/\(org.id)/projects"
+      case .builds(let org, let project):
+        return "/organizations/\(org.id)/projects/\(project.id)/builds"
     }
   }
 }

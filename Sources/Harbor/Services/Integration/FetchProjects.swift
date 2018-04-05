@@ -17,19 +17,11 @@ struct FetchProjects {
     let projects: [Project]
 
     struct Project: Decodable {
-      let id: String
+      let uuid: String
       let name: String
       let repositoryUrl: String
       let createdAt: Date
       let updatedAt: Date
-
-      enum CodingKeys: String, CodingKey {
-        case id = "uuid"
-        case name
-        case repositoryUrl
-        case createdAt
-        case updatedAt
-      }
     }
   }
 }

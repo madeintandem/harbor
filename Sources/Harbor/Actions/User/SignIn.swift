@@ -36,13 +36,11 @@ extension User {
       return auth(credentials)
         .mapError(Failure.auth)
         .map { response in
-          let user = User(
-            email: credentials.email
-          )
+          let user = User(credentials.email)
 
           user.signIn(
-            self.session(from: response),
-            self.organizations(from: response)
+            Session.fromJson(response),
+            Organization.fromJson(response.organizations)
           )
 
           return user
@@ -53,19 +51,6 @@ extension User {
           self.dataStore.save(user, as: .user)
           self.secureStore.save(credentials, as: .credentials)
         }
-    }
-
-    // helpers
-    private func session(from response: Auth.Response) -> Session {
-      return Session(
-        accessToken: response.accessToken,
-        expiresAt:   response.expiresAt
-      )
-    }
-
-    private func organizations(from response: Auth.Response) -> [Organization] {
-      return response.organizations
-        .map { org in Organization(id: org.id) }
     }
 
     // failure
