@@ -1,6 +1,7 @@
 public final class Organization: Codable {
   let id: String
-  private(set) var projects: [Project] = []
+  
+  public private(set) var projects: [Project] = []
 
   init(_ id: String) {
     self.id = id

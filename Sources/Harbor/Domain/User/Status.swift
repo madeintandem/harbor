@@ -1,4 +1,4 @@
-enum Status: String, Codable {
+public enum Status: String, Codable {
   case passed   = "passed"
   case failed   = "failed"
   case building = "building"

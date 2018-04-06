@@ -1,8 +1,9 @@
 public final class Build: Codable {
   let id: String
-  private(set) var url    = ""
-  private(set) var status = Status.unknown
-  private(set) var commit = Commit.zero
+  
+  public private(set) var url    = ""
+  public private(set) var status = Status.unknown
+  public private(set) var commit = Commit.zero
 
   init(_ id: String) {
     self.id = id

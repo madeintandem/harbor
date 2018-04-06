@@ -14,7 +14,7 @@ let cli = Group {
         email: email,
         password: password
       )
-      .onSuccess { _ in
+      .onSuccess { user in
         print("signed in!")
       }
       .onFailure { error in

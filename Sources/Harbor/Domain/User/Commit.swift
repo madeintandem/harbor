@@ -1,7 +1,7 @@
-struct Commit: Codable {
-  let sha: String
-  let username: String
-  let message: String
+public struct Commit: Codable {
+  public let sha: String
+  public let username: String
+  public let message: String
 }
 
 extension Commit {

@@ -1,8 +1,9 @@
 public final class Project: Codable {
   let id: String
-  private(set) var name:   String = ""
-  private(set) var url:    String = ""
-  private(set) var builds: [Build] = []
+  
+  public private(set) var name:   String = ""
+  public private(set) var url:    String = ""
+  public private(set) var builds: [Build] = []
 
   init(_ id: String) {
     self.id = id
@@ -10,12 +11,6 @@ public final class Project: Codable {
 
   var status: Status {
     return builds.last?.status ?? .unknown
-  }
-}
-
-extension Project: CustomStringConvertible {
-  public var description: String {
-    return name
   }
 }
 
