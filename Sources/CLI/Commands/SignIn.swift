@@ -16,6 +16,9 @@ struct SignIn {
       .onFailure { error in
         Ui.error("sign in failed: \(error)")
       }
+      .onComplete { _ in
+        CFRunLoopStop(CFRunLoopGetCurrent())
+      }
 
     CFRunLoopRun()
   }

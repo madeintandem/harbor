@@ -15,10 +15,14 @@ struct Projects {
         .anytyped()
     )
 
-    operation.onFailure { error in
-      Ui.error("failed to list projects: \(error)")
-    }
-
+    operation
+      .onFailure { error in
+        Ui.error("failed to list projects: \(error)")
+      }
+      .onComplete { _ in
+        CFRunLoopStop(CFRunLoopGetCurrent())
+      }
+    
     CFRunLoopRun()
   }
 
