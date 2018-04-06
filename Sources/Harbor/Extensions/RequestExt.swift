@@ -1,7 +1,6 @@
 import Foundation
 import Alamofire
 import BrightFutures
-import SwiftyJSON
 
 struct NetworkError: Error {
   let statusCode: Int

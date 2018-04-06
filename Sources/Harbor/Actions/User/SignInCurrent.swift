@@ -4,14 +4,14 @@ extension User {
   public final class SignInCurrent {
     private let users: UserRepo
     private let dataStore: Store
-    private let secureStore: Store
+    private let keyStore: Store
     private let signIn: AnySignIn
 
     public convenience init() {
       self.init(
         users: UserRepo(),
         dataStore: FileStore(),
-        secureStore: KeychainStore(),
+        keyStore: KeychainStore(),
         signIn: SignIn().call
       )
     }
@@ -19,12 +19,12 @@ extension User {
     init(
       users: UserRepo,
       dataStore: Store,
-      secureStore: Store,
+      keyStore: Store,
       signIn: @escaping AnySignIn
     ) {
       self.users = users
       self.dataStore = dataStore
-      self.secureStore = secureStore
+      self.keyStore = keyStore
       self.signIn = signIn
     }
 
@@ -35,7 +35,7 @@ extension User {
 
       // fail if no credentials
       guard
-        let credentials = secureStore.load(Credentials.self, key: .credentials)
+        let credentials = keyStore.load(Credentials.self, key: .credentials)
         else {
           return .init(error: .noCredentials)
         }

@@ -7,24 +7,24 @@ extension User {
   public final class SignIn {
     private let auth: Auth.Service
     private let dataStore: Store
-    private let secureStore: Store
+    private let keyStore: Store
 
     public convenience init() {
       self.init(
         auth: CodeshipAuth().call,
         dataStore: FileStore(),
-        secureStore: KeychainStore()
+        keyStore: KeychainStore()
       )
     }
 
     init(
       auth: @escaping Auth.Service,
       dataStore: Store,
-      secureStore: Store
+      keyStore: Store
     ) {
       self.auth = auth
       self.dataStore = dataStore
-      self.secureStore = secureStore
+      self.keyStore = keyStore
     }
 
     public func call(email: String, password: String) -> Future<User, Failure> {
@@ -49,7 +49,7 @@ extension User {
           Current.user = user
 
           self.dataStore.save(user, as: .user)
-          self.secureStore.save(credentials, as: .credentials)
+          self.keyStore.save(credentials, as: .credentials)
         }
     }
 

@@ -7,28 +7,33 @@ extension User {
     private let users: UserRepo
     private let fetchProjects: FetchProjects.Service
     private let fetchBuilds: FetchBuilds.Service
+    private let dataStore: Store
 
     public convenience init() {
       self.init(
         users: UserRepo(),
         fetchProjects: CodeshipFetchProjects().call,
-        fetchBuilds: CodeshipFetchBuilds().call
+        fetchBuilds: CodeshipFetchBuilds().call,
+        dataStore: FileStore()
       )
     }
 
     init(
       users: UserRepo,
       fetchProjects: @escaping FetchProjects.Service,
-      fetchBuilds: @escaping FetchBuilds.Service
+      fetchBuilds: @escaping FetchBuilds.Service,
+      dataStore: Store
     ) {
       self.users = users
       self.fetchProjects = fetchProjects
       self.fetchBuilds = fetchBuilds
+      self.dataStore = dataStore
     }
 
     public func call() -> Payload {
       guard
-        let organization = users.current?.organizations.first
+        let user = users.current,
+        let organization = user.organizations.first
         else {
           return .init(error: .hasNoOrganizations)
         }
@@ -39,6 +44,10 @@ extension User {
           organization.setJsonProjects(response.projects)
           return self.fetchProjectBuilds(for: organization)
         }
+        .onSuccess { _ in
+          self.dataStore.save(user, as: .user)
+        }
+
     }
 
     private func fetchProjectBuilds(for organization: Organization) -> Payload {
@@ -49,10 +58,11 @@ extension User {
         .sequence()
         .mapError(Failure.fetchBuilds)
         .map { responses in
-          zip(projects, responses).map { project, response in
+          for (project, response) in zip(projects, responses) {
             project.setJsonBuilds(response.builds)
-            return project
           }
+
+          return projects
         }
     }
 
