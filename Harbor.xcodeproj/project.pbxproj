@@ -45,6 +45,9 @@
 		10C26AF72076B2670092FE29 /* CodeshipFetchBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */; };
 		10C26B002077B9DC0092FE29 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AFF2077B9DC0092FE29 /* Status.swift */; };
 		10C26B022077BD960092FE29 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B012077BD960092FE29 /* Commit.swift */; };
+		10C26B062077CE640092FE29 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B042077CE120092FE29 /* SignIn.swift */; };
+		10C26B092077CEA00092FE29 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B072077CE7A0092FE29 /* Projects.swift */; };
+		10C26B102077D0480092FE29 /* Ui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B0D2077D0010092FE29 /* Ui.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -387,6 +390,9 @@
 		10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeshipFetchBuilds.swift; sourceTree = "<group>"; };
 		10C26AFF2077B9DC0092FE29 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		10C26B012077BD960092FE29 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
+		10C26B042077CE120092FE29 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		10C26B072077CE7A0092FE29 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		10C26B0D2077D0010092FE29 /* Ui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ui.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -661,6 +667,23 @@
 				10C26AE02073DE0A0092FE29 /* StoreKey.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		10C26B032077CDF70092FE29 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				10C26B042077CE120092FE29 /* SignIn.swift */,
+				10C26B072077CE7A0092FE29 /* Projects.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		10C26B0F2077D00F0092FE29 /* Ui */ = {
+			isa = PBXGroup;
+			children = (
+				10C26B0D2077D0010092FE29 /* Ui.swift */,
+			);
+			path = Ui;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* Harbor */ = {
@@ -1125,6 +1148,8 @@
 		OBJ_8 /* CLI */ = {
 			isa = PBXGroup;
 			children = (
+				10C26B0F2077D00F0092FE29 /* Ui */,
+				10C26B032077CDF70092FE29 /* Commands */,
 				OBJ_9 /* main.swift */,
 			);
 			name = CLI;
@@ -1604,7 +1629,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				10C26B092077CEA00092FE29 /* Projects.swift in Sources */,
 				OBJ_278 /* main.swift in Sources */,
+				10C26B062077CE640092FE29 /* SignIn.swift in Sources */,
+				10C26B102077D0480092FE29 /* Ui.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
