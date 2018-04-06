@@ -3,7 +3,7 @@ import Harbor
 
 struct Projects {
   func call() {
-    Ui.loading()
+    Ui.Loading.start()
 
     let operation = AnyFuture.serially(
       User.SignInCurrent()
@@ -20,9 +20,10 @@ struct Projects {
         Ui.error("failed to list projects: \(error)")
       }
       .onComplete { _ in
+        Ui.Loading.stop()
         CFRunLoopStop(CFRunLoopGetCurrent())
       }
-    
+
     CFRunLoopRun()
   }
 

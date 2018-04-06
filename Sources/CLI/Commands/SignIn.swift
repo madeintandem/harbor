@@ -3,7 +3,7 @@ import Harbor
 
 struct SignIn {
   func call(email: String, password: String) {
-    Ui.loading()
+    Ui.Loading.start()
 
     User.SignIn()
       .call(
@@ -17,6 +17,7 @@ struct SignIn {
         Ui.error("sign in failed: \(error)")
       }
       .onComplete { _ in
+        Ui.Loading.stop()
         CFRunLoopStop(CFRunLoopGetCurrent())
       }
 

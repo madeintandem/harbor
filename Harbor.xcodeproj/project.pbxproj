@@ -48,6 +48,7 @@
 		10C26B062077CE640092FE29 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B042077CE120092FE29 /* SignIn.swift */; };
 		10C26B092077CEA00092FE29 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B072077CE7A0092FE29 /* Projects.swift */; };
 		10C26B102077D0480092FE29 /* Ui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B0D2077D0010092FE29 /* Ui.swift */; };
+		10C26B142077DCD80092FE29 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B112077DCB50092FE29 /* Loading.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -393,10 +394,11 @@
 		10C26B042077CE120092FE29 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		10C26B072077CE7A0092FE29 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 		10C26B0D2077D0010092FE29 /* Ui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ui.swift; sourceTree = "<group>"; };
+		10C26B112077DCB50092FE29 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Harbor::CLI::Product" /* CLI */ = {isa = PBXFileReference; lastKnownFileType = text; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Harbor::CLI::Product" /* CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = CLI; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Harbor::Harbor::Product" /* Harbor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Harbor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Harbor::HarborTests::Product" /* HarborTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = HarborTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"KeychainAccess::KeychainAccess::Product" /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -682,6 +684,7 @@
 			isa = PBXGroup;
 			children = (
 				10C26B0D2077D0010092FE29 /* Ui.swift */,
+				10C26B112077DCB50092FE29 /* Loading.swift */,
 			);
 			path = Ui;
 			sourceTree = "<group>";
@@ -1523,6 +1526,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"Harbor::CLI" = {
+						DevelopmentTeam = XYSLJDS3VA;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Harbor" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1631,6 +1639,7 @@
 			files = (
 				10C26B092077CEA00092FE29 /* Projects.swift in Sources */,
 				OBJ_278 /* main.swift in Sources */,
+				10C26B142077DCD80092FE29 /* Loading.swift in Sources */,
 				10C26B062077CE640092FE29 /* SignIn.swift in Sources */,
 				10C26B102077D0480092FE29 /* Ui.swift in Sources */,
 			);
@@ -2107,6 +2116,8 @@
 		OBJ_275 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				DEVELOPMENT_TEAM = XYSLJDS3VA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",

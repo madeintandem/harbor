@@ -1,3 +1,5 @@
+import Foundation
+
 struct Ui {
   static func info(_ output: String) {
     print(output)
@@ -7,7 +9,8 @@ struct Ui {
     info(output)
   }
 
-  static func loading() {
-    info("...")
+  static func inline(_ output: String) {
+    print(output, terminator: "")
+    fflush(stdout)
   }
 }
