@@ -9,7 +9,7 @@ public final class Project: Codable {
     self.id = id
   }
 
-  var status: Status {
+  public var status: Status {
     return builds.last?.status ?? .unknown
   }
 }

@@ -13,7 +13,7 @@ extension Status {
     switch json.status {
       case "success":
         return .passed
-      case "failed":
+      case "failed", "error":
         return .failed
       default:
         return .unknown

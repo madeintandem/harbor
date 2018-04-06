@@ -24,8 +24,21 @@ struct Projects {
 
   // MARK: rendering
   private func render(projects: [Project]) {
-    for project in projects {
-      Ui.info("\(project)")
+    for (index, project) in projects.enumerated() {
+      Ui.info("[\(index)] \(emojify(project.status)) \(project.name)")
+    }
+  }
+
+  private func emojify(_ status: Status) -> String {
+    switch status {
+      case .passed:
+        return "✔"
+      case .failed:
+        return "✘"
+      case .building:
+        return "Δ"
+      case .unknown:
+        return "?"
     }
   }
 }
