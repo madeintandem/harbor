@@ -7,6 +7,10 @@ public final class Project: Codable {
   init(_ id: String) {
     self.id = id
   }
+
+  var status: Status {
+    return builds.last?.status ?? .unknown
+  }
 }
 
 extension Project: CustomStringConvertible {
@@ -20,12 +24,12 @@ extension Project {
 
   // MARK: json updates
   func setJson(_ json: Json) {
-    self.name = json.name
-    self.url  = json.repositoryUrl
+    name = json.name
+    url  = json.repositoryUrl
   }
 
   func setJsonBuilds(_ json: [Build.Json]) {
-    self.builds = Build.fromJson(json)
+    builds = Build.fromJson(json)
   }
 
   // MARK: json factories

@@ -1,5 +1,8 @@
 public final class Build: Codable {
   let id: String
+  private(set) var url    = ""
+  private(set) var status = Status.unknown
+  private(set) var commit = Commit.zero
 
   init(_ id: String) {
     self.id = id
@@ -11,6 +14,9 @@ extension Build {
 
   // MARK: json updates
   func setJson(_ json: Json) {
+    url    = json.links.pipelines
+    status = Status.fromJson(json)
+    commit = Commit.fromJson(json)
   }
 
   // MARK: json factories

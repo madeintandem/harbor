@@ -19,7 +19,7 @@ extension CodeshipUrl: URLConvertible {
       case .projects(let org):
         return "/organizations/\(org.id)/projects"
       case .builds(let org, let project):
-        return "/organizations/\(org.id)/projects/\(project.id)/builds"
+        return "/organizations/\(org.id)/projects/\(project.id)/builds?per_page=5"
     }
   }
 }

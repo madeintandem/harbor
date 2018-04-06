@@ -12,7 +12,7 @@ extension Organization {
 
   // MARK: json updates
   func setJsonProjects(_ json: [Project.Json]) {
-    self.projects = Project.fromJson(json)
+    projects = Project.fromJson(json)
   }
 
   // MARK: json factories

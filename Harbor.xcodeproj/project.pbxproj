@@ -43,6 +43,8 @@
 		10C26AF320766EAE0092FE29 /* FutureExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AF220766EAE0092FE29 /* FutureExt.swift */; };
 		10C26AF52076B1710092FE29 /* FetchBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AF42076B1710092FE29 /* FetchBuilds.swift */; };
 		10C26AF72076B2670092FE29 /* CodeshipFetchBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */; };
+		10C26B002077B9DC0092FE29 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AFF2077B9DC0092FE29 /* Status.swift */; };
+		10C26B022077BD960092FE29 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B012077BD960092FE29 /* Commit.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -383,6 +385,8 @@
 		10C26AF220766EAE0092FE29 /* FutureExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureExt.swift; sourceTree = "<group>"; };
 		10C26AF42076B1710092FE29 /* FetchBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBuilds.swift; sourceTree = "<group>"; };
 		10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeshipFetchBuilds.swift; sourceTree = "<group>"; };
+		10C26AFF2077B9DC0092FE29 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		10C26B012077BD960092FE29 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -822,11 +826,13 @@
 		OBJ_16 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				10C26AEF2075742A0092FE29 /* Build.swift */,
+				10C26B012077BD960092FE29 /* Commit.swift */,
+				10C26AE420740B680092FE29 /* Organization.swift */,
 				OBJ_18 /* Project.swift */,
 				OBJ_19 /* Session.swift */,
+				10C26AFF2077B9DC0092FE29 /* Status.swift */,
 				OBJ_20 /* User.swift */,
-				10C26AE420740B680092FE29 /* Organization.swift */,
-				10C26AEF2075742A0092FE29 /* Build.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1644,7 +1650,9 @@
 				10C26AF1207574740092FE29 /* Build.swift in Sources */,
 				10C26AE8207537830092FE29 /* FileStore.swift in Sources */,
 				10C26AE32073E1D00092FE29 /* SignInCurrent.swift in Sources */,
+				10C26B002077B9DC0092FE29 /* Status.swift in Sources */,
 				OBJ_328 /* RequestExt.swift in Sources */,
+				10C26B022077BD960092FE29 /* Commit.swift in Sources */,
 				OBJ_329 /* Harbor.swift in Sources */,
 				OBJ_330 /* UserRepo.swift in Sources */,
 				OBJ_331 /* CodeshipAuth.swift in Sources */,

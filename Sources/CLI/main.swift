@@ -37,7 +37,7 @@ let cli = Group {
           print("projects: \(projects)")
         }
         .anytyped()
-      )
+    )
 
     operation.onFailure { error in
       print("failed to list projects: \(error)")

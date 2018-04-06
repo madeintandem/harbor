@@ -18,6 +18,7 @@ struct FetchBuilds {
 
     struct Build: Decodable {
       let uuid: String
+      let status: String
       let username: String
       let commitSha: String
       let commitMessage: String
