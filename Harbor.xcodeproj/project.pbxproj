@@ -1526,11 +1526,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
-				TargetAttributes = {
-					"Harbor::CLI" = {
-						DevelopmentTeam = XYSLJDS3VA;
-					};
-				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Harbor" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2116,8 +2111,7 @@
 		OBJ_275 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				DEVELOPMENT_TEAM = XYSLJDS3VA;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
