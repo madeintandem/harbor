@@ -32,6 +32,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		109AFD5D2081576E00B78056 /* ListBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109AFD5A20813F6100B78056 /* ListBuilds.swift */; };
 		10C26ADD2073DAD10092FE29 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26ADC2073DAD10092FE29 /* Store.swift */; };
 		10C26ADF2073DB220092FE29 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26ADE2073DB220092FE29 /* KeychainStore.swift */; };
 		10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE02073DE0A0092FE29 /* StoreKey.swift */; };
@@ -378,6 +379,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		109AFD5A20813F6100B78056 /* ListBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuilds.swift; sourceTree = "<group>"; };
 		10C26ADC2073DAD10092FE29 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		10C26ADE2073DB220092FE29 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		10C26AE02073DE0A0092FE29 /* StoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKey.swift; sourceTree = "<group>"; };
@@ -660,6 +662,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		109AFD5920813F4B00B78056 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				109AFD5A20813F6100B78056 /* ListBuilds.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		109AFD5C20813F7C00B78056 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_18 /* Project.swift */,
+				10C26AEF2075742A0092FE29 /* Build.swift */,
+				10C26B012077BD960092FE29 /* Commit.swift */,
+				10C26AFF2077B9DC0092FE29 /* Status.swift */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
 		10C26ADB2073DAC20092FE29 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,6 +765,7 @@
 		OBJ_11 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				109AFD5920813F4B00B78056 /* Project */,
 				OBJ_12 /* User */,
 			);
 			path = Actions;
@@ -800,6 +822,7 @@
 		OBJ_15 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				109AFD5C20813F7C00B78056 /* Project */,
 				OBJ_16 /* User */,
 				OBJ_17 /* Credentials.swift */,
 			);
@@ -852,12 +875,8 @@
 		OBJ_16 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				10C26AEF2075742A0092FE29 /* Build.swift */,
-				10C26B012077BD960092FE29 /* Commit.swift */,
 				10C26AE420740B680092FE29 /* Organization.swift */,
-				OBJ_18 /* Project.swift */,
 				OBJ_19 /* Session.swift */,
-				10C26AFF2077B9DC0092FE29 /* Status.swift */,
 				OBJ_20 /* User.swift */,
 			);
 			path = User;
@@ -1668,6 +1687,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				109AFD5D2081576E00B78056 /* ListBuilds.swift in Sources */,
 				10C26ADF2073DB220092FE29 /* KeychainStore.swift in Sources */,
 				10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */,
 				OBJ_322 /* ListProjects.swift in Sources */,

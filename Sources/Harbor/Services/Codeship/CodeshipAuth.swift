@@ -5,7 +5,9 @@ import BrightFutures
 final class CodeshipAuth {
   private let decoder = JSONDecoder()
 
-  func call(_ credentials: Credentials) -> Future<Auth.Response, Auth.Failure> {
+  func call(
+    with credentials: Credentials
+  ) -> Future<Auth.Response, Auth.Failure> {
     guard
       let headers = buildHeaders(from: credentials)
       else {

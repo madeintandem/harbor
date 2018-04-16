@@ -1,39 +1,40 @@
 import BrightFutures
 
 extension User {
-  typealias AnySignIn
-    = (String, String) -> Future<User, SignIn.Failure>
-
   public final class SignIn {
-    private let auth: Auth.Service
+    public typealias Payload
+      = Future<User, Failure>
+
     private let dataStore: Store
     private let keyStore: Store
 
     public convenience init() {
       self.init(
-        auth: CodeshipAuth().call,
         dataStore: FileStore(),
         keyStore: KeychainStore()
       )
     }
 
-    init(
-      auth: @escaping Auth.Service,
-      dataStore: Store,
-      keyStore: Store
-    ) {
-      self.auth = auth
+    init(dataStore: Store, keyStore: Store) {
       self.dataStore = dataStore
       self.keyStore = keyStore
     }
 
-    public func call(email: String, password: String) -> Future<User, Failure> {
+    func call(with credentials: Credentials) -> Payload {
+      return call(email: credentials.email, password: credentials.password)
+    }
+
+    public func call(email: String, password: String) -> Payload {
       let credentials = Credentials(
         email: email,
         password: password
       )
 
-      return auth(credentials)
+      let service = CodeshipAuth()
+        .call(with: credentials)
+        .mapError(Failure.auth)
+
+      return service
         .mapError(Failure.auth)
         .map { response in
           let user = User(credentials.email)

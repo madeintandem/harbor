@@ -5,27 +5,23 @@ extension User {
     private let users: UserRepo
     private let dataStore: Store
     private let keyStore: Store
-    private let signIn: AnySignIn
 
     public convenience init() {
       self.init(
         users: UserRepo(),
         dataStore: FileStore(),
-        keyStore: KeychainStore(),
-        signIn: SignIn().call
+        keyStore: KeychainStore()
       )
     }
 
     init(
       users: UserRepo,
       dataStore: Store,
-      keyStore: Store,
-      signIn: @escaping AnySignIn
+      keyStore: Store
     ) {
       self.users = users
       self.dataStore = dataStore
       self.keyStore = keyStore
-      self.signIn = signIn
     }
 
     public func call() -> Future<User, Failure> {
@@ -46,8 +42,8 @@ extension User {
         let session = user.session,
         session.isActive
         else {
-          return self
-            .signIn(credentials.email, credentials.password)
+          return SignIn()
+            .call(email: credentials.email, password: credentials.password)
             .mapError(Failure.signIn)
         }
 

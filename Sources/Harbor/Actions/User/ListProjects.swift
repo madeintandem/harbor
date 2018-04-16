@@ -2,31 +2,26 @@ import BrightFutures
 
 extension User {
   public final class ListProjects {
-    public typealias Payload = Future<[Project], Failure>
+    // MARK: Output
+    public typealias Payload
+      = Future<[Project], Failure>
 
+    public enum Failure: Error {
+      case hasNoOrganizations
+      case fetchProjects(Error)
+      case listBuilds(Error)
+    }
+
+    // MARK: Action
     private let users: UserRepo
-    private let fetchProjects: FetchProjects.Service
-    private let fetchBuilds: FetchBuilds.Service
     private let dataStore: Store
 
     public convenience init() {
-      self.init(
-        users: UserRepo(),
-        fetchProjects: CodeshipFetchProjects().call,
-        fetchBuilds: CodeshipFetchBuilds().call,
-        dataStore: FileStore()
-      )
+      self.init(users: UserRepo(), dataStore: FileStore())
     }
 
-    init(
-      users: UserRepo,
-      fetchProjects: @escaping FetchProjects.Service,
-      fetchBuilds: @escaping FetchBuilds.Service,
-      dataStore: Store
-    ) {
+    init(users: UserRepo, dataStore: Store) {
       self.users = users
-      self.fetchProjects = fetchProjects
-      self.fetchBuilds = fetchBuilds
       self.dataStore = dataStore
     }
 
@@ -38,39 +33,27 @@ extension User {
           return .init(error: .hasNoOrganizations)
         }
 
-      return self.fetchProjects(organization)
+      let service = CodeshipFetchProjects()
+        .call(for: organization)
         .mapError(Failure.fetchProjects)
+
+      return service
         .flatMap { response -> Payload in
           organization.setJsonProjects(response.projects)
-          return self.fetchProjectBuilds(for: organization)
+          return self.listBuildsForProjects(in: organization)
         }
         .onSuccess { _ in
           self.dataStore.save(user, as: .user)
         }
-
     }
 
-    private func fetchProjectBuilds(for organization: Organization) -> Payload {
+    private func listBuildsForProjects(in organization: Organization) -> Payload {
       let projects = organization.projects
 
       return projects
-        .map { project in self.fetchBuilds(organization, project) }
-        .sequence()
-        .mapError(Failure.fetchBuilds)
-        .map { responses in
-          for (project, response) in zip(projects, responses) {
-            project.setJsonBuilds(response.builds)
-          }
-
-          return projects
-        }
-    }
-
-    // errors
-    public enum Failure: Error {
-      case hasNoOrganizations
-      case fetchProjects(Error)
-      case fetchBuilds(Error)
+        .traverse { project in Project.ListBuilds().call(for: project, in: organization) }
+        .mapError(Failure.listBuilds)
+        .map { _ in projects }
     }
   }
 }
