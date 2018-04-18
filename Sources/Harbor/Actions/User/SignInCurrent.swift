@@ -2,6 +2,16 @@ import BrightFutures
 
 extension User {
   public final class SignInCurrent {
+    // MARK: Output
+    public typealias Payload
+      = Future<User, Failure>
+
+    public enum Failure: Error {
+      case noCredentials
+      case signIn(Error)
+    }
+
+    // MARK: Action
     private let users: UserRepo
     private let dataStore: Store
     private let keyStore: Store
@@ -24,7 +34,7 @@ extension User {
       self.keyStore = keyStore
     }
 
-    public func call() -> Future<User, Failure> {
+    public func call() -> Payload {
       if let user = users.current {
         return .init(value: user)
       }
@@ -51,11 +61,6 @@ extension User {
       Current.user = user
 
       return .init(value: user)
-    }
-
-    public enum Failure: Error {
-      case noCredentials
-      case signIn(Error)
     }
   }
 }

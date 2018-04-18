@@ -1,16 +1,17 @@
+
 import Foundation
 import Harbor
 
-struct Projects {
-  func call() {
+struct ListBuilds {
+  func call(index: Int) {
     Ui.Loading.start()
 
     let operation = AnyFuture.serially(
       User.SignInCurrent()
         .call()
         .anytyped(),
-      User.ListProjects()
-        .call()
+      Project.ListBuilds()
+        .call(for: index)
         .onSuccess(callback: render)
         .anytyped()
     )
@@ -28,22 +29,14 @@ struct Projects {
   }
 
   // MARK: rendering
-  private func render(projects: [Project]) {
-    for (index, project) in projects.enumerated() {
-      Ui.info("[\(index)] \(emojify(project.status)) \(project.name)")
-    }
-  }
+  private func render(project: Project) {
+    let length = project.builds
+      .map { $0.commit.username.count }
+      .max(by: <) ?? 0
 
-  private func emojify(_ status: Status) -> String {
-    switch status {
-      case .passed:
-        return "✔"
-      case .failed:
-        return "✘"
-      case .building:
-        return "Δ"
-      case .unknown:
-        return "?"
+    for (index, build) in project.builds.enumerated() {
+      let username = build.commit.username.padding(toLength: length, withPad: " ", startingAt: 0)
+      Ui.info("[\(index)] \(Ui.emojify(build.status)) \(username) \(build.commit.message)")
     }
   }
 }

@@ -2,17 +2,20 @@ import BrightFutures
 
 extension User {
   public final class SignIn {
+    // MARK: Output
     public typealias Payload
       = Future<User, Failure>
 
+    public enum Failure: Error {
+      case auth(Error)
+    }
+
+    // MARK: Action
     private let dataStore: Store
     private let keyStore: Store
 
     public convenience init() {
-      self.init(
-        dataStore: FileStore(),
-        keyStore: KeychainStore()
-      )
+      self.init(dataStore: FileStore(), keyStore: KeychainStore())
     }
 
     init(dataStore: Store, keyStore: Store) {
@@ -52,11 +55,6 @@ extension User {
           self.dataStore.save(user, as: .user)
           self.keyStore.save(credentials, as: .credentials)
         }
-    }
-
-    // failure
-    public enum Failure: Error {
-      case auth(Error)
     }
   }
 }

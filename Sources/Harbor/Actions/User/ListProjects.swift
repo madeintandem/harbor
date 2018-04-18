@@ -4,7 +4,7 @@ extension User {
   public final class ListProjects {
     // MARK: Output
     public typealias Payload
-      = Future<[Project], Failure>
+      = Future<User, Failure>
 
     public enum Failure: Error {
       case hasNoOrganizations
@@ -38,22 +38,26 @@ extension User {
         .mapError(Failure.fetchProjects)
 
       return service
-        .flatMap { response -> Payload in
+        .map { response in
           organization.setJsonProjects(response.projects)
-          return self.listBuildsForProjects(in: organization)
+          return organization
         }
+        .flatMap { organization -> Future<Void, Failure> in
+          self.listBuildsForProjects(in: organization)
+        }
+        .map { _ in user }
         .onSuccess { _ in
           self.dataStore.save(user, as: .user)
         }
     }
 
-    private func listBuildsForProjects(in organization: Organization) -> Payload {
+    private func listBuildsForProjects(in organization: Organization) -> Future<Void, Failure> {
       let projects = organization.projects
 
       return projects
         .traverse { project in Project.ListBuilds().call(for: project, in: organization) }
         .mapError(Failure.listBuilds)
-        .map { _ in projects }
+        .asVoid()
     }
   }
 }

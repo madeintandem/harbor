@@ -33,6 +33,9 @@
 
 /* Begin PBXBuildFile section */
 		109AFD5D2081576E00B78056 /* ListBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109AFD5A20813F6100B78056 /* ListBuilds.swift */; };
+		10A5BE3E2086732E0013D9FE /* ListBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5BE3C208673010013D9FE /* ListBuilds.swift */; };
+		10A5BE4120867AB80013D9FE /* SequenceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5BE3F208679BD0013D9FE /* SequenceExt.swift */; };
+		10A5BE472086AFCD0013D9FE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5BE462086AFCD0013D9FE /* Helpers.swift */; };
 		10C26ADD2073DAD10092FE29 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26ADC2073DAD10092FE29 /* Store.swift */; };
 		10C26ADF2073DB220092FE29 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26ADE2073DB220092FE29 /* KeychainStore.swift */; };
 		10C26AE12073DE0A0092FE29 /* StoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AE02073DE0A0092FE29 /* StoreKey.swift */; };
@@ -47,7 +50,7 @@
 		10C26B002077B9DC0092FE29 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26AFF2077B9DC0092FE29 /* Status.swift */; };
 		10C26B022077BD960092FE29 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B012077BD960092FE29 /* Commit.swift */; };
 		10C26B062077CE640092FE29 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B042077CE120092FE29 /* SignIn.swift */; };
-		10C26B092077CEA00092FE29 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B072077CE7A0092FE29 /* Projects.swift */; };
+		10C26B092077CEA00092FE29 /* ListProjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B072077CE7A0092FE29 /* ListProjects.swift */; };
 		10C26B102077D0480092FE29 /* Ui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B0D2077D0010092FE29 /* Ui.swift */; };
 		10C26B142077DCD80092FE29 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B112077DCB50092FE29 /* Loading.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
@@ -380,6 +383,9 @@
 
 /* Begin PBXFileReference section */
 		109AFD5A20813F6100B78056 /* ListBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuilds.swift; sourceTree = "<group>"; };
+		10A5BE3C208673010013D9FE /* ListBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuilds.swift; sourceTree = "<group>"; };
+		10A5BE3F208679BD0013D9FE /* SequenceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExt.swift; sourceTree = "<group>"; };
+		10A5BE462086AFCD0013D9FE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		10C26ADC2073DAD10092FE29 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		10C26ADE2073DB220092FE29 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		10C26AE02073DE0A0092FE29 /* StoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKey.swift; sourceTree = "<group>"; };
@@ -394,7 +400,7 @@
 		10C26AFF2077B9DC0092FE29 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		10C26B012077BD960092FE29 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		10C26B042077CE120092FE29 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
-		10C26B072077CE7A0092FE29 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		10C26B072077CE7A0092FE29 /* ListProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProjects.swift; sourceTree = "<group>"; };
 		10C26B0D2077D0010092FE29 /* Ui.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ui.swift; sourceTree = "<group>"; };
 		10C26B112077DCB50092FE29 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -696,7 +702,8 @@
 			isa = PBXGroup;
 			children = (
 				10C26B042077CE120092FE29 /* SignIn.swift */,
-				10C26B072077CE7A0092FE29 /* Projects.swift */,
+				10A5BE3C208673010013D9FE /* ListBuilds.swift */,
+				10C26B072077CE7A0092FE29 /* ListProjects.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -706,6 +713,7 @@
 			children = (
 				10C26B0D2077D0010092FE29 /* Ui.swift */,
 				10C26B112077DCB50092FE29 /* Loading.swift */,
+				10A5BE462086AFCD0013D9FE /* Helpers.swift */,
 			);
 			path = Ui;
 			sourceTree = "<group>";
@@ -951,6 +959,7 @@
 				10C26AF220766EAE0092FE29 /* FutureExt.swift */,
 				OBJ_22 /* RequestExt.swift */,
 				10C26AEC20756EC60092FE29 /* DateFormatterExt.swift */,
+				10A5BE3F208679BD0013D9FE /* SequenceExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1170,8 +1179,8 @@
 		OBJ_8 /* CLI */ = {
 			isa = PBXGroup;
 			children = (
-				10C26B0F2077D00F0092FE29 /* Ui */,
 				10C26B032077CDF70092FE29 /* Commands */,
+				10C26B0F2077D00F0092FE29 /* Ui */,
 				OBJ_9 /* main.swift */,
 			);
 			name = CLI;
@@ -1651,10 +1660,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				10C26B092077CEA00092FE29 /* Projects.swift in Sources */,
+				10C26B092077CEA00092FE29 /* ListProjects.swift in Sources */,
+				10A5BE472086AFCD0013D9FE /* Helpers.swift in Sources */,
 				OBJ_278 /* main.swift in Sources */,
 				10C26B142077DCD80092FE29 /* Loading.swift in Sources */,
 				10C26B062077CE640092FE29 /* SignIn.swift in Sources */,
+				10A5BE3E2086732E0013D9FE /* ListBuilds.swift in Sources */,
 				10C26B102077D0480092FE29 /* Ui.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1693,6 +1704,7 @@
 				OBJ_322 /* ListProjects.swift in Sources */,
 				OBJ_323 /* SignIn.swift in Sources */,
 				10C26AF72076B2670092FE29 /* CodeshipFetchBuilds.swift in Sources */,
+				10A5BE4120867AB80013D9FE /* SequenceExt.swift in Sources */,
 				10C26AEE207570270092FE29 /* DateFormatterExt.swift in Sources */,
 				OBJ_324 /* Credentials.swift in Sources */,
 				10C26ADD2073DAD10092FE29 /* Store.swift in Sources */,

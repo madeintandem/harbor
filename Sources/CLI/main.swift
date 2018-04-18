@@ -13,7 +13,13 @@ let cli = Group {
 
   $0.command(
     "projects",
-    Projects().call
+    ListProjects().call
+  )
+
+  $0.command(
+    "builds",
+    Argument<Int>("project-index", description: "The index of the project to list builds for"),
+    ListBuilds().call
   )
 }
 
