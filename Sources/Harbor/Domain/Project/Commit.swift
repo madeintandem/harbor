@@ -14,7 +14,7 @@ extension Commit {
     message: ""
   )
 
-  // MARK: json factories
+  // MARK: JSON factories
   static func fromJson(_ json: Json) -> Commit {
     return Commit(
       sha: json.commitSha,

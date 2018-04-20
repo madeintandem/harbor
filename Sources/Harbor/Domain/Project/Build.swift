@@ -13,14 +13,14 @@ public final class Build: Codable {
 extension Build {
   typealias Json = FetchBuilds.Response.Build
 
-  // MARK: json updates
+  // MARK: JSON updates
   func setJson(_ json: Json) {
     url    = json.links.pipelines
     status = Status.fromJson(json)
     commit = Commit.fromJson(json)
   }
 
-  // MARK: json factories
+  // MARK: JSON factories
   static func fromJson(_ json: Json) -> Build {
     let project = Build(json.uuid)
     project.setJson(json)

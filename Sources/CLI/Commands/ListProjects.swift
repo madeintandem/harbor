@@ -21,9 +21,11 @@ struct ListProjects {
 
   // MARK: rendering
   private func render(user: User) {
-    for organization in user.organizations {
-      for (index, project) in organization.projects.enumerated() {
-        Ui.info("[\(index)] \(Ui.emojify(project.status)) \(project.name)")
+    for (orgIndex, org) in user.organizations.enumerated() {
+      Ui.head("(\(Ui.charify(orgIndex))) * \(org.name)")
+
+      for (projectIndex, project) in org.projects.enumerated() {
+        Ui.info("[\(projectIndex)] \(Ui.emojify(project.status)) \(project.name)")
       }
     }
   }

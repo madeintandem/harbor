@@ -14,7 +14,7 @@ struct Session: Equatable, Codable {
 extension Session {
   typealias Json = Auth.Response
 
-  // MARK: json factories
+  // MARK: JSON factories
   static func fromJson(_ json: Json) -> Session {
     return Session(
       accessToken: json.accessToken,

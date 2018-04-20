@@ -26,13 +26,15 @@ struct ListBuilds {
 
   // MARK: rendering
   private func render(project: Project) {
-    let length = project.builds
+    let usernameLength = project.builds
       .map { $0.commit.username.count }
       .max(by: <) ?? 0
 
-    for (index, build) in project.builds.enumerated() {
-      let username = build.commit.username.padding(toLength: length, withPad: " ", startingAt: 0)
-      Ui.info("[\(index)] \(Ui.emojify(build.status)) \(username) \(build.commit.message)")
+    Ui.head("\(Ui.emojify(project.status)) \(project.name)")
+
+    for build in project.builds {
+      let username = build.commit.username.padding(toLength: usernameLength, withPad: " ", startingAt: 0)
+      Ui.info("\(Ui.emojify(build.status)) \(username) \(build.commit.message)")
     }
   }
 

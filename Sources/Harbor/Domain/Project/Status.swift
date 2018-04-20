@@ -8,7 +8,7 @@ public enum Status: String, Codable {
 extension Status {
   typealias Json = FetchBuilds.Response.Build
 
-  // MARK: json factories
+  // MARK: JSON factories
   static func fromJson(_ json: Json) -> Status {
     switch json.status {
       case "success":

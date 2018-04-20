@@ -1,6 +1,7 @@
 public final class Organization: Codable {
   let id: String
-  
+
+  public private(set) var name: String = ""
   public private(set) var projects: [Project] = []
 
   init(_ id: String) {
@@ -11,14 +12,20 @@ public final class Organization: Codable {
 extension Organization {
   typealias Json = Auth.Response.Organization
 
-  // MARK: json updates
+  // MARK: JSON updates
+  func setJson(_ json: Json) {
+    name = json.name
+  }
+
   func setJsonProjects(_ json: [Project.Json]) {
     projects = Project.fromJson(json)
   }
 
-  // MARK: json factories
+  // MARK: JSON factories
   static func fromJson(_ json: Json) -> Organization {
-    return Organization(json.uuid)
+    let org = Organization(json.uuid)
+    org.setJson(json)
+    return org
   }
 
   static func fromJson(_ json: [Json]) -> [Organization] {

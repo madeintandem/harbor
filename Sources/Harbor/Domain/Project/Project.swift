@@ -10,14 +10,14 @@ public final class Project: Codable {
   }
 
   public var status: Status {
-    return builds.last?.status ?? .unknown
+    return builds.first?.status ?? .unknown
   }
 }
 
 extension Project {
   typealias Json = FetchProjects.Response.Project
 
-  // MARK: json updates
+  // MARK: JSON updates
   func setJson(_ json: Json) {
     name = json.name
     url  = json.repositoryUrl
@@ -27,7 +27,7 @@ extension Project {
     builds = Build.fromJson(json)
   }
 
-  // MARK: json factories
+  // MARK: JSON factories
   static func fromJson(_ json: Json) -> Project {
     let project = Project(json.uuid)
     project.setJson(json)

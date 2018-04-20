@@ -8,10 +8,12 @@ extension Ui {
 
     static func start() {
       isRunning = true
+      inline("\u{001B}[?25l")
       rerender()
     }
 
     static func stop() {
+      inline("\u{001B}[?25h")
       isRunning = false
     }
 
