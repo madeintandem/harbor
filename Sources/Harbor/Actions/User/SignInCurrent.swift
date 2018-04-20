@@ -41,14 +41,14 @@ extension User {
 
       // fail if no credentials
       guard
-        let credentials = keyStore.load(Credentials.self, key: .credentials)
+        let credentials = self.keyStore.load(Credentials.self, key: .credentials)
         else {
           return .init(error: .noCredentials)
         }
 
       // re-auth if session is invalid
       guard
-        let user = dataStore.load(User.self, key: .user),
+        let user = self.dataStore.load(User.self, key: .user),
         let session = user.session,
         session.isActive
         else {

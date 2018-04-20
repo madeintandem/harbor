@@ -7,9 +7,9 @@ extension User {
       = Future<User, Failure>
 
     public enum Failure: Error {
-      case hasNoOrganizations
-      case fetchProjects(Error)
+      case hasNoUser
       case listBuilds(Error)
+      case fetchProjects(Error)
     }
 
     // MARK: Action
@@ -26,18 +26,23 @@ extension User {
     }
 
     public func call() -> Payload {
-      guard
-        let user = users.current,
-        let organization = user.organizations.first
-        else {
-          return .init(error: .hasNoOrganizations)
-        }
+      guard let user = users.current else {
+        return .init(error: .hasNoUser)
+      }
 
-      let service = CodeshipFetchProjects()
+      return user.organizations
+        .traverse(f: self.listProjects)
+        .map { _ in user }
+        .onSuccess { user in
+          self.dataStore.save(user, as: .user)
+        }
+    }
+
+    // MARK: Helpers
+    private func listProjects(for organization: Organization) -> Future<Void, Failure> {
+      return CodeshipFetchProjects()
         .call(for: organization)
         .mapError(Failure.fetchProjects)
-
-      return service
         .map { response in
           organization.setJsonProjects(response.projects)
           return organization
@@ -45,17 +50,13 @@ extension User {
         .flatMap { organization -> Future<Void, Failure> in
           self.listBuildsForProjects(in: organization)
         }
-        .map { _ in user }
-        .onSuccess { _ in
-          self.dataStore.save(user, as: .user)
-        }
     }
 
     private func listBuildsForProjects(in organization: Organization) -> Future<Void, Failure> {
-      let projects = organization.projects
-
-      return projects
-        .traverse { project in Project.ListBuilds().call(for: project, in: organization) }
+      return organization.projects
+        .traverse { project in
+          Project.ListBuilds().call(for: project, inOrganization: organization)
+        }
         .mapError(Failure.listBuilds)
         .asVoid()
     }

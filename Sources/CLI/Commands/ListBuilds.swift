@@ -1,25 +1,21 @@
-
 import Foundation
+import BrightFutures
 import Harbor
 
 struct ListBuilds {
-  func call(index: Int) {
+  func call(orgIndex: Int, projectIndex: Int) {
     Ui.Loading.start()
 
-    let operation = AnyFuture.serially(
-      User.SignInCurrent()
-        .call()
-        .anytyped(),
-      Project.ListBuilds()
-        .call(for: index)
-        .onSuccess(callback: render)
-        .anytyped()
-    )
-
-    operation
-      .onFailure { error in
-        Ui.error("failed to list projects: \(error)")
-      }
+    Future.Batch
+      .head(
+        User.SignInCurrent().call
+      )
+      .tail(
+        Project.ListBuildsByPosition()
+          .call(for: projectIndex, inOrganization: orgIndex)
+      )
+      .onSuccess(callback: render)
+      .onFailure(callback: renderError)
       .onComplete { _ in
         Ui.Loading.stop()
         CFRunLoopStop(CFRunLoopGetCurrent())
@@ -38,5 +34,9 @@ struct ListBuilds {
       let username = build.commit.username.padding(toLength: length, withPad: " ", startingAt: 0)
       Ui.info("[\(index)] \(Ui.emojify(build.status)) \(username) \(build.commit.message)")
     }
+  }
+
+  private func renderError(error: Error) {
+    Ui.error("failed to list projects: \(error)")
   }
 }

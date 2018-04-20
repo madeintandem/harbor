@@ -33,11 +33,8 @@ extension User {
         password: password
       )
 
-      let service = CodeshipAuth()
+      return CodeshipAuth()
         .call(with: credentials)
-        .mapError(Failure.auth)
-
-      return service
         .mapError(Failure.auth)
         .map { response in
           let user = User(credentials.email)

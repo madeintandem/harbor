@@ -18,6 +18,7 @@ let cli = Group {
 
   $0.command(
     "builds",
+    Argument<Int>("org-index", description: "The index of the organization to list builds for"),
     Argument<Int>("project-index", description: "The index of the project to list builds for"),
     ListBuilds().call
   )

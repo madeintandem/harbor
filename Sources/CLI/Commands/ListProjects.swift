@@ -1,24 +1,16 @@
 import Foundation
+import BrightFutures
 import Harbor
 
 struct ListProjects {
   func call() {
     Ui.Loading.start()
 
-    let operation = AnyFuture.serially(
-      User.SignInCurrent()
-        .call()
-        .anytyped(),
-      User.ListProjects()
-        .call()
-        .onSuccess(callback: render)
-        .anytyped()
-    )
-
-    operation
-      .onFailure { error in
-        Ui.error("failed to list projects: \(error)")
-      }
+    Future.Batch
+      .head(User.SignInCurrent().call)
+      .tail(User.ListProjects().call)
+      .onSuccess(callback: render)
+      .onFailure(callback: renderError)
       .onComplete { _ in
         Ui.Loading.stop()
         CFRunLoopStop(CFRunLoopGetCurrent())
@@ -34,5 +26,9 @@ struct ListProjects {
         Ui.info("[\(index)] \(Ui.emojify(project.status)) \(project.name)")
       }
     }
+  }
+
+  private func renderError(error: Error) {
+    Ui.error("failed to list projects: \(error)")
   }
 }
