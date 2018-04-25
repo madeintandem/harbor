@@ -8,7 +8,7 @@ extension User {
 
     public enum Failure: Error {
       case noCredentials
-      case signIn(Error)
+      case nested(Error)
     }
 
     // MARK: Action
@@ -54,7 +54,7 @@ extension User {
         else {
           return SignIn()
             .call(email: credentials.email, password: credentials.password)
-            .mapError(Failure.signIn)
+            .mapError(Failure.nested)
         }
 
       // otherwise, just set the current user

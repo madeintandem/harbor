@@ -8,9 +8,9 @@ extension Project {
 
     public enum Failure: Error {
       case hasNoUser
-      case hasNoOrganization
-      case hasNoProject
-      case listBuilds(Error)
+      case hasNoOrganization(Int)
+      case hasNoProject(Organization, Int)
+      case nested(Error)
     }
 
     // MARK: Action
@@ -30,16 +30,16 @@ extension Project {
       }
 
       guard let org = user.organizations[safe: orgIndex] else {
-        return .init(error: .hasNoOrganization)
+        return .init(error: .hasNoOrganization(orgIndex))
       }
 
       guard let project = org.projects[safe: projectIndex] else {
-        return .init(error: .hasNoProject)
+        return .init(error: .hasNoProject(org, projectIndex))
       }
 
       return ListBuilds()
         .call(for: project, inOrganization: org)
-        .mapError(Failure.listBuilds)
+        .mapError(Failure.nested)
     }
   }
 }

@@ -8,8 +8,7 @@ extension User {
 
     public enum Failure: Error {
       case hasNoUser
-      case listBuilds(Error)
-      case fetchProjects(Error)
+      case nested(Error)
     }
 
     // MARK: Action
@@ -42,7 +41,7 @@ extension User {
     private func listProjects(for organization: Organization) -> Future<Void, Failure> {
       return CodeshipFetchProjects()
         .call(for: organization)
-        .mapError(Failure.fetchProjects)
+        .mapError(Failure.nested)
         .map { response in
           organization.setJsonProjects(response.projects)
           return organization
@@ -57,7 +56,7 @@ extension User {
         .traverse { project in
           Project.ListBuilds().call(for: project, inOrganization: organization)
         }
-        .mapError(Failure.listBuilds)
+        .mapError(Failure.nested)
         .asVoid()
     }
   }

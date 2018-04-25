@@ -56,6 +56,8 @@
 		10C26B142077DCD80092FE29 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C26B112077DCB50092FE29 /* Loading.swift */; };
 		10C774202090F8C800E3714F /* Ui+Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7741D2090F86200E3714F /* Ui+Characters.swift */; };
 		10C7742320911CC000E3714F /* Optional+ArgumentConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7742220911CC000E3714F /* Optional+ArgumentConvertible.swift */; };
+		10C7742520912D3A00E3714F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7742420912D3A00E3714F /* Errors.swift */; };
+		10C77429209135E500E3714F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C774262091347D00E3714F /* Errors.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -409,6 +411,8 @@
 		10C26B112077DCB50092FE29 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		10C7741D2090F86200E3714F /* Ui+Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ui+Characters.swift"; sourceTree = "<group>"; };
 		10C7742220911CC000E3714F /* Optional+ArgumentConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+ArgumentConvertible.swift"; sourceTree = "<group>"; };
+		10C7742420912D3A00E3714F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		10C774262091347D00E3714F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -721,6 +725,7 @@
 				10C26B0D2077D0010092FE29 /* Ui.swift */,
 				10C7741D2090F86200E3714F /* Ui+Characters.swift */,
 				10A5BE462086AFCD0013D9FE /* Ui+Presentation.swift */,
+				10C7742420912D3A00E3714F /* Errors.swift */,
 				10C26B112077DCB50092FE29 /* Loading.swift */,
 			);
 			path = Ui;
@@ -742,6 +747,7 @@
 				OBJ_21 /* Extensions */,
 				OBJ_24 /* Repos */,
 				OBJ_26 /* Services */,
+				10C774262091347D00E3714F /* Errors.swift */,
 				OBJ_23 /* Harbor.swift */,
 			);
 			name = Harbor;
@@ -798,9 +804,9 @@
 		OBJ_12 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_13 /* ListProjects.swift */,
 				OBJ_14 /* SignIn.swift */,
 				10C26AE22073E1D00092FE29 /* SignInCurrent.swift */,
+				OBJ_13 /* ListProjects.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1683,6 +1689,7 @@
 				10C26B142077DCD80092FE29 /* Loading.swift in Sources */,
 				10C7742320911CC000E3714F /* Optional+ArgumentConvertible.swift in Sources */,
 				10C26B062077CE640092FE29 /* SignIn.swift in Sources */,
+				10C7742520912D3A00E3714F /* Errors.swift in Sources */,
 				10C774202090F8C800E3714F /* Ui+Characters.swift in Sources */,
 				10A5BE3E2086732E0013D9FE /* ListBuilds.swift in Sources */,
 				10C26B102077D0480092FE29 /* Ui.swift in Sources */,
@@ -1748,6 +1755,7 @@
 				10C26AE520740B680092FE29 /* Organization.swift in Sources */,
 				10C26AF320766EAE0092FE29 /* FutureExt.swift in Sources */,
 				OBJ_336 /* FetchProjects.swift in Sources */,
+				10C77429209135E500E3714F /* Errors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

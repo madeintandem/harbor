@@ -1,15 +1,15 @@
 import Foundation
 import BrightFutures
 
-struct Auth {
+public struct Auth {
   // service
   typealias Service =
     (_ params: Credentials) -> Future<Response, Failure>
 
   // output
-  enum Failure: Error {
+  public enum Failure: Error {
+    case badCredentials
     case unauthorized
-    case invalidSessionData
     case network(Error)
   }
 

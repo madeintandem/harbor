@@ -8,11 +8,9 @@ final class CodeshipAuth {
   func call(
     with credentials: Credentials
   ) -> Future<Auth.Response, Auth.Failure> {
-    guard
-      let headers = buildHeaders(from: credentials)
-      else {
-        return .init(error: .unauthorized)
-      }
+    guard let headers = buildHeaders(from: credentials) else {
+      return .init(error: .badCredentials)
+    }
 
     return Alamofire
       .request(

@@ -2,13 +2,13 @@ import Foundation
 import Alamofire
 import BrightFutures
 
-struct FetchProjects {
+public struct FetchProjects {
   // service
   typealias Service
     = (Organization) -> Future<Response, Failure>
 
   // output
-  enum Failure: Error {
+  public enum Failure: Error {
     case unauthenticated
     case network(Error)
   }

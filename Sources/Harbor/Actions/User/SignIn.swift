@@ -1,13 +1,13 @@
 import BrightFutures
 
-extension User {
+public extension User {
   public final class SignIn {
     // MARK: Output
     public typealias Payload
       = Future<User, Failure>
 
     public enum Failure: Error {
-      case auth(Error)
+      case nested(Error)
     }
 
     // MARK: Action
@@ -35,7 +35,7 @@ extension User {
 
       return CodeshipAuth()
         .call(with: credentials)
-        .mapError(Failure.auth)
+        .mapError(Failure.nested)
         .map { response in
           let user = User(credentials.email)
 

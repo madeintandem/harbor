@@ -6,8 +6,6 @@ final class CodeshipFetchProjects {
   func call(
     for organization: Organization
   ) -> Future<FetchProjects.Response, FetchProjects.Failure> {
-    // TODO: SignInCurrent should handle setting the session before
-    // this call. do we think it's okay to force unwrap here?
     guard let session = Current.user?.session else {
       return .init(error: .unauthenticated)
     }
