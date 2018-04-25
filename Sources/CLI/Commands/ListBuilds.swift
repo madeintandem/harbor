@@ -1,9 +1,20 @@
 import Foundation
+import Commander
 import BrightFutures
 import Harbor
 
 struct ListBuilds {
-  func call(orgIndex: Int, projectIndex: Int) {
+  // MARK: Output
+  enum Failure: Error {
+    case hasNoQuery
+  }
+
+  // MARK: Command
+  func call(path: Path?) throws {
+    guard let path = path else {
+      throw Failure.hasNoQuery
+    }
+
     Ui.Loading.start()
 
     Future.Batch
@@ -12,7 +23,7 @@ struct ListBuilds {
       )
       .tail(
         Project.ListBuildsByPosition()
-          .call(for: projectIndex, inOrganization: orgIndex)
+          .call(for: path.project, inOrganization: path.organization)
       )
       .onSuccess(callback: render)
       .onFailure(callback: renderError)
@@ -40,5 +51,34 @@ struct ListBuilds {
 
   private func renderError(error: Error) {
     Ui.error("failed to list projects: \(error)")
+  }
+}
+
+// MARK: Arguments
+extension ListBuilds {
+  struct Path: ArgumentConvertible {
+    let organization: Int
+    let project: Int
+
+    init(parser: ArgumentParser) throws {
+      guard let value = parser.shift() else {
+        throw ArgumentError.missingValue(argument: nil)
+      }
+
+      guard
+        value.count == 2,
+        let org = Ui.code(from: value, offset: 0, inRange: .numbers),
+        let project = Ui.code(from: value, offset: 1, inRange: .letters)
+        else {
+          throw ArgumentError.invalidType(value: value, type: "number", argument: nil)
+        }
+
+      self.organization = org
+      self.project = project
+    }
+
+    var description: String {
+        return "\(Ui.char(from: organization, inRange: .letters))\(Ui.char(from: project, inRange: .numbers))"
+    }
   }
 }

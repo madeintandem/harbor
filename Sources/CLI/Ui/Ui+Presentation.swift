@@ -17,12 +17,4 @@ extension Ui {
       return "?"
     }
   }
-
-  static func charify(_ index: Int) -> Character {
-    guard let scalar = Unicode.Scalar((97 + index) as Int) else {
-      fatalError("could not convert \(index) to character")
-    }
-
-    return Character(scalar)
-  }
 }

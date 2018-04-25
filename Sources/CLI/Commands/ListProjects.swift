@@ -22,10 +22,12 @@ struct ListProjects {
   // MARK: rendering
   private func render(user: User) {
     for (orgIndex, org) in user.organizations.enumerated() {
-      Ui.head("(\(Ui.charify(orgIndex))) * \(org.name)")
+      let orgCode = Ui.char(from: orgIndex, inRange: .numbers)
+      Ui.head("(\(orgCode)) * \(org.name)")
 
       for (projectIndex, project) in org.projects.enumerated() {
-        Ui.info("[\(projectIndex)] \(Ui.emojify(project.status)) \(project.name)")
+        let projectCode = Ui.char(from: projectIndex, inRange: .letters)
+        Ui.info("[\(projectCode)] \(Ui.emojify(project.status)) \(project.name)")
       }
     }
   }
