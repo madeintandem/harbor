@@ -12,14 +12,24 @@ extension User {
     }
 
     // MARK: Action
+    private let fetchProjects: FetchProjects.Service
     private let users: UserRepo
     private let stores: StoreProvider
 
     public convenience init() {
-      self.init(users: UserRepo(), stores: Stores())
+      self.init(
+        fetchProjects: CodeshipFetchProjects().call,
+        users: UserRepo(),
+        stores: Stores()
+      )
     }
 
-    init(users: UserRepo, stores: StoreProvider) {
+    init(
+      fetchProjects: @escaping FetchProjects.Service,
+      users: UserRepo,
+      stores: StoreProvider
+    ) {
+      self.fetchProjects = fetchProjects
       self.users = users
       self.stores = stores
     }
@@ -39,8 +49,7 @@ extension User {
 
     // MARK: Helpers
     private func listProjects(for organization: Organization) -> Future<Void, Failure> {
-      return CodeshipFetchProjects()
-        .call(for: organization)
+      return fetchProjects(organization)
         .mapError(Failure.nested)
         .map { response in
           organization.setJsonProjects(response.projects)

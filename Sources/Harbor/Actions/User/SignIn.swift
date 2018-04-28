@@ -11,13 +11,15 @@ public extension User {
     }
 
     // MARK: Action
+    private let auth: Auth.Service
     private let stores: StoreProvider
 
     public convenience init() {
-      self.init(stores: Stores())
+      self.init(auth: CodeshipAuth().call, stores: Stores())
     }
 
-    init(stores: StoreProvider) {
+    init(auth: @escaping Auth.Service, stores: StoreProvider) {
+      self.auth = auth
       self.stores = stores
     }
 
@@ -31,8 +33,7 @@ public extension User {
         password: password
       )
 
-      return CodeshipAuth()
-        .call(with: credentials)
+      return auth(credentials)
         .mapError(Failure.nested)
         .map { response in
           let user = User(credentials.email)

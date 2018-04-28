@@ -1022,10 +1022,10 @@
 		OBJ_27 /* Codeship */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_30 /* CodeshipUrl.swift */,
 				OBJ_28 /* CodeshipAuth.swift */,
 				10C26AF62076B2670092FE29 /* CodeshipFetchBuilds.swift */,
 				OBJ_29 /* CodeshipFetchProjects.swift */,
-				OBJ_30 /* CodeshipUrl.swift */,
 			);
 			path = Codeship;
 			sourceTree = "<group>";

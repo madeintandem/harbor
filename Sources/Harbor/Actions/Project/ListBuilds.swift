@@ -11,9 +11,18 @@ extension Project {
     }
 
     // MARK: Action
+    let fetchBuilds: FetchBuilds.Service
+
+    convenience init() {
+      self.init(fetchBuilds: CodeshipFetchBuilds().call)
+    }
+
+    init(fetchBuilds: @escaping FetchBuilds.Service) {
+      self.fetchBuilds = fetchBuilds
+    }
+
     func call(for project: Project, inOrganization organization: Organization) -> Payload {
-      return CodeshipFetchBuilds()
-        .call(for: organization, project: project)
+      return fetchBuilds(organization, project)
         .mapError(Failure.nested)
         .map { response in
           project.setJsonBuilds(response.builds)

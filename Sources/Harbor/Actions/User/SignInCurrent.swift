@@ -42,9 +42,7 @@ extension User {
         let session = user.session,
         session.isActive
         else {
-          return SignIn()
-            .call(email: credentials.email, password: credentials.password)
-            .mapError(Failure.nested)
+          return SignIn().call(with: credentials).mapError(Failure.nested)
         }
 
       // otherwise, just set the current user
