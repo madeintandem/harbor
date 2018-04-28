@@ -13,15 +13,15 @@ extension User {
 
     // MARK: Action
     private let users: UserRepo
-    private let dataStore: Store
+    private let stores: StoreProvider
 
     public convenience init() {
-      self.init(users: UserRepo(), dataStore: FileStore())
+      self.init(users: UserRepo(), stores: Stores())
     }
 
-    init(users: UserRepo, dataStore: Store) {
+    init(users: UserRepo, stores: StoreProvider) {
       self.users = users
-      self.dataStore = dataStore
+      self.stores = stores
     }
 
     public func call() -> Payload {
@@ -33,7 +33,7 @@ extension User {
         .traverse(f: self.listProjects)
         .map { _ in user }
         .onSuccess { user in
-          self.dataStore.save(user, as: .user)
+          self.stores.data().save(.user, record: user)
         }
     }
 

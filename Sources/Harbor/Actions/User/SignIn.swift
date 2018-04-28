@@ -11,16 +11,14 @@ public extension User {
     }
 
     // MARK: Action
-    private let dataStore: Store
-    private let keyStore: Store
+    private let stores: StoreProvider
 
     public convenience init() {
-      self.init(dataStore: FileStore(), keyStore: KeychainStore())
+      self.init(stores: Stores())
     }
 
-    init(dataStore: Store, keyStore: Store) {
-      self.dataStore = dataStore
-      self.keyStore = keyStore
+    init(stores: StoreProvider) {
+      self.stores = stores
     }
 
     func call(with credentials: Credentials) -> Payload {
@@ -49,8 +47,8 @@ public extension User {
         .onSuccess { user in
           Current.user = user
 
-          self.dataStore.save(user, as: .user)
-          self.keyStore.save(credentials, as: .credentials)
+          self.stores.data().save(.user, record: user)
+          self.stores.secure().save(.credentials, record: credentials)
         }
     }
   }

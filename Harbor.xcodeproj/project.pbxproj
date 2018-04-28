@@ -58,6 +58,8 @@
 		10C7742320911CC000E3714F /* Optional+ArgumentConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7742220911CC000E3714F /* Optional+ArgumentConvertible.swift */; };
 		10C7742520912D3A00E3714F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7742420912D3A00E3714F /* Errors.swift */; };
 		10C77429209135E500E3714F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C774262091347D00E3714F /* Errors.swift */; };
+		10C7742D20921BC600E3714F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C7742B20921BA900E3714F /* XCTest.framework */; };
+		10C7743020921DA200E3714F /* Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C7742E20921CDC00E3714F /* Stores.swift */; };
 		OBJ_218 /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* AFError.swift */; };
 		OBJ_219 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_184 /* Alamofire.swift */; };
 		OBJ_220 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* DispatchQueue+Alamofire.swift */; };
@@ -413,6 +415,8 @@
 		10C7742220911CC000E3714F /* Optional+ArgumentConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+ArgumentConvertible.swift"; sourceTree = "<group>"; };
 		10C7742420912D3A00E3714F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		10C774262091347D00E3714F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		10C7742B20921BA900E3714F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		10C7742E20921CDC00E3714F /* Stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
 		"Alamofire::Alamofire::Product" /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"BrightFutures::BrightFutures::Product" /* BrightFutures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BrightFutures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Commander::Commander::Product" /* Commander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Commander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -665,6 +669,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				10C7742D20921BC600E3714F /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +709,7 @@
 				10C26AE62075372A0092FE29 /* FileStore.swift */,
 				10C26ADE2073DB220092FE29 /* KeychainStore.swift */,
 				10C26ADC2073DAD10092FE29 /* Store.swift */,
+				10C7742E20921CDC00E3714F /* Stores.swift */,
 				10C26AE02073DE0A0092FE29 /* StoreKey.swift */,
 			);
 			path = Persistence;
@@ -737,6 +743,14 @@
 				10C7742220911CC000E3714F /* Optional+ArgumentConvertible.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		10C7742A20921BA800E3714F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10C7742B20921BA900E3714F /* XCTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* Harbor */ = {
@@ -1122,6 +1136,7 @@
 				OBJ_35 /* Tests */,
 				OBJ_47 /* Dependencies */,
 				OBJ_200 /* Products */,
+				10C7742A20921BA800E3714F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1753,6 +1768,7 @@
 				OBJ_334 /* Current.swift in Sources */,
 				OBJ_335 /* Auth.swift in Sources */,
 				10C26AE520740B680092FE29 /* Organization.swift in Sources */,
+				10C7743020921DA200E3714F /* Stores.swift in Sources */,
 				10C26AF320766EAE0092FE29 /* FutureExt.swift in Sources */,
 				OBJ_336 /* FetchProjects.swift in Sources */,
 				10C77429209135E500E3714F /* Errors.swift in Sources */,

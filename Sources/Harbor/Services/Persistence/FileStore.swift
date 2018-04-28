@@ -5,9 +5,9 @@ final class FileStore: Store {
   private let encoder = JSONEncoder()
   private let decoder = JSONDecoder()
 
-  func save<T>(_ entity: T, as key: StoreKey) -> Bool where T: Encodable {
+  func save<T>(_ key: StoreKey<T>, record: T) -> Bool where T: Encodable {
     guard
-      let json = try? encoder.encode(entity),
+      let json = try? encoder.encode(record),
       let url = buildFileUrl(for: key)
       else {
         return false
@@ -23,7 +23,7 @@ final class FileStore: Store {
     return files.createFile(atPath: url.path, contents: json, attributes: nil)
   }
 
-  func load<T>(_ type: T.Type, key: StoreKey) -> T? where T: Decodable {
+  func load<T>(_ key: StoreKey<T>) -> T? where T: Decodable {
     guard
       let url = buildFileUrl(for: key),
       files.fileExists(atPath: url.path)
@@ -33,7 +33,7 @@ final class FileStore: Store {
 
     do {
       let data = try Data(contentsOf: url)
-      let entity = try decoder.decode(type, from: data)
+      let entity = try decoder.decode(key.type, from: data)
       return entity
     } catch {
       return nil
@@ -41,7 +41,7 @@ final class FileStore: Store {
   }
 
   // MARK: helpers
-  private func buildFileUrl(for key: StoreKey) -> URL? {
+  private func buildFileUrl<T>(for key: StoreKey<T>) -> URL? {
     guard
       let baseUrl = try? files.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
       else {
@@ -50,7 +50,7 @@ final class FileStore: Store {
 
     return baseUrl
       .appendingPathComponent("Harbor")
-      .appendingPathComponent(key.rawValue)
+      .appendingPathComponent(key.key)
       .appendingPathExtension("json")
   }
 }

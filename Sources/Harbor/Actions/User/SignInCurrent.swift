@@ -13,25 +13,15 @@ extension User {
 
     // MARK: Action
     private let users: UserRepo
-    private let dataStore: Store
-    private let keyStore: Store
+    private let stores: StoreProvider
 
     public convenience init() {
-      self.init(
-        users: UserRepo(),
-        dataStore: FileStore(),
-        keyStore: KeychainStore()
-      )
+      self.init(users: UserRepo(), stores: Stores())
     }
 
-    init(
-      users: UserRepo,
-      dataStore: Store,
-      keyStore: Store
-    ) {
+    init(users: UserRepo, stores: StoreProvider) {
       self.users = users
-      self.dataStore = dataStore
-      self.keyStore = keyStore
+      self.stores = stores
     }
 
     public func call() -> Payload {
@@ -41,14 +31,14 @@ extension User {
 
       // fail if no credentials
       guard
-        let credentials = self.keyStore.load(Credentials.self, key: .credentials)
+        let credentials = stores.secure().load(.credentials)
         else {
           return .init(error: .noCredentials)
         }
 
       // re-auth if session is invalid
       guard
-        let user = self.dataStore.load(User.self, key: .user),
+        let user = stores.data().load(.user),
         let session = user.session,
         session.isActive
         else {
