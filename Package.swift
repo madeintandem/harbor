@@ -32,6 +32,9 @@ let package = Package(
     .package(
       url: "https://github.com/Quick/Nimble.git",
       from: "7.0.3"),
+    .package(
+      url: "https://github.com/Velhotes/Vinyl.git",
+      from: "0.10.1"),
   ],
   targets: [
     .target(
@@ -54,6 +57,7 @@ let package = Package(
         "Harbor",
         "Quick",
         "Nimble",
+        "Vinyl",
       ]),
   ]
 )
