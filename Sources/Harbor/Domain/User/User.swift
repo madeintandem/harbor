@@ -1,6 +1,7 @@
-public final class User: Codable {
+public final class User: Entity, Codable {
   private(set) var session: Session?
 
+  public var id: String { return email }
   public let email: String
   public private(set) var organizations: [Organization] = []
 

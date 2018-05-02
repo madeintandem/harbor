@@ -15,7 +15,7 @@ class UserRepoSpec: QuickSpec { override func spec() {
     it("is the signed-in user") {
       expect(subject.current).to(beNil())
 
-      let user = User(email: "test-email")
+      let user = User("test@email.com")
       Current.user = user
       expect(subject.current) === user
     }

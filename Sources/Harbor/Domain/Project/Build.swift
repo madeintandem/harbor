@@ -1,6 +1,5 @@
-public final class Build: Codable {
-  let id: String
-  
+public final class Build: Entity, Codable {
+  public let id: String
   public private(set) var url    = ""
   public private(set) var status = Status.unknown
   public private(set) var commit = Commit.zero

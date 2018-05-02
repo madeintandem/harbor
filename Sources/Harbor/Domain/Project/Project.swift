@@ -1,6 +1,5 @@
-public final class Project: Codable {
-  let id: String
-  
+public final class Project: Entity, Codable {
+  public let id: String
   public private(set) var name:   String = ""
   public private(set) var url:    String = ""
   public private(set) var builds: [Build] = []

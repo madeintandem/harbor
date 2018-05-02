@@ -8,20 +8,23 @@ class UserSpec: QuickSpec { override func spec() {
   var subject: User!
 
   beforeEach {
-    subject = User(
-      email: "test@email.com"
-    )
+    subject = User("test@email.com")
   }
 
   describe("#signIn") {
     it("signs in the user") {
       let session = Session(
-        token: "test-token",
+        accessToken: Test.token(),
         expiresAt: Date()
       )
 
-      subject.signIn(with: session)
+      let organizations = [
+        Organization(Test.id())
+      ]
+
+      subject.signIn(session, organizations)
       expect(subject.session) == session
+      expect(subject.organizations) == organizations
     }
   }
 }}

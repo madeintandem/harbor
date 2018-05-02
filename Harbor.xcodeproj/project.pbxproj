@@ -32,6 +32,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1045AF332099604500424F85 /* SessionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045AF322099604400424F85 /* SessionSpec.swift */; };
+		104A93772095400300F446AC /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A937520953FC100F446AC /* Test.swift */; };
+		104A937A2095407600F446AC /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104A93782095407400F446AC /* Entity.swift */; };
 		109AFD5D2081576E00B78056 /* ListBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109AFD5A20813F6100B78056 /* ListBuilds.swift */; };
 		10A5BE3E2086732E0013D9FE /* ListBuilds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5BE3C208673010013D9FE /* ListBuilds.swift */; };
 		10A5BE4120867AB80013D9FE /* SequenceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A5BE3F208679BD0013D9FE /* SequenceExt.swift */; };
@@ -134,7 +137,6 @@
 		OBJ_342 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Alamofire::Alamofire::Product" /* Alamofire.framework */; };
 		OBJ_358 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_369 /* ListProjectsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* ListProjectsSpec.swift */; };
-		OBJ_370 /* SignInSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* SignInSpec.swift */; };
 		OBJ_371 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* Config.swift */; };
 		OBJ_372 /* UserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* UserSpec.swift */; };
 		OBJ_373 /* HarborSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* HarborSpec.swift */; };
@@ -389,6 +391,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1045AF322099604400424F85 /* SessionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSpec.swift; sourceTree = "<group>"; };
+		104A937520953FC100F446AC /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		104A93782095407400F446AC /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		109AFD5A20813F6100B78056 /* ListBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuilds.swift; sourceTree = "<group>"; };
 		10A5BE3C208673010013D9FE /* ListBuilds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuilds.swift; sourceTree = "<group>"; };
 		10A5BE3F208679BD0013D9FE /* SequenceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExt.swift; sourceTree = "<group>"; };
@@ -528,7 +533,6 @@
 		OBJ_33 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		OBJ_34 /* FetchProjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProjects.swift; sourceTree = "<group>"; };
 		OBJ_39 /* ListProjectsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProjectsSpec.swift; sourceTree = "<group>"; };
-		OBJ_40 /* SignInSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSpec.swift; sourceTree = "<group>"; };
 		OBJ_41 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		OBJ_43 /* UserSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSpec.swift; sourceTree = "<group>"; };
 		OBJ_44 /* HarborSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarborSpec.swift; sourceTree = "<group>"; };
@@ -683,6 +687,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		104A937220953F0F00F446AC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				104A937520953FC100F446AC /* Test.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		109AFD5920813F4B00B78056 /* Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,6 +880,7 @@
 			children = (
 				109AFD5C20813F7C00B78056 /* Project */,
 				OBJ_16 /* User */,
+				104A93782095407400F446AC /* Entity.swift */,
 				OBJ_17 /* Credentials.swift */,
 			);
 			path = Domain;
@@ -1051,6 +1064,7 @@
 		OBJ_36 /* HarborTests */ = {
 			isa = PBXGroup;
 			children = (
+				104A937220953F0F00F446AC /* Support */,
 				OBJ_37 /* Actions */,
 				OBJ_42 /* Domain */,
 				OBJ_45 /* Repos */,
@@ -1073,7 +1087,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_39 /* ListProjectsSpec.swift */,
-				OBJ_40 /* SignInSpec.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1082,6 +1095,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_43 /* UserSpec.swift */,
+				1045AF322099604400424F85 /* SessionSpec.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1763,6 +1777,7 @@
 				OBJ_330 /* UserRepo.swift in Sources */,
 				OBJ_331 /* CodeshipAuth.swift in Sources */,
 				OBJ_332 /* CodeshipFetchProjects.swift in Sources */,
+				104A937A2095407600F446AC /* Entity.swift in Sources */,
 				10C26AF52076B1710092FE29 /* FetchBuilds.swift in Sources */,
 				OBJ_333 /* CodeshipUrl.swift in Sources */,
 				OBJ_334 /* Current.swift in Sources */,
@@ -1788,8 +1803,9 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_369 /* ListProjectsSpec.swift in Sources */,
-				OBJ_370 /* SignInSpec.swift in Sources */,
 				OBJ_371 /* Config.swift in Sources */,
+				1045AF332099604500424F85 /* SessionSpec.swift in Sources */,
+				104A93772095400300F446AC /* Test.swift in Sources */,
 				OBJ_372 /* UserSpec.swift in Sources */,
 				OBJ_373 /* HarborSpec.swift in Sources */,
 				OBJ_374 /* UserRepoSpec.swift in Sources */,

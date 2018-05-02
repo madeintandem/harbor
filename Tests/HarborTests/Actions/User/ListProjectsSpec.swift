@@ -12,9 +12,11 @@ class ListProjectsSpec: QuickSpec { override func spec() {
   }
 
   describe("#call") {
-    it("lists all the user's projects") {
-      let response = subject.call()
-      expect(response.value).to(haveCount(0))
+    it("throws an error if there is no user") {
+      guard case .some(.hasNoUser) = subject.call().error else {
+        fail("expected to be missing user")
+        return
+      }
     }
   }
 }}

@@ -6,9 +6,9 @@ import Quick
 class Config: QuickConfiguration {
   override class func configure(_ config: Configuration) {
     // automatically run futures
-    DefaultThreadingModel = { ImmediateOnMainExecutionContext }
+    BrightFutures.DefaultThreadingModel = { ImmediateOnMainExecutionContext }
 
-    // blow away current user each test
+    // always reset current user
     config.beforeEach {
       Current.user = nil
     }
