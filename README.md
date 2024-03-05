@@ -1,4 +1,8 @@
+# Deprecated
+# Please note, this project is deprecated and is no longer being maintained.**
+
 ![Devmynd](https://www.devmynd.com/wp-content/uploads/2016/07/logo-horizontal.jpg "Devmynd")
+
 
 # Harbor
 Monitor your codeship builds from the comfort of a convenient OSX status bar application.
